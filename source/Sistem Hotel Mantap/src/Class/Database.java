@@ -14,7 +14,8 @@ import java.util.*;
  */
 public class Database {
 
-    private ArrayList<Staff> DB_STAFF = new ArrayList();
+    private Staff DB_STAFF[];
+    private int DB_SIZE = 0;
 
     public void READ_DATABASE(String Database, String db_file) throws Exception {
         File file = new File(db_file);
@@ -22,10 +23,12 @@ public class Database {
 
         String SIGN;
         SIGN = READ.readLine();
-        int n = Integer.parseInt(SIGN);
+        DB_SIZE = Integer.parseInt(SIGN);
 
         if (Database.equalsIgnoreCase("staff")) {
-            for (int i = 0; i < n; i++) {
+            DB_STAFF = new Staff[DB_SIZE];
+
+            for (int i = 0; i < DB_SIZE; i++) {
                 SIGN = READ.readLine();
                 String ID = SIGN;
                 SIGN = READ.readLine();
@@ -36,18 +39,17 @@ public class Database {
                 String PERTANYAAN = SIGN;
                 SIGN = READ.readLine();
                 String JAWABAN = SIGN;
-                LOAD_STAFF(ID, NAME, PASSWORD, PERTANYAAN, JAWABAN);
+                DB_STAFF[i] = new Staff(ID, NAME, PASSWORD, PERTANYAAN, JAWABAN);
             }
         }
 
     }
 
-    public void LOAD_STAFF(String ID, String nama, String password, String pertanyaan, String jawaban) {
-        Staff CurrentStaff = new Staff(ID, nama, password, pertanyaan, jawaban);
-        DB_STAFF.add(CurrentStaff);
+    public Staff[] GET_DB_STAFF() {
+        return DB_STAFF;
     }
 
-    public ArrayList GET_DB_STAFF() {
-        return DB_STAFF;
+    public int GET_DB_SIZE() {
+        return DB_SIZE;
     }
 }

@@ -10,15 +10,17 @@ package Form;
  *
  * @author Irfandi
  */
+import Class.LoginEngine;
 public class Login extends javax.swing.JFrame {
-
+    LoginEngine LOG = new LoginEngine();
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        //InitDB();
+        lbl_pesan.setVisible(false);
+        System.out.println(LOG.liat());
     }
 
 
@@ -36,7 +38,8 @@ public class Login extends javax.swing.JFrame {
         txt_username = new javax.swing.JTextField();
         txt_password = new javax.swing.JPasswordField();
         button_login = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_lupapswd = new javax.swing.JLabel();
+        lbl_pesan = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,13 +70,25 @@ public class Login extends javax.swing.JFrame {
         button_login.setForeground(new java.awt.Color(153, 153, 153));
         button_login.setText("LOGIN");
         button_login.setOpaque(false);
+        button_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_loginActionPerformed(evt);
+            }
+        });
         getContentPane().add(button_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 210, 40));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 255));
-        jLabel1.setText("Lupa password ?");
-        jLabel1.setToolTipText("Gunakan fungsi ini apabila anda tidak bisa mengakses akun anda");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 120, 20));
+        lbl_lupapswd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_lupapswd.setForeground(new java.awt.Color(0, 153, 255));
+        lbl_lupapswd.setText("Lupa password ?");
+        lbl_lupapswd.setToolTipText("Gunakan fungsi ini apabila anda tidak bisa mengakses akun anda");
+        getContentPane().add(lbl_lupapswd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 120, 20));
+
+        lbl_pesan.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_pesan.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_pesan.setForeground(new java.awt.Color(255, 0, 51));
+        lbl_pesan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_pesan.setText("Username yang anda masukkan salah");
+        getContentPane().add(lbl_pesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 380, 40));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BG LOGIN.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -81,6 +96,24 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed
+        if (txt_username.getText().equals("")){
+            SHOW_INFO("Username masih kosong");
+        } else if (txt_password.getText().equals("")) {
+           SHOW_INFO("Password kosong");
+        } else {
+            if ((LOG.LOGIN(txt_username.getText(), txt_password.getText())) == true) {
+               SHOW_INFO("Username / Password benar");
+            } else {
+               SHOW_INFO("Username / Password salah");
+            }
+        }
+    }//GEN-LAST:event_button_loginActionPerformed
+
+    private void SHOW_INFO(String info){
+        lbl_pesan.setText(info);
+        lbl_pesan.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -119,8 +152,9 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JButton button_login;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lbl_lupapswd;
     private javax.swing.JLabel lbl_password;
+    private javax.swing.JLabel lbl_pesan;
     private javax.swing.JLabel lbl_username;
     private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_username;
