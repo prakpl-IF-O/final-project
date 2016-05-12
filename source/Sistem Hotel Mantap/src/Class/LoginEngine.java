@@ -40,6 +40,34 @@ public class LoginEngine {
         return false;
     }
 
+    public String GET_PERTANYAAN_KEAMANAN(String username) {
+        int index = FIND_STAFF_INDEX(username);
+
+        if (index >= 0) {
+            return DATABASE[index].getPertanyaan();
+        } else {
+            return "Maaf, username tidak ditemukan";
+        }
+    }
+
+    public String GET_JAWABAN_KEAMANAN(String username) {
+        int index = FIND_STAFF_INDEX(username);
+
+        if (index >= 0) {
+            return DATABASE[index].getJawaban();
+        } else {
+            return "ERROR";
+        }
+    }
+
+    public int FIND_STAFF_INDEX(String username) {
+        for (int i = 0; i < DB_SIZE; i++) {
+            if (username.equalsIgnoreCase(DATABASE[i].getID())) {
+                return i;
+            }
+        }
+        return -1;
+    }
     //method sementara buat ngecek
     public String liat() {
         String a = "init \n";

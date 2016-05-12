@@ -20,7 +20,9 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         lbl_pesan.setVisible(false);
+        lbl_pesan1.setVisible(false);
         System.out.println(LOG.liat());
+        PANEL_LUPA_PASSWORD.setVisible(false);
     }
 
 
@@ -40,6 +42,18 @@ public class Login extends javax.swing.JFrame {
         button_login = new javax.swing.JButton();
         lbl_lupapswd = new javax.swing.JLabel();
         lbl_pesan = new javax.swing.JLabel();
+        PANEL_LUPA_PASSWORD = new javax.swing.JPanel();
+        lbl_username1 = new javax.swing.JLabel();
+        txt_username1 = new javax.swing.JTextField();
+        button_OK = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_pertanyaan = new javax.swing.JTextArea();
+        lbl_username2 = new javax.swing.JLabel();
+        txt_jawaban = new javax.swing.JTextField();
+        lbl_username3 = new javax.swing.JLabel();
+        button_GO = new javax.swing.JButton();
+        lbl_close_panel = new javax.swing.JLabel();
+        lbl_pesan1 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,6 +95,11 @@ public class Login extends javax.swing.JFrame {
         lbl_lupapswd.setForeground(new java.awt.Color(0, 153, 255));
         lbl_lupapswd.setText("Lupa password ?");
         lbl_lupapswd.setToolTipText("Gunakan fungsi ini apabila anda tidak bisa mengakses akun anda");
+        lbl_lupapswd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_lupapswdMouseClicked(evt);
+            }
+        });
         getContentPane().add(lbl_lupapswd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 120, 20));
 
         lbl_pesan.setBackground(new java.awt.Color(255, 255, 255));
@@ -89,6 +108,82 @@ public class Login extends javax.swing.JFrame {
         lbl_pesan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_pesan.setText("Username yang anda masukkan salah");
         getContentPane().add(lbl_pesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 380, 40));
+
+        PANEL_LUPA_PASSWORD.setBackground(new java.awt.Color(255, 255, 255));
+        PANEL_LUPA_PASSWORD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_username1.setFont(new java.awt.Font("Bebas Neue", 0, 28)); // NOI18N
+        lbl_username1.setForeground(new java.awt.Color(0, 204, 204));
+        lbl_username1.setText("USERNAME");
+        PANEL_LUPA_PASSWORD.add(lbl_username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 30));
+
+        txt_username1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_username1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PANEL_LUPA_PASSWORD.add(txt_username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 310, 40));
+
+        button_OK.setBackground(new java.awt.Color(0, 153, 204));
+        button_OK.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        button_OK.setForeground(new java.awt.Color(153, 153, 153));
+        button_OK.setText("OK");
+        button_OK.setOpaque(false);
+        button_OK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_OKActionPerformed(evt);
+            }
+        });
+        PANEL_LUPA_PASSWORD.add(button_OK, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 80, 40));
+
+        txt_pertanyaan.setColumns(20);
+        txt_pertanyaan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_pertanyaan.setRows(5);
+        jScrollPane1.setViewportView(txt_pertanyaan);
+
+        PANEL_LUPA_PASSWORD.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 390, 80));
+
+        lbl_username2.setFont(new java.awt.Font("Bebas Neue", 0, 28)); // NOI18N
+        lbl_username2.setForeground(new java.awt.Color(0, 204, 204));
+        lbl_username2.setText("PERTANYAAN KEAMANAN");
+        PANEL_LUPA_PASSWORD.add(lbl_username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 30));
+
+        txt_jawaban.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_jawaban.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PANEL_LUPA_PASSWORD.add(txt_jawaban, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 310, 40));
+
+        lbl_username3.setFont(new java.awt.Font("Bebas Neue", 0, 28)); // NOI18N
+        lbl_username3.setForeground(new java.awt.Color(0, 204, 204));
+        lbl_username3.setText("JAWABAN");
+        PANEL_LUPA_PASSWORD.add(lbl_username3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, 30));
+
+        button_GO.setBackground(new java.awt.Color(0, 153, 204));
+        button_GO.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        button_GO.setForeground(new java.awt.Color(153, 153, 153));
+        button_GO.setText("GO");
+        button_GO.setOpaque(false);
+        button_GO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_GOActionPerformed(evt);
+            }
+        });
+        PANEL_LUPA_PASSWORD.add(button_GO, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 80, 40));
+
+        lbl_close_panel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_close_panel.setForeground(new java.awt.Color(255, 51, 51));
+        lbl_close_panel.setText("x");
+        lbl_close_panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_close_panelMouseClicked(evt);
+            }
+        });
+        PANEL_LUPA_PASSWORD.add(lbl_close_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        lbl_pesan1.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_pesan1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbl_pesan1.setForeground(new java.awt.Color(255, 0, 51));
+        lbl_pesan1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_pesan1.setText("Username yang anda masukkan salah");
+        PANEL_LUPA_PASSWORD.add(lbl_pesan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 380, 40));
+
+        getContentPane().add(PANEL_LUPA_PASSWORD, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, 430, 360));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BG LOGIN.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -109,6 +204,31 @@ public class Login extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_button_loginActionPerformed
+
+    private void button_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_OKActionPerformed
+        String JAWABAN = LOG.GET_JAWABAN_KEAMANAN(txt_username1.getText());
+        
+        if(txt_jawaban.getText().equalsIgnoreCase(JAWABAN)){
+            //benar
+            PANEL_LUPA_PASSWORD.setVisible(false);
+        } else {
+            lbl_pesan1.setText("Maaf, jawaban anda masih salah");
+            lbl_pesan1.setVisible(true);
+        }
+    }//GEN-LAST:event_button_OKActionPerformed
+
+    private void button_GOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_GOActionPerformed
+        String PERTANYAAN = LOG.GET_PERTANYAAN_KEAMANAN(txt_username1.getText());
+        txt_pertanyaan.setText(PERTANYAAN);
+    }//GEN-LAST:event_button_GOActionPerformed
+
+    private void lbl_lupapswdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_lupapswdMouseClicked
+        PANEL_LUPA_PASSWORD.setVisible(true);
+    }//GEN-LAST:event_lbl_lupapswdMouseClicked
+
+    private void lbl_close_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_close_panelMouseClicked
+        PANEL_LUPA_PASSWORD.setVisible(false);
+    }//GEN-LAST:event_lbl_close_panelMouseClicked
 
     private void SHOW_INFO(String info){
         lbl_pesan.setText(info);
@@ -151,12 +271,24 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JPanel PANEL_LUPA_PASSWORD;
+    private javax.swing.JButton button_GO;
+    private javax.swing.JButton button_OK;
     private javax.swing.JButton button_login;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_close_panel;
     private javax.swing.JLabel lbl_lupapswd;
     private javax.swing.JLabel lbl_password;
     private javax.swing.JLabel lbl_pesan;
+    private javax.swing.JLabel lbl_pesan1;
     private javax.swing.JLabel lbl_username;
+    private javax.swing.JLabel lbl_username1;
+    private javax.swing.JLabel lbl_username2;
+    private javax.swing.JLabel lbl_username3;
+    private javax.swing.JTextField txt_jawaban;
     private javax.swing.JPasswordField txt_password;
+    private javax.swing.JTextArea txt_pertanyaan;
     private javax.swing.JTextField txt_username;
+    private javax.swing.JTextField txt_username1;
     // End of variables declaration//GEN-END:variables
 }

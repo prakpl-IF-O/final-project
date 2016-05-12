@@ -12,6 +12,10 @@ public class Staff {
         this.pertanyaan = pertanyaan;
         this.jawaban = jawaban;
     }
+    
+    public void GANTI_PASSWORD (String NEW_PASSWORD){
+        this.password = NEW_PASSWORD;
+    }
     /**
      * @return the ID
      */
