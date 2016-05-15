@@ -5,18 +5,38 @@
  */
 package Form;
 
+import Class.*;
+
 /**
  *
  * @author Irfandi
  */
 public class Main extends javax.swing.JFrame {
+    Thread UPDATE_TIME;
+    DateAndTime dt = new DateAndTime();
 
+    class GET_TIME implements Runnable {
+
+        public void run() {
+            try {
+                for (int x = 0;; x++) {
+                    lbl_jam.setText(dt.GET_CURRENT_TIME("H:M"));
+                    Thread.sleep(1000);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
+        lbl_tanggal.setText(dt.GET_CURRENT_DATE("D-M-Y"));
+        UPDATE_TIME = new Thread(new GET_TIME());
+        UPDATE_TIME.start();
     }
 
     /**
@@ -41,7 +61,9 @@ public class Main extends javax.swing.JFrame {
         icon_pelanggan = new javax.swing.JLabel();
         icon_keuangan = new javax.swing.JLabel();
         highlight = new javax.swing.JLabel();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
+        PANEL_BERANDA_OVERVIEW = new javax.swing.JLayeredPane();
+        lbl_jam = new javax.swing.JLabel();
+        lbl_tanggal = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,18 +137,17 @@ public class Main extends javax.swing.JFrame {
         highlight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Form/selected.png"))); // NOI18N
         getContentPane().add(highlight, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 100, 280, 70));
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 990, Short.MAX_VALUE)
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
+        PANEL_BERANDA_OVERVIEW.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 990, 550));
+        lbl_jam.setFont(new java.awt.Font("Segoe UI Light", 0, 72)); // NOI18N
+        lbl_jam.setText("19:45");
+        PANEL_BERANDA_OVERVIEW.add(lbl_jam, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, -1, -1));
+
+        lbl_tanggal.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        lbl_tanggal.setText("15 Mei 2016");
+        PANEL_BERANDA_OVERVIEW.add(lbl_tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 83, -1, -1));
+
+        getContentPane().add(PANEL_BERANDA_OVERVIEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 990, 550));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/MAIN LAYOUT.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -187,6 +208,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JLayeredPane PANEL_BERANDA_OVERVIEW;
     private javax.swing.JLabel highlight;
     private javax.swing.JLabel icon_beranda;
     private javax.swing.JLabel icon_keuangan;
@@ -196,7 +218,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel icon_plus2;
     private javax.swing.JLabel icon_plus3;
     private javax.swing.JLabel icon_transaksi;
-    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLabel lbl_jam;
+    private javax.swing.JLabel lbl_tanggal;
     private javax.swing.JLabel menu_beranda;
     private javax.swing.JLabel menu_keuangan;
     private javax.swing.JLabel menu_pelanggan;
