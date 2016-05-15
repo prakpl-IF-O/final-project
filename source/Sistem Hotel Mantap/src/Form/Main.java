@@ -14,7 +14,8 @@ import Class.*;
 public class Main extends javax.swing.JFrame {
     Thread UPDATE_TIME;
     DateAndTime dt = new DateAndTime();
-
+    UserEngine user = new UserEngine();
+    
     class GET_TIME implements Runnable {
 
         public void run() {
@@ -37,6 +38,7 @@ public class Main extends javax.swing.JFrame {
         lbl_tanggal.setText(dt.GET_CURRENT_DATE("D-M-Y"));
         UPDATE_TIME = new Thread(new GET_TIME());
         UPDATE_TIME.start();
+        System.out.println(user.liat());
     }
 
     /**

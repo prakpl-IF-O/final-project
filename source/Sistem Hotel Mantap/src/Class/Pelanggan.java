@@ -17,18 +17,20 @@ import java.util.Locale;
  * @author Irfandi
  */
 public class Pelanggan {
+
     Calendar TANGGAL = new GregorianCalendar();
     DateAndTime dt = new DateAndTime();
-    
-    private final String ID, NIK, NAMA;
+
+    private final String ID, NIK, NAMA, TEMPAT_LAHIR;
     private final Date TANGGAL_LAHIR, TANGGAL_DAFTAR;
     private int AKUMULASI;
 
-    public Pelanggan(String id, String nik, String nama,
+    public Pelanggan(String id, String nik, String nama, String tempat_lahir,
             String tanggal_lahir, String tanggal_daftar, String akumulasi) throws ParseException {
         this.ID = id;
         this.NIK = nik;
         this.NAMA = nama;
+        this.TEMPAT_LAHIR = tempat_lahir;
         this.TANGGAL_LAHIR = new SimpleDateFormat("ddMMyyyy", Locale.US).parse(tanggal_lahir);
         this.TANGGAL_DAFTAR = new SimpleDateFormat("ddMMyyyy", Locale.US).parse(tanggal_daftar);
         this.AKUMULASI = Integer.parseInt(akumulasi);
@@ -75,7 +77,7 @@ public class Pelanggan {
     public int GET_AKUMULASI() {
         return AKUMULASI;
     }
-    
+
     public String STRING_TANGGAL_LAHIR() {
         TANGGAL.setTime(TANGGAL_LAHIR);
 
@@ -85,7 +87,7 @@ public class Pelanggan {
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
         return (HARI + ", " + TANGGAL_ + " " + BULAN + " " + TAHUN);
     }
-    
+
     public String STRING_TANGGAL_DAFTAR() {
         TANGGAL.setTime(TANGGAL_DAFTAR);
 

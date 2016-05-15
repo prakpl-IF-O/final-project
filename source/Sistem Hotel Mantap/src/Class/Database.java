@@ -15,6 +15,7 @@ import java.util.*;
 public class Database {
 
     private Staff DB_STAFF[];
+    private Pelanggan DB_PELANGGAN[];
     private int DB_SIZE = 0;
 
     public void READ_DATABASE(String Database, String db_file) throws Exception {
@@ -40,6 +41,27 @@ public class Database {
                 SIGN = READ.readLine();
                 String JAWABAN = SIGN;
                 DB_STAFF[i] = new Staff(ID, NAME, PASSWORD, PERTANYAAN, JAWABAN);
+            } 
+        } else if (Database.equalsIgnoreCase("pelanggan")) {
+            DB_PELANGGAN = new Pelanggan[DB_SIZE];
+            
+            for (int i = 0; i < DB_SIZE; i++) {
+                SIGN = READ.readLine();
+                String ID = SIGN;
+                SIGN = READ.readLine();
+                String NIK = SIGN;
+                SIGN = READ.readLine();
+                String NAMA = SIGN;
+                SIGN = READ.readLine();
+                String TEMPAT_LAHIR = SIGN;
+                SIGN = READ.readLine();
+                String TANGGAL_LAHIR = SIGN;
+                SIGN = READ.readLine();
+                String TANGGAL_DAFTAR = SIGN;
+                SIGN = READ.readLine();
+                String AKUMULASI = SIGN;
+                DB_PELANGGAN[i] = new Pelanggan(ID, NIK, NAMA, TEMPAT_LAHIR,
+                        TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI);
             }
         }
 
@@ -48,7 +70,10 @@ public class Database {
     public Staff[] GET_DB_STAFF() {
         return DB_STAFF;
     }
-
+    
+    public Pelanggan[] GET_DB_PELANGGAN(){
+        return DB_PELANGGAN;
+    }
     public int GET_DB_SIZE() {
         return DB_SIZE;
     }
