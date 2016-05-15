@@ -190,7 +190,10 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void LOGIN(){
+        new Main().setVisible(true);
+        this.dispose();
+    }
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed
         if (txt_username.getText().equals("")){
             SHOW_INFO("Username masih kosong");
@@ -198,7 +201,7 @@ public class Login extends javax.swing.JFrame {
            SHOW_INFO("Password kosong");
         } else {
             if ((LOG.LOGIN(txt_username.getText(), txt_password.getText())) == true) {
-               SHOW_INFO("Username / Password benar");
+               LOGIN();
             } else {
                SHOW_INFO("Username / Password salah");
             }
@@ -209,8 +212,8 @@ public class Login extends javax.swing.JFrame {
         String JAWABAN = LOG.GET_JAWABAN_KEAMANAN(txt_username1.getText());
         
         if(txt_jawaban.getText().equalsIgnoreCase(JAWABAN)){
-            //benar
             PANEL_LUPA_PASSWORD.setVisible(false);
+            LOGIN();
         } else {
             lbl_pesan1.setText("Maaf, jawaban anda masih salah");
             lbl_pesan1.setVisible(true);
