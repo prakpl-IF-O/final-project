@@ -16,6 +16,7 @@ public class Database {
 
     private Staff DB_STAFF[];
     private Pelanggan DB_PELANGGAN[];
+    private Kamar DB_KAMAR[];
     private int DB_SIZE = 0;
 
     public void READ_DATABASE(String Database, String db_file) throws Exception {
@@ -63,10 +64,28 @@ public class Database {
                 DB_PELANGGAN[i] = new Pelanggan(ID, NIK, NAMA, TEMPAT_LAHIR,
                         TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI);
             }
+        } else if (Database.equalsIgnoreCase("kamar")) {
+            DB_KAMAR = new Kamar[DB_SIZE];
+            
+            for (int i = 0; i < DB_SIZE; i++) {
+                SIGN = READ.readLine();
+                String NOMOR_KAMAR = SIGN;
+                SIGN = READ.readLine();
+                String STATUS = SIGN;
+                SIGN = READ.readLine();
+                String JENIS_KAMAR = SIGN;
+                SIGN = READ.readLine();
+                String HARGA_KAMAR = SIGN;
+                DB_KAMAR[i] = new Kamar(NOMOR_KAMAR, STATUS, JENIS_KAMAR,
+                        HARGA_KAMAR);
+            }
         }
 
     }
-
+    
+    public Kamar[] GET_DB_KAMAR(){
+        return DB_KAMAR;
+    }
     public Staff[] GET_DB_STAFF() {
         return DB_STAFF;
     }

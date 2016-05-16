@@ -15,44 +15,37 @@ import java.util.*;
 public class DateAndTime {
 
     public String GET_CURRENT_TIME(String format) {
+    Calendar cal = Calendar.getInstance();
         if (format.equalsIgnoreCase("H:M:S")) {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
             return (sdf.format(cal.getTime()));
         } else if (format.equalsIgnoreCase("H:M")) {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             return (sdf.format(cal.getTime()));
         } else if (format.equalsIgnoreCase("H")) {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("HH");
             return (sdf.format(cal.getTime()));
         } else {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("mm");
             return (sdf.format(cal.getTime()));
         }
     }
 
     public String GET_CURRENT_DATE(String format) {
+    Calendar cal = Calendar.getInstance();
         if (format.equalsIgnoreCase("D-M-Y")) {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
             return (sdf.format(cal.getTime()));
         } else if (format.equalsIgnoreCase("D-Y")) {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM");
             return (sdf.format(cal.getTime()));
         } else if (format.equalsIgnoreCase("D")) {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("DD");
             return (sdf.format(cal.getTime()));
         } else if (format.equalsIgnoreCase("M")) {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
             return (sdf.format(cal.getTime()));
         } else {
-            Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("YYYY");
             return (sdf.format(cal.getTime()));
         }

@@ -15,6 +15,7 @@ public class Main extends javax.swing.JFrame {
     Thread UPDATE_TIME;
     DateAndTime dt = new DateAndTime();
     UserEngine user = new UserEngine();
+    KamarEngine kamar = new KamarEngine();
     
     class GET_TIME implements Runnable {
 
@@ -35,12 +36,39 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
-        lbl_tanggal.setText(dt.GET_CURRENT_DATE("D-M-Y"));
+        INIT_DATA();
         UPDATE_TIME = new Thread(new GET_TIME());
         UPDATE_TIME.start();
         System.out.println(user.liat());
+        System.out.println(kamar.liat());
     }
 
+    public void INIT_DATA() {
+        int jumlah_pelanggan = user.GET_JUMLAH_USER();
+        int total_kamar_tersedia = kamar.GET_TOTAL_KAMAR_TERSEDIA();
+        int total_kamar_dipesan = kamar.GET_TOTAL_KAMAR_DIPESAN();
+        int reg_kosong = kamar.GET_REG_KOSONG();
+        int reg_dipesan = kamar.GET_REG_DIPESAN();
+        int pre_kosong = kamar.GET_PRE_KOSONG();
+        int pre_dipesan = kamar.GET_PRE_DIPESAN();
+        int sui_kosong = kamar.GET_SUI_KOSONG();
+        int sui_dipesan = kamar.GET_SUI_DIPESAN();
+        int vip_kosong = kamar.GET_VIP_KOSONG();
+        int vip_dipesan = kamar.GET_VIP_DIPESAN();
+        
+        JUMLAH_REG_TERSEDIA.setText(reg_kosong+ " Kamar Reguler Tersedia");
+        JUMLAH_REG_DIPESAN.setText(reg_dipesan+ " Kamar Reguler Dipesan");
+        JUMLAH_PRE_TERSEDIA.setText(pre_kosong+" Kamar Premium Tersedia");
+        JUMLAH_PRE_DIPESAN.setText(pre_dipesan+" Kamar Premium Dipesan");
+        JUMLAH_SUI_TERSEDIA.setText(sui_kosong+" Kamar Suite Tersedia");
+        JUMLAH_SUI_DIPESAN.setText(sui_dipesan+" Kamar Suite Dipesan");
+        JUMLAH_VIP_TERSEDIA.setText(vip_kosong+" Kamar VIP Tersedia");
+        JUMLAH_VIP_DIPESAN.setText(vip_dipesan+" Kamar VIP Dipesan");
+        JUMLAH_KAMAR_DIPESAN.setText(total_kamar_dipesan+" Kamar Dipesan");
+        JUMLAH_KAMAR_TERSEDIA.setText(total_kamar_tersedia+" Kamar Tersedia");
+        JUMLAH_PELANGGAN.setText(jumlah_pelanggan + " Pelanggan");
+        lbl_tanggal.setText(dt.GET_CURRENT_DATE("D-M-Y"));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,6 +94,17 @@ public class Main extends javax.swing.JFrame {
         PANEL_BERANDA_OVERVIEW = new javax.swing.JLayeredPane();
         lbl_jam = new javax.swing.JLabel();
         lbl_tanggal = new javax.swing.JLabel();
+        JUMLAH_PELANGGAN = new javax.swing.JLabel();
+        JUMLAH_KAMAR_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_KAMAR_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_REG_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_REG_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_PRE_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_PRE_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_SUI_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_SUI_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_VIP_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_VIP_DIPESAN = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,12 +181,56 @@ public class Main extends javax.swing.JFrame {
         PANEL_BERANDA_OVERVIEW.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_jam.setFont(new java.awt.Font("Segoe UI Light", 0, 72)); // NOI18N
-        lbl_jam.setText("19:45");
-        PANEL_BERANDA_OVERVIEW.add(lbl_jam, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, -1, -1));
+        lbl_jam.setText("23:59");
+        PANEL_BERANDA_OVERVIEW.add(lbl_jam, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 0, -1, -1));
 
         lbl_tanggal.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         lbl_tanggal.setText("15 Mei 2016");
-        PANEL_BERANDA_OVERVIEW.add(lbl_tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 83, -1, -1));
+        PANEL_BERANDA_OVERVIEW.add(lbl_tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(832, 83, -1, -1));
+
+        JUMLAH_PELANGGAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_PELANGGAN.setText("99 Pelanggan Terdaftar");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PELANGGAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        JUMLAH_KAMAR_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_KAMAR_TERSEDIA.setText("100 Kamar Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_KAMAR_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        JUMLAH_KAMAR_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_KAMAR_DIPESAN.setText("100 Kamar Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_KAMAR_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        JUMLAH_REG_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_REG_TERSEDIA.setText("100 Kamar Reguler Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_REG_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+
+        JUMLAH_REG_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_REG_DIPESAN.setText("100 Kamar Reguler Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_REG_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        JUMLAH_PRE_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_PRE_TERSEDIA.setText("100 Kamar Premium Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PRE_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+
+        JUMLAH_PRE_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_PRE_DIPESAN.setText("100 Kamar Premium Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PRE_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+
+        JUMLAH_SUI_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_SUI_TERSEDIA.setText("100 Kamar Suite Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_SUI_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+
+        JUMLAH_SUI_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_SUI_DIPESAN.setText("100 Kamar Suite Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_SUI_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
+
+        JUMLAH_VIP_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_VIP_TERSEDIA.setText("100 Kamar VIP Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_VIP_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
+
+        JUMLAH_VIP_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_VIP_DIPESAN.setText("100 Kamar VIP Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_VIP_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, -1, -1));
 
         getContentPane().add(PANEL_BERANDA_OVERVIEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 990, 550));
 
@@ -210,6 +293,17 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JLabel JUMLAH_KAMAR_DIPESAN;
+    private javax.swing.JLabel JUMLAH_KAMAR_TERSEDIA;
+    private javax.swing.JLabel JUMLAH_PELANGGAN;
+    private javax.swing.JLabel JUMLAH_PRE_DIPESAN;
+    private javax.swing.JLabel JUMLAH_PRE_TERSEDIA;
+    private javax.swing.JLabel JUMLAH_REG_DIPESAN;
+    private javax.swing.JLabel JUMLAH_REG_TERSEDIA;
+    private javax.swing.JLabel JUMLAH_SUI_DIPESAN;
+    private javax.swing.JLabel JUMLAH_SUI_TERSEDIA;
+    private javax.swing.JLabel JUMLAH_VIP_DIPESAN;
+    private javax.swing.JLabel JUMLAH_VIP_TERSEDIA;
     private javax.swing.JLayeredPane PANEL_BERANDA_OVERVIEW;
     private javax.swing.JLabel highlight;
     private javax.swing.JLabel icon_beranda;
