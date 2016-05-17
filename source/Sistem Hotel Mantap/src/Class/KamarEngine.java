@@ -13,13 +13,13 @@ import java.util.logging.Logger;
  * @author Irfandi
  */
 public class KamarEngine {
-    private Kamar DATABASE[];
-    private int DB_SIZE;
+    private static Kamar DATABASE[];
+    private static int DB_SIZE;
     
-    private int REG_KOSONG = 0, REG_DIPESAN = 0;
-    private int PRE_KOSONG = 0, PRE_DIPESAN = 0;
-    private int SUI_KOSONG = 0, SUI_DIPESAN = 0;
-    private int VIP_KOSONG = 0, VIP_DIPESAN = 0;
+    private static int REG_KOSONG = 0, REG_DIPESAN = 0;
+    private static int PRE_KOSONG = 0, PRE_DIPESAN = 0;
+    private static int SUI_KOSONG = 0, SUI_DIPESAN = 0;
+    private static int VIP_KOSONG = 0, VIP_DIPESAN = 0;
     
     Database db = new Database();
     
@@ -30,7 +30,15 @@ public class KamarEngine {
             Logger.getLogger(LoginEngine.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    public void PESAN_KAMAR(String NO_KAMAR){
+        for (int i = 0; i < DB_SIZE; i++) {
+            if (NO_KAMAR.equalsIgnoreCase(DATABASE[i].GET_NOMOR_KAMAR())){
+                DATABASE[i].CHECK_IN_THIS_ROOM();
+                SCAN_DB();
+            }
+        }
+    }
+    
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("kamar", "database\\Kamar.database");
         DATABASE = db.GET_DB_KAMAR();
@@ -47,6 +55,14 @@ public class KamarEngine {
     }
 
     public void SCAN_DB() {
+        REG_KOSONG = 0;
+        REG_DIPESAN = 0;
+        PRE_KOSONG = 0;
+        PRE_DIPESAN = 0;
+        SUI_KOSONG = 0;
+        SUI_DIPESAN = 0;
+        VIP_KOSONG = 0;
+        VIP_DIPESAN = 0;
         for (int i = 0; i < DB_SIZE; i++) {
             if (DATABASE[i].GET_JENIS_KAMAR().equalsIgnoreCase("Reguler")) {
                 if (DATABASE[i].GET_STATUS().equalsIgnoreCase("kosong")) {

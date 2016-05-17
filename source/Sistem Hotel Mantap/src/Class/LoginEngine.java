@@ -14,15 +14,15 @@ import java.util.logging.Logger;
  * @author Irfandi
  */
 public class LoginEngine {
-    private Staff DATABASE [];
-    private int DB_SIZE;
+    private static Staff DATABASE [];
+    private static int DB_SIZE;
     Database db = new Database();
     
     public LoginEngine() {
         try {
             INIT_DB();
         } catch (Exception ex) {
-            Logger.getLogger(LoginEngine.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
     public void INIT_DB()throws Exception{

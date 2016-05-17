@@ -18,6 +18,7 @@ import java.util.Locale;
  */
 public class Pelanggan {
 
+
     Calendar TANGGAL = new GregorianCalendar();
     DateAndTime dt = new DateAndTime();
 
@@ -34,8 +35,10 @@ public class Pelanggan {
         this.TANGGAL_LAHIR = new SimpleDateFormat("ddMMyyyy", Locale.US).parse(tanggal_lahir);
         this.TANGGAL_DAFTAR = new SimpleDateFormat("ddMMyyyy", Locale.US).parse(tanggal_daftar);
         this.AKUMULASI = Integer.parseInt(akumulasi);
+        System.out.println("add pel "+nama);
     }
 
+    
     /**
      * @return the ID
      */

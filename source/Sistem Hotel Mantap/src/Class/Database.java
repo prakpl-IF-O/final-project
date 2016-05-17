@@ -13,10 +13,11 @@ import java.util.*;
  * @author Irfandi
  */
 public class Database {
-
     private Staff DB_STAFF[];
     private Pelanggan DB_PELANGGAN[];
     private Kamar DB_KAMAR[];
+    private Tamu DB_TAMU[];
+    
     private int DB_SIZE = 0;
 
     public void READ_DATABASE(String Database, String db_file) throws Exception {
@@ -28,7 +29,7 @@ public class Database {
         DB_SIZE = Integer.parseInt(SIGN);
 
         if (Database.equalsIgnoreCase("staff")) {
-            DB_STAFF = new Staff[DB_SIZE];
+            DB_STAFF = new Staff[DB_SIZE+5]; // setiap inisialisasi DB dapat menambpung 5 staff baru
 
             for (int i = 0; i < DB_SIZE; i++) {
                 SIGN = READ.readLine();
@@ -44,7 +45,7 @@ public class Database {
                 DB_STAFF[i] = new Staff(ID, NAME, PASSWORD, PERTANYAAN, JAWABAN);
             } 
         } else if (Database.equalsIgnoreCase("pelanggan")) {
-            DB_PELANGGAN = new Pelanggan[DB_SIZE];
+            DB_PELANGGAN = new Pelanggan[DB_SIZE+100]; // setiap inisialisasi DB dapat menambpung 100 user baru
             
             for (int i = 0; i < DB_SIZE; i++) {
                 SIGN = READ.readLine();
@@ -65,7 +66,7 @@ public class Database {
                         TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI);
             }
         } else if (Database.equalsIgnoreCase("kamar")) {
-            DB_KAMAR = new Kamar[DB_SIZE];
+            DB_KAMAR = new Kamar[DB_SIZE];//dbsize selalu 100
             
             for (int i = 0; i < DB_SIZE; i++) {
                 SIGN = READ.readLine();
@@ -79,6 +80,35 @@ public class Database {
                 DB_KAMAR[i] = new Kamar(NOMOR_KAMAR, STATUS, JENIS_KAMAR,
                         HARGA_KAMAR);
             }
+        } else if (Database.equalsIgnoreCase("tamu")) {
+            DB_TAMU = new Tamu[100];//karena jumlah kamar 100
+            
+            for (int i = 0; i < DB_SIZE; i++) {
+                SIGN = READ.readLine();
+                String ID = SIGN;
+                SIGN = READ.readLine();
+                String NIK = SIGN;
+                SIGN = READ.readLine();
+                String NAMA = SIGN;
+                SIGN = READ.readLine();
+                String TEMPAT_LAHIR = SIGN;
+                SIGN = READ.readLine();
+                String TANGGAL_LAHIR = SIGN;
+                SIGN = READ.readLine();
+                String TANGGAL_DAFTAR = SIGN;
+                SIGN = READ.readLine();
+                String AKUMULASI = SIGN;
+                SIGN = READ.readLine();
+                String NO_KAMAR = SIGN;
+                SIGN = READ.readLine();
+                String TGL_CHECK_IN = SIGN;
+                SIGN = READ.readLine();
+                String TGL_CHECK_OUT = SIGN;
+                DB_TAMU[i] = new Tamu (ID, NIK, NAMA, TEMPAT_LAHIR,
+                        TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI, 
+                        NO_KAMAR, TGL_CHECK_IN, TGL_CHECK_OUT);
+
+            }
         }
 
     }
@@ -89,7 +119,9 @@ public class Database {
     public Staff[] GET_DB_STAFF() {
         return DB_STAFF;
     }
-    
+    public Tamu[] GET_DB_TAMU(){
+        return DB_TAMU;
+    }
     public Pelanggan[] GET_DB_PELANGGAN(){
         return DB_PELANGGAN;
     }

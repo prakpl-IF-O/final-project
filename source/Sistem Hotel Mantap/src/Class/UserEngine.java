@@ -5,29 +5,34 @@
  */
 package Class;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Irfandi
  */
 public class UserEngine {
-    private Pelanggan DATABASE[];
-    private int DB_SIZE;
+    private static Pelanggan DATABASE[];
+    private static int DB_SIZE;
     Database db = new Database();
     
     public UserEngine() {
         try {
             INIT_DB();
         } catch (Exception ex) {
-            Logger.getLogger(LoginEngine.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
     public int GET_JUMLAH_USER(){
         return DB_SIZE;
     }
-    
+    public void DESTROY_DUPLICATE (String ID){
+        for (int i = 0; i < DB_SIZE; i++) {
+            if (DATABASE[i].GET_ID().equalsIgnoreCase(ID)) {
+                System.out.println("destroyed");
+                DATABASE[i] = null;
+                DB_SIZE--;
+            }
+        }
+    }
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("pelanggan", "database\\Pelanggan.database");
         DATABASE = db.GET_DB_PELANGGAN();
