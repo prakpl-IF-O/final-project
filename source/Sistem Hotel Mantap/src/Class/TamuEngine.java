@@ -27,6 +27,41 @@ public class TamuEngine {
             ex.printStackTrace();
         }
     }
+    public String GET_ID_BY_INDEX(int index){
+        return DATABASE[index].GET_ID();
+    }
+    
+    public String GET_NIK_BY_INDEX(int index){
+        return DATABASE[index].GET_NIK();
+    }
+    
+    public String GET_NAMA_BY_INDEX(int index){
+        return DATABASE[index].GET_NAMA();
+    }
+    
+    public String GET_KAMAR_BY_INDEX(int index){
+        return DATABASE[index].GET_NOMOR_KAMAR();
+    }
+    
+    public String GET_STRING_CHECK_IN_BY_INDEX(int index){
+        return DATABASE[index].STRING_CHECK_IN();
+    }
+    
+    public String GET_STRING_CHECK_OUT_BY_INDEX(int index){
+        return DATABASE[index].STRING_CHECK_OUT();
+    }
+    
+    public String GET_DISKON_BY_INDEX(int index){
+        if (DATABASE[index].GET_AKUMULASI()<9){
+            return "0 %";
+        } else  if (DATABASE[index].GET_AKUMULASI()<=30){
+            return "10 %";
+        } else  if (DATABASE[index].GET_AKUMULASI()<=60){
+            return "15 %";
+        } else {
+            return "25 %";
+        }
+    }
     public void TAMBAH_TAMU(String ID,String NIK,String NAMA,String TEMPAT_LAHIR,
                         String TANGGAL_LAHIR,String TANGGAL_DAFTAR,String AKUMULASI, 
                         String NO_KAMAR,String TGL_CHECK_IN,String TGL_CHECK_OUT){
