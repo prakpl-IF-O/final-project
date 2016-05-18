@@ -41,8 +41,8 @@ public class Main extends javax.swing.JFrame {
         INIT_DATA();
         UPDATE_TIME = new Thread(new GET_TIME());
         UPDATE_TIME.start();
+        CLEAR_PANEL();
         PANEL_BERANDA_OVERVIEW.setVisible(true);
-        PANEL_PELANGGAN_TAMU.setVisible(false);
         clear_highlight();
         highlight_beranda.setVisible(true);
         System.out.println(user.liat());
@@ -81,8 +81,7 @@ public class Main extends javax.swing.JFrame {
     }
     
     public void INIT_TABLE(){
-        DefaultTableModel model = (DefaultTableModel) TABLE_TAMU.getModel();
-        
+        DefaultTableModel model_tamu = (DefaultTableModel) TABLE_TAMU.getModel();       
         for (int i = 0; i < tamu.GET_JUMLAH_TAMU(); i++) {
             String ID = tamu.GET_ID_BY_INDEX(i);
             String NIK = tamu.GET_NIK_BY_INDEX(i);
@@ -91,9 +90,19 @@ public class Main extends javax.swing.JFrame {
             String CHK_IN = tamu.GET_STRING_CHECK_IN_BY_INDEX(i);
             String CHK_OUT = tamu.GET_STRING_CHECK_OUT_BY_INDEX(i);
             String[] tamu_ = {ID, NIK, NAMA, KAMAR, CHK_IN, CHK_OUT};
-            model.addRow(tamu_);
+            model_tamu.addRow(tamu_);
         }
-
+        
+        DefaultTableModel model_pelanggan = (DefaultTableModel) TABLE_PELANGGAN.getModel();
+        for (int i = 0; i < user.GET_JUMLAH_USER(); i++) {
+            String ID = user.GET_ID_BY_INDEX(i);
+            String NIK = user.GET_NIK_BY_INDEX(i);
+            String NAMA = user.GET_NAMA_BY_INDEX(i);
+            String TGL_DAFTAR = user.GET_TGL_DAFTAR_BY_INDEX(i);
+            String AKUMULASI = Integer.toString(user.GET_AKUMULASI(i));
+            String[] Pelanggan_ = {ID, NIK, NAMA, TGL_DAFTAR,AKUMULASI};
+            model_pelanggan.addRow(Pelanggan_);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -120,6 +129,15 @@ public class Main extends javax.swing.JFrame {
         highlight_transaksi = new javax.swing.JLabel();
         highlight_pelanggan = new javax.swing.JLabel();
         highlight_keuangan = new javax.swing.JLabel();
+        PANEL_SUBMENU_PELANGGAN = new javax.swing.JLayeredPane();
+        sub_tamu = new javax.swing.JLabel();
+        sub_pelanggan = new javax.swing.JLabel();
+        sub_highlight_tamu = new javax.swing.JLabel();
+        sub_highlight_pelanggan = new javax.swing.JLabel();
+        PANEL_PELANGGAN = new javax.swing.JLayeredPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TABLE_PELANGGAN = new javax.swing.JTable();
+        color2 = new javax.swing.JLabel();
         PANEL_PELANGGAN_TAMU = new javax.swing.JLayeredPane();
         lbl_ID_tamu = new javax.swing.JLabel();
         lbl_nama_tamu = new javax.swing.JLabel();
@@ -239,6 +257,70 @@ public class Main extends javax.swing.JFrame {
         highlight_keuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Form/selected.png"))); // NOI18N
         getContentPane().add(highlight_keuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 310, 280, 70));
 
+        PANEL_SUBMENU_PELANGGAN.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        sub_tamu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SUBMENU_TAMU.png"))); // NOI18N
+        sub_tamu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sub_tamuMouseClicked(evt);
+            }
+        });
+        PANEL_SUBMENU_PELANGGAN.add(sub_tamu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 30));
+
+        sub_pelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SUBMENU_PELANGGAN.png"))); // NOI18N
+        sub_pelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sub_pelangganMouseClicked(evt);
+            }
+        });
+        PANEL_SUBMENU_PELANGGAN.add(sub_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 130, 30));
+
+        sub_highlight_tamu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/highlight_submenu.png"))); // NOI18N
+        PANEL_SUBMENU_PELANGGAN.add(sub_highlight_tamu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 160, 30));
+
+        sub_highlight_pelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/highlight_submenu.png"))); // NOI18N
+        PANEL_SUBMENU_PELANGGAN.add(sub_highlight_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 160, 30));
+
+        getContentPane().add(PANEL_SUBMENU_PELANGGAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 800, 100));
+
+        PANEL_PELANGGAN.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TABLE_PELANGGAN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        TABLE_PELANGGAN.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "NIK", "Nama", "Tanggal Daftar", "Total Menginap"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TABLE_PELANGGAN.setRowHeight(30);
+        TABLE_PELANGGAN.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        jScrollPane2.setViewportView(TABLE_PELANGGAN);
+
+        PANEL_PELANGGAN.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 970, 280));
+
+        color2.setBackground(new java.awt.Color(255, 255, 255));
+        color2.setOpaque(true);
+        PANEL_PELANGGAN.add(color2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
+
+        getContentPane().add(PANEL_PELANGGAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 550));
+
         PANEL_PELANGGAN_TAMU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_ID_tamu.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -293,6 +375,8 @@ public class Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TABLE_TAMU.setRowHeight(30);
+        TABLE_TAMU.setSelectionBackground(new java.awt.Color(102, 102, 102));
         TABLE_TAMU.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TABLE_TAMUMouseClicked(evt);
@@ -444,15 +528,23 @@ private void clear_highlight(){
     private void menu_berandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_berandaMouseClicked
         clear_highlight();
         highlight_beranda.setVisible(true);
+        CLEAR_PANEL();
         PANEL_BERANDA_OVERVIEW.setVisible(true);
-        PANEL_PELANGGAN_TAMU.setVisible(false);
     }//GEN-LAST:event_menu_berandaMouseClicked
 
     private void menu_pelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_pelangganMouseClicked
         clear_highlight();
         highlight_pelanggan.setVisible(true);
-        PANEL_BERANDA_OVERVIEW.setVisible(false);
+        CLEAR_PANEL();
         PANEL_PELANGGAN_TAMU.setVisible(true);
+        PANEL_SUBMENU_PELANGGAN.setVisible(true);
+        if (PANEL_PELANGGAN_TAMU.isVisible()) {
+            sub_highlight_pelanggan.setVisible(false);
+            sub_highlight_tamu.setVisible(true);
+        } else {
+            sub_highlight_pelanggan.setVisible(true);
+            sub_highlight_tamu.setVisible(false);
+        }
     }//GEN-LAST:event_menu_pelangganMouseClicked
 
     private void menu_keuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_keuanganMouseClicked
@@ -467,6 +559,20 @@ private void clear_highlight(){
         UPDATE_INFO(row);
     }//GEN-LAST:event_TABLE_TAMUMouseClicked
 
+    private void sub_tamuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sub_tamuMouseClicked
+        sub_highlight_pelanggan.setVisible(false);
+        sub_highlight_tamu.setVisible(true);
+        PANEL_PELANGGAN_TAMU.setVisible(true);
+        PANEL_PELANGGAN.setVisible(false);
+    }//GEN-LAST:event_sub_tamuMouseClicked
+
+    private void sub_pelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sub_pelangganMouseClicked
+        sub_highlight_pelanggan.setVisible(true);
+        sub_highlight_tamu.setVisible(false);
+        PANEL_PELANGGAN_TAMU.setVisible(false);
+        PANEL_PELANGGAN.setVisible(true);
+    }//GEN-LAST:event_sub_pelangganMouseClicked
+
     public void UPDATE_INFO(int index){
         lbl_nama_tamu.setText((String) TABLE_TAMU.getValueAt(index, 2));
         lbl_nik_tamu.setText((String) TABLE_TAMU.getValueAt(index, 1));
@@ -475,6 +581,13 @@ private void clear_highlight(){
         lbl_ci_tamu.setText((String) TABLE_TAMU.getValueAt(index, 4));
         lbl_co_tamu.setText((String) TABLE_TAMU.getValueAt(index, 5));
         lbl_diskon_tamu.setText(tamu.GET_DISKON_BY_INDEX(index));
+    }
+    
+    public void CLEAR_PANEL(){
+        PANEL_BERANDA_OVERVIEW.setVisible(false);
+        PANEL_PELANGGAN.setVisible(false);
+        PANEL_PELANGGAN_TAMU.setVisible(false);
+        PANEL_SUBMENU_PELANGGAN.setVisible(false);
     }
     /**
      * @param args the command line arguments
@@ -536,10 +649,14 @@ private void clear_highlight(){
     private javax.swing.JLabel LABEL4;
     private javax.swing.JLabel LABEL5;
     private javax.swing.JLayeredPane PANEL_BERANDA_OVERVIEW;
+    private javax.swing.JLayeredPane PANEL_PELANGGAN;
     private javax.swing.JLayeredPane PANEL_PELANGGAN_TAMU;
+    private javax.swing.JLayeredPane PANEL_SUBMENU_PELANGGAN;
+    private javax.swing.JTable TABLE_PELANGGAN;
     private javax.swing.JTable TABLE_TAMU;
     private javax.swing.JLabel color;
     private javax.swing.JLabel color1;
+    private javax.swing.JLabel color2;
     private javax.swing.JLabel highlight_beranda;
     private javax.swing.JLabel highlight_keuangan;
     private javax.swing.JLabel highlight_pelanggan;
@@ -553,6 +670,7 @@ private void clear_highlight(){
     private javax.swing.JLabel icon_plus3;
     private javax.swing.JLabel icon_transaksi;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_ID_tamu;
     private javax.swing.JLabel lbl_ci_tamu;
     private javax.swing.JLabel lbl_co_tamu;
@@ -566,5 +684,9 @@ private void clear_highlight(){
     private javax.swing.JLabel menu_keuangan;
     private javax.swing.JLabel menu_pelanggan;
     private javax.swing.JLabel menu_transaksi;
+    private javax.swing.JLabel sub_highlight_pelanggan;
+    private javax.swing.JLabel sub_highlight_tamu;
+    private javax.swing.JLabel sub_pelanggan;
+    private javax.swing.JLabel sub_tamu;
     // End of variables declaration//GEN-END:variables
 }

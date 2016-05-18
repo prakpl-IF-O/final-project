@@ -23,6 +23,25 @@ public class UserEngine {
             ex.printStackTrace();
         }
     }
+    public String GET_ID_BY_INDEX(int index){
+        return DATABASE[index].GET_ID();
+    }
+    
+    public String GET_NIK_BY_INDEX(int index){
+        return DATABASE[index].GET_NIK();
+    }
+    
+    public String GET_NAMA_BY_INDEX(int index){
+        return DATABASE[index].GET_NAMA();
+    }
+    
+    public String GET_TGL_DAFTAR_BY_INDEX(int index) {
+        return DATABASE[index].STRING_TANGGAL_DAFTAR();
+    }
+    
+    public int GET_AKUMULASI(int index){
+        return DATABASE[index].GET_AKUMULASI();
+    }
     public int GET_JUMLAH_USER(){
         return DB_SIZE;
     }
