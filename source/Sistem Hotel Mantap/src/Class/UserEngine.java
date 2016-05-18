@@ -5,6 +5,8 @@
  */
 package Class;
 
+import java.text.ParseException;
+
 /**
  *
  * @author Irfandi
@@ -24,14 +26,41 @@ public class UserEngine {
     public int GET_JUMLAH_USER(){
         return DB_SIZE;
     }
-    public void DESTROY_DUPLICATE (String ID){
+    
+    public void TAMBAH_PELANGGAN(String ID,String NIK,String NAMA,String TEMPAT_LAHIR,
+                     String TANGGAL_LAHIR, String TANGGAL_DAFTAR, String AKUMULASI) {
+        try {
+            DATABASE[DB_SIZE] = new Pelanggan(ID, NIK, NAMA, TEMPAT_LAHIR,
+                    TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI);
+            DB_SIZE++;
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void DELETE_PELANGGAN (String ID){
+        int index = -1 ;
         for (int i = 0; i < DB_SIZE; i++) {
             if (DATABASE[i].GET_ID().equalsIgnoreCase(ID)) {
-                System.out.println("destroyed");
-                DATABASE[i] = null;
-                DB_SIZE--;
+                index =  i;
+                break;
             }
         }
+        
+        if (index >= 0) {
+            //menggeser user sesudahnya
+            for (int i = index; i < (DB_SIZE - 1); i++) {
+                DATABASE[i].SET_ID(DATABASE[i + 1].GET_ID());
+                DATABASE[i].SET_NIK(DATABASE[i + 1].GET_NIK());
+                DATABASE[i].SET_NAMA(DATABASE[i + 1].GET_NAMA());
+                DATABASE[i].SET_TEMPAT_LAHIR(DATABASE[i + 1].GET_TEMPAT_LAHIR());
+                DATABASE[i].SET_TANGGAL_LAHIR(DATABASE[i + 1].GET_TANGGAL_LAHIR());
+                DATABASE[i].SET_TANGGAL_DAFTAR(DATABASE[i + 1].GET_TANGGAL_DAFTAR());
+                DATABASE[i].SET_AKUMULASI(DATABASE[i + 1].GET_AKUMULASI());
+            }
+            DATABASE[DB_SIZE-1] = null;
+            DB_SIZE--;
+        }
+        
     }
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("pelanggan", "database\\Pelanggan.database");

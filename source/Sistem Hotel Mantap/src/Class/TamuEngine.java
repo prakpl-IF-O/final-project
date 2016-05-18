@@ -5,6 +5,7 @@
  */
 package Class;
 
+import java.nio.file.attribute.AclEntryPermission;
 import java.text.ParseException;
 
 /**
@@ -29,7 +30,7 @@ public class TamuEngine {
     public void TAMBAH_TAMU(String ID,String NIK,String NAMA,String TEMPAT_LAHIR,
                         String TANGGAL_LAHIR,String TANGGAL_DAFTAR,String AKUMULASI, 
                         String NO_KAMAR,String TGL_CHECK_IN,String TGL_CHECK_OUT){
-        ue.DESTROY_DUPLICATE(ID);
+        ue.DELETE_PELANGGAN(ID);
         try {
             DATABASE[DB_SIZE] = new Tamu(ID, NIK, NAMA, TEMPAT_LAHIR,
                     TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI,
@@ -39,6 +40,47 @@ public class TamuEngine {
             ex.printStackTrace();
         }
         kamar.PESAN_KAMAR(NO_KAMAR);
+    }
+    public void CHECK_OUT (String ID){
+        int index = FIND_TAMU_INDEX(ID);
+        
+        ue.TAMBAH_PELANGGAN(DATABASE[index].GET_ID(), DATABASE[index].GET_NIK(),
+                DATABASE[index].GET_NAMA(), DATABASE[index].GET_TEMPAT_LAHIR(),
+                DATABASE[index].STRING_TANGGAL_LAHIR(), DATABASE[index].STRING_TANGGAL_DAFTAR(),
+                Integer.toString(DATABASE[index].GET_AKUMULASI()));
+        DELETE_TAMU(ID);
+    }
+    
+    public int FIND_TAMU_INDEX(String ID){
+        int index = -1;
+        for (int i = 0; i < DB_SIZE; i++) {
+            if (DATABASE[i].GET_ID().equalsIgnoreCase(ID)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+    public void DELETE_TAMU(String ID){
+        int index = FIND_TAMU_INDEX(ID);
+
+        if (index >= 0) {
+            for (int i = index; i < (DB_SIZE - 1); i++) {
+                DATABASE[i].SET_ID(DATABASE[i + 1].GET_ID());
+                DATABASE[i].SET_NIK(DATABASE[i + 1].GET_NIK());
+                DATABASE[i].SET_NAMA(DATABASE[i + 1].GET_NAMA());
+                DATABASE[i].SET_TEMPAT_LAHIR(DATABASE[i + 1].GET_TEMPAT_LAHIR());
+                DATABASE[i].SET_TANGGAL_LAHIR(DATABASE[i + 1].GET_TANGGAL_LAHIR());
+                DATABASE[i].SET_TANGGAL_DAFTAR(DATABASE[i + 1].GET_TANGGAL_DAFTAR());
+                DATABASE[i].SET_AKUMULASI(DATABASE[i + 1].GET_AKUMULASI());
+                DATABASE[i].SET_NOMOR_KAMAR(DATABASE[i + 1].GET_NOMOR_KAMAR());
+                DATABASE[i].SET_CHECK_IN(DATABASE[i + 1].GET_CHECK_IN());
+                DATABASE[i].SET_CHECK_OUT(DATABASE[i + 1].GET_CHECK_OUT());
+            }
+            DATABASE[DB_SIZE-1] = null;
+            DB_SIZE--;
+        }
+        
     }
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("tamu", "database\\Tamu.database");

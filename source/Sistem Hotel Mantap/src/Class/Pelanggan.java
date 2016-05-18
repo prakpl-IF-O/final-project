@@ -22,8 +22,8 @@ public class Pelanggan {
     Calendar TANGGAL = new GregorianCalendar();
     DateAndTime dt = new DateAndTime();
 
-    private final String ID, NIK, NAMA, TEMPAT_LAHIR;
-    private final Date TANGGAL_LAHIR, TANGGAL_DAFTAR;
+    private String ID, NIK, NAMA, TEMPAT_LAHIR;
+    private Date TANGGAL_LAHIR, TANGGAL_DAFTAR;
     private int AKUMULASI;
 
     public Pelanggan(String id, String nik, String nama, String tempat_lahir,
@@ -99,5 +99,61 @@ public class Pelanggan {
         String BULAN = dt.CONVERT_INDEX_OF_MONTH(TANGGAL.get(Calendar.MONTH));
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
         return (HARI + ", " + TANGGAL_ + " " + BULAN + " " + TAHUN);
+    }
+
+    /**
+     * @param ID the ID to set
+     */
+    public void SET_ID(String ID) {
+        this.ID = ID;
+    }
+
+    /**
+     * @param NIK the NIK to set
+     */
+    public void SET_NIK(String NIK) {
+        this.NIK = NIK;
+    }
+
+    /**
+     * @param NAMA the NAMA to set
+     */
+    public void SET_NAMA(String NAMA) {
+        this.NAMA = NAMA;
+    }
+
+    /**
+     * @param TEMPAT_LAHIR the TEMPAT_LAHIR to set
+     */
+    public void SET_TEMPAT_LAHIR(String TEMPAT_LAHIR) {
+        this.TEMPAT_LAHIR = TEMPAT_LAHIR;
+    }
+
+    /**
+     * @param TANGGAL_LAHIR the TANGGAL_LAHIR to set
+     */
+    public void SET_TANGGAL_LAHIR(Date TANGGAL_LAHIR) {
+        this.TANGGAL_LAHIR = TANGGAL_LAHIR;
+    }
+
+    /**
+     * @param TANGGAL_DAFTAR the TANGGAL_DAFTAR to set
+     */
+    public void SET_TANGGAL_DAFTAR(Date TANGGAL_DAFTAR) {
+        this.TANGGAL_DAFTAR = TANGGAL_DAFTAR;
+    }
+
+    /**
+     * @param AKUMULASI the AKUMULASI to set
+     */
+    public void SET_AKUMULASI(int AKUMULASI) {
+        this.AKUMULASI = AKUMULASI;
+    }
+
+    /**
+     * @return the TEMPAT_LAHIR
+     */
+    public String GET_TEMPAT_LAHIR() {
+        return TEMPAT_LAHIR;
     }
 }
