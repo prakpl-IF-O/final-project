@@ -27,21 +27,151 @@ public class panel_new extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        label_nama = new javax.swing.JLabel();
+        label_nik = new javax.swing.JLabel();
+        label_tempat_lahir = new javax.swing.JLabel();
+        label_tanggal_lahir = new javax.swing.JLabel();
+        label_pilih_jenis_kamar = new javax.swing.JLabel();
+        ComboBox_pilihkamar = new javax.swing.JComboBox();
+        textfield_nama = new javax.swing.JTextField();
+        textfield_nik = new javax.swing.JTextField();
+        textfield_tempat_lahir = new javax.swing.JTextField();
+        textfield_tanggal_lahir = new javax.swing.JTextField();
+        button_submit = new javax.swing.JButton();
+        button_cancel = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        label_nama.setText("Nama");
+
+        label_nik.setText("NIK");
+
+        label_tempat_lahir.setText("Tempat Lahir");
+
+        label_tanggal_lahir.setText("Tanggal Lahir");
+
+        label_pilih_jenis_kamar.setText("Jenis Kamar");
+
+        ComboBox_pilihkamar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VIP", "Suite", "Premium", "Reguler" }));
+        ComboBox_pilihkamar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBox_pilihkamarActionPerformed(evt);
+            }
+        });
+
+        textfield_nama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_namaActionPerformed(evt);
+            }
+        });
+
+        textfield_tempat_lahir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfield_tempat_lahirActionPerformed(evt);
+            }
+        });
+
+        button_submit.setText("Submit");
+
+        button_cancel.setText("Cancel");
+
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Daftar Member Baru HOTEL MANTAB");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(button_cancel, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                .addGap(199, 199, 199)
+                .addComponent(button_submit, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                .addGap(35, 35, 35))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(label_nik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(248, 248, 248))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(label_nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(textfield_nama)
+                        .addGap(76, 76, 76))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ComboBox_pilihkamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(161, 161, 161))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label_tempat_lahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(127, 127, 127))
+                            .addComponent(textfield_nik)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(textfield_tempat_lahir)
+                                .addGap(1, 1, 1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label_tanggal_lahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(125, 125, 125))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(textfield_tanggal_lahir)
+                                .addGap(1, 1, 1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label_pilih_jenis_kamar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(132, 132, 132)))
+                        .addGap(76, 76, 76))))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label_nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textfield_nama)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label_nik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textfield_nik)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label_tempat_lahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textfield_tempat_lahir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label_tanggal_lahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textfield_tanggal_lahir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label_pilih_jenis_kamar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ComboBox_pilihkamar)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_submit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button_cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ComboBox_pilihkamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_pilihkamarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBox_pilihkamarActionPerformed
+
+    private void textfield_namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_namaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_namaActionPerformed
+
+    private void textfield_tempat_lahirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_tempat_lahirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfield_tempat_lahirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +209,18 @@ public class panel_new extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox ComboBox_pilihkamar;
+    private javax.swing.JButton button_cancel;
+    private javax.swing.JButton button_submit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel label_nama;
+    private javax.swing.JLabel label_nik;
+    private javax.swing.JLabel label_pilih_jenis_kamar;
+    private javax.swing.JLabel label_tanggal_lahir;
+    private javax.swing.JLabel label_tempat_lahir;
+    private javax.swing.JTextField textfield_nama;
+    private javax.swing.JTextField textfield_nik;
+    private javax.swing.JTextField textfield_tanggal_lahir;
+    private javax.swing.JTextField textfield_tempat_lahir;
     // End of variables declaration//GEN-END:variables
 }

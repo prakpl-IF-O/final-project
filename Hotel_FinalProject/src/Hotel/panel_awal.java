@@ -27,21 +27,113 @@ public class panel_awal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox();
+        label_namahotel = new javax.swing.JLabel();
+        label_cek_in = new javax.swing.JLabel();
+        button_new = new javax.swing.JButton();
+        button_member = new javax.swing.JButton();
+        label_check_out = new javax.swing.JLabel();
+        button_check_out = new javax.swing.JButton();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        label_namahotel.setBackground(new java.awt.Color(255, 0, 51));
+        label_namahotel.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
+        label_namahotel.setForeground(new java.awt.Color(0, 51, 255));
+        label_namahotel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_namahotel.setText("HOTEL MANTAB");
+
+        label_cek_in.setBackground(new java.awt.Color(51, 204, 255));
+        label_cek_in.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
+        label_cek_in.setForeground(new java.awt.Color(0, 255, 0));
+        label_cek_in.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_cek_in.setText("Check In");
+
+        button_new.setBackground(new java.awt.Color(153, 255, 51));
+        button_new.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        button_new.setText("New");
+        button_new.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_newActionPerformed(evt);
+            }
+        });
+
+        button_member.setBackground(new java.awt.Color(0, 204, 51));
+        button_member.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        button_member.setText("Member");
+
+        label_check_out.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
+        label_check_out.setForeground(new java.awt.Color(255, 51, 51));
+        label_check_out.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_check_out.setText("Check Out");
+
+        button_check_out.setBackground(new java.awt.Color(102, 51, 255));
+        button_check_out.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
+        button_check_out.setText("Check Out");
+        button_check_out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_check_outActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(label_namahotel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(255, 255, 255)
+                .addComponent(button_new, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(button_member, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(193, 193, 193))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(336, 336, 336)
+                .addComponent(label_check_out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(310, 310, 310))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(label_cek_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(239, 239, 239))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(button_check_out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(292, 292, 292))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(label_namahotel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(label_cek_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_new, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(button_member, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(label_check_out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button_check_out, javax.swing.GroupLayout.PREFERRED_SIZE, 32, Short.MAX_VALUE)
+                .addGap(82, 82, 82))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_newActionPerformed
+
+    private void button_check_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_outActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_check_outActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +171,12 @@ public class panel_awal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_check_out;
+    private javax.swing.JButton button_member;
+    private javax.swing.JButton button_new;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel label_cek_in;
+    private javax.swing.JLabel label_check_out;
+    private javax.swing.JLabel label_namahotel;
     // End of variables declaration//GEN-END:variables
 }
