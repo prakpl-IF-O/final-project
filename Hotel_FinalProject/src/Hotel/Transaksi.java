@@ -14,6 +14,7 @@ public class Transaksi implements DB {
     private Calendar batasCheckOut;
     private Calendar checkOut;
     private double totalHarga;
+    private double diskon;
     private double denda;
     private static int count;   
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -37,6 +38,8 @@ public class Transaksi implements DB {
         if (rset.next()) {
             kodeTransaksi = rset.getInt(1) + 1;
         }
+        tamu.updateAkumulasi(tamu.getId(), hari);
+        kamar.in();
         savingData();
     }
 
@@ -49,7 +52,17 @@ public class Transaksi implements DB {
         } else {
             denda = 0;
         }
-
+    }
+    private void checkDiskon(){
+    if(tamu.getAkumulasi()<10){
+        diskon = 1;
+    } else if (tamu.getAkumulasi()<31){
+        diskon = 0.9;
+    } else if (tamu.getAkumulasi()<61){
+        diskon = 0.85;
+    } else {
+        diskon = 0.75;
+    }
     }
 
     public String toString() {
@@ -73,12 +86,14 @@ public class Transaksi implements DB {
 
     public void CheckOut() throws SQLException {
         checkDenda();
+        checkDiskon();
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
         Statement stmt = con.createStatement();
-        totalHarga = (totalHarga * kamar.getHarga()) + denda;
+        totalHarga = ((totalHarga * kamar.getHarga()) + denda)*diskon;
         String tanggalKeluar = String.valueOf(sdf.format(checkOut.getTime()));
         String update = String.format("update detailTransaksi set checkOut = '%s', total = %s where kodeTransaksi = %s", tanggalKeluar, totalHarga, kodeTransaksi);
         stmt.executeUpdate(update);
+        kamar.out();
     }
 
     public void retrieveData(int id) throws SQLException {

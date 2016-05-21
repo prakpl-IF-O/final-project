@@ -8,7 +8,10 @@ public class Kamar {
     private double harga;
     private String kelas;
     private boolean isSewa;
-    public Kamar(){}
+
+    public Kamar() {
+    }
+
     public Kamar(int noKamar, double harga, String kelas) {
         this.noKamar = noKamar;
         this.harga = harga;
@@ -36,6 +39,31 @@ public class Kamar {
         this.isSewa = isSewa;
     }
 
+    public void in() throws SQLException {
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+        Statement stmt = con.createStatement();
+        String update = String.format("update kamar set isSewa = true where noKamar = %s ", noKamar);
+        stmt.executeUpdate(update);
+    }
+
+    public void out() throws SQLException {
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+        Statement stmt = con.createStatement();
+        String update = String.format("update kamar set isSewa = false where noKamar = %s ", noKamar);
+        stmt.executeUpdate(update);
+    }
+    public boolean checkKamar(int nomor) throws SQLException{
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+        Statement stmt = con.createStatement();
+        String select = String.format("select isSewa from kamar where noKamar = %s", String.valueOf(nomor));
+        ResultSet rset = stmt.executeQuery(select);
+        boolean check=false;
+        while(rset.next()){
+            check = rset.getBoolean("isSewa");
+        }
+        return check;
+    }
+
     public String toString() {
         return String.format("No Kamar: %d\nHarga Kamar: %.2f\nKelas Kamar: %s\nStatus: %s", noKamar, harga, kelas, (isSewa == true ? "Reserved" : "Free"));
     }
@@ -49,7 +77,7 @@ public class Kamar {
             noKamar = rset.getInt("noKamar");
             harga = rset.getDouble("harga");
             kelas = rset.getString("kelas");
-            isSewa = rset.getBoolean("isSewa");                                   
+            isSewa = rset.getBoolean("isSewa");
         }
     }
 
