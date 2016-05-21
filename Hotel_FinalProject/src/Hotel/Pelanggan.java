@@ -118,9 +118,7 @@ public class Pelanggan implements DB {
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
         Statement stmt = con.createStatement();
         String up = String.format("update pelanggan set akumulasi = %s where id = %s", String.valueOf(akumulasi),String.valueOf(this.id));
-        stmt.executeUpdate(up);
-
-        
+        stmt.executeUpdate(up);           
     }
 
 }
