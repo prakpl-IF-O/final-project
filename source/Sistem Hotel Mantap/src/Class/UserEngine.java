@@ -23,6 +23,16 @@ public class UserEngine {
             ex.printStackTrace();
         }
     }
+    
+    public int scan_ID (String ID){
+        for (int i = 0; i < DB_SIZE; i++) {
+            if(DATABASE[i].GET_ID().equalsIgnoreCase(ID)){
+                return i;
+            } 
+        }
+        return -1;
+    }
+    
     public String GET_ID_BY_INDEX(int index){
         return DATABASE[index].GET_ID();
     }
@@ -39,19 +49,30 @@ public class UserEngine {
         return DATABASE[index].STRING_TANGGAL_DAFTAR();
     }
     
-    public int GET_AKUMULASI(int index){
+    public int GET_AKUMULASI(int index) {
         return DATABASE[index].GET_AKUMULASI();
     }
-    public int GET_JUMLAH_USER(){
+
+    public int GET_JUMLAH_USER() {
         return DB_SIZE;
     }
-    public String GET_TEMPAT_LAHIR_BY_INDEX (int index){
+
+    public String GET_TEMPAT_LAHIR_BY_INDEX(int index) {
         return DATABASE[index].GET_TEMPAT_LAHIR();
     }
+
     public String STRING_TANGGAL_LAHIR(int index) {
-     return DATABASE[index].STRING_TANGGAL_LAHIR();
+        return DATABASE[index].STRING_TANGGAL_LAHIR();
     }
-    
+
+    public String GET_FORMATTED_TGL_LAHIR_BY_INDEX(int index) {
+        return DATABASE[index].FORMATED_TANGGAL_LAHIR();
+    }
+
+    public String GET_FORMATTED_TGL_DAFTAR_BY_INDEX(int index) {
+        return DATABASE[index].FORMATED_TANGGAL_DAFTAR();
+    }
+
     public String STRING_TANGGAL_DAFTAR(int index) {
         return DATABASE[index].STRING_TANGGAL_DAFTAR();
     }

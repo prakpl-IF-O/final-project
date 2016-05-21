@@ -38,7 +38,42 @@ public class KamarEngine {
             }
         }
     }
+    public String GET_NO_KAMAR_BY_INDEX(int index){
+    return DATABASE[index].GET_NOMOR_KAMAR();
+    }
     
+    //return index kamar
+    public int GET_KAMAR_KOSONG(String Jenis_Kamar){
+        if (Jenis_Kamar.equalsIgnoreCase("reguler")){
+            for (int i = 0; i < 49; i++) {
+                if (DATABASE[i].GET_STATUS().equalsIgnoreCase("kosong")){
+                    return i;
+                }
+            }
+            return -1;
+        } else if (Jenis_Kamar.equalsIgnoreCase("premium")) {
+            for (int i = 50; i < 69; i++) {
+                if (DATABASE[i].GET_STATUS().equalsIgnoreCase("kosong")) {
+                    return i;
+                }
+            }
+            return -1;
+        } else if (Jenis_Kamar.equalsIgnoreCase("suite")) {
+            for (int i = 70; i < 89; i++) {
+                if (DATABASE[i].GET_STATUS().equalsIgnoreCase("kosong")) {
+                    return i;
+                }
+            }
+            return -1;
+        } else {
+            for (int i = 89; i < 99; i++) {
+                if (DATABASE[i].GET_STATUS().equalsIgnoreCase("kosong")) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+    }
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("kamar", "database\\Kamar.database");
         DATABASE = db.GET_DB_KAMAR();
@@ -96,7 +131,7 @@ public class KamarEngine {
     public String liat(){
         String a = "init\n";
         for (int i = 0; i < DB_SIZE; i++) {
-            a = a +"\n"+DATABASE[i].GET_NOMOR_KAMAR();
+            a = a +"\n"+ i + " "+DATABASE[i].GET_NOMOR_KAMAR();
             a = a +" -> "+DATABASE[i].GET_STATUS();
         }
         return a;

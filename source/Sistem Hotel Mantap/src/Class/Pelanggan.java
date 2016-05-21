@@ -90,7 +90,29 @@ public class Pelanggan {
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
         return (HARI + ", " + TANGGAL_ + " " + BULAN + " " + TAHUN);
     }
+    
+    public String FORMATED_TANGGAL_LAHIR() {
+        TANGGAL.setTime(TANGGAL_LAHIR);
+        String TANGGAL_, BULAN;
+        
+        int _TANGGAL = TANGGAL.get(Calendar.DAY_OF_MONTH);
+        if (_TANGGAL < 10) {
+            TANGGAL_ = "0" + Integer.toString( _TANGGAL);
+        } else {
+            TANGGAL_ = Integer.toString(_TANGGAL);
+        }
+        
+        int _BULAN = TANGGAL.get(Calendar.MONTH) + 1;
+        if (_BULAN < 10) {
+            BULAN = "0" + Integer.toString(_BULAN);
+        } else {
+            BULAN = Integer.toString(_BULAN);
+        }
 
+        String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
+        return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
+    }
+    
     public String STRING_TANGGAL_DAFTAR() {
         TANGGAL.setTime(TANGGAL_DAFTAR);
 
@@ -101,6 +123,27 @@ public class Pelanggan {
         return (HARI + ", " + TANGGAL_ + " " + BULAN + " " + TAHUN);
     }
 
+    public String FORMATED_TANGGAL_DAFTAR() {
+        TANGGAL.setTime(TANGGAL_DAFTAR);
+        String TANGGAL_, BULAN;
+        
+        int _TANGGAL = TANGGAL.get(Calendar.DAY_OF_MONTH);
+        if (_TANGGAL < 10) {
+            TANGGAL_ = "0" + Integer.toString( _TANGGAL);
+        } else {
+            TANGGAL_ = Integer.toString(_TANGGAL);
+        }
+        
+        int _BULAN = TANGGAL.get(Calendar.MONTH) + 1;
+        if (_BULAN < 10) {
+            BULAN = "0" + Integer.toString(_BULAN);
+        } else {
+            BULAN = Integer.toString(_BULAN);
+        }
+
+        String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
+        return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
+    }
     /**
      * @param ID the ID to set
      */
