@@ -45,7 +45,16 @@ public class UserEngine {
     public int GET_JUMLAH_USER(){
         return DB_SIZE;
     }
+    public String GET_TEMPAT_LAHIR_BY_INDEX (int index){
+        return DATABASE[index].GET_TEMPAT_LAHIR();
+    }
+    public String STRING_TANGGAL_LAHIR(int index) {
+     return DATABASE[index].STRING_TANGGAL_LAHIR();
+    }
     
+    public String STRING_TANGGAL_DAFTAR(int index) {
+        return DATABASE[index].STRING_TANGGAL_DAFTAR();
+    }
     public void TAMBAH_PELANGGAN(String ID,String NIK,String NAMA,String TEMPAT_LAHIR,
                      String TANGGAL_LAHIR, String TANGGAL_DAFTAR, String AKUMULASI) {
         try {

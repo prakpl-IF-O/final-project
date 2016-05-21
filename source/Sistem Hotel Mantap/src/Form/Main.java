@@ -47,7 +47,8 @@ public class Main extends javax.swing.JFrame {
         highlight_beranda.setVisible(true);
         System.out.println(user.liat());
         System.out.println(kamar.liat());
-        UPDATE_INFO(0);
+        UPDATE_INFO(0,"Tamu");
+        txt_akumulasi.setEnabled(false);
     }
 
     public void INIT_DATA() {
@@ -129,14 +130,58 @@ public class Main extends javax.swing.JFrame {
         highlight_transaksi = new javax.swing.JLabel();
         highlight_pelanggan = new javax.swing.JLabel();
         highlight_keuangan = new javax.swing.JLabel();
+        PANEL_TRANSAKSI_CHECK_IN = new javax.swing.JLayeredPane();
+        txt_ID = new javax.swing.JTextField();
+        txt_nik = new javax.swing.JTextField();
+        txt_nama = new javax.swing.JTextField();
+        txt_tempat_lahir = new javax.swing.JTextField();
+        txt_tanggal_lahir = new javax.swing.JTextField();
+        txt_tanggal_daftar = new javax.swing.JTextField();
+        txt_akumulasi = new javax.swing.JTextField();
+        cbo_paket_kamar = new javax.swing.JComboBox();
+        txt_tanggal_check_in = new javax.swing.JTextField();
+        txt_tanggal_check_out = new javax.swing.JTextField();
+        lbl_no_kamar3 = new javax.swing.JLabel();
+        txt_no_kamar = new javax.swing.JLabel();
+        lbl_no_kamar1 = new javax.swing.JLabel();
+        lbl_no_kamar2 = new javax.swing.JLabel();
+        lbl_no_kamar4 = new javax.swing.JLabel();
+        lbl_no_kamar5 = new javax.swing.JLabel();
+        lbl_no_kamar6 = new javax.swing.JLabel();
+        lbl_no_kamar7 = new javax.swing.JLabel();
+        lbl_no_kamar8 = new javax.swing.JLabel();
+        lbl_no_kamar9 = new javax.swing.JLabel();
+        lbl_no_kamar10 = new javax.swing.JLabel();
+        lbl_no_kamar11 = new javax.swing.JLabel();
+        color5 = new javax.swing.JLabel();
+        PANEL_SUBMENU_TRANSAKSI = new javax.swing.JLayeredPane();
+        sub_check_in = new javax.swing.JLabel();
+        sub_check_out = new javax.swing.JLabel();
+        sub_highlight_check_in = new javax.swing.JLabel();
+        sub_highlight_check_out = new javax.swing.JLabel();
+        color4 = new javax.swing.JLabel();
         PANEL_SUBMENU_PELANGGAN = new javax.swing.JLayeredPane();
         sub_tamu = new javax.swing.JLabel();
         sub_pelanggan = new javax.swing.JLabel();
         sub_highlight_tamu = new javax.swing.JLabel();
         sub_highlight_pelanggan = new javax.swing.JLabel();
+        color3 = new javax.swing.JLabel();
         PANEL_PELANGGAN = new javax.swing.JLayeredPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         TABLE_PELANGGAN = new javax.swing.JTable();
+        LABEL6 = new javax.swing.JLabel();
+        lbl_tgl_lahir_pelanggan = new javax.swing.JLabel();
+        LABEL7 = new javax.swing.JLabel();
+        lbl_akumulasi_pelanggan = new javax.swing.JLabel();
+        LABEL8 = new javax.swing.JLabel();
+        lbl_nama_pelanggan = new javax.swing.JLabel();
+        lbl_ID_pelanggan = new javax.swing.JLabel();
+        lbl_tgl_daftar_pelanggan = new javax.swing.JLabel();
+        LABEL9 = new javax.swing.JLabel();
+        lbl_tempat_lahir_pelanggan = new javax.swing.JLabel();
+        LABEL10 = new javax.swing.JLabel();
+        lbl_nik_pelanggan = new javax.swing.JLabel();
+        LABEL11 = new javax.swing.JLabel();
         color2 = new javax.swing.JLabel();
         PANEL_PELANGGAN_TAMU = new javax.swing.JLayeredPane();
         lbl_ID_tamu = new javax.swing.JLabel();
@@ -257,6 +302,159 @@ public class Main extends javax.swing.JFrame {
         highlight_keuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Form/selected.png"))); // NOI18N
         getContentPane().add(highlight_keuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 310, 280, 70));
 
+        PANEL_TRANSAKSI_CHECK_IN.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_ID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_ID.setText("RI123");
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 370, 35));
+
+        txt_nik.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_nik.setText("155150201111274");
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 370, 35));
+
+        txt_nama.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_nama.setText("Ricky Irfandi");
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 370, 35));
+
+        txt_tempat_lahir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_tempat_lahir.setText("Bondowoso");
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_tempat_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 370, 35));
+
+        txt_tanggal_lahir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_tanggal_lahir.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_tanggal_lahir.setText("21/09/1996");
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_tanggal_lahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 170, 35));
+
+        txt_tanggal_daftar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_tanggal_daftar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_tanggal_daftar.setText("21/01/2016");
+        txt_tanggal_daftar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_tanggal_daftarActionPerformed(evt);
+            }
+        });
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_tanggal_daftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 170, 35));
+
+        txt_akumulasi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_akumulasi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_akumulasi.setText("15");
+        txt_akumulasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_akumulasiActionPerformed(evt);
+            }
+        });
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_akumulasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 170, 35));
+
+        cbo_paket_kamar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbo_paket_kamar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Reguler", "Premium", "Suite", "VIP" }));
+        PANEL_TRANSAKSI_CHECK_IN.add(cbo_paket_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 170, 35));
+
+        txt_tanggal_check_in.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_tanggal_check_in.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_tanggal_check_in.setText("21/09/1996");
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_tanggal_check_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 170, 35));
+
+        txt_tanggal_check_out.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_tanggal_check_out.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_tanggal_check_out.setText("21/09/1996");
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_tanggal_check_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 170, 35));
+
+        lbl_no_kamar3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar3.setText("Tanggal Check Out    : ");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 338, 190, 35));
+
+        txt_no_kamar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txt_no_kamar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txt_no_kamar.setText("069P");
+        PANEL_TRANSAKSI_CHECK_IN.add(txt_no_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 170, 35));
+
+        lbl_no_kamar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar1.setText("No Kamar                  : ");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 418, 190, 35));
+
+        lbl_no_kamar2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar2.setText("Paket Kamar              : ");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 378, 190, 35));
+
+        lbl_no_kamar4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar4.setText("Tanggal Check In       : ");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 298, 190, 35));
+
+        lbl_no_kamar5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar5.setText("Akumulasi Menginap : ");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 258, 190, 35));
+
+        lbl_no_kamar6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar6.setText("Tanggal Daftar           :");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 218, 190, 35));
+
+        lbl_no_kamar7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar7.setText("Tanggal Lahir             :");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 190, 35));
+
+        lbl_no_kamar8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar8.setText("Tempat Lahir             :");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 138, 190, 35));
+
+        lbl_no_kamar9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar9.setText("Nama                        :");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 98, 190, 35));
+
+        lbl_no_kamar10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar10.setText("NIK                            :");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 190, 35));
+
+        lbl_no_kamar11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_no_kamar11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_no_kamar11.setText("ID                              :");
+        PANEL_TRANSAKSI_CHECK_IN.add(lbl_no_kamar11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 18, 190, 35));
+
+        color5.setBackground(new java.awt.Color(255, 255, 255));
+        color5.setOpaque(true);
+        PANEL_TRANSAKSI_CHECK_IN.add(color5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
+
+        getContentPane().add(PANEL_TRANSAKSI_CHECK_IN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 550));
+
+        PANEL_SUBMENU_TRANSAKSI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        sub_check_in.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SUBMENU_CHECK_IN.png"))); // NOI18N
+        sub_check_in.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sub_check_inMouseClicked(evt);
+            }
+        });
+        PANEL_SUBMENU_TRANSAKSI.add(sub_check_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 120, 30));
+
+        sub_check_out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SUBMENU_CHECK_OUT.png"))); // NOI18N
+        sub_check_out.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sub_check_outMouseClicked(evt);
+            }
+        });
+        PANEL_SUBMENU_TRANSAKSI.add(sub_check_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 130, 30));
+
+        sub_highlight_check_in.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/highlight_submenu.png"))); // NOI18N
+        PANEL_SUBMENU_TRANSAKSI.add(sub_highlight_check_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 160, 30));
+
+        sub_highlight_check_out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/highlight_submenu.png"))); // NOI18N
+        PANEL_SUBMENU_TRANSAKSI.add(sub_highlight_check_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 160, 30));
+
+        color4.setBackground(new java.awt.Color(255, 255, 255));
+        color4.setOpaque(true);
+        PANEL_SUBMENU_TRANSAKSI.add(color4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 100));
+
+        getContentPane().add(PANEL_SUBMENU_TRANSAKSI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 800, 100));
+
         PANEL_SUBMENU_PELANGGAN.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sub_tamu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SUBMENU_TAMU.png"))); // NOI18N
@@ -280,6 +478,10 @@ public class Main extends javax.swing.JFrame {
 
         sub_highlight_pelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/highlight_submenu.png"))); // NOI18N
         PANEL_SUBMENU_PELANGGAN.add(sub_highlight_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 160, 30));
+
+        color3.setBackground(new java.awt.Color(255, 255, 255));
+        color3.setOpaque(true);
+        PANEL_SUBMENU_PELANGGAN.add(color3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 100));
 
         getContentPane().add(PANEL_SUBMENU_PELANGGAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 800, 100));
 
@@ -311,9 +513,66 @@ public class Main extends javax.swing.JFrame {
         });
         TABLE_PELANGGAN.setRowHeight(30);
         TABLE_PELANGGAN.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        TABLE_PELANGGAN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TABLE_PELANGGANMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(TABLE_PELANGGAN);
 
         PANEL_PELANGGAN.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 970, 280));
+
+        LABEL6.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        LABEL6.setText("Tanggal Daftar :");
+        PANEL_PELANGGAN.add(LABEL6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, -1, -1));
+
+        lbl_tgl_lahir_pelanggan.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lbl_tgl_lahir_pelanggan.setText("21 September 2015");
+        PANEL_PELANGGAN.add(lbl_tgl_lahir_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
+
+        LABEL7.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        LABEL7.setText("Total      : ");
+        PANEL_PELANGGAN.add(LABEL7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
+
+        lbl_akumulasi_pelanggan.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lbl_akumulasi_pelanggan.setText("5 Hari");
+        PANEL_PELANGGAN.add(lbl_akumulasi_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, -1, -1));
+
+        LABEL8.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        LABEL8.setText("NIK        : ");
+        PANEL_PELANGGAN.add(LABEL8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, -1));
+
+        lbl_nama_pelanggan.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+        lbl_nama_pelanggan.setText("Ricky Irfandi");
+        PANEL_PELANGGAN.add(lbl_nama_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+
+        lbl_ID_pelanggan.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lbl_ID_pelanggan.setText("RI123");
+        PANEL_PELANGGAN.add(lbl_ID_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, -1, -1));
+
+        lbl_tgl_daftar_pelanggan.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lbl_tgl_daftar_pelanggan.setText("5 Januari 2015");
+        PANEL_PELANGGAN.add(lbl_tgl_daftar_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, -1, -1));
+
+        LABEL9.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        LABEL9.setText("Tempat Lahir   :");
+        PANEL_PELANGGAN.add(LABEL9, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 480, -1, -1));
+
+        lbl_tempat_lahir_pelanggan.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lbl_tempat_lahir_pelanggan.setText("Bondowoso");
+        PANEL_PELANGGAN.add(lbl_tempat_lahir_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, -1, -1));
+
+        LABEL10.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        LABEL10.setText("Tanggal Lahir   :");
+        PANEL_PELANGGAN.add(LABEL10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
+
+        lbl_nik_pelanggan.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        lbl_nik_pelanggan.setText("155150201111274");
+        PANEL_PELANGGAN.add(lbl_nik_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, -1, -1));
+
+        LABEL11.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        LABEL11.setText("ID          : ");
+        PANEL_PELANGGAN.add(LABEL11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
 
         color2.setBackground(new java.awt.Color(255, 255, 255));
         color2.setOpaque(true);
@@ -523,6 +782,11 @@ private void clear_highlight(){
     private void menu_transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_transaksiMouseClicked
         clear_highlight();
         highlight_transaksi.setVisible(true);
+        CLEAR_PANEL();
+        PANEL_TRANSAKSI_CHECK_IN.setVisible(true);
+        PANEL_SUBMENU_TRANSAKSI.setVisible(true);
+        sub_highlight_check_in.setVisible(true);
+        sub_highlight_check_out.setVisible(false);
     }//GEN-LAST:event_menu_transaksiMouseClicked
 
     private void menu_berandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_berandaMouseClicked
@@ -556,7 +820,7 @@ private void clear_highlight(){
         int row = TABLE_TAMU.getSelectedRow();
         int kolom = TABLE_TAMU.getSelectedColumn();
         System.out.println("row : "+row+", kolom : "+kolom+", value : "+TABLE_TAMU.getValueAt(row, kolom));
-        UPDATE_INFO(row);
+        UPDATE_INFO(row,"Tamu");
     }//GEN-LAST:event_TABLE_TAMUMouseClicked
 
     private void sub_tamuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sub_tamuMouseClicked
@@ -564,6 +828,7 @@ private void clear_highlight(){
         sub_highlight_tamu.setVisible(true);
         PANEL_PELANGGAN_TAMU.setVisible(true);
         PANEL_PELANGGAN.setVisible(false);
+        UPDATE_INFO(0,"Tamu");
     }//GEN-LAST:event_sub_tamuMouseClicked
 
     private void sub_pelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sub_pelangganMouseClicked
@@ -571,23 +836,69 @@ private void clear_highlight(){
         sub_highlight_tamu.setVisible(false);
         PANEL_PELANGGAN_TAMU.setVisible(false);
         PANEL_PELANGGAN.setVisible(true);
+        UPDATE_INFO(0,"Pelanggan");
     }//GEN-LAST:event_sub_pelangganMouseClicked
 
-    public void UPDATE_INFO(int index){
-        lbl_nama_tamu.setText((String) TABLE_TAMU.getValueAt(index, 2));
-        lbl_nik_tamu.setText((String) TABLE_TAMU.getValueAt(index, 1));
-        lbl_ID_tamu.setText((String) TABLE_TAMU.getValueAt(index, 0));
-        lbl_kamar_tamu.setText((String) TABLE_TAMU.getValueAt(index, 3));
-        lbl_ci_tamu.setText((String) TABLE_TAMU.getValueAt(index, 4));
-        lbl_co_tamu.setText((String) TABLE_TAMU.getValueAt(index, 5));
-        lbl_diskon_tamu.setText(tamu.GET_DISKON_BY_INDEX(index));
+    private void TABLE_PELANGGANMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLE_PELANGGANMouseClicked
+        int row = TABLE_PELANGGAN.getSelectedRow();
+        int kolom = TABLE_PELANGGAN.getSelectedColumn();
+        System.out.println("row : "+row+", kolom : "+kolom+", value : "+TABLE_PELANGGAN.getValueAt(row, kolom));
+        UPDATE_INFO(row,"Pelanggan");
+    }//GEN-LAST:event_TABLE_PELANGGANMouseClicked
+
+    private void sub_check_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sub_check_inMouseClicked
+        sub_highlight_check_in.setVisible(true);
+        sub_highlight_check_out.setVisible(false);
+        PANEL_TRANSAKSI_CHECK_IN.setVisible(true);
+        //panel checkout visible false
+        
+    }//GEN-LAST:event_sub_check_inMouseClicked
+
+    private void sub_check_outMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sub_check_outMouseClicked
+        sub_highlight_check_in.setVisible(false);
+        sub_highlight_check_out.setVisible(true);
+        PANEL_TRANSAKSI_CHECK_IN.setVisible(false);
+        //panel checkout visible true
+  
+    }//GEN-LAST:event_sub_check_outMouseClicked
+
+    private void txt_tanggal_daftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tanggal_daftarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_tanggal_daftarActionPerformed
+
+    private void txt_akumulasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_akumulasiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_akumulasiActionPerformed
+
+    public void UPDATE_INFO(int index, String Table) {
+        //atbel tamu
+        if (Table.equalsIgnoreCase("Tamu")) {
+            lbl_nama_tamu.setText((String) TABLE_TAMU.getValueAt(index, 2));
+            lbl_nik_tamu.setText((String) TABLE_TAMU.getValueAt(index, 1));
+            lbl_ID_tamu.setText((String) TABLE_TAMU.getValueAt(index, 0));
+            lbl_kamar_tamu.setText((String) TABLE_TAMU.getValueAt(index, 3));
+            lbl_ci_tamu.setText((String) TABLE_TAMU.getValueAt(index, 4));
+            lbl_co_tamu.setText((String) TABLE_TAMU.getValueAt(index, 5));
+            lbl_diskon_tamu.setText(tamu.GET_DISKON_BY_INDEX(index));
+        } else {
+            //tabel pelanggan
+            lbl_nama_pelanggan.setText((String) TABLE_PELANGGAN.getValueAt(index, 2));
+            lbl_nik_pelanggan.setText((String) TABLE_PELANGGAN.getValueAt(index, 1));
+            lbl_ID_pelanggan.setText((String) TABLE_PELANGGAN.getValueAt(index, 0));
+            lbl_akumulasi_pelanggan.setText((Integer.toString(user.GET_AKUMULASI(index))) + " Hari");
+            lbl_tgl_lahir_pelanggan.setText(user.STRING_TANGGAL_LAHIR(index));
+            lbl_tgl_daftar_pelanggan.setText(user.STRING_TANGGAL_DAFTAR(index));
+            lbl_tempat_lahir_pelanggan.setText(user.GET_TEMPAT_LAHIR_BY_INDEX(index));
+        }
     }
-    
+
     public void CLEAR_PANEL(){
         PANEL_BERANDA_OVERVIEW.setVisible(false);
         PANEL_PELANGGAN.setVisible(false);
         PANEL_PELANGGAN_TAMU.setVisible(false);
         PANEL_SUBMENU_PELANGGAN.setVisible(false);
+        PANEL_SUBMENU_TRANSAKSI.setVisible(false);
+        PANEL_TRANSAKSI_CHECK_IN.setVisible(false);
     }
     /**
      * @param args the command line arguments
@@ -644,19 +955,31 @@ private void clear_highlight(){
     private javax.swing.JLabel JUMLAH_VIP_TERSEDIA;
     private javax.swing.JLabel LABEL;
     private javax.swing.JLabel LABEL1;
+    private javax.swing.JLabel LABEL10;
+    private javax.swing.JLabel LABEL11;
     private javax.swing.JLabel LABEL2;
     private javax.swing.JLabel LABEL3;
     private javax.swing.JLabel LABEL4;
     private javax.swing.JLabel LABEL5;
+    private javax.swing.JLabel LABEL6;
+    private javax.swing.JLabel LABEL7;
+    private javax.swing.JLabel LABEL8;
+    private javax.swing.JLabel LABEL9;
     private javax.swing.JLayeredPane PANEL_BERANDA_OVERVIEW;
     private javax.swing.JLayeredPane PANEL_PELANGGAN;
     private javax.swing.JLayeredPane PANEL_PELANGGAN_TAMU;
     private javax.swing.JLayeredPane PANEL_SUBMENU_PELANGGAN;
+    private javax.swing.JLayeredPane PANEL_SUBMENU_TRANSAKSI;
+    private javax.swing.JLayeredPane PANEL_TRANSAKSI_CHECK_IN;
     private javax.swing.JTable TABLE_PELANGGAN;
     private javax.swing.JTable TABLE_TAMU;
+    private javax.swing.JComboBox cbo_paket_kamar;
     private javax.swing.JLabel color;
     private javax.swing.JLabel color1;
     private javax.swing.JLabel color2;
+    private javax.swing.JLabel color3;
+    private javax.swing.JLabel color4;
+    private javax.swing.JLabel color5;
     private javax.swing.JLabel highlight_beranda;
     private javax.swing.JLabel highlight_keuangan;
     private javax.swing.JLabel highlight_pelanggan;
@@ -671,22 +994,54 @@ private void clear_highlight(){
     private javax.swing.JLabel icon_transaksi;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbl_ID_pelanggan;
     private javax.swing.JLabel lbl_ID_tamu;
+    private javax.swing.JLabel lbl_akumulasi_pelanggan;
     private javax.swing.JLabel lbl_ci_tamu;
     private javax.swing.JLabel lbl_co_tamu;
     private javax.swing.JLabel lbl_diskon_tamu;
     private javax.swing.JLabel lbl_jam;
     private javax.swing.JLabel lbl_kamar_tamu;
+    private javax.swing.JLabel lbl_nama_pelanggan;
     private javax.swing.JLabel lbl_nama_tamu;
+    private javax.swing.JLabel lbl_nik_pelanggan;
     private javax.swing.JLabel lbl_nik_tamu;
+    private javax.swing.JLabel lbl_no_kamar1;
+    private javax.swing.JLabel lbl_no_kamar10;
+    private javax.swing.JLabel lbl_no_kamar11;
+    private javax.swing.JLabel lbl_no_kamar2;
+    private javax.swing.JLabel lbl_no_kamar3;
+    private javax.swing.JLabel lbl_no_kamar4;
+    private javax.swing.JLabel lbl_no_kamar5;
+    private javax.swing.JLabel lbl_no_kamar6;
+    private javax.swing.JLabel lbl_no_kamar7;
+    private javax.swing.JLabel lbl_no_kamar8;
+    private javax.swing.JLabel lbl_no_kamar9;
     private javax.swing.JLabel lbl_tanggal;
+    private javax.swing.JLabel lbl_tempat_lahir_pelanggan;
+    private javax.swing.JLabel lbl_tgl_daftar_pelanggan;
+    private javax.swing.JLabel lbl_tgl_lahir_pelanggan;
     private javax.swing.JLabel menu_beranda;
     private javax.swing.JLabel menu_keuangan;
     private javax.swing.JLabel menu_pelanggan;
     private javax.swing.JLabel menu_transaksi;
+    private javax.swing.JLabel sub_check_in;
+    private javax.swing.JLabel sub_check_out;
+    private javax.swing.JLabel sub_highlight_check_in;
+    private javax.swing.JLabel sub_highlight_check_out;
     private javax.swing.JLabel sub_highlight_pelanggan;
     private javax.swing.JLabel sub_highlight_tamu;
     private javax.swing.JLabel sub_pelanggan;
     private javax.swing.JLabel sub_tamu;
+    private javax.swing.JTextField txt_ID;
+    private javax.swing.JTextField txt_akumulasi;
+    private javax.swing.JTextField txt_nama;
+    private javax.swing.JTextField txt_nik;
+    private javax.swing.JLabel txt_no_kamar;
+    private javax.swing.JTextField txt_tanggal_check_in;
+    private javax.swing.JTextField txt_tanggal_check_out;
+    private javax.swing.JTextField txt_tanggal_daftar;
+    private javax.swing.JTextField txt_tanggal_lahir;
+    private javax.swing.JTextField txt_tempat_lahir;
     // End of variables declaration//GEN-END:variables
 }
