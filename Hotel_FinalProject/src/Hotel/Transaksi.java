@@ -23,14 +23,21 @@ public class Transaksi implements DB {
         checkIn = Calendar.getInstance();
         batasCheckOut = Calendar.getInstance();
     }
-    public Transaksi(int hari, Pelanggan tamu, Kamar kamar) {
-        kodeTransaksi = ++count;
+    public Transaksi(int hari, Pelanggan tamu, Kamar kamar) throws SQLException {
         this.tamu = tamu;
         this.kamar = kamar;
         checkIn = Calendar.getInstance();
         batasCheckOut = Calendar.getInstance();
         batasCheckOut.add(Calendar.DATE, hari);
         totalHarga = hari;
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+        Statement stmt = con.createStatement();
+        String select = String.format("select max(kode) from transaksi");
+        ResultSet rset = stmt.executeQuery(select);
+        if (rset.next()) {
+            kodeTransaksi = rset.getInt(1) + 1;
+        }
+        savingData();
     }
 
     private void checkDenda() {
@@ -45,14 +52,6 @@ public class Transaksi implements DB {
 
     }
 
-    public double getTotalHarga() {
-        return totalHarga;
-    }
-
-    public double getDenda() {
-        return denda;
-    }
-    
     public String toString() {
         return String.format("%d\n%s\n%s\n", kodeTransaksi, String.valueOf(sdf.format(checkIn.getTime())), String.valueOf(sdf.format(batasCheckOut.getTime())));
     }

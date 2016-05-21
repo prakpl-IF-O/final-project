@@ -14,13 +14,13 @@ public class Pelanggan implements DB {
     private Date tanggalLahir;
     private Date tanggalDaftar;
     private int akumulasi;
-    private static int count;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
     SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy");
+
     public Pelanggan() {
     }
 
-    public Pelanggan(int nik, String nama, String tempatLahir, String tanggalLahir, Date tanggalDaftar) throws SQLException {
+    public Pelanggan(int nik, String nama, String tempatLahir, String tanggalLahir) throws SQLException {
         this.nik = nik;
         this.nama = nama;
         this.tempatLahir = tempatLahir;
@@ -29,9 +29,15 @@ public class Pelanggan implements DB {
             this.tanggalLahir = sdf.parse(tanggalLahir);
         } catch (ParseException ex) {
         }
-        this.tanggalDaftar = tanggalDaftar;
+        this.tanggalDaftar = new Date();
         akumulasi = 0;
-        id = ++count;
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+        Statement stmt = con.createStatement();
+        String select = String.format("select max(id) from pelanggan");
+        ResultSet rset = stmt.executeQuery(select);
+        if (rset.next()) {
+            id = rset.getInt(1) + 1;
+        }
         savingData();
     }
 
@@ -59,26 +65,19 @@ public class Pelanggan implements DB {
         return tanggalDaftar;
     }
 
-    public static int getCount() {
-        return count;
-    }
-
-    public static void setCount(int count) {
-        Pelanggan.count = count;
-    }
-
     public int getAkumulasi() {
         return akumulasi;
     }
 
     public void setAkumulasi(int akumulasi) {
         this.akumulasi += akumulasi;
-        
+
     }
-    public String toString(){
-    return String.format("%-21s: %d\n%-21s: %d\n%-21s: %s\n%-21s: %s, %s\n%-21s: %s\n%-21s: %d\n\n","ID Pelanggan",
-            id,"NIK",nik,"Nama",nama,"Tempat/Tanggal Lahir",tempatLahir,String.valueOf(sdf2.format(tanggalLahir)),
-            "Tanggal Daftar",String.valueOf(sdf2.format(tanggalDaftar)),"Akumulasi",akumulasi);
+
+    public String toString() {
+        return String.format("%-21s: %d\n%-21s: %d\n%-21s: %s\n%-21s: %s, %s\n%-21s: %s\n%-21s: %d\n\n", "ID Pelanggan",
+                id, "NIK", nik, "Nama", nama, "Tempat/Tanggal Lahir", tempatLahir, String.valueOf(sdf2.format(tanggalLahir)),
+                "Tanggal Daftar", String.valueOf(sdf2.format(tanggalDaftar)), "Akumulasi", akumulasi);
     }
 
     public void savingData() throws SQLException {
@@ -112,13 +111,13 @@ public class Pelanggan implements DB {
         }
     }
 
-    public void updateAkumulasi(int id,int update) throws SQLException {
+    public void updateAkumulasi(int id, int update) throws SQLException {
         retrieveData(id);
         setAkumulasi(update);
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
         Statement stmt = con.createStatement();
-        String up = String.format("update pelanggan set akumulasi = %s where id = %s", String.valueOf(akumulasi),String.valueOf(this.id));
-        stmt.executeUpdate(up);           
+        String up = String.format("update pelanggan set akumulasi = %s where id = %s", String.valueOf(akumulasi), String.valueOf(this.id));
+        stmt.executeUpdate(up);
     }
 
 }
