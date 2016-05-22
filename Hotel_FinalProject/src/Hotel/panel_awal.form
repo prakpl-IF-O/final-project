@@ -175,7 +175,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\ltf\Downloads\Untitled-1.jpg"/>
+          <Image iconType="3" name="/Hotel/Untitled-1.jpg"/>
         </Property>
       </Properties>
       <Constraints>

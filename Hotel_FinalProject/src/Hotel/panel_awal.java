@@ -148,7 +148,7 @@ public class panel_awal extends javax.swing.JFrame {
         background.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
         background.setForeground(new java.awt.Color(0, 51, 255));
         background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        background.setIcon(new javax.swing.ImageIcon("C:\\Users\\ltf\\Downloads\\Untitled-1.jpg")); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hotel/Untitled-1.jpg"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
