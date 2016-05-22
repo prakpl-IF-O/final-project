@@ -26,30 +26,47 @@ public class panel_awal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jComboBox1 = new javax.swing.JComboBox();
-        label_namahotel = new javax.swing.JLabel();
+        jFrame1 = new javax.swing.JFrame();
         label_cek_in = new javax.swing.JLabel();
         button_new = new javax.swing.JButton();
         button_member = new javax.swing.JButton();
         label_check_out = new javax.swing.JLabel();
         button_check_out = new javax.swing.JButton();
+        button_check_out1 = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
-        label_namahotel.setBackground(new java.awt.Color(255, 0, 51));
-        label_namahotel.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
-        label_namahotel.setForeground(new java.awt.Color(0, 51, 255));
-        label_namahotel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_namahotel.setText("HOTEL MANTAB");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         label_cek_in.setBackground(new java.awt.Color(51, 204, 255));
         label_cek_in.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
-        label_cek_in.setForeground(new java.awt.Color(0, 255, 0));
+        label_cek_in.setForeground(new java.awt.Color(51, 0, 204));
         label_cek_in.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_cek_in.setText("Check In");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.ipadx = 143;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(130, 440, 0, 0);
+        getContentPane().add(label_cek_in, gridBagConstraints);
 
         button_new.setBackground(new java.awt.Color(153, 255, 51));
         button_new.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
@@ -59,15 +76,39 @@ public class panel_awal extends javax.swing.JFrame {
                 button_newActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.ipady = -7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 410, 0, 0);
+        getContentPane().add(button_new, gridBagConstraints);
 
         button_member.setBackground(new java.awt.Color(0, 204, 51));
         button_member.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
         button_member.setText("Member");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 29;
+        gridBagConstraints.ipady = -7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 47, 0, 0);
+        getContentPane().add(button_member, gridBagConstraints);
 
         label_check_out.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
         label_check_out.setForeground(new java.awt.Color(255, 51, 51));
         label_check_out.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_check_out.setText("Check Out");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(16, 490, 0, 0);
+        getContentPane().add(label_check_out, gridBagConstraints);
 
         button_check_out.setBackground(new java.awt.Color(102, 51, 255));
         button_check_out.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
@@ -77,52 +118,47 @@ public class panel_awal extends javax.swing.JFrame {
                 button_check_outActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipady = -3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 480, 0, 0);
+        getContentPane().add(button_check_out, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(label_namahotel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(255, 255, 255)
-                .addComponent(button_new, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40)
-                .addComponent(button_member, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(193, 193, 193))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(336, 336, 336)
-                .addComponent(label_check_out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(310, 310, 310))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(label_cek_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(239, 239, 239))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(button_check_out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(292, 292, 292))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(label_namahotel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(34, 34, 34)
-                .addComponent(label_cek_in, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_new, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(button_member, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(label_check_out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button_check_out, javax.swing.GroupLayout.PREFERRED_SIZE, 32, Short.MAX_VALUE)
-                .addGap(82, 82, 82))
-        );
+        button_check_out1.setBackground(new java.awt.Color(102, 51, 255));
+        button_check_out1.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
+        button_check_out1.setText("Check Out");
+        button_check_out1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_check_out1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipady = -3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 480, 0, 0);
+        getContentPane().add(button_check_out1, gridBagConstraints);
+
+        background.setBackground(new java.awt.Color(255, 0, 51));
+        background.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
+        background.setForeground(new java.awt.Color(0, 51, 255));
+        background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        background.setIcon(new javax.swing.ImageIcon("C:\\Users\\ltf\\Downloads\\Untitled-1.jpg")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.ipadx = -8;
+        gridBagConstraints.ipady = -2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
+        getContentPane().add(background, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,6 +170,10 @@ public class panel_awal extends javax.swing.JFrame {
     private void button_check_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_outActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_check_outActionPerformed
+
+    private void button_check_out1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_out1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_check_out1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,12 +211,14 @@ public class panel_awal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
     private javax.swing.JButton button_check_out;
+    private javax.swing.JButton button_check_out1;
     private javax.swing.JButton button_member;
     private javax.swing.JButton button_new;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel label_cek_in;
     private javax.swing.JLabel label_check_out;
-    private javax.swing.JLabel label_namahotel;
     // End of variables declaration//GEN-END:variables
 }

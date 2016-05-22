@@ -38,20 +38,32 @@ public class panel_new extends javax.swing.JFrame {
         textfield_tempat_lahir = new javax.swing.JTextField();
         textfield_tanggal_lahir = new javax.swing.JTextField();
         button_submit = new javax.swing.JButton();
-        button_cancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        button_cancel = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         label_nama.setText("Nama");
+        getContentPane().add(label_nama);
+        label_nama.setBounds(10, 140, 856, 14);
 
         label_nik.setText("NIK");
+        getContentPane().add(label_nik);
+        label_nik.setBounds(10, 200, 618, 14);
 
         label_tempat_lahir.setText("Tempat Lahir");
+        getContentPane().add(label_tempat_lahir);
+        label_tempat_lahir.setBounds(10, 250, 663, 14);
 
         label_tanggal_lahir.setText("Tanggal Lahir");
+        getContentPane().add(label_tanggal_lahir);
+        label_tanggal_lahir.setBounds(10, 300, 665, 14);
 
         label_pilih_jenis_kamar.setText("Jenis Kamar");
+        getContentPane().add(label_pilih_jenis_kamar);
+        label_pilih_jenis_kamar.setBounds(10, 350, 658, 14);
 
         ComboBox_pilihkamar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VIP", "Suite", "Premium", "Reguler" }));
         ComboBox_pilihkamar.addActionListener(new java.awt.event.ActionListener() {
@@ -59,104 +71,47 @@ public class panel_new extends javax.swing.JFrame {
                 ComboBox_pilihkamarActionPerformed(evt);
             }
         });
+        getContentPane().add(ComboBox_pilihkamar);
+        ComboBox_pilihkamar.setBounds(10, 370, 629, 20);
 
         textfield_nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textfield_namaActionPerformed(evt);
             }
         });
+        getContentPane().add(textfield_nama);
+        textfield_nama.setBounds(10, 160, 740, 20);
+        getContentPane().add(textfield_nik);
+        textfield_nik.setBounds(10, 220, 740, 20);
 
         textfield_tempat_lahir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textfield_tempat_lahirActionPerformed(evt);
             }
         });
+        getContentPane().add(textfield_tempat_lahir);
+        textfield_tempat_lahir.setBounds(10, 270, 740, 20);
+        getContentPane().add(textfield_tanggal_lahir);
+        textfield_tanggal_lahir.setBounds(10, 320, 740, 20);
 
         button_submit.setText("Submit");
-
-        button_cancel.setText("Cancel");
+        getContentPane().add(button_submit);
+        button_submit.setBounds(480, 410, 270, 23);
 
         jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Daftar Member Baru HOTEL MANTAB");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-120, 50, 1001, 33);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(button_cancel, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                .addGap(199, 199, 199)
-                .addComponent(button_submit, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                .addGap(35, 35, 35))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(label_nik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(248, 248, 248))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(label_nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(textfield_nama)
-                        .addGap(76, 76, 76))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ComboBox_pilihkamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(161, 161, 161))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label_tempat_lahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(127, 127, 127))
-                            .addComponent(textfield_nik)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(textfield_tempat_lahir)
-                                .addGap(1, 1, 1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label_tanggal_lahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(125, 125, 125))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(textfield_tanggal_lahir)
-                                .addGap(1, 1, 1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label_pilih_jenis_kamar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(132, 132, 132)))
-                        .addGap(76, 76, 76))))
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label_nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textfield_nama)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label_nik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textfield_nik)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label_tempat_lahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textfield_tempat_lahir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label_tanggal_lahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textfield_tanggal_lahir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label_pilih_jenis_kamar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ComboBox_pilihkamar)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_submit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button_cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(39, 39, 39))
-        );
+        button_cancel.setText("Cancel");
+        getContentPane().add(button_cancel);
+        button_cancel.setBounds(10, 410, 260, 23);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ltf\\Downloads\\Untitled-1.jpg")); // NOI18N
+        jLabel2.setToolTipText("");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 10, 758, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -213,6 +168,7 @@ public class panel_new extends javax.swing.JFrame {
     private javax.swing.JButton button_cancel;
     private javax.swing.JButton button_submit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel label_nama;
     private javax.swing.JLabel label_nik;
     private javax.swing.JLabel label_pilih_jenis_kamar;
