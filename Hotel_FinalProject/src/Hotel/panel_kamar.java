@@ -5,18 +5,141 @@ package Hotel;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author ltf
  */
+import java.awt.Color;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+
 public class panel_kamar extends javax.swing.JFrame {
 
     /**
      * Creates new form panel_kamar
      */
-    public panel_kamar() {
+    public panel_kamar() throws SQLException {
         initComponents();
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+        Statement stmt = con.createStatement();
+        String select = String.format("select * from kamar");
+        ResultSet rset = stmt.executeQuery(select);
+        boolean[] cek = new boolean[100];
+        int i = 0;
+        JLabel[] jl = new JLabel[100];
+        while (rset.next()) {
+            cek[i] = rset.getBoolean("isSewa");
+            if (cek[i] == true) {
+                jl[i] = new JLabel();
+                jl[i].setBackground(Color.red);
+            } else {
+                jl[i] = new JLabel();
+                jl[i].setBackground(Color.green);
+            }
+            i++;
+        }
+        label1.setBackground(jl[0].getBackground());
+        label2.setBackground(jl[1].getBackground());
+        label3.setBackground(jl[2].getBackground());
+        label4.setBackground(jl[3].getBackground());
+        label5.setBackground(jl[4].getBackground());
+        label6.setBackground(jl[5].getBackground());
+        label7.setBackground(jl[6].getBackground());
+        label8.setBackground(jl[7].getBackground());
+        label9.setBackground(jl[8].getBackground());
+        label10.setBackground(jl[9].getBackground());
+        label11.setBackground(jl[10].getBackground());
+        label12.setBackground(jl[11].getBackground());
+        label13.setBackground(jl[12].getBackground());
+        label14.setBackground(jl[13].getBackground());
+        label15.setBackground(jl[14].getBackground());
+        label16.setBackground(jl[15].getBackground());
+        label17.setBackground(jl[16].getBackground());
+        label18.setBackground(jl[17].getBackground());
+        label19.setBackground(jl[18].getBackground());
+        label20.setBackground(jl[19].getBackground());
+        label21.setBackground(jl[20].getBackground());
+        label22.setBackground(jl[21].getBackground());
+        label23.setBackground(jl[22].getBackground());
+        label24.setBackground(jl[23].getBackground());
+        label25.setBackground(jl[24].getBackground());
+        label26.setBackground(jl[25].getBackground());
+        label27.setBackground(jl[26].getBackground());
+        label28.setBackground(jl[27].getBackground());
+        label29.setBackground(jl[28].getBackground());
+        label30.setBackground(jl[29].getBackground());
+        label31.setBackground(jl[30].getBackground());
+        label32.setBackground(jl[31].getBackground());
+        label33.setBackground(jl[32].getBackground());
+        label34.setBackground(jl[33].getBackground());
+        label35.setBackground(jl[34].getBackground());
+        label36.setBackground(jl[35].getBackground());
+        label37.setBackground(jl[36].getBackground());
+        label38.setBackground(jl[37].getBackground());
+        label39.setBackground(jl[38].getBackground());
+        label40.setBackground(jl[39].getBackground());
+        label41.setBackground(jl[40].getBackground());
+        label42.setBackground(jl[41].getBackground());
+        label43.setBackground(jl[42].getBackground());
+        label44.setBackground(jl[43].getBackground());
+        label45.setBackground(jl[44].getBackground());
+        label46.setBackground(jl[45].getBackground());
+        label47.setBackground(jl[46].getBackground());
+        label48.setBackground(jl[47].getBackground());
+        label49.setBackground(jl[48].getBackground());
+        label50.setBackground(jl[49].getBackground());
+        label51.setBackground(jl[50].getBackground());
+        label52.setBackground(jl[51].getBackground());
+        label53.setBackground(jl[52].getBackground());
+        label54.setBackground(jl[53].getBackground());
+        label55.setBackground(jl[54].getBackground());
+        label56.setBackground(jl[55].getBackground());
+        label57.setBackground(jl[56].getBackground());
+        label58.setBackground(jl[57].getBackground());
+        label59.setBackground(jl[58].getBackground());
+        label60.setBackground(jl[59].getBackground());
+        label61.setBackground(jl[60].getBackground());
+        label62.setBackground(jl[61].getBackground());
+        label63.setBackground(jl[62].getBackground());
+        label64.setBackground(jl[63].getBackground());
+        label65.setBackground(jl[64].getBackground());
+        label66.setBackground(jl[65].getBackground());
+        label67.setBackground(jl[66].getBackground());
+        label68.setBackground(jl[67].getBackground());
+        label69.setBackground(jl[68].getBackground());
+        label70.setBackground(jl[69].getBackground());
+        label71.setBackground(jl[70].getBackground());
+        label72.setBackground(jl[71].getBackground());
+        label73.setBackground(jl[72].getBackground());
+        label74.setBackground(jl[73].getBackground());
+        label75.setBackground(jl[74].getBackground());
+        label76.setBackground(jl[75].getBackground());
+        label77.setBackground(jl[76].getBackground());
+        label78.setBackground(jl[77].getBackground());
+        label79.setBackground(jl[78].getBackground());
+        label80.setBackground(jl[79].getBackground());
+        label81.setBackground(jl[80].getBackground());
+        label82.setBackground(jl[81].getBackground());
+        label83.setBackground(jl[82].getBackground());
+        label84.setBackground(jl[83].getBackground());
+        label85.setBackground(jl[84].getBackground());
+        label86.setBackground(jl[85].getBackground());
+        label87.setBackground(jl[86].getBackground());
+        label88.setBackground(jl[87].getBackground());
+        label89.setBackground(jl[88].getBackground());
+        label90.setBackground(jl[89].getBackground());
+        label91.setBackground(jl[90].getBackground());
+        label92.setBackground(jl[91].getBackground());
+        label93.setBackground(jl[92].getBackground());
+        label94.setBackground(jl[93].getBackground());
+        label95.setBackground(jl[94].getBackground());
+        label96.setBackground(jl[95].getBackground());
+        label97.setBackground(jl[96].getBackground());
+        label98.setBackground(jl[97].getBackground());
+        label99.setBackground(jl[98].getBackground());
+        label100.setBackground(jl[99].getBackground());
     }
 
     /**
@@ -138,13 +261,15 @@ public class panel_kamar extends javax.swing.JFrame {
         label_premium1.setForeground(new java.awt.Color(102, 102, 255));
         label_premium1.setText("Premium");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(430, 600));
+        setMinimumSize(new java.awt.Dimension(430, 600));
         getContentPane().setLayout(null);
 
         label1.setBackground(new java.awt.Color(0, 255, 102));
         label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label1.setText("1");
         label1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label1.setOpaque(true);
         getContentPane().add(label1);
         label1.setBounds(10, 440, 30, 18);
 
@@ -152,6 +277,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label2.setText("2");
         label2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label2.setOpaque(true);
         getContentPane().add(label2);
         label2.setBounds(50, 440, 30, 18);
 
@@ -159,6 +285,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label3.setText("3");
         label3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label3.setOpaque(true);
         getContentPane().add(label3);
         label3.setBounds(90, 440, 30, 18);
 
@@ -166,6 +293,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label4.setText("4");
         label4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label4.setOpaque(true);
         getContentPane().add(label4);
         label4.setBounds(130, 440, 30, 18);
 
@@ -173,6 +301,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label5.setText("5");
         label5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label5.setOpaque(true);
         getContentPane().add(label5);
         label5.setBounds(170, 440, 30, 18);
 
@@ -180,6 +309,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label6.setText("6");
         label6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label6.setOpaque(true);
         getContentPane().add(label6);
         label6.setBounds(210, 440, 30, 18);
 
@@ -187,6 +317,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label7.setText("7");
         label7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label7.setOpaque(true);
         getContentPane().add(label7);
         label7.setBounds(250, 440, 30, 18);
 
@@ -194,6 +325,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label8.setText("8");
         label8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label8.setOpaque(true);
         getContentPane().add(label8);
         label8.setBounds(290, 440, 30, 18);
 
@@ -201,6 +333,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label9.setText("9");
         label9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label9.setOpaque(true);
         getContentPane().add(label9);
         label9.setBounds(330, 440, 30, 18);
 
@@ -208,6 +341,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label10.setText("10");
         label10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label10.setOpaque(true);
         getContentPane().add(label10);
         label10.setBounds(370, 440, 30, 18);
 
@@ -215,6 +349,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label11.setText("11");
         label11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label11.setOpaque(true);
         getContentPane().add(label11);
         label11.setBounds(10, 410, 30, 18);
 
@@ -222,6 +357,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label12.setText("12");
         label12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label12.setOpaque(true);
         getContentPane().add(label12);
         label12.setBounds(50, 410, 30, 18);
 
@@ -229,6 +365,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label13.setText("13");
         label13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label13.setOpaque(true);
         getContentPane().add(label13);
         label13.setBounds(90, 410, 30, 18);
 
@@ -236,6 +373,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label14.setText("14");
         label14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label14.setOpaque(true);
         getContentPane().add(label14);
         label14.setBounds(130, 410, 30, 18);
 
@@ -243,6 +381,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label15.setText("15");
         label15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label15.setOpaque(true);
         getContentPane().add(label15);
         label15.setBounds(170, 410, 30, 18);
 
@@ -250,6 +389,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label16.setText("16");
         label16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label16.setOpaque(true);
         getContentPane().add(label16);
         label16.setBounds(210, 410, 30, 18);
 
@@ -257,6 +397,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label17.setText("17");
         label17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label17.setOpaque(true);
         getContentPane().add(label17);
         label17.setBounds(250, 410, 30, 18);
 
@@ -264,6 +405,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label18.setText("18");
         label18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label18.setOpaque(true);
         getContentPane().add(label18);
         label18.setBounds(290, 410, 30, 18);
 
@@ -271,6 +413,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label19.setText("19");
         label19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label19.setOpaque(true);
         getContentPane().add(label19);
         label19.setBounds(330, 410, 30, 18);
 
@@ -278,6 +421,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label20.setText("20");
         label20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label20.setOpaque(true);
         getContentPane().add(label20);
         label20.setBounds(370, 410, 30, 18);
 
@@ -285,6 +429,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label21.setText("21");
         label21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label21.setOpaque(true);
         getContentPane().add(label21);
         label21.setBounds(10, 380, 30, 18);
 
@@ -292,6 +437,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label22.setText("22");
         label22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label22.setOpaque(true);
         getContentPane().add(label22);
         label22.setBounds(50, 380, 30, 18);
 
@@ -299,6 +445,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label23.setText("23");
         label23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label23.setOpaque(true);
         getContentPane().add(label23);
         label23.setBounds(90, 380, 30, 18);
 
@@ -306,6 +453,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label24.setText("24");
         label24.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label24.setOpaque(true);
         getContentPane().add(label24);
         label24.setBounds(130, 380, 30, 18);
 
@@ -313,6 +461,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label25.setText("25");
         label25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label25.setOpaque(true);
         getContentPane().add(label25);
         label25.setBounds(170, 380, 30, 18);
 
@@ -320,6 +469,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label26.setText("26");
         label26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label26.setOpaque(true);
         getContentPane().add(label26);
         label26.setBounds(210, 380, 30, 18);
 
@@ -327,6 +477,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label27.setText("27");
         label27.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label27.setOpaque(true);
         getContentPane().add(label27);
         label27.setBounds(250, 380, 30, 18);
 
@@ -334,6 +485,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label28.setText("28");
         label28.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label28.setOpaque(true);
         getContentPane().add(label28);
         label28.setBounds(290, 380, 30, 18);
 
@@ -341,6 +493,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label29.setText("29");
         label29.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label29.setOpaque(true);
         getContentPane().add(label29);
         label29.setBounds(330, 380, 30, 18);
 
@@ -348,6 +501,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label30.setText("30");
         label30.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label30.setOpaque(true);
         getContentPane().add(label30);
         label30.setBounds(370, 380, 30, 18);
 
@@ -355,6 +509,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label31.setText("31");
         label31.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label31.setOpaque(true);
         getContentPane().add(label31);
         label31.setBounds(10, 350, 30, 18);
 
@@ -362,6 +517,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label32.setText("32");
         label32.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label32.setOpaque(true);
         getContentPane().add(label32);
         label32.setBounds(50, 350, 30, 18);
 
@@ -369,6 +525,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label33.setText("33");
         label33.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label33.setOpaque(true);
         getContentPane().add(label33);
         label33.setBounds(90, 350, 30, 18);
 
@@ -376,6 +533,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label34.setText("34");
         label34.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label34.setOpaque(true);
         getContentPane().add(label34);
         label34.setBounds(130, 350, 30, 18);
 
@@ -383,6 +541,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label35.setText("35");
         label35.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label35.setOpaque(true);
         getContentPane().add(label35);
         label35.setBounds(170, 350, 30, 18);
 
@@ -390,6 +549,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label36.setText("36");
         label36.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label36.setOpaque(true);
         getContentPane().add(label36);
         label36.setBounds(210, 350, 30, 18);
 
@@ -397,6 +557,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label37.setText("37");
         label37.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label37.setOpaque(true);
         getContentPane().add(label37);
         label37.setBounds(250, 350, 30, 18);
 
@@ -404,6 +565,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label38.setText("38");
         label38.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label38.setOpaque(true);
         getContentPane().add(label38);
         label38.setBounds(290, 350, 30, 18);
 
@@ -411,6 +573,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label39.setText("39");
         label39.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label39.setOpaque(true);
         getContentPane().add(label39);
         label39.setBounds(330, 350, 30, 18);
 
@@ -418,6 +581,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label40.setText("40");
         label40.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label40.setOpaque(true);
         getContentPane().add(label40);
         label40.setBounds(370, 350, 30, 18);
 
@@ -425,6 +589,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label41.setText("41");
         label41.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label41.setOpaque(true);
         getContentPane().add(label41);
         label41.setBounds(10, 320, 30, 18);
 
@@ -432,6 +597,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label42.setText("42");
         label42.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label42.setOpaque(true);
         getContentPane().add(label42);
         label42.setBounds(50, 320, 30, 18);
 
@@ -439,6 +605,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label43.setText("43");
         label43.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label43.setOpaque(true);
         getContentPane().add(label43);
         label43.setBounds(90, 320, 30, 18);
 
@@ -446,6 +613,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label44.setText("44");
         label44.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label44.setOpaque(true);
         getContentPane().add(label44);
         label44.setBounds(130, 320, 30, 18);
 
@@ -453,6 +621,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label45.setText("45");
         label45.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label45.setOpaque(true);
         getContentPane().add(label45);
         label45.setBounds(170, 320, 30, 18);
 
@@ -460,6 +629,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label46.setText("46");
         label46.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label46.setOpaque(true);
         getContentPane().add(label46);
         label46.setBounds(210, 320, 30, 18);
 
@@ -467,6 +637,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label47.setText("47");
         label47.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label47.setOpaque(true);
         getContentPane().add(label47);
         label47.setBounds(250, 320, 30, 18);
 
@@ -474,6 +645,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label48.setText("48");
         label48.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label48.setOpaque(true);
         getContentPane().add(label48);
         label48.setBounds(290, 320, 30, 18);
 
@@ -481,6 +653,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label49.setText("49");
         label49.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label49.setOpaque(true);
         getContentPane().add(label49);
         label49.setBounds(330, 320, 30, 18);
 
@@ -488,6 +661,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label50.setText("50");
         label50.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label50.setOpaque(true);
         getContentPane().add(label50);
         label50.setBounds(370, 320, 30, 18);
 
@@ -495,6 +669,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label51.setText("51");
         label51.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label51.setOpaque(true);
         getContentPane().add(label51);
         label51.setBounds(10, 250, 30, 30);
 
@@ -502,6 +677,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label52.setText("52");
         label52.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label52.setOpaque(true);
         getContentPane().add(label52);
         label52.setBounds(50, 250, 30, 30);
 
@@ -509,6 +685,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label53.setText("53");
         label53.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label53.setOpaque(true);
         getContentPane().add(label53);
         label53.setBounds(90, 250, 30, 30);
 
@@ -516,6 +693,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label54.setText("54");
         label54.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label54.setOpaque(true);
         getContentPane().add(label54);
         label54.setBounds(130, 250, 30, 30);
 
@@ -523,6 +701,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label55.setText("55");
         label55.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label55.setOpaque(true);
         getContentPane().add(label55);
         label55.setBounds(170, 250, 30, 30);
 
@@ -530,6 +709,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label56.setText("56");
         label56.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label56.setOpaque(true);
         getContentPane().add(label56);
         label56.setBounds(210, 250, 30, 30);
 
@@ -537,6 +717,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label57.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label57.setText("57");
         label57.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label57.setOpaque(true);
         getContentPane().add(label57);
         label57.setBounds(250, 250, 30, 30);
 
@@ -544,6 +725,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label58.setText("58");
         label58.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label58.setOpaque(true);
         getContentPane().add(label58);
         label58.setBounds(290, 250, 30, 30);
 
@@ -551,6 +733,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label59.setText("59");
         label59.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label59.setOpaque(true);
         getContentPane().add(label59);
         label59.setBounds(330, 250, 30, 30);
 
@@ -558,6 +741,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label60.setText("60");
         label60.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label60.setOpaque(true);
         getContentPane().add(label60);
         label60.setBounds(370, 250, 30, 30);
 
@@ -565,6 +749,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label61.setText("61");
         label61.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label61.setOpaque(true);
         getContentPane().add(label61);
         label61.setBounds(10, 210, 30, 30);
 
@@ -572,6 +757,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label62.setText("62");
         label62.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label62.setOpaque(true);
         getContentPane().add(label62);
         label62.setBounds(50, 210, 30, 30);
 
@@ -579,6 +765,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label63.setText("63");
         label63.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label63.setOpaque(true);
         getContentPane().add(label63);
         label63.setBounds(90, 210, 30, 30);
 
@@ -586,6 +773,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label64.setText("64");
         label64.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label64.setOpaque(true);
         getContentPane().add(label64);
         label64.setBounds(130, 210, 30, 30);
 
@@ -593,6 +781,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label65.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label65.setText("65");
         label65.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label65.setOpaque(true);
         getContentPane().add(label65);
         label65.setBounds(170, 210, 30, 30);
 
@@ -600,6 +789,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label66.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label66.setText("66");
         label66.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label66.setOpaque(true);
         getContentPane().add(label66);
         label66.setBounds(210, 210, 30, 30);
 
@@ -607,6 +797,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label67.setText("67");
         label67.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label67.setOpaque(true);
         getContentPane().add(label67);
         label67.setBounds(250, 210, 30, 30);
 
@@ -614,6 +805,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label68.setText("68");
         label68.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label68.setOpaque(true);
         getContentPane().add(label68);
         label68.setBounds(290, 210, 30, 30);
 
@@ -621,6 +813,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label69.setText("69");
         label69.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label69.setOpaque(true);
         getContentPane().add(label69);
         label69.setBounds(330, 210, 30, 30);
 
@@ -628,6 +821,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label70.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label70.setText("70");
         label70.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label70.setOpaque(true);
         getContentPane().add(label70);
         label70.setBounds(370, 210, 30, 30);
 
@@ -635,6 +829,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label71.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label71.setText("71");
         label71.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label71.setOpaque(true);
         getContentPane().add(label71);
         label71.setBounds(10, 150, 30, 30);
 
@@ -642,6 +837,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label72.setText("72");
         label72.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label72.setOpaque(true);
         getContentPane().add(label72);
         label72.setBounds(50, 150, 30, 30);
 
@@ -649,6 +845,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label73.setText("73");
         label73.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label73.setOpaque(true);
         getContentPane().add(label73);
         label73.setBounds(90, 150, 30, 30);
 
@@ -656,6 +853,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label74.setText("74");
         label74.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label74.setOpaque(true);
         getContentPane().add(label74);
         label74.setBounds(130, 150, 30, 30);
 
@@ -663,6 +861,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label75.setText("75");
         label75.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label75.setOpaque(true);
         getContentPane().add(label75);
         label75.setBounds(170, 150, 30, 30);
 
@@ -670,6 +869,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label76.setText("76");
         label76.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label76.setOpaque(true);
         getContentPane().add(label76);
         label76.setBounds(210, 150, 30, 30);
 
@@ -677,6 +877,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label77.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label77.setText("77");
         label77.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label77.setOpaque(true);
         getContentPane().add(label77);
         label77.setBounds(250, 150, 30, 30);
 
@@ -684,6 +885,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label78.setText("78");
         label78.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label78.setOpaque(true);
         getContentPane().add(label78);
         label78.setBounds(290, 150, 30, 30);
 
@@ -691,6 +893,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label79.setText("79");
         label79.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label79.setOpaque(true);
         getContentPane().add(label79);
         label79.setBounds(330, 150, 30, 30);
 
@@ -698,6 +901,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label80.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label80.setText("80");
         label80.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label80.setOpaque(true);
         getContentPane().add(label80);
         label80.setBounds(370, 150, 30, 30);
 
@@ -705,6 +909,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label81.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label81.setText("81");
         label81.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label81.setOpaque(true);
         getContentPane().add(label81);
         label81.setBounds(10, 110, 30, 30);
 
@@ -712,6 +917,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label82.setText("82");
         label82.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label82.setOpaque(true);
         getContentPane().add(label82);
         label82.setBounds(50, 110, 30, 30);
 
@@ -719,6 +925,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label83.setText("83");
         label83.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label83.setOpaque(true);
         getContentPane().add(label83);
         label83.setBounds(90, 110, 30, 30);
 
@@ -726,6 +933,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label84.setText("84");
         label84.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label84.setOpaque(true);
         getContentPane().add(label84);
         label84.setBounds(130, 110, 30, 30);
 
@@ -733,6 +941,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label85.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label85.setText("85");
         label85.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label85.setOpaque(true);
         getContentPane().add(label85);
         label85.setBounds(170, 110, 30, 30);
 
@@ -740,6 +949,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label86.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label86.setText("86");
         label86.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label86.setOpaque(true);
         getContentPane().add(label86);
         label86.setBounds(210, 110, 30, 30);
 
@@ -747,6 +957,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label87.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label87.setText("87");
         label87.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label87.setOpaque(true);
         getContentPane().add(label87);
         label87.setBounds(250, 110, 30, 30);
 
@@ -754,6 +965,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label88.setText("88");
         label88.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label88.setOpaque(true);
         getContentPane().add(label88);
         label88.setBounds(290, 110, 30, 30);
 
@@ -761,6 +973,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label89.setText("89");
         label89.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label89.setOpaque(true);
         getContentPane().add(label89);
         label89.setBounds(330, 110, 30, 30);
 
@@ -768,6 +981,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label90.setText("90");
         label90.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label90.setOpaque(true);
         getContentPane().add(label90);
         label90.setBounds(370, 110, 30, 30);
 
@@ -775,6 +989,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label91.setText("91");
         label91.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label91.setOpaque(true);
         getContentPane().add(label91);
         label91.setBounds(10, 30, 30, 40);
 
@@ -782,6 +997,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label92.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label92.setText("92");
         label92.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label92.setOpaque(true);
         getContentPane().add(label92);
         label92.setBounds(50, 30, 30, 40);
 
@@ -789,6 +1005,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label93.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label93.setText("93");
         label93.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label93.setOpaque(true);
         getContentPane().add(label93);
         label93.setBounds(90, 30, 30, 40);
 
@@ -796,6 +1013,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label94.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label94.setText("94");
         label94.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label94.setOpaque(true);
         getContentPane().add(label94);
         label94.setBounds(130, 30, 30, 40);
 
@@ -803,6 +1021,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label95.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label95.setText("95");
         label95.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label95.setOpaque(true);
         getContentPane().add(label95);
         label95.setBounds(170, 30, 30, 40);
 
@@ -810,6 +1029,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label96.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label96.setText("96");
         label96.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label96.setOpaque(true);
         getContentPane().add(label96);
         label96.setBounds(210, 30, 30, 40);
 
@@ -817,6 +1037,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label97.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label97.setText("97");
         label97.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label97.setOpaque(true);
         getContentPane().add(label97);
         label97.setBounds(250, 30, 30, 40);
 
@@ -824,6 +1045,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label98.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label98.setText("98");
         label98.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label98.setOpaque(true);
         getContentPane().add(label98);
         label98.setBounds(290, 30, 30, 40);
 
@@ -831,6 +1053,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label99.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label99.setText("99");
         label99.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label99.setOpaque(true);
         getContentPane().add(label99);
         label99.setBounds(330, 30, 30, 40);
 
@@ -838,6 +1061,7 @@ public class panel_kamar extends javax.swing.JFrame {
         label100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label100.setText("100");
         label100.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        label100.setOpaque(true);
         getContentPane().add(label100);
         label100.setBounds(370, 30, 30, 40);
 
@@ -898,7 +1122,11 @@ public class panel_kamar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new panel_kamar().setVisible(true);
+                try {
+                    new panel_kamar().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(panel_kamar.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

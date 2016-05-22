@@ -5,6 +5,10 @@
  */
 package Hotel;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ltf
@@ -14,7 +18,8 @@ public class panel_awal extends javax.swing.JFrame {
     /**
      * Creates new form panel_awal
      */
-    public panel_awal() {
+    panel_kamar pk;
+    public panel_awal() throws SQLException {
         initComponents();
     }
 
@@ -175,6 +180,7 @@ public class panel_awal extends javax.swing.JFrame {
     private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
         panel_new pn = new panel_new();
         pn.setVisible(true);
+        
     }//GEN-LAST:event_button_newActionPerformed
 
     private void button_check_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_outActionPerformed
@@ -182,7 +188,13 @@ public class panel_awal extends javax.swing.JFrame {
     }//GEN-LAST:event_button_check_outActionPerformed
 
     private void button_cek_kamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cek_kamarActionPerformed
-
+        try {
+            pk = new panel_kamar();
+        } catch (SQLException ex) {
+            Logger.getLogger(panel_awal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pk.setSize(430,600);
+        pk.setVisible(true);
     }//GEN-LAST:event_button_cek_kamarActionPerformed
 
     private void button_member1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_member1ActionPerformed
@@ -220,7 +232,11 @@ public class panel_awal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new panel_awal().setVisible(true);
+                try {
+                    new panel_awal().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(panel_awal.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
