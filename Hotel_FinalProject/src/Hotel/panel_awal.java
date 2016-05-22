@@ -32,10 +32,10 @@ public class panel_awal extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         label_cek_in = new javax.swing.JLabel();
         button_new = new javax.swing.JButton();
-        button_member = new javax.swing.JButton();
+        button_cek_kamar = new javax.swing.JButton();
         label_check_out = new javax.swing.JLabel();
         button_check_out = new javax.swing.JButton();
-        button_check_out1 = new javax.swing.JButton();
+        button_member1 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -62,14 +62,14 @@ public class panel_awal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 143;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(130, 440, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(70, 400, 0, 0);
         getContentPane().add(label_cek_in, gridBagConstraints);
 
         button_new.setBackground(new java.awt.Color(153, 255, 51));
-        button_new.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        button_new.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
         button_new.setText("New");
         button_new.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,25 +78,26 @@ public class panel_awal extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 34;
         gridBagConstraints.ipady = -7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(7, 410, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 470, 0, 0);
         getContentPane().add(button_new, gridBagConstraints);
 
-        button_member.setBackground(new java.awt.Color(0, 204, 51));
-        button_member.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
-        button_member.setText("Member");
+        button_cek_kamar.setBackground(new java.awt.Color(0, 204, 51));
+        button_cek_kamar.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
+        button_cek_kamar.setText("Cek Kamar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 29;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 9;
         gridBagConstraints.ipady = -7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(7, 47, 0, 0);
-        getContentPane().add(button_member, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(100, 450, 0, 0);
+        getContentPane().add(button_cek_kamar, gridBagConstraints);
 
         label_check_out.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
         label_check_out.setForeground(new java.awt.Color(255, 51, 51));
@@ -104,10 +105,10 @@ public class panel_awal extends javax.swing.JFrame {
         label_check_out.setText("Check Out");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 490, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(36, 480, 0, 0);
         getContentPane().add(label_check_out, gridBagConstraints);
 
         button_check_out.setBackground(new java.awt.Color(102, 51, 255));
@@ -120,29 +121,27 @@ public class panel_awal extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 19;
         gridBagConstraints.ipady = -3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(7, 480, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(66, 460, 0, 0);
         getContentPane().add(button_check_out, gridBagConstraints);
 
-        button_check_out1.setBackground(new java.awt.Color(102, 51, 255));
-        button_check_out1.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
-        button_check_out1.setText("Check Out");
-        button_check_out1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_check_out1ActionPerformed(evt);
-            }
-        });
+        button_member1.setBackground(new java.awt.Color(0, 204, 51));
+        button_member1.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
+        button_member1.setText("Member");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipady = -3;
+        gridBagConstraints.ipadx = 35;
+        gridBagConstraints.ipady = -7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(7, 480, 0, 0);
-        getContentPane().add(button_check_out1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(6, 450, 0, 0);
+        getContentPane().add(button_member1, gridBagConstraints);
 
         background.setBackground(new java.awt.Color(255, 0, 51));
         background.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
@@ -152,8 +151,8 @@ public class panel_awal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 7;
         gridBagConstraints.ipadx = -8;
         gridBagConstraints.ipady = -2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -170,10 +169,6 @@ public class panel_awal extends javax.swing.JFrame {
     private void button_check_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_outActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_check_outActionPerformed
-
-    private void button_check_out1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_out1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button_check_out1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,9 +207,9 @@ public class panel_awal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JButton button_cek_kamar;
     private javax.swing.JButton button_check_out;
-    private javax.swing.JButton button_check_out1;
-    private javax.swing.JButton button_member;
+    private javax.swing.JButton button_member1;
     private javax.swing.JButton button_new;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JFrame jFrame1;
