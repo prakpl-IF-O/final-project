@@ -83,7 +83,7 @@ DROP TABLE IF EXISTS `pelanggan`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pelanggan` (
   `id` int(11) NOT NULL,
-  `nik` int(11) DEFAULT NULL,
+  `nik` varchar(30) DEFAULT NULL,
   `nama` varchar(40) DEFAULT NULL,
   `tempatlahir` varchar(20) DEFAULT NULL,
   `tglLahir` date DEFAULT NULL,
@@ -137,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-21 22:38:35
+-- Dump completed on 2016-05-22 20:09:01
