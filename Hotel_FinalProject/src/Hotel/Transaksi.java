@@ -115,5 +115,23 @@ public class Transaksi implements DB {
         kamar.retrieveData(nomor);
         tamu.retrieveData(ID);
     }
+    public double hasilBulanan() throws SQLException{
+        Calendar now = Calendar.getInstance();
+        SimpleDateFormat bulan = new SimpleDateFormat("MM");
+        String skrg = bulan.format(now.getTime());
+        double total=0;
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+        Statement stmt = con.createStatement();
+        String select = "select * from detailTransaksi";
+        ResultSet rset = stmt.executeQuery(select);
+        while(rset.next()){
+            Date data = rset.getDate("checkIn");
+            String d = bulan.format(data);
+            if(skrg.equalsIgnoreCase(d)){
+            total += rset.getDouble("total");
+            }
+        }
+        return total;
+    }
 
 }
