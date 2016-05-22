@@ -127,6 +127,7 @@ public class TamuEngine {
     }
 
     public int GET_JUMLAH_TAMU() {
-        return Tamu.GET_JUMLAH_TAMU();
+        //return Tamu.GET_JUMLAH_TAMU();
+        return DB_SIZE;
     }
 }

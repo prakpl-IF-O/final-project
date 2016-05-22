@@ -29,8 +29,8 @@ public class Tamu extends Pelanggan {
 
         super(id,nik,nama,tempat_lahir,tanggal_lahir,tanggal_daftar,akumulasi);
         this.NOMOR_KAMAR = nomor_kamar;
-        this.CHECK_IN = new SimpleDateFormat("ddMMyyyy", Locale.US).parse(tanggal_check_in);
-        this.CHECK_OUT = new SimpleDateFormat("ddMMyyyy", Locale.US).parse(tanggal_check_out);
+        this.CHECK_IN = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(tanggal_check_in);
+        this.CHECK_OUT = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(tanggal_check_out);
         JUMLAH_TAMU++;
     }
     

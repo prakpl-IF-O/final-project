@@ -32,8 +32,8 @@ public class Pelanggan {
         this.NIK = nik;
         this.NAMA = nama;
         this.TEMPAT_LAHIR = tempat_lahir;
-        this.TANGGAL_LAHIR = new SimpleDateFormat("ddMMyyyy", Locale.US).parse(tanggal_lahir);
-        this.TANGGAL_DAFTAR = new SimpleDateFormat("ddMMyyyy", Locale.US).parse(tanggal_daftar);
+        this.TANGGAL_LAHIR = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(tanggal_lahir);
+        this.TANGGAL_DAFTAR = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(tanggal_daftar);
         this.AKUMULASI = Integer.parseInt(akumulasi);
         System.out.println("add pel "+nama);
     }

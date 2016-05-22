@@ -5,6 +5,7 @@
  */
 package Class;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -30,7 +31,22 @@ public class DateAndTime {
             return (sdf.format(cal.getTime()));
         }
     }
-
+    public int GET_DIFFERENT_DAYS(int tgl1, int bulan1, int tahun1,
+                                    int tgl2, int bulan2, int tahun2){
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+        start.set(2016, 1, 19);
+        end.set(2016, 2, 4);
+        Date startDate = start.getTime();
+        Date endDate = end.getTime();
+        long startTime = startDate.getTime();
+        long endTime = endDate.getTime();
+        long diffTime = endTime - startTime;
+        long diffDays = diffTime / (1000 * 60 * 60 * 24);
+        String diff = Long.toString(diffDays);
+        return Integer.parseInt(diff);
+    }
+    
     public String GET_CURRENT_DATE(String format) {
     Calendar cal = Calendar.getInstance();
         if (format.equalsIgnoreCase("D-M-Y")) {

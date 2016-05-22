@@ -83,10 +83,28 @@ public class Main extends javax.swing.JFrame {
         INIT_TABLE();
     }
     
+    public void CLEAR_TABLE(){
+        DefaultTableModel model_tamu = (DefaultTableModel) TABLE_TAMU.getModel();
+        for (int i = 0; i < tamu.GET_JUMLAH_TAMU(); i++) {
+            
+            model_tamu.removeRow(0);
+        }
+        
+        DefaultComboBoxModel model_cbo = (DefaultComboBoxModel) cbo_daftar_pelanggan.getModel();
+        DefaultTableModel model_pelanggan = (DefaultTableModel) TABLE_PELANGGAN.getModel();
+        for (int i = 0; i < user.GET_JUMLAH_USER(); i++) {
+            model_pelanggan.removeRow(0);
+            model_cbo.removeElementAt(1);
+        }
+        
+        
+        
+    }
     public void INIT_TABLE(){
         DefaultTableModel model_tamu = (DefaultTableModel) TABLE_TAMU.getModel(); 
         DefaultComboBoxModel model_cbo = (DefaultComboBoxModel) cbo_daftar_pelanggan.getModel();
         for (int i = 0; i < tamu.GET_JUMLAH_TAMU(); i++) {
+            System.out.println("init table tamu "+ i);
             String ID = tamu.GET_ID_BY_INDEX(i);
             String NIK = tamu.GET_NIK_BY_INDEX(i);
             String NAMA = tamu.GET_NAMA_BY_INDEX(i);
@@ -99,6 +117,7 @@ public class Main extends javax.swing.JFrame {
         
         DefaultTableModel model_pelanggan = (DefaultTableModel) TABLE_PELANGGAN.getModel();
         for (int i = 0; i < user.GET_JUMLAH_USER(); i++) {
+            System.out.println("init table pelanggan "+ i);
             String ID = user.GET_ID_BY_INDEX(i);
             String NIK = user.GET_NIK_BY_INDEX(i);
             String NAMA = user.GET_NAMA_BY_INDEX(i);
@@ -453,6 +472,11 @@ public class Main extends javax.swing.JFrame {
         PANEL_TRANSAKSI_CHECK_IN.add(tbl_batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
         tbl_check_in.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tombol_checkin.png"))); // NOI18N
+        tbl_check_in.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_check_inMouseClicked(evt);
+            }
+        });
         PANEL_TRANSAKSI_CHECK_IN.add(tbl_check_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -932,9 +956,13 @@ private void clear_highlight(){
     }//GEN-LAST:event_txt_akumulasiActionPerformed
 
     private void tbl_batalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_batalMouseClicked
+        CLEAR_CHECK_IN_FORM();
+    }//GEN-LAST:event_tbl_batalMouseClicked
+    
+    private void CLEAR_CHECK_IN_FORM() {
         txt_ID.setText("");
         txt_nama.setText("");
-        txt_akumulasi.setText("");
+        txt_akumulasi.setText("0");
         txt_nik.setText("");
         txt_tanggal_check_in.setText("");
         txt_tanggal_check_out.setText("");
@@ -943,10 +971,10 @@ private void clear_highlight(){
         txt_tempat_lahir.setText("");
         txt_tanggal_check_in.setText("");
         txt_tanggal_check_out.setText("");
-    }//GEN-LAST:event_tbl_batalMouseClicked
-
+    }
+    
     private void cbo_daftar_pelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbo_daftar_pelangganActionPerformed
-       
+
         int index = cbo_daftar_pelanggan.getSelectedIndex();
         
         if (index > 0) {
@@ -982,8 +1010,28 @@ private void clear_highlight(){
     private void cbo_paket_kamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbo_paket_kamarActionPerformed
         String jenis_kamar = (String) cbo_paket_kamar.getSelectedItem();
         int index_kamar = kamar.GET_KAMAR_KOSONG(jenis_kamar);
-        txt_no_kamar.setText(kamar.GET_NO_KAMAR_BY_INDEX(index_kamar));
+        if (index_kamar >= 0) {
+            txt_no_kamar.setText(kamar.GET_NO_KAMAR_BY_INDEX(index_kamar));
+        }
     }//GEN-LAST:event_cbo_paket_kamarActionPerformed
+
+    private void tbl_check_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_check_inMouseClicked
+        String ID = txt_ID.getText();
+        String NIK = txt_nik.getText();
+        String NAMA = txt_nama.getText();
+        String TEMPAT_LAHIR = txt_tempat_lahir.getText();
+        String TANGGAL_LAHIR = txt_tanggal_lahir.getText();
+        String TANGGAL_DAFTAR = txt_tanggal_daftar.getText();
+        String AKUMULASI = txt_akumulasi.getText();
+        String NO_KAMAR = txt_no_kamar.getText();
+        String CHECK_IN = txt_tanggal_check_in.getText();
+        String CHECK_OUT = txt_tanggal_check_out.getText();
+        
+        CLEAR_TABLE();
+        tamu.TAMBAH_TAMU(ID, NIK, NAMA, TEMPAT_LAHIR, TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI, NO_KAMAR, CHECK_IN, CHECK_OUT);
+        INIT_DATA();
+        CLEAR_CHECK_IN_FORM();
+    }//GEN-LAST:event_tbl_check_inMouseClicked
 
     public void UPDATE_INFO(int index, String Table) {
         //atbel tamu
