@@ -130,4 +130,12 @@ public class TamuEngine {
         //return Tamu.GET_JUMLAH_TAMU();
         return DB_SIZE;
     }
+    
+    public Tamu[] GET_MASTER_DATABASE(){
+        return DATABASE;
+    }
+    
+    public void UPDATE_MASTER_DATABASE(){
+        db.WRITE_DATABASE_TAMU(GET_MASTER_DATABASE(),GET_JUMLAH_TAMU());
+    }
 }

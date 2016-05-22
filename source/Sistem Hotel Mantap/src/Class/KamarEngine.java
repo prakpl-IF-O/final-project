@@ -192,4 +192,8 @@ public class KamarEngine {
     public int GET_VIP_DIPESAN() {
         return VIP_DIPESAN;
     }
+    
+    public Kamar[] GET_MASTER_DATABASE(){
+        return DATABASE;
+    }
 }

@@ -19,7 +19,51 @@ public class Database {
     private Tamu DB_TAMU[];
     
     private int DB_SIZE = 0;
+    
+    public void WRITE_DATABASE_TAMU(Tamu[] LIST, int max) {
+        
+        try {
+            File inputFile = new File("database\\Tamu.database");
+            File tempFile = new File("database\\TamuTemp.database");
+            FileWriter writer = new FileWriter(tempFile, true);
 
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            
+            System.out.println("max : "+max);
+            bufferedWriter.write(Integer.toHexString(max));
+            
+            for (int i = 0; i < max; i++) {
+                System.out.println("write 1 + "+LIST[i].GET_ID());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_ID());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_NIK());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_NAMA());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_TEMPAT_LAHIR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].FORMATED_TANGGAL_LAHIR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].FORMATED_TANGGAL_DAFTAR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(Integer.toString(LIST[i].GET_AKUMULASI()));
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_NOMOR_KAMAR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].FORMATED_CHECK_IN());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].FORMATED_CHECK_OUT());
+            }
+            
+            bufferedWriter.close();
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void READ_DATABASE(String Database, String db_file) throws Exception {
         File file = new File(db_file);
         BufferedReader READ = new BufferedReader(new FileReader(file));

@@ -128,4 +128,8 @@ public class UserEngine {
         }
         return a;
     }
+    
+    public Pelanggan[] GET_MASTER_DATABASE(){
+        return DATABASE;
+    }
 }

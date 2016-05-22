@@ -34,21 +34,50 @@ public class Tamu extends Pelanggan {
         JUMLAH_TAMU++;
     }
     
-    public String STRING_TANGGAL_LAHIR(){
-        TANGGAL.setTime(GET_TANGGAL_LAHIR());
-        String TANGGAL_ = Integer.toString(TANGGAL.get(Calendar.DAY_OF_MONTH));
-        String BULAN = dt.CONVERT_INDEX_OF_MONTH(TANGGAL.get(Calendar.MONTH));
+    public String FORMATED_CHECK_IN() {
+        TANGGAL.setTime(CHECK_IN);
+        String TANGGAL_, BULAN;
+        
+        int _TANGGAL = TANGGAL.get(Calendar.DAY_OF_MONTH);
+        if (_TANGGAL < 10) {
+            TANGGAL_ = "0" + Integer.toString( _TANGGAL);
+        } else {
+            TANGGAL_ = Integer.toString(_TANGGAL);
+        }
+        
+        int _BULAN = TANGGAL.get(Calendar.MONTH) + 1;
+        if (_BULAN < 10) {
+            BULAN = "0" + Integer.toString(_BULAN);
+        } else {
+            BULAN = Integer.toString(_BULAN);
+        }
+
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
-        return (TANGGAL+BULAN+TAHUN);
+        return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
     }
     
-    public String STRING_TANGGAL_DAFTAR() {
-        TANGGAL.setTime(GET_TANGGAL_DAFTAR());
-        String TANGGAL_ = Integer.toString(TANGGAL.get(Calendar.DAY_OF_MONTH));
-        String BULAN = dt.CONVERT_INDEX_OF_MONTH(TANGGAL.get(Calendar.MONTH));
+        public String FORMATED_CHECK_OUT() {
+        TANGGAL.setTime(CHECK_OUT);
+        String TANGGAL_, BULAN;
+        
+        int _TANGGAL = TANGGAL.get(Calendar.DAY_OF_MONTH);
+        if (_TANGGAL < 10) {
+            TANGGAL_ = "0" + Integer.toString( _TANGGAL);
+        } else {
+            TANGGAL_ = Integer.toString(_TANGGAL);
+        }
+        
+        int _BULAN = TANGGAL.get(Calendar.MONTH) + 1;
+        if (_BULAN < 10) {
+            BULAN = "0" + Integer.toString(_BULAN);
+        } else {
+            BULAN = Integer.toString(_BULAN);
+        }
+
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
-        return (TANGGAL + BULAN + TAHUN);
+        return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
     }
+        
         public String STRING_CHECK_IN() {
         TANGGAL.setTime(GET_CHECK_IN());
 

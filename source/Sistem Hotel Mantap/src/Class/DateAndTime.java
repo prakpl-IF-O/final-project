@@ -35,8 +35,8 @@ public class DateAndTime {
                                     int tgl2, int bulan2, int tahun2){
         Calendar start = Calendar.getInstance();
         Calendar end = Calendar.getInstance();
-        start.set(2016, 1, 19);
-        end.set(2016, 2, 4);
+        start.set(tahun2, bulan1, tgl1);
+        end.set(2016, bulan2, tgl2);
         Date startDate = start.getTime();
         Date endDate = end.getTime();
         long startTime = startDate.getTime();

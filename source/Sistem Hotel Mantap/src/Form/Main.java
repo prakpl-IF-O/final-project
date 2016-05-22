@@ -154,6 +154,26 @@ public class Main extends javax.swing.JFrame {
         highlight_transaksi = new javax.swing.JLabel();
         highlight_pelanggan = new javax.swing.JLabel();
         highlight_keuangan = new javax.swing.JLabel();
+        PANEL_BERANDA_OVERVIEW = new javax.swing.JLayeredPane();
+        lbl_jam = new javax.swing.JLabel();
+        lbl_tanggal = new javax.swing.JLabel();
+        JUMLAH_PELANGGAN = new javax.swing.JLabel();
+        JUMLAH_KAMAR_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_KAMAR_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_REG_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_REG_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_PRE_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_PRE_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_SUI_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_SUI_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_VIP_TERSEDIA = new javax.swing.JLabel();
+        JUMLAH_VIP_DIPESAN = new javax.swing.JLabel();
+        JUMLAH_TAMU = new javax.swing.JLabel();
+        BG_REG = new javax.swing.JLabel();
+        BG_SUITE = new javax.swing.JLabel();
+        BG_VIP = new javax.swing.JLabel();
+        BG_PRE1 = new javax.swing.JLabel();
+        color = new javax.swing.JLabel();
         PANEL_TRANSAKSI_CHECK_IN = new javax.swing.JLayeredPane();
         txt_ID = new javax.swing.JTextField();
         txt_nik = new javax.swing.JTextField();
@@ -231,26 +251,6 @@ public class Main extends javax.swing.JFrame {
         LABEL4 = new javax.swing.JLabel();
         LABEL5 = new javax.swing.JLabel();
         color1 = new javax.swing.JLabel();
-        PANEL_BERANDA_OVERVIEW = new javax.swing.JLayeredPane();
-        lbl_jam = new javax.swing.JLabel();
-        lbl_tanggal = new javax.swing.JLabel();
-        JUMLAH_PELANGGAN = new javax.swing.JLabel();
-        JUMLAH_KAMAR_TERSEDIA = new javax.swing.JLabel();
-        JUMLAH_KAMAR_DIPESAN = new javax.swing.JLabel();
-        JUMLAH_REG_TERSEDIA = new javax.swing.JLabel();
-        JUMLAH_REG_DIPESAN = new javax.swing.JLabel();
-        JUMLAH_PRE_TERSEDIA = new javax.swing.JLabel();
-        JUMLAH_PRE_DIPESAN = new javax.swing.JLabel();
-        JUMLAH_SUI_TERSEDIA = new javax.swing.JLabel();
-        JUMLAH_SUI_DIPESAN = new javax.swing.JLabel();
-        JUMLAH_VIP_TERSEDIA = new javax.swing.JLabel();
-        JUMLAH_VIP_DIPESAN = new javax.swing.JLabel();
-        JUMLAH_TAMU = new javax.swing.JLabel();
-        BG_REG = new javax.swing.JLabel();
-        BG_SUITE = new javax.swing.JLabel();
-        BG_VIP = new javax.swing.JLabel();
-        BG_PRE1 = new javax.swing.JLabel();
-        color = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -332,6 +332,119 @@ public class Main extends javax.swing.JFrame {
 
         highlight_keuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Form/selected.png"))); // NOI18N
         getContentPane().add(highlight_keuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 310, 280, 70));
+
+        PANEL_BERANDA_OVERVIEW.setBackground(new java.awt.Color(255, 255, 255));
+        PANEL_BERANDA_OVERVIEW.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_jam.setFont(new java.awt.Font("Segoe UI Light", 0, 72)); // NOI18N
+        lbl_jam.setText("23:59");
+        PANEL_BERANDA_OVERVIEW.add(lbl_jam, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 0, -1, -1));
+
+        lbl_tanggal.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        lbl_tanggal.setText("15 Mei 2016");
+        PANEL_BERANDA_OVERVIEW.add(lbl_tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(832, 83, -1, -1));
+
+        JUMLAH_PELANGGAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_PELANGGAN.setText("99 Pelanggan Terdaftar");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PELANGGAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, -1));
+
+        JUMLAH_KAMAR_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_KAMAR_TERSEDIA.setText("100 Kamar Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_KAMAR_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        JUMLAH_KAMAR_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_KAMAR_DIPESAN.setText("100 Kamar Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_KAMAR_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        JUMLAH_REG_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_REG_TERSEDIA.setForeground(new java.awt.Color(255, 255, 255));
+        JUMLAH_REG_TERSEDIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JUMLAH_REG_TERSEDIA.setText("100 Kamar Reguler Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_REG_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 460, -1));
+
+        JUMLAH_REG_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_REG_DIPESAN.setForeground(new java.awt.Color(255, 255, 255));
+        JUMLAH_REG_DIPESAN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JUMLAH_REG_DIPESAN.setText("100 Kamar Reguler Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_REG_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 460, -1));
+
+        JUMLAH_PRE_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_PRE_TERSEDIA.setForeground(new java.awt.Color(255, 255, 255));
+        JUMLAH_PRE_TERSEDIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JUMLAH_PRE_TERSEDIA.setText("100 Kamar Premium Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PRE_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 460, -1));
+
+        JUMLAH_PRE_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_PRE_DIPESAN.setForeground(new java.awt.Color(255, 255, 255));
+        JUMLAH_PRE_DIPESAN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JUMLAH_PRE_DIPESAN.setText("100 Kamar Premium Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PRE_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 460, -1));
+
+        JUMLAH_SUI_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_SUI_TERSEDIA.setForeground(new java.awt.Color(255, 255, 255));
+        JUMLAH_SUI_TERSEDIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JUMLAH_SUI_TERSEDIA.setText("100 Kamar Suite Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_SUI_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 460, -1));
+
+        JUMLAH_SUI_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_SUI_DIPESAN.setForeground(new java.awt.Color(255, 255, 255));
+        JUMLAH_SUI_DIPESAN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JUMLAH_SUI_DIPESAN.setText("100 Kamar Suite Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_SUI_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 460, -1));
+
+        JUMLAH_VIP_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_VIP_TERSEDIA.setForeground(new java.awt.Color(255, 255, 255));
+        JUMLAH_VIP_TERSEDIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JUMLAH_VIP_TERSEDIA.setText("100 Kamar VIP Tersedia");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_VIP_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 450, -1));
+
+        JUMLAH_VIP_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_VIP_DIPESAN.setForeground(new java.awt.Color(255, 255, 255));
+        JUMLAH_VIP_DIPESAN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JUMLAH_VIP_DIPESAN.setText("100 Kamar VIP Dipesan");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_VIP_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 450, -1));
+
+        JUMLAH_TAMU.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        JUMLAH_TAMU.setText("99 Tamu Menginap");
+        PANEL_BERANDA_OVERVIEW.add(JUMLAH_TAMU, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
+
+        BG_REG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kamar_reguler.png"))); // NOI18N
+        BG_REG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BG_REGMouseClicked(evt);
+            }
+        });
+        PANEL_BERANDA_OVERVIEW.add(BG_REG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        BG_SUITE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kamar_suite.png"))); // NOI18N
+        BG_SUITE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BG_SUITEMouseClicked(evt);
+            }
+        });
+        PANEL_BERANDA_OVERVIEW.add(BG_SUITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
+
+        BG_VIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kamar_vip.png"))); // NOI18N
+        BG_VIP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BG_VIPMouseClicked(evt);
+            }
+        });
+        PANEL_BERANDA_OVERVIEW.add(BG_VIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
+
+        BG_PRE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kamar_premium.png"))); // NOI18N
+        BG_PRE1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BG_PRE1MouseClicked(evt);
+            }
+        });
+        PANEL_BERANDA_OVERVIEW.add(BG_PRE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
+        color.setBackground(new java.awt.Color(255, 255, 255));
+        color.setOpaque(true);
+        PANEL_BERANDA_OVERVIEW.add(color, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
+
+        getContentPane().add(PANEL_BERANDA_OVERVIEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 990, 550));
 
         PANEL_TRANSAKSI_CHECK_IN.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -760,99 +873,6 @@ public class Main extends javax.swing.JFrame {
 
         getContentPane().add(PANEL_PELANGGAN_TAMU, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 550));
 
-        PANEL_BERANDA_OVERVIEW.setBackground(new java.awt.Color(255, 255, 255));
-        PANEL_BERANDA_OVERVIEW.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbl_jam.setFont(new java.awt.Font("Segoe UI Light", 0, 72)); // NOI18N
-        lbl_jam.setText("23:59");
-        PANEL_BERANDA_OVERVIEW.add(lbl_jam, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 0, -1, -1));
-
-        lbl_tanggal.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        lbl_tanggal.setText("15 Mei 2016");
-        PANEL_BERANDA_OVERVIEW.add(lbl_tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(832, 83, -1, -1));
-
-        JUMLAH_PELANGGAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_PELANGGAN.setText("99 Pelanggan Terdaftar");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PELANGGAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, -1));
-
-        JUMLAH_KAMAR_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_KAMAR_TERSEDIA.setText("100 Kamar Tersedia");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_KAMAR_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-
-        JUMLAH_KAMAR_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_KAMAR_DIPESAN.setText("100 Kamar Dipesan");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_KAMAR_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
-
-        JUMLAH_REG_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_REG_TERSEDIA.setForeground(new java.awt.Color(255, 255, 255));
-        JUMLAH_REG_TERSEDIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JUMLAH_REG_TERSEDIA.setText("100 Kamar Reguler Tersedia");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_REG_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 460, -1));
-
-        JUMLAH_REG_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_REG_DIPESAN.setForeground(new java.awt.Color(255, 255, 255));
-        JUMLAH_REG_DIPESAN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JUMLAH_REG_DIPESAN.setText("100 Kamar Reguler Dipesan");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_REG_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 460, -1));
-
-        JUMLAH_PRE_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_PRE_TERSEDIA.setForeground(new java.awt.Color(255, 255, 255));
-        JUMLAH_PRE_TERSEDIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JUMLAH_PRE_TERSEDIA.setText("100 Kamar Premium Tersedia");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PRE_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 460, -1));
-
-        JUMLAH_PRE_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_PRE_DIPESAN.setForeground(new java.awt.Color(255, 255, 255));
-        JUMLAH_PRE_DIPESAN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JUMLAH_PRE_DIPESAN.setText("100 Kamar Premium Dipesan");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_PRE_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 460, -1));
-
-        JUMLAH_SUI_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_SUI_TERSEDIA.setForeground(new java.awt.Color(255, 255, 255));
-        JUMLAH_SUI_TERSEDIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JUMLAH_SUI_TERSEDIA.setText("100 Kamar Suite Tersedia");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_SUI_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 460, -1));
-
-        JUMLAH_SUI_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_SUI_DIPESAN.setForeground(new java.awt.Color(255, 255, 255));
-        JUMLAH_SUI_DIPESAN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JUMLAH_SUI_DIPESAN.setText("100 Kamar Suite Dipesan");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_SUI_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 460, -1));
-
-        JUMLAH_VIP_TERSEDIA.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_VIP_TERSEDIA.setForeground(new java.awt.Color(255, 255, 255));
-        JUMLAH_VIP_TERSEDIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JUMLAH_VIP_TERSEDIA.setText("100 Kamar VIP Tersedia");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_VIP_TERSEDIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 450, -1));
-
-        JUMLAH_VIP_DIPESAN.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_VIP_DIPESAN.setForeground(new java.awt.Color(255, 255, 255));
-        JUMLAH_VIP_DIPESAN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JUMLAH_VIP_DIPESAN.setText("100 Kamar VIP Dipesan");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_VIP_DIPESAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 450, -1));
-
-        JUMLAH_TAMU.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
-        JUMLAH_TAMU.setText("99 Tamu Menginap");
-        PANEL_BERANDA_OVERVIEW.add(JUMLAH_TAMU, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
-
-        BG_REG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kamar_reguler.png"))); // NOI18N
-        PANEL_BERANDA_OVERVIEW.add(BG_REG, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
-
-        BG_SUITE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kamar_suite.png"))); // NOI18N
-        PANEL_BERANDA_OVERVIEW.add(BG_SUITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
-
-        BG_VIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kamar_vip.png"))); // NOI18N
-        PANEL_BERANDA_OVERVIEW.add(BG_VIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
-
-        BG_PRE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kamar_premium.png"))); // NOI18N
-        PANEL_BERANDA_OVERVIEW.add(BG_PRE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
-
-        color.setBackground(new java.awt.Color(255, 255, 255));
-        color.setOpaque(true);
-        PANEL_BERANDA_OVERVIEW.add(color, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
-
-        getContentPane().add(PANEL_BERANDA_OVERVIEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 990, 550));
-
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/MAIN LAYOUT.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -1031,8 +1051,36 @@ private void clear_highlight(){
         tamu.TAMBAH_TAMU(ID, NIK, NAMA, TEMPAT_LAHIR, TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI, NO_KAMAR, CHECK_IN, CHECK_OUT);
         INIT_DATA();
         CLEAR_CHECK_IN_FORM();
+        tamu.UPDATE_MASTER_DATABASE();
     }//GEN-LAST:event_tbl_check_inMouseClicked
 
+    private void BG_REGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BG_REGMouseClicked
+        OPEN_CHECK_IN_FORM(0);
+    }//GEN-LAST:event_BG_REGMouseClicked
+
+    private void BG_PRE1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BG_PRE1MouseClicked
+        OPEN_CHECK_IN_FORM(1);
+    }//GEN-LAST:event_BG_PRE1MouseClicked
+
+    private void BG_SUITEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BG_SUITEMouseClicked
+        OPEN_CHECK_IN_FORM(2);
+    }//GEN-LAST:event_BG_SUITEMouseClicked
+
+    private void BG_VIPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BG_VIPMouseClicked
+        OPEN_CHECK_IN_FORM(3);
+    }//GEN-LAST:event_BG_VIPMouseClicked
+    
+    public void OPEN_CHECK_IN_FORM (int jenis_kamar){
+        clear_highlight();
+        highlight_transaksi.setVisible(true);
+        CLEAR_PANEL();
+        PANEL_TRANSAKSI_CHECK_IN.setVisible(true);
+        PANEL_SUBMENU_TRANSAKSI.setVisible(true);
+        sub_highlight_check_in.setVisible(true);
+        sub_highlight_check_out.setVisible(false);
+        CLEAR_CHECK_IN_FORM();
+        cbo_paket_kamar.setSelectedIndex(jenis_kamar);
+    }
     public void UPDATE_INFO(int index, String Table) {
         //atbel tamu
         if (Table.equalsIgnoreCase("Tamu")) {
