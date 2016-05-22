@@ -5,6 +5,11 @@
  */
 package Hotel;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ltf
@@ -45,7 +50,6 @@ public class panel_new extends javax.swing.JFrame {
         label_no_kamar = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         label_nama.setText("Nama");
@@ -157,6 +161,11 @@ public class panel_new extends javax.swing.JFrame {
         getContentPane().add(textfield_tanggal_lahir, gridBagConstraints);
 
         button_submit.setText("Submit");
+        button_submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_submitActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 11;
@@ -179,6 +188,11 @@ public class panel_new extends javax.swing.JFrame {
         getContentPane().add(jLabel1, gridBagConstraints);
 
         button_cancel.setText("Cancel");
+        button_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cancelActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
@@ -231,6 +245,61 @@ public class panel_new extends javax.swing.JFrame {
     private void textfield_tempat_lahirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_tempat_lahirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textfield_tempat_lahirActionPerformed
+
+    private void button_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_submitActionPerformed
+        Object select = ComboBox_pilihkamar.getSelectedItem();
+        String nama, tempatlahir, tanggallahir, nik;
+        int noKamar, cek = 0;
+        if (cek == 0) {
+            nik = textfield_nik.getText();
+            nama = textfield_nama.getText();
+            tanggallahir = textfield_tanggal_lahir.getText();
+            tempatlahir = textfield_tempat_lahir.getText();
+        try {
+            Pelanggan p = new Pelanggan(nik,nama,tempatlahir,tanggallahir);
+            cek =1;
+            String data = String.format("Pelanggan Terdaftar\n%s\nPilih Kelas Kamar dan Nomor Kamar\nKemudian"
+                    + " Klik Summit",p);
+            JOptionPane.showMessageDialog(this, data);
+        } catch (SQLException ex) {
+            Logger.getLogger(panel_new.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        } else {
+            noKamar = Integer.valueOf(textfield_no_kamar.getText());
+            System.out.println(noKamar);
+            if (select == "VIP") {
+                System.out.println("VIP");
+                if (noKamar < 91 || noKamar > 100) {
+                    JOptionPane.showMessageDialog(this, "Kamar VIP no 91-100");
+                    textfield_no_kamar.setText("");
+                }
+            } else if (select == "Suite") {
+                System.out.println("Suite");
+                
+                if (noKamar < 71 || noKamar > 90) {
+                    JOptionPane.showMessageDialog(this, "Kamar Suite no 71-90");
+                    textfield_no_kamar.setText("");
+                }
+            } else if (select == "Premium") {
+                System.out.println("Premium");
+                
+                if (noKamar < 51 || noKamar > 70) {
+                    JOptionPane.showMessageDialog(this, "Kamar VIP no 51-70");
+                    textfield_no_kamar.setText("");
+                }
+            } else if (select == "Reguler") {
+                System.out.println("Reguler");
+                if (noKamar < 1 || noKamar > 50) {
+                    JOptionPane.showMessageDialog(this, "Kamar VIP no 1-50");
+                    textfield_no_kamar.setText("");
+                }
+            }
+        }
+    }//GEN-LAST:event_button_submitActionPerformed
+
+    private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_button_cancelActionPerformed
 
     /**
      * @param args the command line arguments

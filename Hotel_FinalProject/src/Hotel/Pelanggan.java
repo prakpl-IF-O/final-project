@@ -8,7 +8,7 @@ import java.sql.*;
 public class Pelanggan implements DB {
 
     private int id;
-    private int nik;
+    private String nik;
     private String nama;
     private String tempatLahir;
     private Date tanggalLahir;
@@ -20,13 +20,13 @@ public class Pelanggan implements DB {
     public Pelanggan() {
     }
 
-    public Pelanggan(int nik, String nama, String tempatLahir, String tanggalLahir) throws SQLException {
+    public Pelanggan(String nik, String nama, String tempatLahir, String tanggalLahir) throws SQLException {
         this.nik = nik;
         this.nama = nama;
         this.tempatLahir = tempatLahir;
 
         try {
-            this.tanggalLahir = sdf.parse(tanggalLahir);
+            this.tanggalLahir = sdf2.parse(tanggalLahir);
         } catch (ParseException ex) {
         }
         this.tanggalDaftar = new Date();
@@ -45,7 +45,7 @@ public class Pelanggan implements DB {
         return id;
     }
 
-    public int getNik() {
+    public String getNik() {
         return nik;
     }
 
@@ -75,7 +75,7 @@ public class Pelanggan implements DB {
     }
 
     public String toString() {
-        return String.format("%-21s: %d\n%-21s: %d\n%-21s: %s\n%-21s: %s, %s\n%-21s: %s\n%-21s: %d\n\n", "ID Pelanggan",
+        return String.format("%-29s: %d\n%-38s: %s\n%-34s: %s\n%-21s: %s, %s\n%-28s: %s\n%-31s: %d\n\n", "ID Pelanggan",
                 id, "NIK", nik, "Nama", nama, "Tempat/Tanggal Lahir", tempatLahir, String.valueOf(sdf2.format(tanggalLahir)),
                 "Tanggal Daftar", String.valueOf(sdf2.format(tanggalDaftar)), "Akumulasi", akumulasi);
     }
@@ -85,7 +85,7 @@ public class Pelanggan implements DB {
         Statement stmt = con.createStatement();
         String id, nik, nama, tLahir, tglLahir, tglDaftar, akumulasi;
         id = String.valueOf(this.id);
-        nik = String.valueOf(this.nik);
+        nik = this.nik;
         nama = this.nama;
         tLahir = this.tempatLahir;
         tglLahir = String.valueOf(sdf.format(tanggalLahir));
@@ -102,7 +102,7 @@ public class Pelanggan implements DB {
         ResultSet rset = stmt.executeQuery(select);
         while (rset.next()) {
             this.id = id;
-            nik = rset.getInt("nik");
+            nik = rset.getString("nik");
             nama = rset.getString("nama");
             tempatLahir = rset.getString("tempatlahir");
             tanggalLahir = rset.getDate("tglLahir");

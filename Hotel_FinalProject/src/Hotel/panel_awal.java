@@ -88,6 +88,11 @@ public class panel_awal extends javax.swing.JFrame {
         button_cek_kamar.setBackground(new java.awt.Color(0, 204, 51));
         button_cek_kamar.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
         button_cek_kamar.setText("Cek Kamar");
+        button_cek_kamar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cek_kamarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -133,6 +138,11 @@ public class panel_awal extends javax.swing.JFrame {
         button_member1.setBackground(new java.awt.Color(0, 204, 51));
         button_member1.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
         button_member1.setText("Member");
+        button_member1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_member1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -163,12 +173,22 @@ public class panel_awal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_newActionPerformed
-        // TODO add your handling code here:
+        panel_new pn = new panel_new();
+        pn.setVisible(true);
     }//GEN-LAST:event_button_newActionPerformed
 
     private void button_check_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_outActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_check_outActionPerformed
+
+    private void button_cek_kamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cek_kamarActionPerformed
+
+    }//GEN-LAST:event_button_cek_kamarActionPerformed
+
+    private void button_member1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_member1ActionPerformed
+        panel_member pm = new panel_member();
+        pm.setVisible(true);
+    }//GEN-LAST:event_button_member1ActionPerformed
 
     /**
      * @param args the command line arguments
