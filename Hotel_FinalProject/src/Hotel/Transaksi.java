@@ -16,7 +16,7 @@ public class Transaksi implements DB {
     private double totalHarga;
     private double diskon;
     private double denda;
-    private static int count;   
+    private double harga;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public Transaksi(){
         tamu = new Pelanggan();
@@ -30,7 +30,7 @@ public class Transaksi implements DB {
         checkIn = Calendar.getInstance();
         batasCheckOut = Calendar.getInstance();
         batasCheckOut.add(Calendar.DATE, hari);
-        totalHarga = hari;
+        harga = hari;
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
         Statement stmt = con.createStatement();
         String select = String.format("select max(kode) from transaksi");
@@ -42,6 +42,16 @@ public class Transaksi implements DB {
         kamar.in();
         savingData();
     }
+
+    public int getKodeTransaksi() {
+        return kodeTransaksi;
+    }
+
+    public double getTotalHarga() {
+        return totalHarga;
+    }
+    
+    
 
     private void checkDenda() {
         checkOut = Calendar.getInstance();
@@ -70,6 +80,14 @@ public class Transaksi implements DB {
                 kodeTransaksi,tamu.getId(), String.valueOf(sdf.format(checkIn.getTime())), 
                 String.valueOf(sdf.format(batasCheckOut.getTime())),kamar.getNoKamar());
     }
+    public String showDetail(){
+        double sd = (1-diskon)*100;
+        return String.format("Kode Transaksi %9d\nID Pelanggan %13d\nCheck In %40s\nTenggang Waktu %25s\nNo Kamar %21d"
+                + "\nCheck Out %37s\nHarga %33.0f\nDenda %26.0f\nDiskon %27.0f%%\nTotal %36.0f\n", 
+                kodeTransaksi,tamu.getId(), String.valueOf(sdf.format(checkIn.getTime())), 
+                String.valueOf(sdf.format(batasCheckOut.getTime())),kamar.getNoKamar(),String.valueOf(sdf.format(checkOut.getTime())),
+                harga,denda,sd,totalHarga);
+    }
 
     public void savingData() throws SQLException {
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
@@ -91,7 +109,8 @@ public class Transaksi implements DB {
         checkDiskon();
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
         Statement stmt = con.createStatement();
-        totalHarga = ((totalHarga * kamar.getHarga()) + denda)*diskon;
+        harga = harga * kamar.getHarga();
+        totalHarga = (harga + denda)*diskon;
         String tanggalKeluar = String.valueOf(sdf.format(checkOut.getTime()));
         String update = String.format("update detailTransaksi set checkOut = '%s', total = %s where kodeTransaksi = %s", tanggalKeluar, totalHarga, kodeTransaksi);
         stmt.executeUpdate(update);
@@ -110,10 +129,11 @@ public class Transaksi implements DB {
             nomor = rset.getInt("nomorKamar");
             checkIn.setTime(rset.getTimestamp("checkIn"));
             batasCheckOut.setTime(rset.getTimestamp("batas"));
+            totalHarga = rset.getDouble("total");
         }
         long selisih = batasCheckOut.getTimeInMillis() - checkIn.getTimeInMillis();
         long hari = TimeUnit.MILLISECONDS.toDays(selisih);
-        totalHarga = hari; 
+        harga = hari; 
         kamar.retrieveData(nomor);
         tamu.retrieveData(ID);
     }

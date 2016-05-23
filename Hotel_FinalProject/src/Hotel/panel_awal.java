@@ -184,7 +184,8 @@ public class panel_awal extends javax.swing.JFrame {
     }//GEN-LAST:event_button_newActionPerformed
 
     private void button_check_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_outActionPerformed
-        // TODO add your handling code here:
+        panel_check_out pc = new panel_check_out();
+        pc.setVisible(true);
     }//GEN-LAST:event_button_check_outActionPerformed
 
     private void button_cek_kamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cek_kamarActionPerformed

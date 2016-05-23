@@ -5,6 +5,11 @@
  */
 package Hotel;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ltf
@@ -63,6 +68,11 @@ public class panel_check_out extends javax.swing.JFrame {
         getContentPane().add(button_submit_member, gridBagConstraints);
 
         button_cancel_member.setText("Cancel");
+        button_cancel_member.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cancel_memberActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -94,8 +104,36 @@ public class panel_check_out extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_submit_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_submit_memberActionPerformed
-        // TODO add your handling code here:
+        try {
+            int id = Integer.parseInt(textfield_id.getText());
+            try {
+                Transaksi t = new Transaksi();
+                t.retrieveData(id);
+                if (t.getKodeTransaksi() == 0) {
+                    throw new NullPointerException();
+                }
+                if (t.getTotalHarga()!=0){
+                    throw new Exception();
+                }
+                t.CheckOut();
+                String data = String.format("%s", t.showDetail());
+                JOptionPane.showMessageDialog(this, data);
+                textfield_id.setText("");
+            } catch (SQLException ex) {
+                Logger.getLogger(panel_check_out.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NullPointerException a) {
+                JOptionPane.showMessageDialog(this, "ID tidak terdaftar");
+            } catch (Exception a){
+                JOptionPane.showMessageDialog(this, "Sudah Checkout");
+            }
+        } catch (NumberFormatException a) {
+            JOptionPane.showMessageDialog(this, "Invalid Input");
+        }
     }//GEN-LAST:event_button_submit_memberActionPerformed
+
+    private void button_cancel_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancel_memberActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_button_cancel_memberActionPerformed
 
     /**
      * @param args the command line arguments
