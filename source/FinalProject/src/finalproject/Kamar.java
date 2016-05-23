@@ -7,15 +7,14 @@ package finalproject;
 
 /**
  *
- * @author gunka
+ * @author Faza Abdi
  */
-public class FinalProject {
+public class Kamar {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    private String Jenis;
+
+    public Kamar(String Jenis) {
+        this.Jenis = Jenis;
     }
-    
+
 }
