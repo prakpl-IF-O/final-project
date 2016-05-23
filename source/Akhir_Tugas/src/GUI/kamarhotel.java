@@ -21,7 +21,7 @@ public class kamarhotel {
     private int har;
     private String k;
     private boolean stat;
-
+    
     public void db() {
         try {
             String h = "jdbc:derby://localhost:1527/hotel";
