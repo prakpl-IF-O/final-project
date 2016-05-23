@@ -20,6 +20,76 @@ public class Database {
     
     private int DB_SIZE = 0;
     
+    public void WRITE_DATABASE_KAMAR (Kamar[] LIST){
+        int max = 100; 
+        try {
+            File inputFile = new File("database\\Kamar.database");
+            File tempFile = new File("database\\KamarTemp.database");
+            FileWriter writer = new FileWriter(tempFile, true);
+
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            
+            System.out.println("max : "+max);
+            bufferedWriter.write(Integer.toString(max));
+            
+            for (int i = 0; i < max; i++) {
+                System.out.println("write 1 + "+LIST[i].GET_NOMOR_KAMAR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_NOMOR_KAMAR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_STATUS());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_JENIS_KAMAR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(Integer.toString(LIST[i].GET_HARGA_KAMAR()));
+            }
+            
+            bufferedWriter.close();
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }   
+    }
+    public void WRITE_DATABASE_PELANGGAN (Pelanggan[] LIST, int max){
+             
+        try {
+            File inputFile = new File("database\\Pelanggan.database");
+            File tempFile = new File("database\\PelangganTemp.database");
+            FileWriter writer = new FileWriter(tempFile, true);
+
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            
+            System.out.println("max : "+max);
+            bufferedWriter.write(Integer.toString(max));
+            
+            for (int i = 0; i < max; i++) {
+                System.out.println("write 1 + "+LIST[i].GET_ID());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_ID());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_NIK());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_NAMA());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_TEMPAT_LAHIR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].FORMATED_TANGGAL_LAHIR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].FORMATED_TANGGAL_DAFTAR());
+                bufferedWriter.newLine();
+                bufferedWriter.write(Integer.toString(LIST[i].GET_AKUMULASI()));
+            }
+            
+            bufferedWriter.close();
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }   
+    }
     public void WRITE_DATABASE_TAMU(Tamu[] LIST, int max) {
         
         try {

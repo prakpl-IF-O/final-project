@@ -1032,6 +1032,8 @@ private void clear_highlight(){
         int index_kamar = kamar.GET_KAMAR_KOSONG(jenis_kamar);
         if (index_kamar >= 0) {
             txt_no_kamar.setText(kamar.GET_NO_KAMAR_BY_INDEX(index_kamar));
+        } else {
+            txt_no_kamar.setText("KAMAR PENUH");
         }
     }//GEN-LAST:event_cbo_paket_kamarActionPerformed
 
@@ -1052,6 +1054,8 @@ private void clear_highlight(){
         INIT_DATA();
         CLEAR_CHECK_IN_FORM();
         tamu.UPDATE_MASTER_DATABASE();
+        user.UPDATE_MASTER_DATABASE();
+        kamar.UPDATE_MASTER_DATABASE();
     }//GEN-LAST:event_tbl_check_inMouseClicked
 
     private void BG_REGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BG_REGMouseClicked

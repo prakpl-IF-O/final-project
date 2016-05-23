@@ -132,4 +132,8 @@ public class UserEngine {
     public Pelanggan[] GET_MASTER_DATABASE(){
         return DATABASE;
     }
+    
+    public void UPDATE_MASTER_DATABASE(){
+        db.WRITE_DATABASE_PELANGGAN(GET_MASTER_DATABASE(), GET_JUMLAH_USER());
+    }
 }

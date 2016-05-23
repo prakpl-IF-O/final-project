@@ -196,4 +196,8 @@ public class KamarEngine {
     public Kamar[] GET_MASTER_DATABASE(){
         return DATABASE;
     }
+    
+    public void UPDATE_MASTER_DATABASE(){
+        db.WRITE_DATABASE_KAMAR(GET_MASTER_DATABASE());
+    }
 }
