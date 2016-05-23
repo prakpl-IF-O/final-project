@@ -28,7 +28,9 @@ public class panel_member extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jLabel2_hari = new javax.swing.JLabel();
         ComboBox_pilihkamar = new javax.swing.JComboBox();
+        textfield_lama_menginap_in = new javax.swing.JTextField();
         textfield_no_kamar = new javax.swing.JTextField();
         label_no_kamar = new javax.swing.JLabel();
         label_pilih_jenis_kamar = new javax.swing.JLabel();
@@ -36,9 +38,21 @@ public class panel_member extends javax.swing.JFrame {
         textfield_id = new javax.swing.JTextField();
         button_submit_member = new javax.swing.JButton();
         button_cancel_member = new javax.swing.JButton();
+        label_lamabermalam = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jLabel2_hari.setText("Hari");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 17;
+        gridBagConstraints.ipadx = 11;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 10, 0, 0);
+        getContentPane().add(jLabel2_hari, gridBagConstraints);
 
         ComboBox_pilihkamar.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"VIP", "Suite", "Premium", "Reguler" }));
         ComboBox_pilihkamar.addActionListener(new java.awt.event.ActionListener() {
@@ -49,33 +63,42 @@ public class panel_member extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 62;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.ipadx = 132;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 430, 0, 0);
         getContentPane().add(ComboBox_pilihkamar, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 34;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 27, 0, 0);
+        getContentPane().add(textfield_lama_menginap_in, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 64;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 430, 0, 0);
         getContentPane().add(textfield_no_kamar, gridBagConstraints);
 
         label_no_kamar.setText("No Kamar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.ipadx = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 430, 0, 0);
         getContentPane().add(label_no_kamar, gridBagConstraints);
 
         label_pilih_jenis_kamar.setText("Jenis Kamar ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 430, 0, 0);
@@ -88,12 +111,12 @@ public class panel_member extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipadx = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(150, 430, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(130, 430, 0, 0);
         getContentPane().add(label_id_member, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 28;
         gridBagConstraints.ipadx = 214;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 430, 0, 0);
@@ -101,9 +124,9 @@ public class panel_member extends javax.swing.JFrame {
 
         button_submit_member.setText("Submit");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 20;
         gridBagConstraints.ipadx = 8;
         gridBagConstraints.ipady = -3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -113,20 +136,29 @@ public class panel_member extends javax.swing.JFrame {
         button_cancel_member.setText("Cancel");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 8;
         gridBagConstraints.ipady = -3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 430, 0, 0);
         getContentPane().add(button_cancel_member, gridBagConstraints);
 
+        label_lamabermalam.setText("Lama Bermalam");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 27, 0, 0);
+        getContentPane().add(label_lamabermalam, gridBagConstraints);
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hotel/Untitled-3.jpg"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.gridheight = 6;
+        gridBagConstraints.gridwidth = 29;
+        gridBagConstraints.gridheight = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(background, gridBagConstraints);
 
@@ -177,10 +209,13 @@ public class panel_member extends javax.swing.JFrame {
     private javax.swing.JLabel background;
     private javax.swing.JButton button_cancel_member;
     private javax.swing.JButton button_submit_member;
+    private javax.swing.JLabel jLabel2_hari;
     private javax.swing.JLabel label_id_member;
+    private javax.swing.JLabel label_lamabermalam;
     private javax.swing.JLabel label_no_kamar;
     private javax.swing.JLabel label_pilih_jenis_kamar;
     private javax.swing.JTextField textfield_id;
+    private javax.swing.JTextField textfield_lama_menginap_in;
     private javax.swing.JTextField textfield_no_kamar;
     // End of variables declaration//GEN-END:variables
 }

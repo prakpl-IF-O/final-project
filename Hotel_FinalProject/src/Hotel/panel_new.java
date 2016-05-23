@@ -33,6 +33,9 @@ public class panel_new extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jLabel2_hari = new javax.swing.JLabel();
+        textfield_lama_menginap_in = new javax.swing.JTextField();
+        label_lamabermalam = new javax.swing.JLabel();
         label_nama = new javax.swing.JLabel();
         label_nik = new javax.swing.JLabel();
         label_tempat_lahir = new javax.swing.JLabel();
@@ -52,11 +55,38 @@ public class panel_new extends javax.swing.JFrame {
 
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        jLabel2_hari.setText("Hari");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 11;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 10, 0, 0);
+        getContentPane().add(jLabel2_hari, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.ipadx = 34;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 30, 0, 0);
+        getContentPane().add(textfield_lama_menginap_in, gridBagConstraints);
+
+        label_lamabermalam.setText("Lama Bermalam");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 30, 0, 0);
+        getContentPane().add(label_lamabermalam, gridBagConstraints);
+
         label_nama.setText("Nama");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 25;
+        gridBagConstraints.gridwidth = 45;
         gridBagConstraints.ipadx = 713;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(17, 140, 0, 0);
@@ -66,7 +96,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.ipadx = 601;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 140, 0, 0);
@@ -76,7 +106,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.gridwidth = 25;
         gridBagConstraints.ipadx = 601;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 140, 0, 0);
@@ -86,7 +116,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 18;
+        gridBagConstraints.gridwidth = 34;
         gridBagConstraints.ipadx = 601;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 140, 0, 0);
@@ -124,7 +154,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 25;
+        gridBagConstraints.gridwidth = 45;
         gridBagConstraints.ipadx = 734;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 140, 0, 0);
@@ -132,7 +162,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 25;
+        gridBagConstraints.gridwidth = 45;
         gridBagConstraints.ipadx = 734;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 140, 0, 0);
@@ -146,7 +176,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 25;
+        gridBagConstraints.gridwidth = 45;
         gridBagConstraints.ipadx = 734;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 140, 0, 0);
@@ -154,7 +184,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 25;
+        gridBagConstraints.gridwidth = 45;
         gridBagConstraints.ipadx = 734;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 140, 0, 0);
@@ -167,12 +197,12 @@ public class panel_new extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 19;
+        gridBagConstraints.gridwidth = 35;
         gridBagConstraints.ipadx = 85;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(60, 270, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(60, 160, 0, 0);
         getContentPane().add(button_submit, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
@@ -181,7 +211,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 17;
         gridBagConstraints.ipadx = 201;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(30, 200, 0, 0);
@@ -224,7 +254,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 26;
+        gridBagConstraints.gridwidth = 46;
         gridBagConstraints.gridheight = 13;
         gridBagConstraints.ipady = -2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -342,12 +372,15 @@ public class panel_new extends javax.swing.JFrame {
     private javax.swing.JButton button_cancel;
     private javax.swing.JButton button_submit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2_hari;
+    private javax.swing.JLabel label_lamabermalam;
     private javax.swing.JLabel label_nama;
     private javax.swing.JLabel label_nik;
     private javax.swing.JLabel label_no_kamar;
     private javax.swing.JLabel label_pilih_jenis_kamar;
     private javax.swing.JLabel label_tanggal_lahir;
     private javax.swing.JLabel label_tempat_lahir;
+    private javax.swing.JTextField textfield_lama_menginap_in;
     private javax.swing.JTextField textfield_nama;
     private javax.swing.JTextField textfield_nik;
     private javax.swing.JTextField textfield_no_kamar;
