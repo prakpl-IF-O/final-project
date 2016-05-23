@@ -17,6 +17,8 @@ import java.sql.Statement;
  */
 public class Vip extends Kamar {
 
+    private int nmrKmr;
+
     public Vip(String Jenis) {
         super(Jenis);
     }
