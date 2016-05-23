@@ -1,9 +1,9 @@
-public class Reguler extends Jenis {
-    protected final static double harga=100000;
-    protected static int kamar=50;
+public class Premium extends Jenis {
+    protected final static double harga=200000;
+    protected static int kamar=20;
     protected double invoice;
     public void setTipe() {
-        this.tipe = "Reguler";
+        this.tipe = "Premium";
     }
     public void booking(int days){
         kamar--;
@@ -36,4 +36,5 @@ public class Reguler extends Jenis {
         return d;
     }
     public double total(){return (invoice-getDiskon());}
+    
 }

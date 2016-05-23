@@ -1,9 +1,9 @@
-public class Reguler extends Jenis {
-    protected final static double harga=100000;
-    protected static int kamar=50;
+public class Suite extends Jenis {
+    protected final static double harga=350000;
+    protected static int kamar=20;
     protected double invoice;
     public void setTipe() {
-        this.tipe = "Reguler";
+        this.tipe = "Suite";
     }
     public void booking(int days){
         kamar--;
