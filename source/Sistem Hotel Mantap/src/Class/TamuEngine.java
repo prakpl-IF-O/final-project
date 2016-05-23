@@ -64,12 +64,12 @@ public class TamuEngine {
     }
     public void TAMBAH_TAMU(String ID,String NIK,String NAMA,String TEMPAT_LAHIR,
                         String TANGGAL_LAHIR,String TANGGAL_DAFTAR,String AKUMULASI, 
-                        String NO_KAMAR,String TGL_CHECK_IN,String TGL_CHECK_OUT){
+                        String NO_KAMAR,String TGL_CHECK_IN,String TGL_CHECK_OUT, int jam_check_in){
         ue.DELETE_PELANGGAN(ID);
         try {
             DATABASE[DB_SIZE] = new Tamu(ID, NIK, NAMA, TEMPAT_LAHIR,
                     TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI,
-                    NO_KAMAR, TGL_CHECK_IN, TGL_CHECK_OUT);
+                    NO_KAMAR, TGL_CHECK_IN, TGL_CHECK_OUT, jam_check_in);
             DB_SIZE++;
         } catch (ParseException ex) {
             ex.printStackTrace();

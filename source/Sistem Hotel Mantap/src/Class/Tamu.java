@@ -21,16 +21,18 @@ public class Tamu extends Pelanggan {
     private String NOMOR_KAMAR;
     private Date CHECK_IN;
     private Date CHECK_OUT;
+    private int JAM_CHECK_IN;
     private static int JUMLAH_TAMU = 0;
     
     public Tamu (String id, String nik, String nama, String tempat_lahir,
             String tanggal_lahir, String tanggal_daftar, String akumulasi,
-            String nomor_kamar, String tanggal_check_in, String tanggal_check_out) throws ParseException{
+            String nomor_kamar, String tanggal_check_in, String tanggal_check_out, int jam_check_in) throws ParseException{
 
         super(id,nik,nama,tempat_lahir,tanggal_lahir,tanggal_daftar,akumulasi);
         this.NOMOR_KAMAR = nomor_kamar;
         this.CHECK_IN = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(tanggal_check_in);
         this.CHECK_OUT = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(tanggal_check_out);
+        this.JAM_CHECK_IN = jam_check_in;
         JUMLAH_TAMU++;
     }
     
@@ -146,5 +148,12 @@ public class Tamu extends Pelanggan {
      */
     public Date GET_CHECK_OUT() {
         return CHECK_OUT;
+    }
+
+    /**
+     * @return the JAM_CHECK_IN
+     */
+    public int GET_JAM_CHECK_IN() {
+        return JAM_CHECK_IN;
     }
 }

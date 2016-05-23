@@ -1050,7 +1050,8 @@ private void clear_highlight(){
         String CHECK_OUT = txt_tanggal_check_out.getText();
         
         CLEAR_TABLE();
-        tamu.TAMBAH_TAMU(ID, NIK, NAMA, TEMPAT_LAHIR, TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI, NO_KAMAR, CHECK_IN, CHECK_OUT);
+        int jam_check_in = Integer.parseInt(dt.GET_CURRENT_TIME("H"));
+        tamu.TAMBAH_TAMU(ID, NIK, NAMA, TEMPAT_LAHIR, TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI, NO_KAMAR, CHECK_IN, CHECK_OUT, jam_check_in);
         INIT_DATA();
         CLEAR_CHECK_IN_FORM();
         tamu.UPDATE_MASTER_DATABASE();

@@ -124,6 +124,8 @@ public class Database {
                 bufferedWriter.write(LIST[i].FORMATED_CHECK_IN());
                 bufferedWriter.newLine();
                 bufferedWriter.write(LIST[i].FORMATED_CHECK_OUT());
+                bufferedWriter.newLine();
+                bufferedWriter.write(Integer.toString(LIST[i].GET_JAM_CHECK_IN()));
             }
             
             bufferedWriter.close();
@@ -218,9 +220,11 @@ public class Database {
                 String TGL_CHECK_IN = SIGN;
                 SIGN = READ.readLine();
                 String TGL_CHECK_OUT = SIGN;
+                SIGN = READ.readLine();
+                String JAM_CHECK_IN = SIGN;
                 DB_TAMU[i] = new Tamu (ID, NIK, NAMA, TEMPAT_LAHIR,
                         TANGGAL_LAHIR, TANGGAL_DAFTAR, AKUMULASI, 
-                        NO_KAMAR, TGL_CHECK_IN, TGL_CHECK_OUT);
+                        NO_KAMAR, TGL_CHECK_IN, TGL_CHECK_OUT, Integer.parseInt(JAM_CHECK_IN));
 
             }
         }
