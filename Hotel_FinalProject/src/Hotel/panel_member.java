@@ -5,6 +5,11 @@
  */
 package Hotel;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ltf
@@ -68,6 +73,8 @@ public class panel_member extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 430, 0, 0);
         getContentPane().add(ComboBox_pilihkamar, gridBagConstraints);
+
+        textfield_lama_menginap_in.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
@@ -76,6 +83,8 @@ public class panel_member extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 27, 0, 0);
         getContentPane().add(textfield_lama_menginap_in, gridBagConstraints);
+
+        textfield_no_kamar.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -123,6 +132,11 @@ public class panel_member extends javax.swing.JFrame {
         getContentPane().add(textfield_id, gridBagConstraints);
 
         button_submit_member.setText("Submit");
+        button_submit_member.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_submit_memberActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 6;
@@ -134,6 +148,11 @@ public class panel_member extends javax.swing.JFrame {
         getContentPane().add(button_submit_member, gridBagConstraints);
 
         button_cancel_member.setText("Cancel");
+        button_cancel_member.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cancel_memberActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -169,6 +188,100 @@ public class panel_member extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBox_pilihkamarActionPerformed
 
+    private void button_submit_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_submit_memberActionPerformed
+        Object select = ComboBox_pilihkamar.getSelectedItem();
+        Kamar k = new Kamar();
+        Pelanggan p = new Pelanggan();
+        int pass = 0, id, hari, noKamar;
+        try {
+            id = Integer.parseInt(textfield_id.getText());
+            hari = Integer.parseInt(textfield_lama_menginap_in.getText());
+            noKamar = Integer.parseInt(textfield_no_kamar.getText());
+            try {
+                k.retrieveData(noKamar);
+                p.retrieveData(id);
+                String tes = String.format("%s", p);
+            } catch (SQLException ex) {
+                Logger.getLogger(panel_member.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NullPointerException a) {
+                JOptionPane.showMessageDialog(this, "ID tidak terdaftar");
+                pass = 1;
+            }
+            Transaksi t;
+            if (pass == 0) {
+                boolean checkKamar = k.getIsSewa();
+                if (checkKamar == false) {
+                    if (select == "VIP") {
+                        if (noKamar < 91 || noKamar > 100) {
+                            JOptionPane.showMessageDialog(this, "Kamar VIP no 91 - 100");
+                        } else {
+                            try {
+                                t = new Transaksi(hari, p, k);
+                                String data = String.format("Berhasil Check In\n%s", t);
+                                JOptionPane.showMessageDialog(this, data);
+                                clear();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(panel_member.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    } else if (select == "Suite") {
+                        if (noKamar < 71 || noKamar > 90) {
+                            JOptionPane.showMessageDialog(this, "Kamar Suite no 71 - 90");
+                        } else {
+                            try {
+                                t = new Transaksi(hari, p, k);
+                                String data = String.format("Berhasil Check In\n%s", t);
+                                JOptionPane.showMessageDialog(this, data);
+                                clear();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(panel_member.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    } else if (select == "Premium") {
+                        if (noKamar < 51 || noKamar > 70) {
+                            JOptionPane.showMessageDialog(this, "Kamar Premium no 51 - 70");
+                        } else {
+                            try {
+                                t = new Transaksi(hari, p, k);
+                                String data = String.format("Berhasil Check In\n%s", t);
+                                JOptionPane.showMessageDialog(this, data);
+                                clear();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(panel_member.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    } else if (select == "Reguler") {
+                        if (noKamar < 1 || noKamar > 50) {
+                            JOptionPane.showMessageDialog(this, "Kamar Reguler no 1 - 50");
+                        } else {
+                            try {
+                                t = new Transaksi(hari, p, k);
+                                String data = String.format("Berhasil Check In\n%s", t);
+                                JOptionPane.showMessageDialog(this, data);
+                                clear();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(panel_member.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Kamar sudah tersewa");
+                }
+            }
+        } catch (NumberFormatException a) {
+            JOptionPane.showMessageDialog(this, "Invalid Input");
+        }
+
+    }//GEN-LAST:event_button_submit_memberActionPerformed
+
+    private void button_cancel_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancel_memberActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_button_cancel_memberActionPerformed
+    public void clear(){
+        textfield_id.setText("");
+        textfield_lama_menginap_in.setText("0");
+        textfield_no_kamar.setText("0");
+    }
     /**
      * @param args the command line arguments
      */

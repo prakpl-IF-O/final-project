@@ -1067,27 +1067,27 @@ public class panel_kamar extends javax.swing.JFrame {
 
         label_premium.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         label_premium.setForeground(new java.awt.Color(102, 102, 255));
-        label_premium.setText("Premium");
+        label_premium.setText("Suite (350k / day)");
         getContentPane().add(label_premium);
-        label_premium.setBounds(10, 90, 80, 14);
+        label_premium.setBounds(10, 90, 160, 14);
 
         label_reguler.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         label_reguler.setForeground(new java.awt.Color(102, 102, 255));
-        label_reguler.setText("Reguler");
+        label_reguler.setText("Reguler (100k / day)");
         getContentPane().add(label_reguler);
-        label_reguler.setBounds(10, 300, 70, 17);
+        label_reguler.setBounds(10, 300, 160, 17);
 
         label_VIP2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         label_VIP2.setForeground(new java.awt.Color(102, 102, 255));
-        label_VIP2.setText("VIP");
+        label_VIP2.setText("VIP (750k / day)");
         getContentPane().add(label_VIP2);
-        label_VIP2.setBounds(10, 10, 34, 17);
+        label_VIP2.setBounds(10, 10, 120, 17);
 
         label_suite.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         label_suite.setForeground(new java.awt.Color(102, 102, 255));
-        label_suite.setText("Suite");
+        label_suite.setText("Premium (200k / day)");
         getContentPane().add(label_suite);
-        label_suite.setBounds(10, 190, 50, 17);
+        label_suite.setBounds(10, 190, 160, 17);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
