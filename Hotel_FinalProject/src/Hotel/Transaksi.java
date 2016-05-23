@@ -66,7 +66,9 @@ public class Transaksi implements DB {
     }
 
     public String toString() {
-        return String.format("%d\n%s\n%s\n", kodeTransaksi, String.valueOf(sdf.format(checkIn.getTime())), String.valueOf(sdf.format(batasCheckOut.getTime())));
+        return String.format("Kode Transaksi %9d\nID Pelanggan %13d\nCheck In %40s\nTenggang Waktu %25s\nNo Kamar %21d", 
+                kodeTransaksi,tamu.getId(), String.valueOf(sdf.format(checkIn.getTime())), 
+                String.valueOf(sdf.format(batasCheckOut.getTime())),kamar.getNoKamar());
     }
 
     public void savingData() throws SQLException {

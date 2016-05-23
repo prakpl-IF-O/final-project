@@ -65,6 +65,8 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 10, 0, 0);
         getContentPane().add(jLabel2_hari, gridBagConstraints);
+
+        textfield_lama_menginap_in.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 10;
@@ -112,7 +114,7 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 140, 0, 0);
         getContentPane().add(label_tempat_lahir, gridBagConstraints);
 
-        label_tanggal_lahir.setText("Tanggal Lahir");
+        label_tanggal_lahir.setText("Tanggal Lahir (dd/mm/yyyy)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -231,6 +233,8 @@ public class panel_new extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(60, 150, 0, 0);
         getContentPane().add(button_cancel, gridBagConstraints);
+
+        textfield_no_kamar.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
@@ -275,58 +279,122 @@ public class panel_new extends javax.swing.JFrame {
     private void textfield_tempat_lahirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_tempat_lahirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textfield_tempat_lahirActionPerformed
-
+    int cek = 0;
+    Pelanggan p = new Pelanggan();
     private void button_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_submitActionPerformed
         Object select = ComboBox_pilihkamar.getSelectedItem();
         String nama, tempatlahir, tanggallahir, nik;
-        int noKamar, cek = 0;
-        if (cek == 0) {
-            nik = textfield_nik.getText();
-            nama = textfield_nama.getText();
-            tanggallahir = textfield_tanggal_lahir.getText();
-            tempatlahir = textfield_tempat_lahir.getText();
+        int noKamar, hari;
+        Transaksi t;
+        Kamar k;
         try {
-            Pelanggan p = new Pelanggan(nik,nama,tempatlahir,tanggallahir);
-            cek =1;
-            String data = String.format("Pelanggan Terdaftar\n%s\nPilih Kelas Kamar dan Nomor Kamar\nKemudian"
-                    + " Klik Summit",p);
-            JOptionPane.showMessageDialog(this, data);
-        } catch (SQLException ex) {
-            Logger.getLogger(panel_new.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        } else {
-            noKamar = Integer.valueOf(textfield_no_kamar.getText());
-            System.out.println(noKamar);
-            if (select == "VIP") {
-                System.out.println("VIP");
-                if (noKamar < 91 || noKamar > 100) {
-                    JOptionPane.showMessageDialog(this, "Kamar VIP no 91-100");
-                    textfield_no_kamar.setText("");
+            if (cek == 0) {
+                nik = textfield_nik.getText();
+                nama = textfield_nama.getText();
+                tanggallahir = textfield_tanggal_lahir.getText();
+                tempatlahir = textfield_tempat_lahir.getText();
+                try {
+                    p = new Pelanggan(nik, nama, tempatlahir, tanggallahir);
+                    cek = 1;
+                    String data = String.format("Pelanggan Terdaftar\n%s\nPilih Kelas Kamar, Nomor Kamar, dan Lama Bermalam\nKemudian"
+                            + " Klik Summit", p);
+                    JOptionPane.showMessageDialog(this, data);
+                    textfield_lama_menginap_in.setEditable(true);
+                    textfield_no_kamar.setEditable(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(panel_new.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else if (select == "Suite") {
-                System.out.println("Suite");
-                
-                if (noKamar < 71 || noKamar > 90) {
-                    JOptionPane.showMessageDialog(this, "Kamar Suite no 71-90");
-                    textfield_no_kamar.setText("");
+            } else {
+                noKamar = Integer.valueOf(textfield_no_kamar.getText());
+                hari = Integer.valueOf(textfield_lama_menginap_in.getText());
+                k = new Kamar();
+                boolean checkKamar = false;
+                try {
+                    k.retrieveData(noKamar);
+                    checkKamar = k.checkKamar(k.getNoKamar());
+                } catch (SQLException ex) {
+                    Logger.getLogger(panel_new.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else if (select == "Premium") {
-                System.out.println("Premium");
-                
-                if (noKamar < 51 || noKamar > 70) {
-                    JOptionPane.showMessageDialog(this, "Kamar VIP no 51-70");
-                    textfield_no_kamar.setText("");
-                }
-            } else if (select == "Reguler") {
-                System.out.println("Reguler");
-                if (noKamar < 1 || noKamar > 50) {
-                    JOptionPane.showMessageDialog(this, "Kamar VIP no 1-50");
-                    textfield_no_kamar.setText("");
+                if (checkKamar == false) {
+                    if (select == "VIP") {
+                        if (noKamar < 91 || noKamar > 100) {
+                            JOptionPane.showMessageDialog(this, "Kamar VIP no 91-100");
+                            textfield_no_kamar.setText("");
+                        } else {
+                            try {
+                                t = new Transaksi(hari, p, k);
+                                String data = String.format("Berhasil Check In\n%s", t);
+                                JOptionPane.showMessageDialog(this, data);
+                                clear();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(panel_new.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    } else if (select == "Suite") {
+                        if (noKamar < 71 || noKamar > 90) {
+                            JOptionPane.showMessageDialog(this, "Kamar Suite no 71-90");
+                            textfield_no_kamar.setText("");
+                        } else {
+                            try {
+                                t = new Transaksi(hari, p, k);
+                                String data = String.format("Berhasil Check In\n%s", t);
+                                JOptionPane.showMessageDialog(this, data);
+                                clear();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(panel_new.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    } else if (select == "Premium") {
+                        if (noKamar < 51 || noKamar > 70) {
+                            JOptionPane.showMessageDialog(this, "Kamar VIP no 51-70");
+                            textfield_no_kamar.setText("");
+                        } else {
+                            try {
+                                t = new Transaksi(hari, p, k);
+                                String data = String.format("Berhasil Check In\n%s", t);
+                                JOptionPane.showMessageDialog(this, data);
+                                clear();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(panel_new.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    } else if (select == "Reguler") {
+                        if (noKamar < 1 || noKamar > 50) {
+                            JOptionPane.showMessageDialog(this, "Kamar VIP no 1-50");
+                            textfield_no_kamar.setText("");
+                        } else {
+                            try {
+                                t = new Transaksi(hari, p, k);
+                                String data = String.format("Berhasil Check In\n%s", t);
+                                JOptionPane.showMessageDialog(this, data);
+                                clear();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(panel_new.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Kamar Tersewa");
                 }
             }
+        } catch (NumberFormatException a) {
+            JOptionPane.showMessageDialog(this, "Isi Semua kotak sesuai format");
+        } catch (NullPointerException a) {
+            JOptionPane.showMessageDialog(this, "Isi Semua kotak sesuai format");
         }
     }//GEN-LAST:event_button_submitActionPerformed
 
+    public void clear() {
+        cek = 0;
+        textfield_nama.setText("");
+        textfield_nik.setText("");
+        textfield_no_kamar.setText("");
+        textfield_tanggal_lahir.setText("");
+        textfield_tempat_lahir.setText("");
+        textfield_lama_menginap_in.setText("");
+        textfield_lama_menginap_in.setEditable(false);
+        textfield_no_kamar.setEditable(false);
+    }
     private void button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_button_cancelActionPerformed
