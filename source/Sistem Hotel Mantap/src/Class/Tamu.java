@@ -80,6 +80,21 @@ public class Tamu extends Pelanggan {
         return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
     }
         
+        public int GET_LAMA_INAP(){
+            TANGGAL.setTime(GET_CHECK_IN());
+            int tgl1 = TANGGAL.get(Calendar.DAY_OF_MONTH);
+            int bulan1 = TANGGAL.get(Calendar.MONTH) +1;
+            int tahun1 = TANGGAL.get(Calendar.YEAR);
+            
+            TANGGAL.setTime(GET_CHECK_OUT());
+            int tgl2 = TANGGAL.get(Calendar.DAY_OF_MONTH);
+            int bulan2 = TANGGAL.get(Calendar.MONTH) +1;
+            int tahun2 = TANGGAL.get(Calendar.YEAR);
+            
+            int hasil = dt.GET_DIFFERENT_DAYS(tgl1, bulan1, tahun1, tgl2, bulan2, tahun2);
+            return hasil;
+        }
+        
         public String STRING_CHECK_IN() {
         TANGGAL.setTime(GET_CHECK_IN());
 

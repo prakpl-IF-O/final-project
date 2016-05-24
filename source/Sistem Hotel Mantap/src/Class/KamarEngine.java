@@ -42,6 +42,24 @@ public class KamarEngine {
     return DATABASE[index].GET_NOMOR_KAMAR();
     }
     
+    public String GET_JENIS_KAMAR_BY_NO_KAMAR (String no_kamar){
+        for (int i = 0; i < DB_SIZE; i++) {
+            if(DATABASE[i].GET_NOMOR_KAMAR().equalsIgnoreCase(no_kamar)){
+                return DATABASE[i].GET_JENIS_KAMAR();
+            }
+        }
+        return "-1";
+    }
+    
+        public int GET_HARGA_KAMAR_BY_NO_KAMAR (String no_kamar){
+        for (int i = 0; i < DB_SIZE; i++) {
+            if(DATABASE[i].GET_NOMOR_KAMAR().equalsIgnoreCase(no_kamar)){
+                return DATABASE[i].GET_HARGA_KAMAR();
+            }
+        }
+        return -1;
+    }
+        
     //return index kamar
     public int GET_KAMAR_KOSONG(String Jenis_Kamar){
         if (Jenis_Kamar.equalsIgnoreCase("reguler")){

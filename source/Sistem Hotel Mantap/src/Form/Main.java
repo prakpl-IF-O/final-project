@@ -19,6 +19,7 @@ public class Main extends javax.swing.JFrame {
     UserEngine user = new UserEngine();
     KamarEngine kamar = new KamarEngine();
     TamuEngine tamu = new TamuEngine();
+    Transaksi trans = new Transaksi();
     
     class GET_TIME implements Runnable {
 
@@ -164,23 +165,19 @@ public class Main extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txt_ID_ceck_out = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lbl_co_checkin = new javax.swing.JLabel();
         lbl_co_nama = new javax.swing.JLabel();
         lbl_co_lama = new javax.swing.JLabel();
         lbl_co_kamar = new javax.swing.JLabel();
         lbl_co_biaya = new javax.swing.JLabel();
         lbl_co_diskon = new javax.swing.JLabel();
+        lbl_kembalian = new javax.swing.JLabel();
         lbl_co_denda = new javax.swing.JLabel();
         lbl_co_total = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        txt_ID_ceck_out1 = new javax.swing.JTextField();
+        txt_bayar = new javax.swing.JTextField();
         btn_checkout = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         color6 = new javax.swing.JLabel();
         PANEL_BERANDA_OVERVIEW = new javax.swing.JLayeredPane();
         lbl_jam = new javax.swing.JLabel();
@@ -365,6 +362,11 @@ public class Main extends javax.swing.JFrame {
 
         cbo_tamu.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         cbo_tamu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "(Pilih Tamu yang akan Check Out)" }));
+        cbo_tamu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbo_tamuActionPerformed(evt);
+            }
+        });
         PANEL_TRANSAKSI_CHECKOUT.add(cbo_tamu, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 34, 290, 40));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -378,80 +380,77 @@ public class Main extends javax.swing.JFrame {
         PANEL_TRANSAKSI_CHECKOUT.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, -1, -1));
 
         txt_ID_ceck_out.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_ID_ceck_out.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_ID_ceck_outKeyReleased(evt);
+            }
+        });
         PANEL_TRANSAKSI_CHECKOUT.add(txt_ID_ceck_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 34, 250, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BG_select_checkout.png"))); // NOI18N
         PANEL_TRANSAKSI_CHECKOUT.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel7.setText("Nama   :");
-        PANEL_TRANSAKSI_CHECKOUT.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        lbl_co_checkin.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_co_checkin.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_co_checkin.setText("Senin, 21 September 2016");
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_checkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel8.setText("Lama    :");
-        PANEL_TRANSAKSI_CHECKOUT.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel9.setText("Kamar  :");
-        PANEL_TRANSAKSI_CHECKOUT.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel10.setText("Biaya    :   Rp.");
-        PANEL_TRANSAKSI_CHECKOUT.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel11.setText("Diskon  :   Rp.");
-        PANEL_TRANSAKSI_CHECKOUT.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel12.setText("Denda  :   Rp.");
-        PANEL_TRANSAKSI_CHECKOUT.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel13.setText("Total     :   Rp.");
-        PANEL_TRANSAKSI_CHECKOUT.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
-
-        lbl_co_nama.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_co_nama.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_co_nama.setForeground(new java.awt.Color(255, 255, 255));
         lbl_co_nama.setText("Ricky Irfandi");
-        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 130, -1, -1));
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 125, -1, -1));
 
         lbl_co_lama.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_co_lama.setForeground(new java.awt.Color(255, 255, 255));
         lbl_co_lama.setText("5 Hari");
-        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_lama, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 170, -1, -1));
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_lama, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 215, -1, -1));
 
         lbl_co_kamar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_co_kamar.setForeground(new java.awt.Color(255, 255, 255));
         lbl_co_kamar.setText("099V - VIP");
-        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 210, -1, -1));
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
 
         lbl_co_biaya.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_co_biaya.setForeground(new java.awt.Color(255, 255, 255));
         lbl_co_biaya.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_co_biaya.setText("750000");
-        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_biaya, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 140, -1));
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_biaya, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 305, 300, -1));
 
         lbl_co_diskon.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_co_diskon.setForeground(new java.awt.Color(255, 255, 255));
         lbl_co_diskon.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_co_diskon.setText("0");
-        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_diskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 140, -1));
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_diskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 300, -1));
+
+        lbl_kembalian.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_kembalian.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_kembalian.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_kembalian.setText("0");
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_kembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 170, 290, -1));
 
         lbl_co_denda.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_co_denda.setForeground(new java.awt.Color(255, 255, 255));
         lbl_co_denda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_co_denda.setText("0");
-        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_denda, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 140, -1));
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_denda, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 290, -1));
 
-        lbl_co_total.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbl_co_total.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_co_total.setForeground(new java.awt.Color(255, 255, 255));
         lbl_co_total.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_co_total.setText("750000");
-        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 140, -1));
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 300, -1));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel14.setText("Bayar    :");
-        PANEL_TRANSAKSI_CHECKOUT.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
-
-        txt_ID_ceck_out1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PANEL_TRANSAKSI_CHECKOUT.add(txt_ID_ceck_out1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 190, 40));
+        txt_bayar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PANEL_TRANSAKSI_CHECKOUT.add(txt_bayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, 290, 40));
 
         btn_checkout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tombol_checkout.png"))); // NOI18N
-        PANEL_TRANSAKSI_CHECKOUT.add(btn_checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
+        PANEL_TRANSAKSI_CHECKOUT.add(btn_checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 487, -1, -1));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bg_detail_co.png"))); // NOI18N
+        PANEL_TRANSAKSI_CHECKOUT.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bg_bayar.png"))); // NOI18N
+        PANEL_TRANSAKSI_CHECKOUT.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, -1));
 
         color6.setBackground(new java.awt.Color(255, 255, 255));
         color6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1201,6 +1200,39 @@ private void clear_highlight(){
     private void BG_VIPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BG_VIPMouseClicked
         OPEN_CHECK_IN_FORM(3);
     }//GEN-LAST:event_BG_VIPMouseClicked
+
+    private void cbo_tamuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbo_tamuActionPerformed
+          int index = cbo_tamu.getSelectedIndex();
+        
+        if (index > 0) {
+            index--;
+            lbl_co_nama.setText(tamu.GET_NAMA_BY_INDEX(index));
+            lbl_co_checkin.setText(tamu.GET_STRING_CHECK_IN_BY_INDEX(index));
+            lbl_co_lama.setText(Integer.toString(tamu.GET_LAMA_INAP_BY_INDEX(index)) + " Hari");
+            lbl_co_kamar.setText(tamu.GET_KAMAR_BY_INDEX(index) + " - "+ kamar.GET_JENIS_KAMAR_BY_NO_KAMAR(tamu.GET_KAMAR_BY_INDEX(index)));
+            //String.format("%.0f", Double.toString(trans.GET_BIAYA_KAMAR(index)))
+            lbl_co_biaya.setText(Double.toString(trans.GET_BIAYA_KAMAR(index)));
+            lbl_co_diskon.setText(Double.toString(trans.GET_DISKON_KAMAR(index)));
+            lbl_co_denda.setText(Double.toString(trans.GET_DENDA(index)));
+            lbl_co_total.setText(Double.toString(trans.GET_TOTAL(trans.GET_BIAYA_KAMAR(index), trans.GET_DISKON_KAMAR(index), trans.GET_DENDA(index))));
+        } 
+    }//GEN-LAST:event_cbo_tamuActionPerformed
+
+    private void txt_ID_ceck_outKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ID_ceck_outKeyReleased
+        int index = tamu.scan_ID(txt_ID_ceck_out.getText());
+        
+        if (index >= 0) {
+            lbl_co_nama.setText(tamu.GET_NAMA_BY_INDEX(index));
+            lbl_co_checkin.setText(tamu.GET_STRING_CHECK_IN_BY_INDEX(index));
+            lbl_co_lama.setText(Integer.toString(tamu.GET_LAMA_INAP_BY_INDEX(index)) + " Hari");
+            lbl_co_kamar.setText(tamu.GET_KAMAR_BY_INDEX(index) + " - " + kamar.GET_JENIS_KAMAR_BY_NO_KAMAR(tamu.GET_KAMAR_BY_INDEX(index)));
+            //String.format("%.0f", Double.toString(trans.GET_BIAYA_KAMAR(index)))
+            lbl_co_biaya.setText(Double.toString(trans.GET_BIAYA_KAMAR(index)));
+            lbl_co_diskon.setText(Double.toString(trans.GET_DISKON_KAMAR(index)));
+            lbl_co_denda.setText(Double.toString(trans.GET_DENDA(index)));
+            lbl_co_total.setText(Double.toString(trans.GET_TOTAL(trans.GET_BIAYA_KAMAR(index), trans.GET_DISKON_KAMAR(index), trans.GET_DENDA(index))));
+        }
+    }//GEN-LAST:event_txt_ID_ceck_outKeyReleased
     
     public void OPEN_CHECK_IN_FORM (int jenis_kamar){
         clear_highlight();
@@ -1342,19 +1374,13 @@ private void clear_highlight(){
     private javax.swing.JLabel icon_plus3;
     private javax.swing.JLabel icon_transaksi;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_ID_pelanggan;
@@ -1362,6 +1388,7 @@ private void clear_highlight(){
     private javax.swing.JLabel lbl_akumulasi_pelanggan;
     private javax.swing.JLabel lbl_ci_tamu;
     private javax.swing.JLabel lbl_co_biaya;
+    private javax.swing.JLabel lbl_co_checkin;
     private javax.swing.JLabel lbl_co_denda;
     private javax.swing.JLabel lbl_co_diskon;
     private javax.swing.JLabel lbl_co_kamar;
@@ -1373,6 +1400,7 @@ private void clear_highlight(){
     private javax.swing.JLabel lbl_jam;
     private javax.swing.JLabel lbl_jum_pelanggan;
     private javax.swing.JLabel lbl_kamar_tamu;
+    private javax.swing.JLabel lbl_kembalian;
     private javax.swing.JLabel lbl_nama_pelanggan;
     private javax.swing.JLabel lbl_nama_tamu;
     private javax.swing.JLabel lbl_nik_pelanggan;
@@ -1408,8 +1436,8 @@ private void clear_highlight(){
     private javax.swing.JLabel tbl_check_in;
     private javax.swing.JTextField txt_ID;
     private javax.swing.JTextField txt_ID_ceck_out;
-    private javax.swing.JTextField txt_ID_ceck_out1;
     private javax.swing.JTextField txt_akumulasi;
+    private javax.swing.JTextField txt_bayar;
     private javax.swing.JTextField txt_nama;
     private javax.swing.JTextField txt_nik;
     private javax.swing.JLabel txt_no_kamar;

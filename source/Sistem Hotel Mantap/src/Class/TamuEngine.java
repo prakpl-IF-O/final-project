@@ -27,6 +27,16 @@ public class TamuEngine {
             ex.printStackTrace();
         }
     }
+
+    public int scan_ID(String ID) {
+        for (int i = 0; i < DB_SIZE; i++) {
+            if (DATABASE[i].GET_ID().equalsIgnoreCase(ID)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public String GET_ID_BY_INDEX(int index){
         return DATABASE[index].GET_ID();
     }
@@ -42,15 +52,21 @@ public class TamuEngine {
     public String GET_KAMAR_BY_INDEX(int index){
         return DATABASE[index].GET_NOMOR_KAMAR();
     }
-    
+    public int GET_AKUMULASI_BY_INDEX(int index){
+        return DATABASE[index].GET_AKUMULASI();
+    }
     public String GET_STRING_CHECK_IN_BY_INDEX(int index){
         return DATABASE[index].STRING_CHECK_IN();
     }
-    
+    public int GET_JAM_CHECK_IN_BY_INDEX(int index){
+        return DATABASE[index].GET_JAM_CHECK_IN();
+    }
     public String GET_STRING_CHECK_OUT_BY_INDEX(int index){
         return DATABASE[index].STRING_CHECK_OUT();
     }
-    
+    public int GET_LAMA_INAP_BY_INDEX (int index){
+        return DATABASE[index].GET_LAMA_INAP();
+    }
     public String GET_DISKON_BY_INDEX(int index){
         if (DATABASE[index].GET_AKUMULASI()<9){
             return "0 %";
