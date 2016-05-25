@@ -18,6 +18,7 @@ import java.sql.Statement;
 public class Suite extends Kamar {
 
     private int nmrKmr;
+    private final double harga = 350000;
 
     public Suite(String Jenis) {
         super(Jenis);
@@ -67,5 +68,10 @@ public class Suite extends Kamar {
             }
         }
         return String.valueOf(nmrKmr);
+    }
+
+    @Override
+    public double getHarga() {
+        return harga;
     }
 }

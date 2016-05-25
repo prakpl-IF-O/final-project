@@ -18,6 +18,7 @@ import java.sql.Statement;
 public class Premium extends Kamar {
 
     private int nmrKmr;
+    private final double harga = 200000;
 
     public Premium(String Jenis) {
         super(Jenis);
@@ -67,5 +68,10 @@ public class Premium extends Kamar {
             }
         }
         return String.valueOf(nmrKmr);
+    }
+
+    @Override
+    public double getHarga() {
+        return harga;
     }
 }

@@ -18,6 +18,7 @@ import java.sql.Statement;
 public class Reguler extends Kamar {
 
     private int nmrKmr;
+    private final double harga = 100000;
 
     public Reguler(String Jenis) {
         super(Jenis);
@@ -67,5 +68,10 @@ public class Reguler extends Kamar {
             }
         }
         return String.valueOf(nmrKmr);
+    }
+
+    @Override
+    public double getHarga() {
+        return harga;
     }
 }
