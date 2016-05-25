@@ -1,4 +1,6 @@
 package HOTEL;
-public class Reguler {
-    
+public class Reguler extends Kamar{
+    public Reguler(){
+    super ("Reguler", 100000);
+    }
 }
