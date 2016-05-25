@@ -21,9 +21,9 @@ import java.util.Date;
  */
 public class Pembayaran {
 
-    private int lama;
+    private int lama, temp = 0;
     private String jenis, CI, CO;
-    private double bayar_hari;
+    private double bayar_hari, bonus;
     private long hari, jam, menit;
 
     public void bayar_hari(String nik) throws SQLException {
@@ -88,5 +88,31 @@ public class Pembayaran {
 
     public long getMenit() {
         return menit;
+    }
+
+    public double bonus(String nik) throws SQLException {
+        int total_inap[] = new int[1000];
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
+        Statement stmt = conn.createStatement();
+        {
+            ResultSet rset = stmt.executeQuery("select lama from faza.DATAPELANGGAN where nik=" + nik);
+            for (int i = 0; i < 1000; i++) {
+                if (rset.next()) {
+                    total_inap[i] = rset.getInt("lama");
+                }
+            }
+            for (int i = 0; i < 1000; i++) {
+                temp += total_inap[i];
+            }
+            if (temp < 10) {
+                return bonus = 0;
+            } else if (temp >= 10 && temp <= 30) {
+                return bonus = bayar_hari * 10 / 100;
+            } else if (temp > 30 && temp <= 60) {
+                return bonus = bayar_hari * 15 / 100;
+            } else {
+                return bonus = bayar_hari * 25 / 100;
+            }
+        }
     }
 }
