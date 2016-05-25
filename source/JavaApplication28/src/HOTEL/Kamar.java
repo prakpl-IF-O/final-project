@@ -7,4 +7,13 @@ public class Kamar {
     String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
     String uPass = "123";
     String uName = "DRN";
+    
+    public Kamar(String jenisKamar, double sewa) {
+        this.jenisKamar = jenisKamar;
+        this.sewa = sewa;
+    }
+    
+    public Kamar(){
+    
+    }
 }
