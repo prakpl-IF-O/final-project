@@ -1,4 +1,4 @@
-package javaapplication28;
+package HOTEL;
 public class Pelanggan {
 private String namaD,namaB,id,TTL;
 private int NIK,no;
