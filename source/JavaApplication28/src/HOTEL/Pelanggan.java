@@ -1,7 +1,14 @@
 package HOTEL;
+
+import java.sql.*;
+
 public class Pelanggan {
 private String namaD,namaB,id,TTL;
 private int NIK,no;
+
+String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
+    String uPass = "123";
+    String uName = "DRN";
 
 public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         this.namaD = namaD;
@@ -31,4 +38,6 @@ public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
     public int getNIK() {
         return NIK;
     }
+    
+    
 }

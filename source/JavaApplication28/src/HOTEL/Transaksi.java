@@ -1,5 +1,13 @@
 package HOTEL;
+
+import java.sql.*;
+
 public class Transaksi {
+    
+    String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
+    String uPass = "123";
+    String uName = "DRN";
+    
     private String tanggalMasuk, JamMasuk, tanggalKeluar, JamKeluar;
     private int jumlahHari, nomorKamar;
 
