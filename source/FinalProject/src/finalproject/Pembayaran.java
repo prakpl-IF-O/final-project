@@ -140,4 +140,23 @@ public class Pembayaran {
     public double totalBayar() {
         return bayar_hari - bonus + denda;
     }
+
+    public String hargaKamar() {
+        if (jenis.equalsIgnoreCase("reguler")) {
+            Reguler r = new Reguler("reguler");
+            return String.valueOf(r.getHarga());
+        } else if (jenis.equalsIgnoreCase("premium")) {
+            Premium p = new Premium("premium");
+            return String.valueOf(p.getHarga());
+        } else if (jenis.equalsIgnoreCase("suite")) {
+            Suite s = new Suite("suite");
+            return String.valueOf(s.getHarga());
+        } else if (jenis.equalsIgnoreCase("vip")) {
+            Vip v = new Vip("vip");
+            return String.valueOf(v.getHarga());
+        } else {
+            return "Jenis Tidak ditemukan";
+        }
+    }
+
 }
