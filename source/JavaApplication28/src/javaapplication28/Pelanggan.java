@@ -1,21 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication28;
+public class Pelanggan {
+private String namaD,namaB,id,TTL;
+private int NIK,no;
 
-/**
- *
- * @author Dino Keylas
- */
-public class JavaApplication28 {
+public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
+        this.namaD = namaD;
+        this.namaB = namaB;
+        this.id = namaD+namaB;
+        this.TTL = TTL;
+        this.NIK = NIK;
+        this.no=no;
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public String getNamaD() {
+        return namaD;
+    }
+
+    public String getNamaB() {
+        return namaB;
+    }
+
+    public String getId() {
+        return id;
     }
     
+    public String getTTL() {
+        return TTL;
+    }
+
+    public int getNIK() {
+        return NIK;
+    }
 }
