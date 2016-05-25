@@ -2,6 +2,7 @@ package HOTEL;
 
 import java.sql.*;
 
+
 public class Transaksi {
     
     String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
@@ -19,4 +20,6 @@ public class Transaksi {
         this.jumlahHari = jumlahHari;
         this.nomorKamar = nomorKamar;
     }
+    
+    
 }
