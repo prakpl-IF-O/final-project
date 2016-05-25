@@ -34,7 +34,7 @@ public class Main extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         CheckOut = new javax.swing.JLayeredPane();
-        finish1 = new javax.swing.JButton();
+        finish_CheckOut = new javax.swing.JButton();
         jTextField10 = new javax.swing.JTextField();
         ID2 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
@@ -71,10 +71,10 @@ public class Main extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         Lihat_kamar = new javax.swing.JLayeredPane();
         finish_LihatKamar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        Premium = new javax.swing.JButton();
+        Suite = new javax.swing.JButton();
+        VIP = new javax.swing.JButton();
+        Reguler = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         panel_pembayaran = new javax.swing.JLayeredPane();
@@ -150,18 +150,18 @@ public class Main extends javax.swing.JFrame {
 
         CheckOut.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        finish1.setText("FINISH");
-        finish1.addMouseListener(new java.awt.event.MouseAdapter() {
+        finish_CheckOut.setText("FINISH");
+        finish_CheckOut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                finish1MouseClicked(evt);
+                finish_CheckOutMouseClicked(evt);
             }
         });
-        finish1.addActionListener(new java.awt.event.ActionListener() {
+        finish_CheckOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finish1ActionPerformed(evt);
+                finish_CheckOutActionPerformed(evt);
             }
         });
-        CheckOut.add(finish1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 420, 100, 40));
+        CheckOut.add(finish_CheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 420, 100, 40));
 
         jTextField10.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
@@ -332,17 +332,27 @@ public class Main extends javax.swing.JFrame {
         });
         Lihat_kamar.add(finish_LihatKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 530, 100, 30));
 
-        jButton1.setText("Premium");
-        Lihat_kamar.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 150, 50));
+        Premium.setText("Premium");
+        Premium.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PremiumActionPerformed(evt);
+            }
+        });
+        Lihat_kamar.add(Premium, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 150, 50));
 
-        jButton2.setText("Suite");
-        Lihat_kamar.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 150, 50));
+        Suite.setText("Suite");
+        Lihat_kamar.add(Suite, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 150, 50));
 
-        jButton3.setText("VIP");
-        Lihat_kamar.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 150, 50));
+        VIP.setText("VIP");
+        Lihat_kamar.add(VIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 150, 50));
 
-        jButton8.setText("Reguler");
-        Lihat_kamar.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 150, 50));
+        Reguler.setText("Reguler");
+        Reguler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegulerActionPerformed(evt);
+            }
+        });
+        Lihat_kamar.add(Reguler, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 150, 50));
 
         jLabel16.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 24)); // NOI18N
         jLabel16.setText("Lihat Kamar");
@@ -584,6 +594,7 @@ public class Main extends javax.swing.JFrame {
         Lihat_kamar.setVisible(false);
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
     }//GEN-LAST:event_finishMouseClicked
 
     private void finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishActionPerformed
@@ -599,6 +610,7 @@ public class Main extends javax.swing.JFrame {
         Lihat_kamar.setVisible(false);
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
     }//GEN-LAST:event_finish_LihatKamarActionPerformed
 
     private void finish_PembayaranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finish_PembayaranMouseClicked
@@ -610,6 +622,7 @@ public class Main extends javax.swing.JFrame {
         Lihat_kamar.setVisible(false);
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
     }//GEN-LAST:event_finish_PembayaranActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
@@ -624,16 +637,17 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
-    private void finish1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finish1MouseClicked
+    private void finish_CheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finish_CheckOutMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_finish1MouseClicked
+    }//GEN-LAST:event_finish_CheckOutMouseClicked
 
-    private void finish1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finish1ActionPerformed
+    private void finish_CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finish_CheckOutActionPerformed
         panel_awal.setVisible(true);
         Lihat_kamar.setVisible(false);
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
-    }//GEN-LAST:event_finish1ActionPerformed
+        CheckOut.setVisible(false);
+    }//GEN-LAST:event_finish_CheckOutActionPerformed
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
@@ -662,6 +676,26 @@ public class Main extends javax.swing.JFrame {
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void RegulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegulerActionPerformed
+        
+        
+        panel_awal.setVisible(false);
+        Lihat_kamar.setVisible(false);
+        panel_transaksi.setVisible(false);
+        panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
+    }//GEN-LAST:event_RegulerActionPerformed
+
+    private void PremiumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PremiumActionPerformed
+        
+        
+        panel_awal.setVisible(false);
+        Lihat_kamar.setVisible(false);
+        panel_transaksi.setVisible(false);
+        panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
+    }//GEN-LAST:event_PremiumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -712,16 +746,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton LihatKamar;
     private javax.swing.JLayeredPane Lihat_kamar;
     private javax.swing.JButton Pembayaran;
+    private javax.swing.JButton Premium;
+    private javax.swing.JButton Reguler;
+    private javax.swing.JButton Suite;
     private javax.swing.JLabel Tgl_Keluar;
+    private javax.swing.JButton VIP;
     private javax.swing.JButton finish;
-    private javax.swing.JButton finish1;
+    private javax.swing.JButton finish_CheckOut;
     private javax.swing.JButton finish_LihatKamar;
     private javax.swing.JButton finish_Pembayaran;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
