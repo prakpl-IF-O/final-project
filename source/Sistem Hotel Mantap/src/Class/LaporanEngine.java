@@ -35,7 +35,7 @@ public class LaporanEngine {
         System.out.println("method tambah trans "+ BULAN_INI);
         int index = FIND_INDEX_BY_BULAN(BULAN_INI);
         System.out.println("indexnya : "+index);
-        DATABASE[index].TAMBAH_TRANSAKSI(jumlah_trans, DB_SIZE);
+        DATABASE[index].TAMBAH_TRANSAKSI(jumlah_trans, pendapatan);
         System.out.println("sudah ditambah");
     }
     
@@ -68,5 +68,9 @@ public class LaporanEngine {
     
     public int GET_JUMLAH_DB(){
         return DB_SIZE;
+    }
+    
+    public void UPDATE_MASTER_DATABASE(){
+        db.WRITE_DATABASE_LAPORAN(DATABASE, DB_SIZE);
     }
 }

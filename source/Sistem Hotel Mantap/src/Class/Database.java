@@ -53,6 +53,37 @@ public class Database {
             e.printStackTrace();
         }   
     }
+    
+    public void WRITE_DATABASE_LAPORAN(LaporanBulanan[] LIST, int max){
+                     
+        try {
+            File inputFile = new File("database\\Laporan.database");
+            File tempFile = new File("database\\LaporanTemp.database");
+            FileWriter writer = new FileWriter(tempFile, true);
+
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            
+            System.out.println("max : "+max);
+            bufferedWriter.write(Integer.toString(max));
+            
+            for (int i = 0; i < max; i++) {
+                System.out.println("write 1 + "+LIST[i].GET_BULAN_TRANSAKSI());
+                bufferedWriter.newLine();
+                bufferedWriter.write(LIST[i].GET_BULAN_TRANSAKSI());
+                bufferedWriter.newLine();
+                bufferedWriter.write(Integer.toString(LIST[i].GET_JUMLAH_TRANSAKSI()));
+                bufferedWriter.newLine();
+                bufferedWriter.write(Integer.toString(LIST[i].GET_PENDAPATAN_BULANAN()));
+            }
+            
+            bufferedWriter.close();
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        } 
+    }
     public void WRITE_DATABASE_PELANGGAN (Pelanggan[] LIST, int max){
              
         try {

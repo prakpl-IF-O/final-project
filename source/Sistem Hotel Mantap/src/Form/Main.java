@@ -1328,6 +1328,7 @@ private void clear_highlight(){
                 tamu.UPDATE_MASTER_DATABASE();
                 user.UPDATE_MASTER_DATABASE();
                 kamar.UPDATE_MASTER_DATABASE();
+                laporan.UPDATE_MASTER_DATABASE();
             }
         } else {
             lbl_co_pesan.setText("ID Tamu masih kosong, silakan pilih tamu terlebih dulu");
