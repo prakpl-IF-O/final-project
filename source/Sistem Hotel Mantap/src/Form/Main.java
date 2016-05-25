@@ -20,6 +20,7 @@ public class Main extends javax.swing.JFrame {
     KamarEngine kamar = new KamarEngine();
     TamuEngine tamu = new TamuEngine();
     Transaksi trans = new Transaksi();
+    int SELECTED_CHECKOUT_INDEX = -1;
     
     class GET_TIME implements Runnable {
 
@@ -51,6 +52,7 @@ public class Main extends javax.swing.JFrame {
         System.out.println(kamar.liat());
         UPDATE_INFO(0,"Tamu");
         txt_akumulasi.setEnabled(false);
+        lbl_co_pesan.setVisible(false);
     }
 
     public void INIT_DATA() {
@@ -86,8 +88,9 @@ public class Main extends javax.swing.JFrame {
     
     public void CLEAR_TABLE(){
         DefaultTableModel model_tamu = (DefaultTableModel) TABLE_TAMU.getModel();
+        DefaultComboBoxModel model_cbo_tamu = (DefaultComboBoxModel) cbo_tamu.getModel();
         for (int i = 0; i < tamu.GET_JUMLAH_TAMU(); i++) {
-            
+            model_cbo_tamu.removeElementAt(1);
             model_tamu.removeRow(0);
         }
         
@@ -177,6 +180,7 @@ public class Main extends javax.swing.JFrame {
         txt_bayar = new javax.swing.JTextField();
         btn_checkout = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        lbl_co_pesan = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         color6 = new javax.swing.JLabel();
         PANEL_BERANDA_OVERVIEW = new javax.swing.JLayeredPane();
@@ -441,13 +445,26 @@ public class Main extends javax.swing.JFrame {
         PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 300, -1));
 
         txt_bayar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txt_bayar.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_bayar.setText("0");
         PANEL_TRANSAKSI_CHECKOUT.add(txt_bayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, 290, 40));
 
         btn_checkout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tombol_checkout.png"))); // NOI18N
+        btn_checkout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_checkoutMouseClicked(evt);
+            }
+        });
         PANEL_TRANSAKSI_CHECKOUT.add(btn_checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 487, -1, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bg_detail_co.png"))); // NOI18N
         PANEL_TRANSAKSI_CHECKOUT.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        lbl_co_pesan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_co_pesan.setForeground(new java.awt.Color(255, 51, 0));
+        lbl_co_pesan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_co_pesan.setText("Maaf, uang anda tidak cukup");
+        PANEL_TRANSAKSI_CHECKOUT.add(lbl_co_pesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 640, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bg_bayar.png"))); // NOI18N
         PANEL_TRANSAKSI_CHECKOUT.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, -1));
@@ -1018,6 +1035,7 @@ private void clear_highlight(){
         PANEL_SUBMENU_TRANSAKSI.setVisible(true);
         sub_highlight_check_in.setVisible(true);
         sub_highlight_check_out.setVisible(false);
+        CLEAR_CHECK_IN_FORM();
     }//GEN-LAST:event_menu_transaksiMouseClicked
 
     private void menu_berandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_berandaMouseClicked
@@ -1090,7 +1108,9 @@ private void clear_highlight(){
         sub_highlight_check_out.setVisible(true);
         PANEL_TRANSAKSI_CHECK_IN.setVisible(false);
         PANEL_TRANSAKSI_CHECKOUT.setVisible(true);
-  
+        CLEAR_CHECK_OUT_FORM();
+        txt_bayar.setText("0");
+        lbl_kembalian.setText("");
     }//GEN-LAST:event_sub_check_outMouseClicked
 
     private void txt_tanggal_daftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tanggal_daftarActionPerformed
@@ -1206,6 +1226,7 @@ private void clear_highlight(){
         
         if (index > 0) {
             index--;
+            SELECTED_CHECKOUT_INDEX = index;
             lbl_co_nama.setText(tamu.GET_NAMA_BY_INDEX(index));
             lbl_co_checkin.setText(tamu.GET_STRING_CHECK_IN_BY_INDEX(index));
             lbl_co_lama.setText(Integer.toString(tamu.GET_LAMA_INAP_BY_INDEX(index)) + " Hari");
@@ -1222,6 +1243,7 @@ private void clear_highlight(){
         int index = tamu.scan_ID(txt_ID_ceck_out.getText());
         
         if (index >= 0) {
+            SELECTED_CHECKOUT_INDEX = index;
             lbl_co_nama.setText(tamu.GET_NAMA_BY_INDEX(index));
             lbl_co_checkin.setText(tamu.GET_STRING_CHECK_IN_BY_INDEX(index));
             lbl_co_lama.setText(Integer.toString(tamu.GET_LAMA_INAP_BY_INDEX(index)) + " Hari");
@@ -1233,7 +1255,38 @@ private void clear_highlight(){
             lbl_co_total.setText(Double.toString(trans.GET_TOTAL(trans.GET_BIAYA_KAMAR(index), trans.GET_DISKON_KAMAR(index), trans.GET_DENDA(index))));
         }
     }//GEN-LAST:event_txt_ID_ceck_outKeyReleased
-    
+
+    private void btn_checkoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_checkoutMouseClicked
+        double bayar = Double.parseDouble(txt_bayar.getText());
+        double total = Double.parseDouble(lbl_co_total.getText());
+      
+        if (SELECTED_CHECKOUT_INDEX > 0) {
+            if (bayar < total) {
+                lbl_co_pesan.setText("Maaf uang anda tidak cukup");
+                lbl_co_pesan.setVisible(true);
+            } else {
+                lbl_kembalian.setText("" + (bayar - total));
+                CLEAR_TABLE();
+                tamu.CHECK_OUT(tamu.GET_ID_BY_INDEX(SELECTED_CHECKOUT_INDEX), tamu.GET_LAMA_INAP_BY_INDEX(SELECTED_CHECKOUT_INDEX));
+                INIT_DATA();
+                SELECTED_CHECKOUT_INDEX = -1;
+                CLEAR_CHECK_OUT_FORM();
+            }
+        } else {
+            lbl_co_pesan.setText("ID Tamu masih kosong, silakan pilih tamu terlebih dulu");
+            lbl_co_pesan.setVisible(true);
+        }
+    }//GEN-LAST:event_btn_checkoutMouseClicked
+    public void CLEAR_CHECK_OUT_FORM() {
+        lbl_co_nama.setText("");
+        lbl_co_checkin.setText("");
+        lbl_co_lama.setText("");
+        lbl_co_kamar.setText("");
+        lbl_co_biaya.setText("");
+        lbl_co_diskon.setText("");
+        lbl_co_denda.setText("");
+        lbl_co_total.setText("");
+    }
     public void OPEN_CHECK_IN_FORM (int jenis_kamar){
         clear_highlight();
         highlight_transaksi.setVisible(true);
@@ -1394,6 +1447,7 @@ private void clear_highlight(){
     private javax.swing.JLabel lbl_co_kamar;
     private javax.swing.JLabel lbl_co_lama;
     private javax.swing.JLabel lbl_co_nama;
+    private javax.swing.JLabel lbl_co_pesan;
     private javax.swing.JLabel lbl_co_tamu;
     private javax.swing.JLabel lbl_co_total;
     private javax.swing.JLabel lbl_diskon_tamu;

@@ -92,13 +92,15 @@ public class TamuEngine {
         }
         kamar.PESAN_KAMAR(NO_KAMAR);
     }
-    public void CHECK_OUT (String ID){
+    public void CHECK_OUT (String ID, int tambahan_akumulasi){
         int index = FIND_TAMU_INDEX(ID);
+        
+        kamar.KOSONGKAN_KAMAR(DATABASE[index].GET_NOMOR_KAMAR());
         
         ue.TAMBAH_PELANGGAN(DATABASE[index].GET_ID(), DATABASE[index].GET_NIK(),
                 DATABASE[index].GET_NAMA(), DATABASE[index].GET_TEMPAT_LAHIR(),
-                DATABASE[index].STRING_TANGGAL_LAHIR(), DATABASE[index].STRING_TANGGAL_DAFTAR(),
-                Integer.toString(DATABASE[index].GET_AKUMULASI()));
+                DATABASE[index].FORMATED_TANGGAL_LAHIR(), DATABASE[index].FORMATED_TANGGAL_DAFTAR(),
+                (Integer.toString(DATABASE[index].GET_AKUMULASI()+tambahan_akumulasi)));
         DELETE_TAMU(ID);
     }
     

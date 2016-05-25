@@ -30,6 +30,14 @@ public class KamarEngine {
             Logger.getLogger(LoginEngine.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void KOSONGKAN_KAMAR (String NO_KAMAR){
+        for (int i = 0; i < DB_SIZE; i++) {
+            if (NO_KAMAR.equalsIgnoreCase(DATABASE[i].GET_NOMOR_KAMAR())) {
+                DATABASE[i].CHECK_OUT_THIS_ROOM();
+                SCAN_DB();
+            }
+        }
+    }
     public void PESAN_KAMAR(String NO_KAMAR){
         for (int i = 0; i < DB_SIZE; i++) {
             if (NO_KAMAR.equalsIgnoreCase(DATABASE[i].GET_NOMOR_KAMAR())){
@@ -38,6 +46,7 @@ public class KamarEngine {
             }
         }
     }
+    
     public String GET_NO_KAMAR_BY_INDEX(int index){
     return DATABASE[index].GET_NOMOR_KAMAR();
     }
