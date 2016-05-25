@@ -20,10 +20,14 @@ public class Checkin{
     int denda = 30000;
     int kembali;
     int total;
-    byte akumulasi;
+    static byte akumulasi;
     byte sisakamar = 100;
     byte lamasewa;
 
+    public static void setAkumulasi(byte akumulasi) {
+        Checkin.akumulasi = akumulasi;
+    }
+    
     public Calendar getTin() {
         return tin;
     }
