@@ -159,4 +159,18 @@ public class Pembayaran {
         }
     }
 
+    public void data_keuangan() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
+        Statement stmt = conn.createStatement();
+        {
+            String[] parts = CO.split("-");
+            String tgl = parts[0];
+            String bln = parts[1];
+            String sisa = parts[2];
+            String[] part = sisa.split(" ");
+            String thn = part[0];
+            String jamm = part[1];
+            int inputD = stmt.executeUpdate("insert into faza.DATAKEUANGAN values ('" + tgl + "', '" + bln + "', '" + thn + "', " + totalBayar() + ")");
+        }
+    }
 }
