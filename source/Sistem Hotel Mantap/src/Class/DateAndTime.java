@@ -55,6 +55,9 @@ public class DateAndTime {
         } else if (format.equalsIgnoreCase("D-Y")) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM");
             return (sdf.format(cal.getTime()));
+        } else if (format.equalsIgnoreCase("M/Y")) {
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/YYYY");
+            return (sdf.format(cal.getTime()));
         } else if (format.equalsIgnoreCase("D")) {
             SimpleDateFormat sdf = new SimpleDateFormat("DD");
             return (sdf.format(cal.getTime()));

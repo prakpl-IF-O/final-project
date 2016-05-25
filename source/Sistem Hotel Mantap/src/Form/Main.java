@@ -20,6 +20,8 @@ public class Main extends javax.swing.JFrame {
     KamarEngine kamar = new KamarEngine();
     TamuEngine tamu = new TamuEngine();
     Transaksi trans = new Transaksi();
+    LaporanEngine laporan = new LaporanEngine();
+    
     int SELECTED_CHECKOUT_INDEX = -1;
     
     class GET_TIME implements Runnable {
@@ -100,7 +102,10 @@ public class Main extends javax.swing.JFrame {
             model_pelanggan.removeRow(0);
             model_cbo.removeElementAt(1);
         }
-        
+        DefaultTableModel model_laporan = (DefaultTableModel) table_laporan.getModel();
+        for (int i = 0; i < laporan.GET_JUMLAH_DB(); i++) {
+            model_laporan.removeRow(0);
+        }
         
         
     }
@@ -136,6 +141,16 @@ public class Main extends javax.swing.JFrame {
             String Nama_ID = NAMA + " - " + ID;
             model_cbo.addElement(Nama_ID);
         }
+        
+        DefaultTableModel model_laporan = (DefaultTableModel) table_laporan.getModel();
+        for (int i = 0; i < laporan.GET_JUMLAH_DB(); i++) {
+            String TAHUN = laporan.GET_TAHUN_BY_INDEX(i);
+            String BULAN = laporan.GET_STRING_BULAN_BY_INDEX(i);
+            String TOTAL_PEND = Integer.toString(laporan.GET_TOTAL_PENDAPATAN_BY_INDEX(i));
+            String TOTAL_TRANS = Integer.toString(laporan.GET_JUMLAH_TRANSAKSI_BY_INDEX(i));
+            String[] lAPORAN_ = {TAHUN,BULAN,TOTAL_PEND, TOTAL_TRANS};
+            model_laporan.addRow(lAPORAN_);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -162,6 +177,10 @@ public class Main extends javax.swing.JFrame {
         highlight_transaksi = new javax.swing.JLabel();
         highlight_pelanggan = new javax.swing.JLabel();
         highlight_keuangan = new javax.swing.JLabel();
+        PANEL_KEUANGAN = new javax.swing.JLayeredPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        table_laporan = new javax.swing.JTable();
+        color7 = new javax.swing.JLabel();
         PANEL_TRANSAKSI_CHECKOUT = new javax.swing.JLayeredPane();
         cbo_tamu = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
@@ -361,6 +380,39 @@ public class Main extends javax.swing.JFrame {
 
         highlight_keuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Form/selected.png"))); // NOI18N
         getContentPane().add(highlight_keuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 310, 280, 70));
+
+        PANEL_KEUANGAN.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        table_laporan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        table_laporan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Tahun", "Bulan", "Total Pendapatan", "Total Transaksi"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table_laporan.setRowHeight(30);
+        jScrollPane3.setViewportView(table_laporan);
+
+        PANEL_KEUANGAN.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 980, 490));
+
+        color7.setBackground(new java.awt.Color(255, 255, 255));
+        color7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        color7.setOpaque(true);
+        PANEL_KEUANGAN.add(color7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
+
+        getContentPane().add(PANEL_KEUANGAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 550));
 
         PANEL_TRANSAKSI_CHECKOUT.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1063,6 +1115,8 @@ private void clear_highlight(){
     private void menu_keuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_keuanganMouseClicked
         clear_highlight();
         highlight_keuangan.setVisible(true);
+        CLEAR_PANEL();
+        PANEL_KEUANGAN.setVisible(true);
     }//GEN-LAST:event_menu_keuanganMouseClicked
 
     private void TABLE_TAMUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLE_TAMUMouseClicked
@@ -1231,11 +1285,10 @@ private void clear_highlight(){
             lbl_co_checkin.setText(tamu.GET_STRING_CHECK_IN_BY_INDEX(index));
             lbl_co_lama.setText(Integer.toString(tamu.GET_LAMA_INAP_BY_INDEX(index)) + " Hari");
             lbl_co_kamar.setText(tamu.GET_KAMAR_BY_INDEX(index) + " - "+ kamar.GET_JENIS_KAMAR_BY_NO_KAMAR(tamu.GET_KAMAR_BY_INDEX(index)));
-            //String.format("%.0f", Double.toString(trans.GET_BIAYA_KAMAR(index)))
-            lbl_co_biaya.setText(Double.toString(trans.GET_BIAYA_KAMAR(index)));
-            lbl_co_diskon.setText(Double.toString(trans.GET_DISKON_KAMAR(index)));
+            lbl_co_biaya.setText(String.format("%.0f", trans.GET_BIAYA_KAMAR(index)));
+            lbl_co_diskon.setText(String.format("%.0f", trans.GET_DISKON_KAMAR(index)));
             lbl_co_denda.setText(Double.toString(trans.GET_DENDA(index)));
-            lbl_co_total.setText(Double.toString(trans.GET_TOTAL(trans.GET_BIAYA_KAMAR(index), trans.GET_DISKON_KAMAR(index), trans.GET_DENDA(index))));
+            lbl_co_total.setText(String.format("%.0f",trans.GET_TOTAL(trans.GET_BIAYA_KAMAR(index), trans.GET_DISKON_KAMAR(index), trans.GET_DENDA(index))));
         } 
     }//GEN-LAST:event_cbo_tamuActionPerformed
 
@@ -1268,9 +1321,13 @@ private void clear_highlight(){
                 lbl_kembalian.setText("" + (bayar - total));
                 CLEAR_TABLE();
                 tamu.CHECK_OUT(tamu.GET_ID_BY_INDEX(SELECTED_CHECKOUT_INDEX), tamu.GET_LAMA_INAP_BY_INDEX(SELECTED_CHECKOUT_INDEX));
+                laporan.TAMBAH_TRANSAKSI(1,(int)total);
                 INIT_DATA();
                 SELECTED_CHECKOUT_INDEX = -1;
                 CLEAR_CHECK_OUT_FORM();
+                tamu.UPDATE_MASTER_DATABASE();
+                user.UPDATE_MASTER_DATABASE();
+                kamar.UPDATE_MASTER_DATABASE();
             }
         } else {
             lbl_co_pesan.setText("ID Tamu masih kosong, silakan pilih tamu terlebih dulu");
@@ -1328,6 +1385,7 @@ private void clear_highlight(){
         PANEL_SUBMENU_TRANSAKSI.setVisible(false);
         PANEL_TRANSAKSI_CHECK_IN.setVisible(false);
         PANEL_TRANSAKSI_CHECKOUT.setVisible(false);
+        PANEL_KEUANGAN.setVisible(false);
     }
     /**
      * @param args the command line arguments
@@ -1395,6 +1453,7 @@ private void clear_highlight(){
     private javax.swing.JLabel LABEL8;
     private javax.swing.JLabel LABEL9;
     private javax.swing.JLayeredPane PANEL_BERANDA_OVERVIEW;
+    private javax.swing.JLayeredPane PANEL_KEUANGAN;
     private javax.swing.JLayeredPane PANEL_PELANGGAN;
     private javax.swing.JLayeredPane PANEL_PELANGGAN_TAMU;
     private javax.swing.JLayeredPane PANEL_SUBMENU_PELANGGAN;
@@ -1414,6 +1473,7 @@ private void clear_highlight(){
     private javax.swing.JLabel color4;
     private javax.swing.JLabel color5;
     private javax.swing.JLabel color6;
+    private javax.swing.JLabel color7;
     private javax.swing.JLabel highlight_beranda;
     private javax.swing.JLabel highlight_keuangan;
     private javax.swing.JLabel highlight_pelanggan;
@@ -1436,6 +1496,7 @@ private void clear_highlight(){
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbl_ID_pelanggan;
     private javax.swing.JLabel lbl_ID_tamu;
     private javax.swing.JLabel lbl_akumulasi_pelanggan;
@@ -1486,6 +1547,7 @@ private void clear_highlight(){
     private javax.swing.JLabel sub_highlight_tamu;
     private javax.swing.JLabel sub_pelanggan;
     private javax.swing.JLabel sub_tamu;
+    private javax.swing.JTable table_laporan;
     private javax.swing.JLabel tbl_batal;
     private javax.swing.JLabel tbl_check_in;
     private javax.swing.JTextField txt_ID;

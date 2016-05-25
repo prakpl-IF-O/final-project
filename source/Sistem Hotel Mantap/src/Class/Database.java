@@ -17,6 +17,7 @@ public class Database {
     private Pelanggan DB_PELANGGAN[];
     private Kamar DB_KAMAR[];
     private Tamu DB_TAMU[];
+    private LaporanBulanan DB_LAPORAN[];
     
     private int DB_SIZE = 0;
     
@@ -227,10 +228,22 @@ public class Database {
                         NO_KAMAR, TGL_CHECK_IN, TGL_CHECK_OUT, Integer.parseInt(JAM_CHECK_IN));
 
             }
+        } else if (Database.equalsIgnoreCase("Laporan")) {
+            DB_LAPORAN = new LaporanBulanan[DB_SIZE + 1];
+
+            for (int i = 0; i < DB_SIZE; i++) {
+                SIGN = READ.readLine();
+                String BULAN = SIGN;
+                SIGN = READ.readLine();
+                String J_TRANS = SIGN;
+                SIGN = READ.readLine();
+                String J_PENDAPATAN = SIGN;
+                DB_LAPORAN[i] = new LaporanBulanan(BULAN, J_TRANS, J_PENDAPATAN);
+            }
         }
 
     }
-    
+
     public Kamar[] GET_DB_KAMAR(){
         return DB_KAMAR;
     }
@@ -242,6 +255,9 @@ public class Database {
     }
     public Pelanggan[] GET_DB_PELANGGAN(){
         return DB_PELANGGAN;
+    }
+    public LaporanBulanan[] GET_DB_LAPORAN(){
+        return DB_LAPORAN;
     }
     public int GET_DB_SIZE() {
         return DB_SIZE;
