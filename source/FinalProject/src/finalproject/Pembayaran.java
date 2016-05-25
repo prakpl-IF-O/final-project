@@ -23,7 +23,7 @@ public class Pembayaran {
 
     private int lama, temp = 0;
     private String jenis, CI, CO;
-    private double bayar_hari, bonus;
+    private double bayar_hari, bonus, denda;
     private long hari, jam, menit;
 
     public void bayar_hari(String nik) throws SQLException {
@@ -114,5 +114,30 @@ public class Pembayaran {
                 return bonus = bayar_hari * 25 / 100;
             }
         }
+    }
+
+    public double denda() {
+        if (hari < lama) {
+            return denda = 0;
+        } else if (hari == lama) {
+            if (jam != 0) {
+                return denda = jam * 30000;
+            } else {
+                return denda = 0;
+            }
+        } else if (hari > lama) {
+            long sel = (hari - lama) * 24;
+            if (jam != 0) {
+                return denda = (sel + jam) * 30000;
+            } else {
+                return denda = sel * 30000;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    public double totalBayar() {
+        return bayar_hari - bonus + denda;
     }
 }
