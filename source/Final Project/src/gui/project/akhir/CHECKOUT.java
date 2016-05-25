@@ -47,104 +47,96 @@ public class CHECKOUT extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 51, 51));
         jLabel2.setText("NO KAMAR");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(98, 640, 100, 30);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(320, 0, 170, 30);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(230, 640, 260, 30);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 640, 100, 30));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 170, 30));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, 260, 30));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(230, 360, 260, 30);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(230, 430, 260, 30);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(230, 500, 260, 30);
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(230, 570, 260, 30);
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 260, 30));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 260, 30));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 260, 30));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 570, 260, 30));
 
         jLabel4.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("CARI KAMAR");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(230, 0, 88, 30);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 51, 51));
         jLabel5.setText("ID PELANGGAN");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(98, 360, 100, 30);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 360, 100, 30));
 
         jLabel6.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 51, 51));
         jLabel6.setText("NAMA");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(98, 430, 100, 30);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 430, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 51, 51));
         jLabel7.setText("NIK");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(98, 500, 100, 30);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 500, 100, 30));
 
         jLabel8.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 51, 51));
         jLabel8.setText("LAMA INAP");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(98, 570, 100, 30);
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 570, 100, 30));
 
         jLabel9.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 51, 51));
         jLabel9.setText("TAGIHAN");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(530, 360, 100, 30);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 100, 30));
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(660, 360, 260, 30);
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(660, 430, 260, 30);
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 240, 30));
+        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, 240, 30));
 
         jLabel10.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 51));
         jLabel10.setText("DISCOUNT");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(530, 430, 100, 30);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 100, 30));
 
         jLabel11.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 51, 51));
         jLabel11.setText("CASH");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(530, 500, 100, 30);
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(660, 500, 260, 30);
-        getContentPane().add(jTextField10);
-        jTextField10.setBounds(660, 570, 260, 30);
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 500, 100, 30));
+        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 240, 30));
+        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, 240, 30));
 
         jLabel12.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 51, 51));
         jLabel12.setText("KEMBALIAN");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(530, 570, 100, 30);
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 570, 100, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/in.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, 60, 60));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/cout.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 610, 60, 70));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/calc.png"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, 60, 70));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -159,12 +151,10 @@ public class CHECKOUT extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(210, 40, 780, 100);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 780, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/checkoutifix.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 990, 709);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,7 +207,10 @@ public class CHECKOUT extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
