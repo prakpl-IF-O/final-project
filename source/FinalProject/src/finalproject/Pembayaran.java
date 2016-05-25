@@ -10,6 +10,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -18,8 +22,9 @@ import java.sql.Statement;
 public class Pembayaran {
 
     private int lama;
-    private String jenis;
+    private String jenis, CI, CO;
     private double bayar_hari;
+    private long hari, jam, menit;
 
     public void bayar_hari(String nik) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
@@ -48,5 +53,40 @@ public class Pembayaran {
 
     public double getBayar_hari() {
         return bayar_hari;
+    }
+
+    public void selisihDateTime(String nik, String co) throws ParseException, SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
+        Statement stmt = conn.createStatement();
+        {
+            ResultSet rset = stmt.executeQuery("select CI from faza.DATAKAMAR where nik=" + nik);
+            while (rset.next()) {
+                CI = rset.getString("CI");
+            }
+            CO = co;
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+            Date a = sdf.parse(CI);
+            Date b = sdf.parse(CO);
+            long selisihMS = Math.abs(b.getTime() - a.getTime());
+            long selisihMenit = selisihMS / (60 * 1000) % 60;
+            long selisihJam = selisihMS / (60 * 60 * 1000) % 24;
+            long selisihHari = selisihMS / (24 * 60 * 60 * 1000);
+            hari = selisihHari;
+            jam = selisihJam;
+            menit = selisihMenit;
+        }
+    }
+
+    public long getHari() {
+        return hari;
+    }
+
+    public long getJam() {
+        return jam;
+    }
+
+    public long getMenit() {
+        return menit;
     }
 }
