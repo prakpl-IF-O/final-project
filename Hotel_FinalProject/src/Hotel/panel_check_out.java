@@ -112,18 +112,33 @@ public class panel_check_out extends javax.swing.JFrame {
                 if (t.getKodeTransaksi() == 0) {
                     throw new NullPointerException();
                 }
-                if (t.getTotalHarga()!=0){
+                if (t.getTotalHarga() != 0) {
                     throw new Exception();
                 }
                 t.CheckOut();
-                String data = String.format("%s", t.showDetail());
+                double hrg1;
+                String hrg;
+                int ab = 0;
+                do {
+                    String show = "";
+                    show = String.format("Total: %.0f\nPembayaran: ", t.getTotalHarga());
+                    hrg = JOptionPane.showInputDialog(this, show);
+                    hrg1 = Double.parseDouble(hrg);
+                    hrg1 = hrg1 - t.getTotalHarga();
+                    ab = 1;
+                    if (hrg1 < 0) {
+                        JOptionPane.showMessageDialog(this, "Uang anda kurang");
+                        ab = 0;
+                    }
+                } while (ab == 0);
+                String data = String.format("%s\nPembayaran %23s\nKembalian %27.0f", t.showDetail(), hrg, hrg1);
                 JOptionPane.showMessageDialog(this, data);
                 textfield_id.setText("");
             } catch (SQLException ex) {
                 Logger.getLogger(panel_check_out.class.getName()).log(Level.SEVERE, null, ex);
             } catch (NullPointerException a) {
                 JOptionPane.showMessageDialog(this, "ID tidak terdaftar");
-            } catch (Exception a){
+            } catch (Exception a) {
                 JOptionPane.showMessageDialog(this, "Sudah Checkout");
             }
         } catch (NumberFormatException a) {
