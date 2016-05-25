@@ -2,7 +2,7 @@ package HOTEL;
 
 import java.sql.*;
 
-public class Pelanggan {
+public class Pelanggan implements Interface{
 private String namaD,namaB,id,TTL;
 private int NIK,no;
 
@@ -39,5 +39,17 @@ public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         return NIK;
     }
     
+    @Override
+    public void Input(){
+    try (
+            Connection con = DriverManager.getConnection(host, uName, uPass);
+            Statement stm = con.createStatement();) {
+            String in = String.format("update DATABASE_INPUT set "
+            + "NAMAD='%s', NAMAB='%s', TTL='%s', ID='%s', NIK=%d where NO_KAMAR=%d",namaD, namaB, TTL, id, NIK, no);
+            stm.executeUpdate(in);
+        } catch (SQLException er) {
+            System.out.println(er.getErrorCode());
+        }
+    } 
     
 }

@@ -7,5 +7,11 @@ public class MainCoba {
         System.out.println(ad.cekSuite());
         System.out.println(ad.cekReguler());
         System.out.println(ad.cekPremium());
+        
+        Transaksi ba= new Transaksi("a","a","a","a",3,1);
+        ba.Input();
+        
+        Pelanggan ab= new Pelanggan ("faiz","ayyas","sasas",12,1);
+        ab.Input();
     }
 }
