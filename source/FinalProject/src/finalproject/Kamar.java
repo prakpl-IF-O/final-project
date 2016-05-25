@@ -15,7 +15,7 @@ import java.sql.Statement;
  *
  * @author Faza Abdi
  */
-public class Kamar {
+public abstract class Kamar {
 
     private String Jenis;
     private int idPelanggan;
@@ -75,4 +75,6 @@ public class Kamar {
         }
         return String.valueOf(idPelanggan);
     }
+
+    public abstract double getHarga();
 }
