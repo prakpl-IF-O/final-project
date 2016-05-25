@@ -43,4 +43,35 @@ public class Cek_Data {
         }
     }
 
+    public String getNmrKmr() {
+        return this.nmrKmr;
+    }
+
+    public String getJenis() {
+        return this.jenis;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getNik() {
+        return this.nik;
+    }
+
+    public String getNama() {
+        return this.nama;
+    }
+
+    public String getTtl() {
+        return this.ttl;
+    }
+
+    public String getCi() {
+        return this.ci;
+    }
+
+    public String getLama() {
+        return this.lama;
+    }
 }
