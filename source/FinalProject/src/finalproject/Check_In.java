@@ -21,6 +21,7 @@ public class Check_In {
 
     private String NIK, LAMA;
     private String NAMA, TTL;
+    private String nmrKmr, id;
 
     public void setNIK(String NIK) {
         this.NIK = NIK;
@@ -71,6 +72,38 @@ public class Check_In {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public String getTampilID() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
+        Statement stmt = conn.createStatement();
+        {
+            ResultSet hasil = stmt.executeQuery("select id from datakamar where nik =" + NIK);
+            while (hasil.next()) {
+                id = hasil.getString("id");
+            }
+        }
+        if (id == null) {
+            return "ID Tidak Didapatkan";
+        } else {
+            return id;
+        }
+    }
+
+    public String getTampilNmrKmr() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
+        Statement stmt = conn.createStatement();
+        {
+            ResultSet hasil = stmt.executeQuery("select nmrkmr from datakamar where nik =" + NIK);
+            while (hasil.next()) {
+                nmrKmr = hasil.getString("nmrkmr");
+            }
+        }
+        if (nmrKmr == null) {
+            return "Kamar Penuh";
+        } else {
+            return nmrKmr;
         }
     }
 }
