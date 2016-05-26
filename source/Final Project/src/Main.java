@@ -33,6 +33,38 @@ public class Main extends javax.swing.JFrame {
         Pembayaran = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        Kelas_V = new javax.swing.JLayeredPane();
+        finish_Suite1 = new javax.swing.JButton();
+        jTextField30 = new javax.swing.JTextField();
+        jTextField29 = new javax.swing.JTextField();
+        ID17 = new javax.swing.JLabel();
+        ID16 = new javax.swing.JLabel();
+        KSuite1 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        Kelas_S = new javax.swing.JLayeredPane();
+        finish_Suite = new javax.swing.JButton();
+        jTextField28 = new javax.swing.JTextField();
+        jTextField27 = new javax.swing.JTextField();
+        ID15 = new javax.swing.JLabel();
+        ID14 = new javax.swing.JLabel();
+        KSuite = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        Kelas_P = new javax.swing.JLayeredPane();
+        finish_Premium = new javax.swing.JButton();
+        jTextField26 = new javax.swing.JTextField();
+        jTextField25 = new javax.swing.JTextField();
+        ID13 = new javax.swing.JLabel();
+        ID12 = new javax.swing.JLabel();
+        KPremium = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        Kelas_R = new javax.swing.JLayeredPane();
+        jTextField23 = new javax.swing.JTextField();
+        jTextField24 = new javax.swing.JTextField();
+        finish_Reguler1 = new javax.swing.JButton();
+        ID10 = new javax.swing.JLabel();
+        ID11 = new javax.swing.JLabel();
+        KReguler2 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         CheckOut = new javax.swing.JLayeredPane();
         finish_CheckOut = new javax.swing.JButton();
         jTextField10 = new javax.swing.JTextField();
@@ -147,6 +179,198 @@ public class Main extends javax.swing.JFrame {
         panel_awal.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 610));
 
         getContentPane().add(panel_awal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 580));
+
+        Kelas_V.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        finish_Suite1.setText("FINISH");
+        finish_Suite1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                finish_Suite1MouseClicked(evt);
+            }
+        });
+        finish_Suite1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finish_Suite1ActionPerformed(evt);
+            }
+        });
+        Kelas_V.add(finish_Suite1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 320, 90, 30));
+
+        jTextField30.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
+        jTextField30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField30ActionPerformed(evt);
+            }
+        });
+        Kelas_V.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 400, -1));
+
+        jTextField29.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
+        jTextField29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField29ActionPerformed(evt);
+            }
+        });
+        Kelas_V.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 400, -1));
+
+        ID17.setForeground(new java.awt.Color(153, 255, 255));
+        ID17.setText("Kamar yang dipakai");
+        Kelas_V.add(ID17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+
+        ID16.setForeground(new java.awt.Color(153, 255, 255));
+        ID16.setText("Kamar yang Tersedia");
+        Kelas_V.add(ID16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
+
+        KSuite1.setFont(new java.awt.Font("Yu Mincho", 0, 24)); // NOI18N
+        KSuite1.setText("VIP");
+        Kelas_V.add(KSuite1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 60, 44));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\pindahan dari hp\\Gambar\\lobby-of-the-Radisson-Blu-Plaza-Shanghai-Hotel.jpg")); // NOI18N
+        Kelas_V.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 430));
+
+        getContentPane().add(Kelas_V, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 560));
+
+        Kelas_S.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        finish_Suite.setText("FINISH");
+        finish_Suite.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                finish_SuiteMouseClicked(evt);
+            }
+        });
+        finish_Suite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finish_SuiteActionPerformed(evt);
+            }
+        });
+        Kelas_S.add(finish_Suite, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 320, 90, 30));
+
+        jTextField28.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
+        jTextField28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField28ActionPerformed(evt);
+            }
+        });
+        Kelas_S.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 400, -1));
+
+        jTextField27.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
+        jTextField27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField27ActionPerformed(evt);
+            }
+        });
+        Kelas_S.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 400, -1));
+
+        ID15.setForeground(new java.awt.Color(153, 255, 255));
+        ID15.setText("Kamar yang dipakai");
+        Kelas_S.add(ID15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+
+        ID14.setForeground(new java.awt.Color(153, 255, 255));
+        ID14.setText("Kamar yang Tersedia");
+        Kelas_S.add(ID14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
+
+        KSuite.setFont(new java.awt.Font("Yu Mincho", 0, 24)); // NOI18N
+        KSuite.setText("Suite");
+        Kelas_S.add(KSuite, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 60, 44));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\pindahan dari hp\\Gambar\\lobby-of-the-Radisson-Blu-Plaza-Shanghai-Hotel.jpg")); // NOI18N
+        Kelas_S.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 430));
+
+        getContentPane().add(Kelas_S, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 720));
+
+        Kelas_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        finish_Premium.setText("FINISH");
+        finish_Premium.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                finish_PremiumMouseClicked(evt);
+            }
+        });
+        finish_Premium.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finish_PremiumActionPerformed(evt);
+            }
+        });
+        Kelas_P.add(finish_Premium, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 320, 90, 30));
+
+        jTextField26.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
+        jTextField26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField26ActionPerformed(evt);
+            }
+        });
+        Kelas_P.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 400, -1));
+
+        jTextField25.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
+        jTextField25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField25ActionPerformed(evt);
+            }
+        });
+        Kelas_P.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 400, -1));
+
+        ID13.setForeground(new java.awt.Color(153, 255, 255));
+        ID13.setText("Kamar yang dipakai");
+        Kelas_P.add(ID13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+
+        ID12.setForeground(new java.awt.Color(153, 255, 255));
+        ID12.setText("Kamar yang Tersedia");
+        Kelas_P.add(ID12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
+
+        KPremium.setFont(new java.awt.Font("Yu Mincho", 0, 24)); // NOI18N
+        KPremium.setText("Premium");
+        Kelas_P.add(KPremium, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, 44));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\pindahan dari hp\\Gambar\\lobby-of-the-Radisson-Blu-Plaza-Shanghai-Hotel.jpg")); // NOI18N
+        Kelas_P.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 420));
+
+        getContentPane().add(Kelas_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 730));
+
+        Kelas_R.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField23.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
+        jTextField23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField23ActionPerformed(evt);
+            }
+        });
+        Kelas_R.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 400, -1));
+
+        jTextField24.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
+        jTextField24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField24ActionPerformed(evt);
+            }
+        });
+        Kelas_R.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 400, -1));
+
+        finish_Reguler1.setText("FINISH");
+        finish_Reguler1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                finish_Reguler1MouseClicked(evt);
+            }
+        });
+        finish_Reguler1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finish_Reguler1ActionPerformed(evt);
+            }
+        });
+        Kelas_R.add(finish_Reguler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 320, 90, 30));
+
+        ID10.setForeground(new java.awt.Color(153, 255, 255));
+        ID10.setText("Kamar yang dipakai");
+        Kelas_R.add(ID10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+
+        ID11.setForeground(new java.awt.Color(153, 255, 255));
+        ID11.setText("Kamar yang Tersedia");
+        Kelas_R.add(ID11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
+
+        KReguler2.setFont(new java.awt.Font("Yu Mincho", 0, 24)); // NOI18N
+        KReguler2.setText("REGULER");
+        Kelas_R.add(KReguler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, 44));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\pindahan dari hp\\Gambar\\lobby-of-the-Radisson-Blu-Plaza-Shanghai-Hotel.jpg")); // NOI18N
+        Kelas_R.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 410));
+
+        getContentPane().add(Kelas_R, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 750));
 
         CheckOut.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -341,9 +565,19 @@ public class Main extends javax.swing.JFrame {
         Lihat_kamar.add(Premium, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 150, 50));
 
         Suite.setText("Suite");
+        Suite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SuiteActionPerformed(evt);
+            }
+        });
         Lihat_kamar.add(Suite, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 150, 50));
 
         VIP.setText("VIP");
+        VIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VIPActionPerformed(evt);
+            }
+        });
         Lihat_kamar.add(VIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 150, 50));
 
         Reguler.setText("Reguler");
@@ -363,15 +597,19 @@ public class Main extends javax.swing.JFrame {
 
         getContentPane().add(Lihat_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 610));
 
+        panel_pembayaran.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jTextField18.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
         jTextField18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField18ActionPerformed(evt);
             }
         });
+        panel_pembayaran.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 417, 405, -1));
 
         Jam_Keluar.setForeground(new java.awt.Color(153, 255, 255));
         Jam_Keluar.setText("Jam Keluar");
+        panel_pembayaran.add(Jam_Keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 423, -1, -1));
 
         jTextField16.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
         jTextField16.addActionListener(new java.awt.event.ActionListener() {
@@ -379,6 +617,7 @@ public class Main extends javax.swing.JFrame {
                 jTextField16ActionPerformed(evt);
             }
         });
+        panel_pembayaran.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 364, 405, -1));
 
         jTextField15.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
@@ -386,6 +625,7 @@ public class Main extends javax.swing.JFrame {
                 jTextField15ActionPerformed(evt);
             }
         });
+        panel_pembayaran.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 313, 405, -1));
 
         jTextField14.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
@@ -393,6 +633,7 @@ public class Main extends javax.swing.JFrame {
                 jTextField14ActionPerformed(evt);
             }
         });
+        panel_pembayaran.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 257, 405, -1));
 
         jTextField13.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
@@ -400,9 +641,11 @@ public class Main extends javax.swing.JFrame {
                 jTextField13ActionPerformed(evt);
             }
         });
+        panel_pembayaran.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 204, 405, -1));
 
         ID4.setForeground(new java.awt.Color(153, 255, 255));
         ID4.setText("Nomor Kamar");
+        panel_pembayaran.add(ID4, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 210, -1, -1));
 
         jTextField11.setFont(new java.awt.Font("Yu Mincho Light", 0, 16)); // NOI18N
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
@@ -410,20 +653,25 @@ public class Main extends javax.swing.JFrame {
                 jTextField11ActionPerformed(evt);
             }
         });
+        panel_pembayaran.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 142, 405, -1));
 
         Jam_Masuk.setForeground(new java.awt.Color(153, 255, 255));
         Jam_Masuk.setText("Jam Masuk");
+        panel_pembayaran.add(Jam_Masuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 370, -1, -1));
 
         ID6.setForeground(new java.awt.Color(153, 255, 255));
         ID6.setText("Tanggal Keluar");
+        panel_pembayaran.add(ID6, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 319, -1, -1));
 
         ID5.setForeground(new java.awt.Color(153, 255, 255));
         ID5.setText("Tanggal Masuk");
+        panel_pembayaran.add(ID5, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 263, -1, -1));
 
         ID3.setForeground(new java.awt.Color(153, 255, 255));
         ID3.setText("ID Pelanggan");
+        panel_pembayaran.add(ID3, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 148, -1, -1));
 
-        finish_Pembayaran.setText("FINISH");
+        finish_Pembayaran.setText("Finish");
         finish_Pembayaran.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 finish_PembayaranMouseClicked(evt);
@@ -434,102 +682,14 @@ public class Main extends javax.swing.JFrame {
                 finish_PembayaranActionPerformed(evt);
             }
         });
+        panel_pembayaran.add(finish_Pembayaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 537, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 24)); // NOI18N
         jLabel14.setText("Pembayaran");
+        panel_pembayaran.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 40, -1, 58));
 
         jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Pictures\\pindahan dari hp\\Gambar\\lobby-of-the-Radisson-Blu-Plaza-Shanghai-Hotel.jpg")); // NOI18N
-
-        javax.swing.GroupLayout panel_pembayaranLayout = new javax.swing.GroupLayout(panel_pembayaran);
-        panel_pembayaran.setLayout(panel_pembayaranLayout);
-        panel_pembayaranLayout.setHorizontalGroup(
-            panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_pembayaranLayout.createSequentialGroup()
-                .addContainerGap(424, Short.MAX_VALUE)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_pembayaranLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(422, 422, 422))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_pembayaranLayout.createSequentialGroup()
-                        .addComponent(finish_Pembayaran)
-                        .addGap(78, 78, 78))))
-            .addGroup(panel_pembayaranLayout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ID3)
-                    .addComponent(ID4)
-                    .addComponent(ID5)
-                    .addComponent(ID6)
-                    .addComponent(Jam_Masuk)
-                    .addComponent(Jam_Keluar))
-                .addGap(90, 90, 90)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
-                    .addComponent(jTextField13)
-                    .addComponent(jTextField14)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField18)
-                    .addComponent(jTextField16))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_pembayaranLayout.createSequentialGroup()
-                    .addGap(0, 5, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 5, Short.MAX_VALUE)))
-        );
-        panel_pembayaranLayout.setVerticalGroup(
-            panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_pembayaranLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ID3)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ID4)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ID5)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ID6)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jam_Masuk)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jam_Keluar)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addComponent(finish_Pembayaran)
-                .addGap(44, 44, 44))
-            .addGroup(panel_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_pembayaranLayout.createSequentialGroup()
-                    .addGap(0, 10, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 10, Short.MAX_VALUE)))
-        );
-        panel_pembayaran.setLayer(jTextField18, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(Jam_Keluar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(jTextField16, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(jTextField15, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(jTextField14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(jTextField13, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(ID4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(jTextField11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(Jam_Masuk, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(ID6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(ID5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(ID3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(finish_Pembayaran, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel_pembayaran.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panel_pembayaran.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 620));
 
         getContentPane().add(panel_pembayaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 980, 630));
 
@@ -550,6 +710,10 @@ public class Main extends javax.swing.JFrame {
         panel_pembayaran.setVisible(false);
         Lihat_kamar.setVisible(false);
         CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_CheckinMouseClicked
 
     private void CheckinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckinActionPerformed
@@ -570,6 +734,10 @@ public class Main extends javax.swing.JFrame {
         panel_pembayaran.setVisible(false);
         Lihat_kamar.setVisible(false);
         CheckOut.setVisible(true);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void LihatKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LihatKamarActionPerformed
@@ -578,6 +746,10 @@ public class Main extends javax.swing.JFrame {
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
         CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_LihatKamarActionPerformed
 
     private void PembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PembayaranActionPerformed
@@ -586,6 +758,10 @@ public class Main extends javax.swing.JFrame {
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(true);
         CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_PembayaranActionPerformed
 
     private void finishMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finishMouseClicked
@@ -595,6 +771,10 @@ public class Main extends javax.swing.JFrame {
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
         CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_finishMouseClicked
 
     private void finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishActionPerformed
@@ -611,6 +791,10 @@ public class Main extends javax.swing.JFrame {
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
         CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_finish_LihatKamarActionPerformed
 
     private void finish_PembayaranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finish_PembayaranMouseClicked
@@ -623,6 +807,10 @@ public class Main extends javax.swing.JFrame {
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
         CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_finish_PembayaranActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
@@ -647,6 +835,10 @@ public class Main extends javax.swing.JFrame {
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
         CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_finish_CheckOutActionPerformed
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
@@ -678,24 +870,148 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField18ActionPerformed
 
     private void RegulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegulerActionPerformed
-        
-        
         panel_awal.setVisible(false);
         Lihat_kamar.setVisible(false);
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
         CheckOut.setVisible(false);
+        Kelas_R.setVisible(true);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
     }//GEN-LAST:event_RegulerActionPerformed
 
     private void PremiumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PremiumActionPerformed
-        
-        
+        panel_awal.setVisible(false);
+        Lihat_kamar.setVisible(true);
+        panel_transaksi.setVisible(false);
+        panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(true);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
+    }//GEN-LAST:event_PremiumActionPerformed
+
+    private void finish_Reguler1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finish_Reguler1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finish_Reguler1MouseClicked
+
+    private void finish_Reguler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finish_Reguler1ActionPerformed
+        panel_awal.setVisible(false);
+        Lihat_kamar.setVisible(true);
+        panel_transaksi.setVisible(false);
+        panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
+    }//GEN-LAST:event_finish_Reguler1ActionPerformed
+
+    private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField23ActionPerformed
+
+    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField24ActionPerformed
+
+    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField25ActionPerformed
+
+    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField26ActionPerformed
+
+    private void finish_PremiumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finish_PremiumMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finish_PremiumMouseClicked
+
+    private void finish_PremiumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finish_PremiumActionPerformed
+        panel_awal.setVisible(false);
+        Lihat_kamar.setVisible(true);
+        panel_transaksi.setVisible(false);
+        panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
+    }//GEN-LAST:event_finish_PremiumActionPerformed
+
+    private void jTextField27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField27ActionPerformed
+
+    private void jTextField28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField28ActionPerformed
+
+    private void finish_SuiteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finish_SuiteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finish_SuiteMouseClicked
+
+    private void finish_SuiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finish_SuiteActionPerformed
+        panel_awal.setVisible(false);
+        Lihat_kamar.setVisible(true);
+        panel_transaksi.setVisible(false);
+        panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
+    }//GEN-LAST:event_finish_SuiteActionPerformed
+
+    private void jTextField29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField29ActionPerformed
+
+    private void jTextField30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField30ActionPerformed
+
+    private void finish_Suite1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finish_Suite1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finish_Suite1MouseClicked
+
+    private void finish_Suite1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finish_Suite1ActionPerformed
+        panel_awal.setVisible(false);
+        Lihat_kamar.setVisible(true);
+        panel_transaksi.setVisible(false);
+        panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(false);
+    }//GEN-LAST:event_finish_Suite1ActionPerformed
+
+    private void SuiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuiteActionPerformed
         panel_awal.setVisible(false);
         Lihat_kamar.setVisible(false);
         panel_transaksi.setVisible(false);
         panel_pembayaran.setVisible(false);
         CheckOut.setVisible(false);
-    }//GEN-LAST:event_PremiumActionPerformed
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(true);
+        Kelas_V.setVisible(false);
+    }//GEN-LAST:event_SuiteActionPerformed
+
+    private void VIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VIPActionPerformed
+        panel_awal.setVisible(false);
+        Lihat_kamar.setVisible(false);
+        panel_transaksi.setVisible(false);
+        panel_pembayaran.setVisible(false);
+        CheckOut.setVisible(false);
+        Kelas_R.setVisible(false);
+        Kelas_P.setVisible(false);
+        Kelas_S.setVisible(false);
+        Kelas_V.setVisible(true);
+    }//GEN-LAST:event_VIPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -736,6 +1052,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLayeredPane CheckOut;
     private javax.swing.JButton Checkin;
     private javax.swing.JLabel ID;
+    private javax.swing.JLabel ID10;
+    private javax.swing.JLabel ID11;
+    private javax.swing.JLabel ID12;
+    private javax.swing.JLabel ID13;
+    private javax.swing.JLabel ID14;
+    private javax.swing.JLabel ID15;
+    private javax.swing.JLabel ID16;
+    private javax.swing.JLabel ID17;
     private javax.swing.JLabel ID2;
     private javax.swing.JLabel ID3;
     private javax.swing.JLabel ID4;
@@ -743,6 +1067,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel ID6;
     private javax.swing.JLabel Jam_Keluar;
     private javax.swing.JLabel Jam_Masuk;
+    private javax.swing.JLabel KPremium;
+    private javax.swing.JLabel KReguler2;
+    private javax.swing.JLabel KSuite;
+    private javax.swing.JLabel KSuite1;
+    private javax.swing.JLayeredPane Kelas_P;
+    private javax.swing.JLayeredPane Kelas_R;
+    private javax.swing.JLayeredPane Kelas_S;
+    private javax.swing.JLayeredPane Kelas_V;
     private javax.swing.JButton LihatKamar;
     private javax.swing.JLayeredPane Lihat_kamar;
     private javax.swing.JButton Pembayaran;
@@ -755,6 +1087,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton finish_CheckOut;
     private javax.swing.JButton finish_LihatKamar;
     private javax.swing.JButton finish_Pembayaran;
+    private javax.swing.JButton finish_Premium;
+    private javax.swing.JButton finish_Reguler1;
+    private javax.swing.JButton finish_Suite;
+    private javax.swing.JButton finish_Suite1;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -769,6 +1105,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -791,7 +1131,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField23;
+    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
+    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
