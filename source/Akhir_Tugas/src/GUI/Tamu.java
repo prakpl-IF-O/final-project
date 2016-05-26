@@ -5,7 +5,11 @@
  */
 package GUI;
 import GUI.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -41,7 +45,7 @@ public class Tamu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
         nama = new javax.swing.JTextField();
-        ttl = new javax.swing.JTextField();
+        ttl1 = new javax.swing.JTextField();
         Cek = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -59,7 +63,7 @@ public class Tamu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         Total1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        Total2 = new javax.swing.JTextField();
+        kembali = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -79,19 +83,15 @@ public class Tamu extends javax.swing.JFrame {
 
         jLabel4.setText("Tempat, Tanggal Lahir");
 
-        id.setText("1");
         id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idActionPerformed(evt);
             }
         });
 
-        nama.setText("2");
-
-        ttl.setText("3");
-        ttl.addActionListener(new java.awt.event.ActionListener() {
+        ttl1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ttlActionPerformed(evt);
+                ttl1ActionPerformed(evt);
             }
         });
 
@@ -113,7 +113,6 @@ public class Tamu extends javax.swing.JFrame {
             }
         });
 
-        JHari.setText("jTextField4");
         JHari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JHariActionPerformed(evt);
@@ -122,7 +121,6 @@ public class Tamu extends javax.swing.JFrame {
 
         jLabel8.setText("Diskon");
 
-        Diskon.setText("jTextField6");
         Diskon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DiskonActionPerformed(evt);
@@ -131,15 +129,9 @@ public class Tamu extends javax.swing.JFrame {
 
         jLabel9.setText("Harga / Hari");
 
-        Harga.setText("jTextField7");
-
         jLabel10.setText("Check Out");
 
-        CheckOut.setText("jTextField8");
-
         jLabel11.setText("Total");
-
-        Total.setText("jTextField9");
 
         Save.setText("Save");
         Save.addActionListener(new java.awt.event.ActionListener() {
@@ -159,8 +151,6 @@ public class Tamu extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-
-        Total1.setText("jTextField9");
 
         jLabel12.setText("Bayar");
 
@@ -214,7 +204,6 @@ public class Tamu extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Diskon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -222,9 +211,9 @@ public class Tamu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                                 .addComponent(Cek, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(nama)
-                            .addComponent(ttl))
+                            .addComponent(ttl1))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(JHari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JHari, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(5, 5, 5)))
@@ -233,7 +222,8 @@ public class Tamu extends javax.swing.JFrame {
                     .addComponent(Total)
                     .addComponent(CheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Total1)
-                    .addComponent(Total2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(kembali, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Diskon, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +256,7 @@ public class Tamu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(ttl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ttl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
@@ -299,7 +289,7 @@ public class Tamu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(Total2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
@@ -315,24 +305,33 @@ public class Tamu extends javax.swing.JFrame {
         // Cek
         pelanggan P = new pelanggan();
         String ID = id.getText();
-
-       
-        String Nama = nama.getText();
-        String TTL = ttl.getText();
+        String h = "jdbc:derby://localhost:1527/hotel";
+            try {
+                Connection con = DriverManager.getConnection(h);
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM pelanggan WHERE id = '"+ID+"'");
+                rs.next();
+                nama.setText(rs.getString(1));
+                ttl1.setText(rs.getString(2));
+            } catch (SQLException err) {
+                System.out.println(err.getMessage());
+            }       
     }//GEN-LAST:event_CekActionPerformed
 
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         // ID
         pelanggan P = new pelanggan ();
-        String kata = "ID";
+        String kata;
         kata = id.getText();
         P.setId_tamu(kata);
         
     }//GEN-LAST:event_idActionPerformed
 
-    private void ttlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttlActionPerformed
+    private void ttl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttl1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ttlActionPerformed
+        String ttl=ttl1.getText();
+        
+    }//GEN-LAST:event_ttl1ActionPerformed
 
     private void DiskonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiskonActionPerformed
         // Tamu
@@ -340,6 +339,7 @@ public class Tamu extends javax.swing.JFrame {
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_SaveActionPerformed
 
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
@@ -403,8 +403,8 @@ public class Tamu extends javax.swing.JFrame {
         // TODO add your handling code here:
         String x = Total1.getText();
         int bayar=Integer.parseInt(x);
-        int a=(int) (bayar-Tot);
-        Total2.setText(String.format("%.d",a));
+        double  a=bayar-Tot;
+        kembali.setText(String.format("%.2f",a));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -456,7 +456,6 @@ public class Tamu extends javax.swing.JFrame {
     private javax.swing.JButton Save;
     private javax.swing.JTextField Total;
     private javax.swing.JTextField Total1;
-    private javax.swing.JTextField Total2;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -475,8 +474,9 @@ public class Tamu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JTextField kembali;
     private javax.swing.JTextField nama;
     private javax.swing.JComboBox pilih;
-    private javax.swing.JTextField ttl;
+    private javax.swing.JTextField ttl1;
     // End of variables declaration//GEN-END:variables
 }

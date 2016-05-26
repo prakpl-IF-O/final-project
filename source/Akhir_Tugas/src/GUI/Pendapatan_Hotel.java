@@ -165,9 +165,9 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
     private void CekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CekActionPerformed
         // TODO add your handling code here:
         pendapatanakhir PA = new pendapatanakhir();
-        Tamu t=new Tamu();
+        pelanggan p=new pelanggan();
         Pendapatan.setText(String.format("%.2f",PA.getPendapatanAhir()));
-        tamu.setText(String.format("%.d"));
+        tamu.setText(String.format("%d",p.getjumlah()));
     }//GEN-LAST:event_CekActionPerformed
 
     private void tamuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamuActionPerformed

@@ -62,7 +62,6 @@
               </Group>
               <EmptySpace pref="16" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Diskon" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -71,10 +70,10 @@
                               <Component id="Cek" min="-2" pref="58" max="-2" attributes="0"/>
                           </Group>
                           <Component id="nama" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ttl" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ttl1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="JHari" min="-2" max="-2" attributes="0"/>
+                          <Component id="JHari" min="-2" pref="56" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="63" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -85,7 +84,8 @@
                   <Component id="Total" alignment="0" max="32767" attributes="0"/>
                   <Component id="CheckOut" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                   <Component id="Total1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="Total2" alignment="1" max="32767" attributes="0"/>
+                  <Component id="kembali" alignment="1" max="32767" attributes="0"/>
+                  <Component id="Diskon" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
@@ -127,7 +127,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ttl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ttl1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -168,7 +168,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                  <Component id="Total2" min="-2" max="-2" attributes="0"/>
+                  <Component id="kembali" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -209,24 +209,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="id">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="1"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="nama">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="2"/>
-      </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="ttl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="3"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="ttl1">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ttlActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ttl1ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Cek">
@@ -263,9 +254,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="JHari">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField4"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JHariActionPerformed"/>
       </Events>
@@ -276,9 +264,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Diskon">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField6"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiskonActionPerformed"/>
       </Events>
@@ -289,9 +274,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Harga">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField7"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
@@ -299,9 +281,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="CheckOut">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField8"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
@@ -309,9 +288,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Total">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField9"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Save">
       <Properties>
@@ -331,16 +307,13 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="Total1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField9"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
         <Property name="text" type="java.lang.String" value="Bayar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="Total2">
+    <Component class="javax.swing.JTextField" name="kembali">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>

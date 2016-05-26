@@ -8,7 +8,6 @@ import java.sql.*;
 public class pelanggan {
     String id_tamu,
             nama,ttl,tgldaftar,thari;
-    int a;
 public void tambahtamu() { 
         try { 
             String url = "jdbc:derby://localhost:1527/hotel"; 
@@ -22,6 +21,21 @@ public void tambahtamu() {
         } 
   
     }
+public int getjumlah(){
+    int a=0;
+    try { 
+            String url = "jdbc:derby://localhost:1527/hotel"; 
+            Connection conn = DriverManager.getConnection(url); 
+            Statement st = conn.createStatement(); 
+            ResultSet rs=st.executeQuery("SELECT * FROM pelanggan");
+            while(rs.next()){
+                a++;
+            }
+        } catch (Exception e) { 
+            System.err.println(e.getMessage()); 
+        } 
+    return a;
+}
     public String getId_tamu() {
         return id_tamu;
     }
