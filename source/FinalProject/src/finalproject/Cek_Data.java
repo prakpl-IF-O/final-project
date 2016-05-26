@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package finalproject;
+package finalproject; // lokasi pada package finalproject
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Connection; // mengimport class Connection dalam package java.sql
+import java.sql.DriverManager; // mengimport class DriverManager dalam package java.sql
+import java.sql.ResultSet; // mengimport class ResulSet dalam package java.sql
+import java.sql.SQLException; // mengimport class SQLException dalam package java.sql
+import java.sql.Statement; // mengimport class Statement dalam package java.sql
 
 /**
  *
@@ -17,13 +17,21 @@ import java.sql.Statement;
  */
 public class Cek_Data {
 
+    //Deklarasi variabel idd , nmrKmr, jenis, id, nik, nama, ttl, ci, lama berupa String
     private String idd;
     private String nmrKmr, jenis, id, nik, nama, ttl, ci, lama;
 
+    // Deklarasi Constructor dengan parameter idd
+    // Assignment variable local idd kedalam variabel idd
     public Cek_Data(String idd) {
         this.idd = idd;
     }
 
+    // Method untuk memberikan nilai kedalam variabel yang telah dibuat
+    // Memasukkan syntax untuk mengakses data base
+    // Deklarasi statement 
+    // Memasukkan statement berupa syntax SQL untuk mengambil seluruh data berdasarkan id
+    // Assignment data yang diperoleh dari data base kedalam variabel-variabel yang telah dibuat
     public void pilah_data() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
         Statement stmt = conn.createStatement();
