@@ -8,6 +8,7 @@ import GUI.*;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,25 +40,25 @@ public class Tamu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        nama = new javax.swing.JTextField();
+        ttl = new javax.swing.JTextField();
         Cek = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        pilih = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        JHari = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         Diskon = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        Harga = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        CheckOut = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        Total = new javax.swing.JTextField();
         Save = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Menu = new javax.swing.JMenu();
@@ -81,12 +82,12 @@ public class Tamu extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setText("2");
+        nama.setText("2");
 
-        jTextField3.setText("3");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        ttl.setText("3");
+        ttl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                ttlActionPerformed(evt);
             }
         });
 
@@ -101,13 +102,21 @@ public class Tamu extends javax.swing.JFrame {
 
         jLabel6.setText("Jumlah Hari");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Reguler", "2. Premium", "3. Suite", "4. VIP" }));
+        pilih.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Reguler", "2. Premium", "3. Suite", "4. VIP" }));
+        pilih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pilihActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Jumlah Kamar");
 
-        jTextField4.setText("jTextField4");
-
-        jTextField5.setText("jTextField5");
+        JHari.setText("jTextField4");
+        JHari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JHariActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Diskon");
 
@@ -120,15 +129,15 @@ public class Tamu extends javax.swing.JFrame {
 
         jLabel9.setText("Harga / Hari");
 
-        jTextField7.setText("jTextField7");
+        Harga.setText("jTextField7");
 
         jLabel10.setText("Check Out");
 
-        jTextField8.setText("jTextField8");
+        CheckOut.setText("jTextField8");
 
         jLabel11.setText("Total");
 
-        jTextField9.setText("jTextField9");
+        Total.setText("jTextField9");
 
         Save.setText("Save");
         Save.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +152,8 @@ public class Tamu extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
+
+        jTextField1.setText("jTextField1");
 
         jMenu1.setText("Menu");
 
@@ -191,16 +202,17 @@ public class Tamu extends javax.swing.JFrame {
                                         .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                                         .addComponent(Cek, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3))
+                                    .addComponent(nama)
+                                    .addComponent(ttl))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(JHari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(86, 86, 86)))
-                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Harga, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                            .addComponent(pilih, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Total)
+                            .addComponent(CheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 53, Short.MAX_VALUE)
@@ -210,9 +222,9 @@ public class Tamu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -220,23 +232,23 @@ public class Tamu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ttl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pilih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JHari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -244,27 +256,33 @@ public class Tamu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Harga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save)
                     .addComponent(jButton3))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void CekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CekActionPerformed
-        // TODO add your handling code here:
+        // Cek
+        pelanggan P = new pelanggan();
+        String ID = id.getText();
+
+       
+        String Nama = nama.getText();
+        String TTL = ttl.getText();
     }//GEN-LAST:event_CekActionPerformed
 
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
@@ -276,17 +294,12 @@ public class Tamu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_idActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void ttlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttlActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_ttlActionPerformed
 
     private void DiskonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiskonActionPerformed
         // Tamu
-        String dis = "";
-        Checkin cek = new Checkin();
-        dis = Diskon.getText();
-        cek.setAkumulasi(Byte.parseByte(dis));
-        cek.getDiskon();
     }//GEN-LAST:event_DiskonActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
@@ -306,6 +319,42 @@ public class Tamu extends javax.swing.JFrame {
         Mu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void pilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihActionPerformed
+        // Tpilih
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Checkin T = new Checkin();
+        pendapatanakhir PA = new pendapatanakhir();
+        Calendar c1 = Calendar.getInstance();
+        c1.getTime();
+        String x;
+        x = JHari.getText();
+        byte hari = Byte.parseByte(x);
+        c1.add(Calendar.DATE, Byte.parseByte(x));
+        CheckOut.setText(sdf.format(c1.getTime()));
+        double diskon = T.getDiskon(hari); //diskon ototmatis
+        Diskon.setText(String.format("%.2f",diskon));
+        double Tot = 0;
+        if (pilih.getSelectedItem() == "1. Reguler"){
+            Tot = hari*100000-(hari*100000)*diskon;
+            Harga.setText("Rp. 100000");
+        } else if (pilih.getSelectedItem() == "2. Premium"){
+            Tot = hari*200000-(hari*200000)*diskon;
+            Harga.setText("Rp. 200000");
+        } else if (pilih.getSelectedItem() == "3. Suite"){
+            Tot = hari*350000-(hari*350000)*diskon;
+            Harga.setText("Rp. 350000");
+        } else if (pilih.getSelectedItem() == "4. VIP"){
+            Tot = hari*750000-(hari*750000)*diskon;
+            Harga.setText("Rp. 750000");
+        }
+         Total.setText(String.format("%.2f",Tot));
+    }//GEN-LAST:event_pilihActionPerformed
+
+    private void JHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JHariActionPerformed
+        // Hari
+        
+    }//GEN-LAST:event_JHariActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,12 +393,15 @@ public class Tamu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cek;
+    private javax.swing.JTextField CheckOut;
     private javax.swing.JTextField Diskon;
+    private javax.swing.JTextField Harga;
+    private javax.swing.JTextField JHari;
     private javax.swing.JMenu Menu;
     private javax.swing.JButton Save;
+    private javax.swing.JTextField Total;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -363,12 +415,9 @@ public class Tamu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nama;
+    private javax.swing.JComboBox pilih;
+    private javax.swing.JTextField ttl;
     // End of variables declaration//GEN-END:variables
 }

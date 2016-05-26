@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  *
  * @author Admin
@@ -29,8 +32,9 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Tanggal = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        Muncul = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -59,9 +63,20 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setText("HOTEL MANTAP");
 
-        jTextField1.setText("jTextField1");
+        Tanggal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TanggalActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Tanggal");
+
+        Muncul.setText("Klick Untuk Melihat Tanggal Sekarang");
+        Muncul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MunculActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Pengunjung");
 
@@ -120,27 +135,34 @@ public class MenuUtama extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1)
-                .addGap(26, 26, 26)
-                .addComponent(jButton1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(75, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Tanggal)
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Muncul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Muncul)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addContainerGap())
         );
@@ -165,6 +187,20 @@ public class MenuUtama extends javax.swing.JFrame {
         Ph.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_PendapatanMouseClicked
+
+    private void TanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanggalActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_TanggalActionPerformed
+
+    private void MunculActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MunculActionPerformed
+        // TODO add your handling code here:
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar c1 = Calendar.getInstance();
+        c1.getTime();
+        Tanggal.setText(sdf.format(c1.getTime()));
+    }//GEN-LAST:event_MunculActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,8 +238,10 @@ public class MenuUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Muncul;
     private javax.swing.JMenu Pendapatan;
     private javax.swing.JMenu Tamu;
+    private javax.swing.JTextField Tanggal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -218,6 +256,5 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

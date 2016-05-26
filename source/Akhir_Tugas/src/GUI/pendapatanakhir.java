@@ -14,8 +14,8 @@ public class pendapatanakhir extends Checkin{
     public  String toString(){
         return ("");
     }
-    public int getPA(){
-        int pa=0;
+    public double getPendapatanAhir(){
+        double pa=0;
         pa+=super.total;
         return pa;
     }

@@ -16,17 +16,13 @@ public class Checkin{
     Calendar tin = Calendar.getInstance();
     Calendar tout = Calendar.getInstance();
     Calendar tout2 = Calendar.getInstance();
-    int bayar;
-    int denda = 30000;
-    int kembali;
-    int total;
-    static byte akumulasi;
+    double bayar;
+    double denda = 30000;
+    double kembali;
+    double total;
+    static byte akumulasi = 0;
     byte sisakamar = 100;
     byte lamasewa;
-
-    public static void setAkumulasi(byte akumulasi) {
-        Checkin.akumulasi = akumulasi;
-    }
     
     public Calendar getTin() {
         return tin;
@@ -52,7 +48,7 @@ public class Checkin{
         this.tout2 = tout2;
     }
 
-    public int getBayar() {
+    public double getBayar() {
         return bayar;
     }
 
@@ -60,7 +56,7 @@ public class Checkin{
         this.bayar = bayar;
     }
 
-    public int getDenda() {
+    public double getDenda() {
         return denda;
     }
 
@@ -68,11 +64,11 @@ public class Checkin{
         this.denda = denda;
     }
 
-    public int getKembali() {
+    public double getKembali() {
         return kembali=bayar-total;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total=kh.getHar()*lamasewa;
     }
 
@@ -84,14 +80,14 @@ public class Checkin{
         this.sisakamar = sisakamar;
     }
 
-    public double getDiskon() {
-        if (akumulasi > 60) {
+    public double getDiskon(byte a) {
+        if (akumulasi+a > 60) {
             return 0.25;
         }
-        if (akumulasi > 30) {
+        if (akumulasi+a > 30) {
             return 0.15;
         }
-        if (akumulasi > 9) {
+        if (akumulasi+a > 9) {
             return 0.1;
         }else{
         return 0;
