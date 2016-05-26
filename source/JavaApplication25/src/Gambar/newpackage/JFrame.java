@@ -96,7 +96,7 @@ public class JFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+           
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         a=jTextField1.getText();
         b=jPasswordField1.getText();
@@ -104,15 +104,21 @@ public class JFrame extends javax.swing.JFrame {
             JView menu=new JView();
             menu.setTitle("Main menu");
             menu.show();
+            closeLoginDialog();
+               
         }
         else{
             ErrorDialog error=new ErrorDialog();
             error.setTitle("Login Failed");
             error.setSize(325,138);
             error.show();
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    private void closeLoginDialog() {
+    this.dispose();
+}
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
         
