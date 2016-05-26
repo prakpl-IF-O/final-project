@@ -42,8 +42,8 @@ public class Kamar extends javax.swing.JFrame {
         jTextPane4 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        Tamu = new javax.swing.JMenu();
+        Menu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -75,11 +75,21 @@ public class Kamar extends javax.swing.JFrame {
 
         jMenu1.setText("Menu");
 
-        jMenu2.setText("Tamu");
-        jMenu1.add(jMenu2);
+        Tamu.setText("Tamu");
+        Tamu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TamuMouseClicked(evt);
+            }
+        });
+        jMenu1.add(Tamu);
 
-        jMenu3.setText("Menu utama");
-        jMenu1.add(jMenu3);
+        Menu.setText("Menu utama");
+        Menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuMouseClicked(evt);
+            }
+        });
+        jMenu1.add(Menu);
 
         jMenuBar1.add(jMenu1);
 
@@ -143,6 +153,20 @@ public class Kamar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
+        // Menu
+        MenuUtama Mu = new MenuUtama();
+        Mu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_MenuMouseClicked
+
+    private void TamuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TamuMouseClicked
+        // Tamu
+        Tamu T = new Tamu();
+        T.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_TamuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -179,14 +203,14 @@ public class Kamar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Menu;
+    private javax.swing.JMenu Tamu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  *
  * @author Admin
@@ -29,32 +32,51 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Tanggal = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        Muncul = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
+        Tamu = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
         jMenu12 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        Pendapatan = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jButton1.setText("Exit App");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setText("HOTEL MANTAP");
 
-        jTextField1.setText("jTextField1");
+        Tanggal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TanggalActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Tanggal");
+
+        Muncul.setText("Klick Untuk Melihat Tanggal Sekarang");
+        Muncul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MunculActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Pengunjung");
 
@@ -64,15 +86,17 @@ public class MenuUtama extends javax.swing.JFrame {
         jMenu5.setText("Edit");
         jMenu1.add(jMenu5);
 
-        jMenu6.setText("Hapus");
-        jMenu1.add(jMenu6);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Tamu");
 
-        jMenu7.setText("Check In");
-        jMenu2.add(jMenu7);
+        Tamu.setText("Check In");
+        Tamu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TamuMouseClicked(evt);
+            }
+        });
+        jMenu2.add(Tamu);
 
         jMenuBar1.add(jMenu2);
 
@@ -92,6 +116,18 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu6.setText("Pendapatan");
+
+        Pendapatan.setText("Pendapatan");
+        Pendapatan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PendapatanMouseClicked(evt);
+            }
+        });
+        jMenu6.add(Pendapatan);
+
+        jMenuBar1.add(jMenu6);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,33 +135,72 @@ public class MenuUtama extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1)
-                .addGap(26, 26, 26)
-                .addComponent(jButton1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(75, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Tanggal)
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Muncul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Muncul)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TamuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TamuMouseClicked
+        // Tamu
+        Tamu T = new Tamu();
+        T.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_TamuMouseClicked
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void PendapatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PendapatanMouseClicked
+        // P_Hotel
+        Pendapatan_Hotel Ph = new Pendapatan_Hotel();
+        Ph.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_PendapatanMouseClicked
+
+    private void TanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanggalActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_TanggalActionPerformed
+
+    private void MunculActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MunculActionPerformed
+        // TODO add your handling code here:
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar c1 = Calendar.getInstance();
+        c1.getTime();
+        Tanggal.setText(sdf.format(c1.getTime()));
+    }//GEN-LAST:event_MunculActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,6 +238,10 @@ public class MenuUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Muncul;
+    private javax.swing.JMenu Pendapatan;
+    private javax.swing.JMenu Tamu;
+    private javax.swing.JTextField Tanggal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -175,9 +254,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
