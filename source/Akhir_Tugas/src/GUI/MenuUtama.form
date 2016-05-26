@@ -14,11 +14,6 @@
                 <Property name="text" type="java.lang.String" value="Lihat"/>
               </Properties>
             </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Edit"/>
-              </Properties>
-            </Menu>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
@@ -40,26 +35,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Kamar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu3MouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu3ActionPerformed"/>
+          </Events>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu9">
+            <Menu class="javax.swing.JMenu" name="Kamar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Reguler"/>
+                <Property name="text" type="java.lang.String" value="Lihat Kamar"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Premium"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Suite"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu12">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="VIP"/>
-              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KamarMouseClicked"/>
+              </Events>
             </Menu>
           </SubComponents>
         </Menu>
