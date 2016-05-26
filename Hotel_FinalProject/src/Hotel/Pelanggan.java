@@ -48,8 +48,10 @@ public class Pelanggan implements DB {
       Inisalisasi nilai instance variable akumulasi = 0
       Connection con pada badan memiliki fungsi untuk menghubungkan class ke database
       Statement stmt pada badan adalah variable stmt memiliki fungsi untuk menjalankan perintah database mySql
-      Deklarasi String select dengan nilai format String yang merupakan perintah ke database untuk 
-     */
+      Deklarasi String select dengan nilai format String yang merupakan perintah ke database untuk melakukan pemilihan berdasarkan id dari pelanggan
+      Deklarasi Result rset untuk mengeksekusi query atau table berdasarkan select
+      Id ditambah satu apabila ada setiap pelanggan masuk
+      Menjalankan method savingData */
     public Pelanggan(String nik, String nama, String tempatLahir, String tanggalLahir) throws SQLException {
         this.nik = nik;
         this.nama = nama;
