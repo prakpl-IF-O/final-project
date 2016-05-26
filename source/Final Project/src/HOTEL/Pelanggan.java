@@ -2,6 +2,9 @@ package HOTEL;
 
 import java.sql.*;
 
+/*
+* class Pelanggan mengimplementasi class Interface
+*/
 public class Pelanggan implements Interface{
 private String namaD,namaB, nama, id,TTL;
 private int NIK,no;
@@ -10,6 +13,10 @@ private int NIK,no;
     String uPass = "123";
     String uName = "DRN";
 
+/*
+* Method Pelanggan (konstruktor)
+* dengan parameter (String, String, String, int, int)
+*/
 public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         this.namaD = namaD;
         this.namaB = namaB;
