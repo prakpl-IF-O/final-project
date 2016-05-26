@@ -62,6 +62,19 @@ public class UI extends javax.swing.JFrame {
         }
     }
 
+    public void tombolRefresh() {
+        FNo.setText("");
+        FKelas.setText("");
+        FNama.setText("");
+        FId.setText("");
+        FTempat.setText("");
+        FTanggal.setDate(null);
+        FNIK.setText("");
+        FIn.setDate(null);
+        FInap.setText("");
+        FStatus.setText("");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
