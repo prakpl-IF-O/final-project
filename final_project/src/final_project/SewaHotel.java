@@ -94,8 +94,17 @@ public class SewaHotel extends JFrame implements ActionListener {
   btnKeluar.addActionListener(this);
  }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
+        @Override
+ public void actionPerformed(ActionEvent act) {
+ int lama=Integer.parseInt(txtlama.getText());
+ int  tarif=0,diskon=0,bayar=0;
+  Object obj = act.getSource();
+  if (obj==btnTampil) {
+
+   String JenisKamar="";
+   
+  
+   {
     }
 }
