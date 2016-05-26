@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Kamar {
     private double totalBayar, denda, sewa;
-    private String jenisKamar;
+    private String jenisKamar,diskon="0%";
 
     String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
     String uPass = "123";
@@ -20,8 +20,8 @@ public class Kamar {
     }
     
     public Kamar(){
-    
     }
+    
     public double hitungBayar(String id, String TglKeluar, String JamKeluar) throws ParseException {
         int jumlahHariInap = 0, jumlahHariAkumulasi = 0,noKam=0;
         String tglKeluar, jamKeluar;
@@ -46,12 +46,15 @@ public class Kamar {
             totalBayar=sewa*jumlahHariInap;
             if (jumlahHariAkumulasi+jumlahHariInap>=10&&jumlahHariAkumulasi+jumlahHariInap<=30) {
                 totalBayar=sewa*jumlahHariInap*0.9;
+                diskon="10%";
             }
             else if (jumlahHariAkumulasi+jumlahHariInap>=31&&jumlahHariAkumulasi+jumlahHariInap<=60) {
                 totalBayar=sewa*jumlahHariInap*0.85;
+                diskon="15%";
             }
             else if (jumlahHariAkumulasi+jumlahHariInap>=61){
                 totalBayar=sewa*jumlahHariInap*0.75;
+                diskon="25%";
             }
             denda =denda(noKam, TglKeluar, JamKeluar);
             totalBayar+=denda;
@@ -92,5 +95,10 @@ public class Kamar {
             System.out.println(er.getErrorCode());
         }
     return denda;
+    } 
+    
+    public String toString(){
+    return String.format("jenis kamar : %s\nharga (malam): %.0f\ndenda: %.0f\ndiskon: %s\ntotal tagihan: %.0f\n",
+            jenisKamar,sewa,denda,diskon,totalBayar);
     }
 }

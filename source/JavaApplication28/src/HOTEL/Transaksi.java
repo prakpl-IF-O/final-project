@@ -1,8 +1,10 @@
 package HOTEL;
 
 import java.sql.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class Transaksi implements Interface {
 
@@ -10,18 +12,18 @@ public class Transaksi implements Interface {
     String uPass = "123";
     String uName = "DRN";
 
-    private String tanggalMasuk, JamMasuk, tanggalKeluar, JamKeluar;
-    private int jumlahHari, nomorKamar;
+    private String tanggalMasuk, JamMasuk, tanggalKeluar, JamKeluar,checkIn,checkOut,jenisKamar,diskon="0%";
+    private int jumlahHari, nomorKamar,NIK;
+    private String namaD,namaB, nama, id,TTL;
+    private double totalBayar, denda;
 
-    public Transaksi(String tanggalMasuk, String jamMasuk, String tanggalKeluar, String jamKeluar, int jumlahHari, int nomorKamar) {
-        this.tanggalMasuk = tanggalMasuk;
-        this.JamMasuk = jamMasuk;
-        this.tanggalKeluar = tanggalKeluar;
-        this.JamKeluar = jamKeluar;
+    public Transaksi(int jumlahHari, int nomorKamar) {
         this.jumlahHari = jumlahHari;
         this.nomorKamar = nomorKamar;
     }
-
+    public Transaksi(){
+    
+    }
     @Override
     public void Input() {
         try (
@@ -111,5 +113,97 @@ public class Transaksi implements Interface {
             System.out.println(er.getErrorCode());
         }
         return totalBayar;
+    }
+    
+    public double hitungBayar(String id, String TglKeluar, String JamKeluar, double sewa) throws ParseException {
+        int jumlahHariInap = 0, jumlahHariAkumulasi = 0;
+        String tglKeluar, jamKeluar;
+        try (
+                Connection con = DriverManager.getConnection(host, uName, uPass);
+                Statement stm = con.createStatement();) {
+            String carii = String.format("SELECT* FROM DATABASE_INPUT where ID='%s'", id);
+            ResultSet get = stm.executeQuery(carii);
+            while (get.next()) {
+                int jumHar = get.getInt("JUMLAH_HARI");
+                nomorKamar = get.getInt("NO_KAMAR");
+                this.id=get.getString("ID");
+                NIK=get.getInt("NIK");
+                namaD=get.getString("NAMAD");
+                namaB=get.getString("NAMAB");
+                nama=namaD+" "+namaB;
+                tanggalMasuk=get.getString("TGL_MASUK");
+                JamMasuk=get.getString("JAM_MASUK");
+                checkIn=tanggalMasuk+" "+JamMasuk;
+                jumlahHari=get.getInt("JUMLAH_HARI");
+                checkOut=TglKeluar+" "+JamKeluar;
+                TTL=get.getString("TTL");
+                jumlahHariInap = jumHar;
+            }
+            
+            String cari = String.format("SELECT* FROM DATABASE_TRANSAKSI where ID='%s'", id);
+            ResultSet gett = stm.executeQuery(cari);
+            while (gett.next()) {
+                int jumHar = gett.getInt("JUMLAH_HARI");
+                jumlahHariAkumulasi += jumHar;
+            }
+            
+            totalBayar=sewa*jumlahHariInap;
+            if (jumlahHariAkumulasi+jumlahHariInap>=10&&jumlahHariAkumulasi+jumlahHariInap<=30) {
+                totalBayar=sewa*jumlahHariInap*0.9;
+                diskon="10%";
+            }
+            else if (jumlahHariAkumulasi+jumlahHariInap>=31&&jumlahHariAkumulasi+jumlahHariInap<=60) {
+                totalBayar=sewa*jumlahHariInap*0.85;
+                diskon="15%";
+            }
+            else if (jumlahHariAkumulasi+jumlahHariInap>=61){
+                totalBayar=sewa*jumlahHariInap*0.75;
+                diskon="25%";
+            }
+            denda =denda(nomorKamar, TglKeluar, JamKeluar);
+            totalBayar+=denda;
+        } catch (SQLException er) {
+            System.out.println(er.getErrorCode());
+        }
+        return totalBayar;
+    }
+    
+    public double denda(int kamar, String tglKeluar, String jamKeluar) throws ParseException{
+        String TglKeluar=null, JamKeluar=null;
+        try (
+                Connection con = DriverManager.getConnection(host, uName, uPass);
+                Statement stm = con.createStatement();) {
+            String cari = String.format("SELECT* FROM DATABASE_INPUT where NO_KAMAR=%d", kamar);
+            ResultSet get = stm.executeQuery(cari);
+            while (get.next()) {
+                TglKeluar = get.getString("TGL_KELUAR");
+                JamKeluar = get.getString("JAM_KELUAR");
+            }
+            SimpleDateFormat convert= new SimpleDateFormat("dd-MM-yyyy H:mm");
+            String a=String.format(TglKeluar+" "+JamKeluar);
+            String b=String.format(tglKeluar+" "+jamKeluar);
+            
+            java.util.Date temp1=convert.parse(a);
+            java.util.Date temp2=convert.parse(b);
+            
+            if (temp2.compareTo(temp1)<=0) {
+                denda=0;
+            }
+            else {
+                long selisih=temp1.getTime()-temp2.getTime();
+                double temp = TimeUnit.MILLISECONDS.toHours(selisih)*30000;
+                denda = Math.abs(temp);
+            }
+        }
+        catch (SQLException er) {
+            System.out.println(er.getErrorCode());
+        }
+    return denda;
+    }
+    
+    public String toString(){
+    return String.format("nama: %s\nTTL: %s\nid: %s\nNIK: %d\ncheck in: %s\ncheckOut: %s\nlama menginap: %s\nnomor kamar: %s\n"
+            + "denda: %.0f\ndiskon: %s\ntotal tagihan: %.0f\n",
+            nama,TTL,id,NIK,checkIn,checkOut,jumlahHari,nomorKamar,denda,diskon,totalBayar);
     }
 }
