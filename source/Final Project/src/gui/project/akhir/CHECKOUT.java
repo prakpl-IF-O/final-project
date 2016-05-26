@@ -9,13 +9,46 @@ package gui.project.akhir;
  *
  * @author ANDY ROSHADI
  */
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+import net.proteanit.sql.DbUtils;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class CHECKOUT extends javax.swing.JFrame {
 
     /**
      * Creates new form CHECKOUT
      */
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
     public CHECKOUT() {
         initComponents();
+        conn = ConnectionSql.ConnectDBS();
+        updateTable();
+    }
+
+    public String waktuOut() {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
+        String a = sdf.format(cal.getTime());
+        return a;
+    }
+
+    public void updateTable() {
+        try {
+            String sql = "select * from data_pengunjung";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            FTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
@@ -28,30 +61,30 @@ public class CHECKOUT extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        FTCari = new javax.swing.JTextField();
+        FTIn = new javax.swing.JTextField();
+        FTId = new javax.swing.JTextField();
+        FTKamar = new javax.swing.JTextField();
+        FTNIK = new javax.swing.JTextField();
+        FTInap = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        FTNo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        FTTagihan = new javax.swing.JTextField();
+        FTDiskon = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        FTCash = new javax.swing.JTextField();
+        FTKembalian = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        ButtonOut = new javax.swing.JLabel();
+        BHitung = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        FTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,20 +92,26 @@ public class CHECKOUT extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel2.setText("NO KAMAR");
+        jLabel2.setText("Check in");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 640, 100, 30));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 170, 30));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, 260, 30));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+        FTCari.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FTCariMouseClicked(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 260, 30));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 260, 30));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 260, 30));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 570, 260, 30));
+        getContentPane().add(FTCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 170, 30));
+        getContentPane().add(FTIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, 260, 30));
+
+        FTId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FTIdActionPerformed(evt);
+            }
+        });
+        getContentPane().add(FTId, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 260, 30));
+        getContentPane().add(FTKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 260, 30));
+        getContentPane().add(FTNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 260, 30));
+        getContentPane().add(FTInap, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 570, 260, 30));
 
         jLabel4.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
@@ -84,10 +123,10 @@ public class CHECKOUT extends javax.swing.JFrame {
         jLabel5.setText("ID PELANGGAN");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 360, 100, 30));
 
-        jLabel6.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel6.setText("NAMA");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 430, 100, 30));
+        FTNo.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
+        FTNo.setForeground(new java.awt.Color(0, 51, 51));
+        FTNo.setText("KAMAR");
+        getContentPane().add(FTNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 430, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 51, 51));
@@ -104,13 +143,13 @@ public class CHECKOUT extends javax.swing.JFrame {
         jLabel9.setText("TAGIHAN");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 100, 30));
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        FTTagihan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                FTTagihanActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 240, 30));
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, 240, 30));
+        getContentPane().add(FTTagihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 240, 30));
+        getContentPane().add(FTDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, 240, 30));
 
         jLabel10.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 51));
@@ -121,8 +160,8 @@ public class CHECKOUT extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 51, 51));
         jLabel11.setText("CASH");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 500, 100, 30));
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 240, 30));
-        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, 240, 30));
+        getContentPane().add(FTCash, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 240, 30));
+        getContentPane().add(FTKembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, 240, 30));
 
         jLabel12.setFont(new java.awt.Font("Bebas", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 51, 51));
@@ -130,15 +169,30 @@ public class CHECKOUT extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 570, 100, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/in.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, 60, 60));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/cout.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 610, 60, 70));
+        ButtonOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/cout.png"))); // NOI18N
+        ButtonOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonOutMouseClicked(evt);
+            }
+        });
+        getContentPane().add(ButtonOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 610, 60, 70));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/calc.png"))); // NOI18N
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, 60, 70));
+        BHitung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/calc.png"))); // NOI18N
+        BHitung.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BHitungMouseClicked(evt);
+            }
+        });
+        getContentPane().add(BHitung, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, 60, 70));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        FTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -149,7 +203,12 @@ public class CHECKOUT extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        FTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(FTable);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 780, 100));
 
@@ -159,13 +218,124 @@ public class CHECKOUT extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void FTIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FTIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_FTIdActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void FTTagihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FTTagihanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_FTTagihanActionPerformed
+
+    private void FTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FTableMouseClicked
+        // TODO add your handling code here:
+        Transaksi tagihan = new Transaksi();
+
+        try {
+            int row = FTable.getSelectedRow();
+            String table_click = (FTable.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from data_pengunjung where Kamar='" + table_click + "'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                String add = rs.getString("CheckIn");
+                FTIn.setText(add);
+                String add1 = rs.getString("ID");
+                FTId.setText(add1);
+                String add2 = rs.getString("Kamar");
+                FTKamar.setText(add2);
+                String add3 = rs.getString("NIK");
+                FTNIK.setText(add3);
+                String add4 = rs.getString("LamaInap");
+                FTInap.setText(add4);
+
+                int add6 = rs.getInt("Kamar");
+                int add7 = rs.getInt("LamaInap");
+                double sub = tagihan.hargaTotal(add6, add7);
+                String add9 = rs.getString("JamIn");
+                int total = tagihan.dendaHotel(add9, waktuOut());
+                String subtotal = String.valueOf(sub + total);
+                FTTagihan.setText(String.valueOf(subtotal));
+                FTDiskon.setText(String.valueOf(tagihan.diskonKamar(add7)));
+                // JOptionPane.showMessageDialog(null, add9);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_FTableMouseClicked
+
+    private void FTCariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FTCariMouseClicked
+        // TODO add your handling code here:
+        if (FTCari.getText().equalsIgnoreCase("")) {
+            this.updateTable();
+        } else {
+
+            try {
+                String sql = "select * from data_pengunjung where Nama =?";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, FTCari.getText());
+                rs = ps.executeQuery();
+                FTable.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+    }//GEN-LAST:event_FTCariMouseClicked
+
+    private void BHitungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BHitungMouseClicked
+        // TODO add your handling code here:
+        try {
+            String tagih = FTTagihan.getText();
+            double tagih1 = Double.parseDouble(tagih);
+
+            String bayar = FTCash.getText();
+            double bayar1 = Double.parseDouble(bayar);
+
+            double kembalian = bayar1 - tagih1;
+            String kembalian1 = String.valueOf(kembalian);
+            FTKembalian.setText(kembalian1);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Bayar cuy");
+        }
+    }//GEN-LAST:event_BHitungMouseClicked
+
+    private void ButtonOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonOutMouseClicked
+        // TODO add your handling code here:
+        try {
+            //
+            String add1 = FTInap.getText();
+            String add2 = FTIn.getText();
+            Transaksi dayOut = new Transaksi();
+            String out = dayOut.dayOut(Integer.parseInt(add1), add2);
+            //
+            String sql3 = "insert data_transaksi (ID,JamOut,CheckOut,Status,Tagihan) values (?,?,?,?,?)";
+            ps = conn.prepareStatement(sql3);
+            ps.setString(1, FTId.getText());
+            ps.setString(2, waktuOut());
+            ps.setString(3, out);
+            ps.setString(4, "Out");
+            ps.setString(5, FTTagihan.getText());
+            ps.execute();
+            //
+            String sql2 = "UPDATE data_kamar SET Status = 'Kosong' WHERE data_kamar.NoKamar ='" + FTKamar.getText() + "'";
+            ps = conn.prepareStatement(sql2);
+            ps.executeUpdate();
+            String sql1 = "Delete from data_pengunjung where ID='" + FTId.getText() + "'";
+            ps = conn.prepareStatement(sql1);
+            ps.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        updateTable();
+    }//GEN-LAST:event_ButtonOutMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        dispose();
+        UI n = new UI();
+        n.show();
+
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -203,31 +373,31 @@ public class CHECKOUT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BHitung;
+    private javax.swing.JLabel ButtonOut;
+    private javax.swing.JTextField FTCari;
+    private javax.swing.JTextField FTCash;
+    private javax.swing.JTextField FTDiskon;
+    private javax.swing.JTextField FTId;
+    private javax.swing.JTextField FTIn;
+    private javax.swing.JTextField FTInap;
+    private javax.swing.JTextField FTKamar;
+    private javax.swing.JTextField FTKembalian;
+    private javax.swing.JTextField FTNIK;
+    private javax.swing.JLabel FTNo;
+    private javax.swing.JTextField FTTagihan;
+    private javax.swing.JTable FTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
