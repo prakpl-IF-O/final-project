@@ -30,6 +30,8 @@ public class UI extends javax.swing.JFrame {
     public UI() {
         initComponents();
         conn = ConnectionSql.ConnectDBS();
+        updateTable();
+        updateTable2();
 
     }
 
@@ -339,17 +341,6 @@ public class UI extends javax.swing.JFrame {
     private void FTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FTable1MouseClicked
         // TODO add your handling code here:
 
-
-    }//GEN-LAST:event_FTable1MouseClicked
-
-    private void FCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FCariKeyReleased
-
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_FCariKeyReleased
-
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        // TODO add your handling code here:
         try {
             int row = FTable1.getSelectedRow();
             String table_click = (FTable1.getModel().getValueAt(row, 0).toString());
@@ -368,15 +359,83 @@ public class UI extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }//GEN-LAST:event_FTable1MouseClicked
+
+    private void FCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FCariKeyReleased
+
+        // TODO add your handling code here:
+        if (FCari.getText().equalsIgnoreCase("")) {
+            this.updateTable();
+        } else {
+
+            try {
+                String sql = "select * from data_kamar where KelasKamar =? and Status=?";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, FCari.getText());
+                ps.setString(2, "Kosong");
+                rs = ps.executeQuery();
+                FTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+
+    }//GEN-LAST:event_FCariKeyReleased
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        // TODO add your handling code here:
+        java.util.Date tanggalLahir = (java.util.Date) this.FTanggal.getDate();
+        java.util.Date tanggalIn = (java.util.Date) this.FIn.getDate();
+
+        try {
+
+            String sql2 = "UPDATE data_kamar SET Status = 'Isi' WHERE data_kamar.NoKamar ='" + FNo.getText() + "'";
+            ps = conn.prepareStatement(sql2);
+            ps.executeUpdate();
+            String sql = "insert into data_pengunjung (Kamar, Nama, NIK, TempatLahir, TanggalLahir,ID, LamaInap, CheckIn, JamIn) values (?,?,?,?,?,?,?,?,?)";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, FNo.getText());
+            ps.setString(2, FNama.getText());
+            ps.setString(3, FNIK.getText());
+            ps.setString(4, FTempat.getText());
+            ps.setDate(5, new java.sql.Date(tanggalLahir.getTime()));
+            ps.setString(6, FId.getText());
+            ps.setString(7, FInap.getText());
+            ps.setDate(8, new java.sql.Date(tanggalIn.getTime()));
+            ps.setString(9, waktuIn());
+            ps.execute();
+            //backup
+            String sql3 = "insert into arsip_pelanggan (NoKamar,KelasKamar,Nama,NIK,TempatLahir,TanggalLahir,ID,CheckIn,JamIn) values (?,?,?,?,?,?,?,?,?)";
+            ps = conn.prepareStatement(sql3);
+            ps.setString(1, FNo.getText());
+            ps.setString(2, FKelas.getText());
+            ps.setString(3, FNama.getText());
+            ps.setString(4, FNIK.getText());
+            ps.setString(5, FTempat.getText());
+            ps.setDate(6, new java.sql.Date(tanggalLahir.getTime()));
+            ps.setString(7, FId.getText());
+            ps.setDate(8, new java.sql.Date(tanggalIn.getTime()));
+            ps.setString(9, waktuIn());
+            ps.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        updateTable();
+        updateTable2();
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-
+        tombolRefresh();
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
         // TODO add your handling code here:
+        int gen = (int) Math.random() * 10000;
+        String rate = Integer.toString((int) (Math.random() * 10000));
+        FId.setText(rate);
+
     }//GEN-LAST:event_jLabel22MouseClicked
 
     /**
@@ -404,7 +463,6 @@ public class UI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
