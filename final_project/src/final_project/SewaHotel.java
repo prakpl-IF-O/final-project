@@ -1,6 +1,3 @@
-
-package final_project;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -94,7 +91,6 @@ public class SewaHotel extends JFrame implements ActionListener {
   btnKeluar.addActionListener(this);
  }
 
- 
         @Override
  public void actionPerformed(ActionEvent act) {
  int lama=Integer.parseInt(txtlama.getText());
@@ -105,6 +101,8 @@ public class SewaHotel extends JFrame implements ActionListener {
    String JenisKamar="";
    
   
+   {
+
    if (Reguler.isSelected()){
    tarif = lama*100000;
    JenisKamar="Reguler";
@@ -118,7 +116,8 @@ public class SewaHotel extends JFrame implements ActionListener {
     tarif = lama*750000;
     JenisKamar="VIP";
            }
-   
+
+
    if(lama>=0 && lama==9){
     diskon = tarif;
    }else if (lama>=10 && lama==30) {
@@ -132,7 +131,21 @@ public class SewaHotel extends JFrame implements ActionListener {
 
   bayar = tarif-diskon;
 }
-   {
-    }
-}
+   JOptionPane.showMessageDialog(null,"ID Pelanggan \t\t: " + txtIDPelanggan.getText() +
+            "\nNama \t\t: " + txtNama.getText() +
+   "\nJenis Kamar \t\t :"+ JenisKamar +
+            "\nTanggal CekIn \t: " + txtTgl.getText() +
+            "\n Tarif \t\t: " + tarif +
+            " \n diskon \t\t :" + diskon +
+            "\n bayar \t\t: " +bayar +
+            "\nAlamat \t\t: " + txtAlamat.getText() +
+            "\nTelp \t\t: " + txtTelp.getText());
+  } else if (obj == btnKeluar) {
+   System.exit(0);
+  }
+ }
+
+ public static void main (String [] form) {
+            SewaHotel sewaHotel = new SewaHotel();
+ }
 }
