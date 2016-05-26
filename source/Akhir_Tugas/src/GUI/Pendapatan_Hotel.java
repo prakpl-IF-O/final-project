@@ -57,7 +57,7 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Menu");
+        jButton1.setText("Menu Utama");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -109,7 +109,7 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
                                 .addComponent(Pendapatan))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Cek)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
