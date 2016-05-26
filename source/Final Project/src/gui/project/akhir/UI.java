@@ -446,7 +446,7 @@ public class UI extends javax.swing.JFrame {
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
         // TODO add your handling code here:
         dispose();
-        CHECKOUT out = new CHECKOUT();
+        LOGIN out = new LOGIN();
         out.show();
     }//GEN-LAST:event_jLabel23MouseClicked
 
