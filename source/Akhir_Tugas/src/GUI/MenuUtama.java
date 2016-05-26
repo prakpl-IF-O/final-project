@@ -38,14 +38,10 @@ public class MenuUtama extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         Tamu = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
+        Kamar = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         Pendapatan = new javax.swing.JMenu();
 
@@ -83,9 +79,6 @@ public class MenuUtama extends javax.swing.JFrame {
         jMenu4.setText("Lihat");
         jMenu1.add(jMenu4);
 
-        jMenu5.setText("Edit");
-        jMenu1.add(jMenu5);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Tamu");
@@ -101,18 +94,24 @@ public class MenuUtama extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Kamar");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
 
-        jMenu9.setText("Reguler");
-        jMenu3.add(jMenu9);
-
-        jMenu10.setText("Premium");
-        jMenu3.add(jMenu10);
-
-        jMenu11.setText("Suite");
-        jMenu3.add(jMenu11);
-
-        jMenu12.setText("VIP");
-        jMenu3.add(jMenu12);
+        Kamar.setText("Lihat Kamar");
+        Kamar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KamarMouseClicked(evt);
+            }
+        });
+        jMenu3.add(Kamar);
 
         jMenuBar1.add(jMenu3);
 
@@ -202,6 +201,22 @@ public class MenuUtama extends javax.swing.JFrame {
         Tanggal.setText(sdf.format(c1.getTime()));
     }//GEN-LAST:event_MunculActionPerformed
 
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // Kamar
+        
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void KamarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KamarMouseClicked
+        // TODO add your handling code here:
+        Kamar K = new Kamar();
+        K.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_KamarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -238,6 +253,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Kamar;
     private javax.swing.JButton Muncul;
     private javax.swing.JMenu Pendapatan;
     private javax.swing.JMenu Tamu;
@@ -246,15 +262,10 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
