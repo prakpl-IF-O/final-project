@@ -24,7 +24,7 @@ public class Kamar {
     public Kamar() {
     }
 
-    /* Deklarasi constructor yang melewatkan 3 parameter
+    /* Deklarasi constructor yang melewatkan 3 parameter yang di refer kepada 3 instance variable
        dan pada badan ditambah isSewa dengan nilai false 
        yaitu dengan arti bahwa status awal masih belum tersewa */
     public Kamar(int noKamar, double harga, String kelas) {
