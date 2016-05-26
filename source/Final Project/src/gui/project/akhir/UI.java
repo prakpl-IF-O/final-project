@@ -40,6 +40,28 @@ public class UI extends javax.swing.JFrame {
         return a;
     }
 
+    public void updateTable2() {
+        try {
+            String sql = "select * from data_pengunjung";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            FTable2.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    public void updateTable() {
+        try {
+            String sql = "select NoKamar,KelasKamar,Harga,Status from data_kamar where Status = 'Kosong'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            FTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
