@@ -15,7 +15,7 @@ public class Transaksi implements Interface {
 
 /*
 * Method konstruktor Transaksi
-* dengan parameter tanggalMasuk, jamMasuk, tanggalKeluar, jamKeluar, jumlahHari dan nomorKamar
+* dengan parameter (String, String, String, String, int, int)
 */
     public Transaksi(String tanggalMasuk, String jamMasuk, String tanggalKeluar, String jamKeluar, int jumlahHari, int nomorKamar) {
         this.tanggalMasuk = tanggalMasuk;
