@@ -23,30 +23,30 @@ public class Tamu extends Pelanggan {
     private Date CHECK_OUT;
     private int JAM_CHECK_IN;
     private static int JUMLAH_TAMU = 0;
-    
-    public Tamu (String id, String nik, String nama, String tempat_lahir,
-            String tanggal_lahir, String tanggal_daftar, String akumulasi,
-            String nomor_kamar, String tanggal_check_in, String tanggal_check_out, int jam_check_in) throws ParseException{
 
-        super(id,nik,nama,tempat_lahir,tanggal_lahir,tanggal_daftar,akumulasi);
+    public Tamu(String id, String nik, String nama, String tempat_lahir,
+            String tanggal_lahir, String tanggal_daftar, String akumulasi,
+            String nomor_kamar, String tanggal_check_in, String tanggal_check_out, int jam_check_in) throws ParseException {
+
+        super(id, nik, nama, tempat_lahir, tanggal_lahir, tanggal_daftar, akumulasi);
         this.NOMOR_KAMAR = nomor_kamar;
         this.CHECK_IN = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(tanggal_check_in);
         this.CHECK_OUT = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(tanggal_check_out);
         this.JAM_CHECK_IN = jam_check_in;
         JUMLAH_TAMU++;
     }
-    
+
     public String FORMATED_CHECK_IN() {
         TANGGAL.setTime(CHECK_IN);
         String TANGGAL_, BULAN;
-        
+
         int _TANGGAL = TANGGAL.get(Calendar.DAY_OF_MONTH);
         if (_TANGGAL < 10) {
-            TANGGAL_ = "0" + Integer.toString( _TANGGAL);
+            TANGGAL_ = "0" + Integer.toString(_TANGGAL);
         } else {
             TANGGAL_ = Integer.toString(_TANGGAL);
         }
-        
+
         int _BULAN = TANGGAL.get(Calendar.MONTH) + 1;
         if (_BULAN < 10) {
             BULAN = "0" + Integer.toString(_BULAN);
@@ -57,18 +57,18 @@ public class Tamu extends Pelanggan {
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
         return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
     }
-    
-        public String FORMATED_CHECK_OUT() {
+
+    public String FORMATED_CHECK_OUT() {
         TANGGAL.setTime(CHECK_OUT);
         String TANGGAL_, BULAN;
-        
+
         int _TANGGAL = TANGGAL.get(Calendar.DAY_OF_MONTH);
         if (_TANGGAL < 10) {
-            TANGGAL_ = "0" + Integer.toString( _TANGGAL);
+            TANGGAL_ = "0" + Integer.toString(_TANGGAL);
         } else {
             TANGGAL_ = Integer.toString(_TANGGAL);
         }
-        
+
         int _BULAN = TANGGAL.get(Calendar.MONTH) + 1;
         if (_BULAN < 10) {
             BULAN = "0" + Integer.toString(_BULAN);
@@ -79,23 +79,23 @@ public class Tamu extends Pelanggan {
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
         return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
     }
-        
-        public int GET_LAMA_INAP(){
-            TANGGAL.setTime(GET_CHECK_IN());
-            int tgl1 = TANGGAL.get(Calendar.DAY_OF_MONTH);
-            int bulan1 = TANGGAL.get(Calendar.MONTH) +1;
-            int tahun1 = TANGGAL.get(Calendar.YEAR);
-            
-            TANGGAL.setTime(GET_CHECK_OUT());
-            int tgl2 = TANGGAL.get(Calendar.DAY_OF_MONTH);
-            int bulan2 = TANGGAL.get(Calendar.MONTH) +1;
-            int tahun2 = TANGGAL.get(Calendar.YEAR);
-            
-            int hasil = dt.GET_DIFFERENT_DAYS(tgl1, bulan1, tahun1, tgl2, bulan2, tahun2);
-            return hasil;
-        }
-        
-        public String STRING_CHECK_IN() {
+
+    public int GET_LAMA_INAP() {
+        TANGGAL.setTime(GET_CHECK_IN());
+        int tgl1 = TANGGAL.get(Calendar.DAY_OF_MONTH);
+        int bulan1 = TANGGAL.get(Calendar.MONTH) + 1;
+        int tahun1 = TANGGAL.get(Calendar.YEAR);
+
+        TANGGAL.setTime(GET_CHECK_OUT());
+        int tgl2 = TANGGAL.get(Calendar.DAY_OF_MONTH);
+        int bulan2 = TANGGAL.get(Calendar.MONTH) + 1;
+        int tahun2 = TANGGAL.get(Calendar.YEAR);
+
+        int hasil = dt.GET_DIFFERENT_DAYS(tgl1, bulan1, tahun1, tgl2, bulan2, tahun2);
+        return hasil;
+    }
+
+    public String STRING_CHECK_IN() {
         TANGGAL.setTime(GET_CHECK_IN());
 
         String HARI = dt.CONVERT_DAY_OF_WEEK(TANGGAL.get(Calendar.DAY_OF_WEEK));
@@ -121,8 +121,7 @@ public class Tamu extends Pelanggan {
     public String GET_NOMOR_KAMAR() {
         return NOMOR_KAMAR;
     }
-    
-    
+
     /**
      * @return the JUMLAH_TAMU
      */

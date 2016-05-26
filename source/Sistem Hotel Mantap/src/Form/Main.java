@@ -172,11 +172,18 @@ public class Main extends javax.swing.JFrame {
         icon_beranda = new javax.swing.JLabel();
         icon_transaksi = new javax.swing.JLabel();
         icon_pelanggan = new javax.swing.JLabel();
+        menu_keuangan1 = new javax.swing.JLabel();
         icon_keuangan = new javax.swing.JLabel();
         highlight_beranda = new javax.swing.JLabel();
         highlight_transaksi = new javax.swing.JLabel();
         highlight_pelanggan = new javax.swing.JLabel();
         highlight_keuangan = new javax.swing.JLabel();
+        PANEL_ABOUT = new javax.swing.JLayeredPane();
+        jLabel9 = new javax.swing.JLabel();
+        color9 = new javax.swing.JLabel();
+        PANEL_SUB_KEUANGAN = new javax.swing.JLayeredPane();
+        jLabel8 = new javax.swing.JLabel();
+        color8 = new javax.swing.JLabel();
         PANEL_KEUANGAN = new javax.swing.JLayeredPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         table_laporan = new javax.swing.JTable();
@@ -366,6 +373,16 @@ public class Main extends javax.swing.JFrame {
         icon_pelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pelanggan.png"))); // NOI18N
         getContentPane().add(icon_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 262, -1, -1));
 
+        menu_keuangan1.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        menu_keuangan1.setForeground(new java.awt.Color(255, 255, 255));
+        menu_keuangan1.setText("About");
+        menu_keuangan1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu_keuangan1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(menu_keuangan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, -1, -1));
+
         icon_keuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/keuangan.png"))); // NOI18N
         getContentPane().add(icon_keuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 332, -1, -1));
 
@@ -380,6 +397,29 @@ public class Main extends javax.swing.JFrame {
 
         highlight_keuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Form/selected.png"))); // NOI18N
         getContentPane().add(highlight_keuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 310, 280, 70));
+
+        PANEL_ABOUT.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ABOUT.png"))); // NOI18N
+        PANEL_ABOUT.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        color9.setBackground(new java.awt.Color(255, 255, 255));
+        color9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        color9.setOpaque(true);
+        PANEL_ABOUT.add(color9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
+
+        getContentPane().add(PANEL_ABOUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 550));
+
+        PANEL_SUB_KEUANGAN.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/judul_laporan.png"))); // NOI18N
+        PANEL_SUB_KEUANGAN.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        color8.setBackground(new java.awt.Color(255, 255, 255));
+        color8.setOpaque(true);
+        PANEL_SUB_KEUANGAN.add(color8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 100));
+
+        getContentPane().add(PANEL_SUB_KEUANGAN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 710, 100));
 
         PANEL_KEUANGAN.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1117,6 +1157,7 @@ private void clear_highlight(){
         highlight_keuangan.setVisible(true);
         CLEAR_PANEL();
         PANEL_KEUANGAN.setVisible(true);
+        PANEL_SUB_KEUANGAN.setVisible(true);
     }//GEN-LAST:event_menu_keuanganMouseClicked
 
     private void TABLE_TAMUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLE_TAMUMouseClicked
@@ -1335,6 +1376,12 @@ private void clear_highlight(){
             lbl_co_pesan.setVisible(true);
         }
     }//GEN-LAST:event_btn_checkoutMouseClicked
+
+    private void menu_keuangan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_keuangan1MouseClicked
+        CLEAR_PANEL();
+        clear_highlight();
+        PANEL_ABOUT.setVisible(true);
+    }//GEN-LAST:event_menu_keuangan1MouseClicked
     public void CLEAR_CHECK_OUT_FORM() {
         lbl_co_nama.setText("");
         lbl_co_checkin.setText("");
@@ -1387,6 +1434,8 @@ private void clear_highlight(){
         PANEL_TRANSAKSI_CHECK_IN.setVisible(false);
         PANEL_TRANSAKSI_CHECKOUT.setVisible(false);
         PANEL_KEUANGAN.setVisible(false);
+        PANEL_SUB_KEUANGAN.setVisible(false);
+        PANEL_ABOUT.setVisible(false);
     }
     /**
      * @param args the command line arguments
@@ -1453,12 +1502,14 @@ private void clear_highlight(){
     private javax.swing.JLabel LABEL7;
     private javax.swing.JLabel LABEL8;
     private javax.swing.JLabel LABEL9;
+    private javax.swing.JLayeredPane PANEL_ABOUT;
     private javax.swing.JLayeredPane PANEL_BERANDA_OVERVIEW;
     private javax.swing.JLayeredPane PANEL_KEUANGAN;
     private javax.swing.JLayeredPane PANEL_PELANGGAN;
     private javax.swing.JLayeredPane PANEL_PELANGGAN_TAMU;
     private javax.swing.JLayeredPane PANEL_SUBMENU_PELANGGAN;
     private javax.swing.JLayeredPane PANEL_SUBMENU_TRANSAKSI;
+    private javax.swing.JLayeredPane PANEL_SUB_KEUANGAN;
     private javax.swing.JLayeredPane PANEL_TRANSAKSI_CHECKOUT;
     private javax.swing.JLayeredPane PANEL_TRANSAKSI_CHECK_IN;
     private javax.swing.JTable TABLE_PELANGGAN;
@@ -1475,6 +1526,8 @@ private void clear_highlight(){
     private javax.swing.JLabel color5;
     private javax.swing.JLabel color6;
     private javax.swing.JLabel color7;
+    private javax.swing.JLabel color8;
+    private javax.swing.JLabel color9;
     private javax.swing.JLabel highlight_beranda;
     private javax.swing.JLabel highlight_keuangan;
     private javax.swing.JLabel highlight_pelanggan;
@@ -1495,6 +1548,8 @@ private void clear_highlight(){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1538,6 +1593,7 @@ private void clear_highlight(){
     private javax.swing.JLabel lbl_tgl_lahir_pelanggan;
     private javax.swing.JLabel menu_beranda;
     private javax.swing.JLabel menu_keuangan;
+    private javax.swing.JLabel menu_keuangan1;
     private javax.swing.JLabel menu_pelanggan;
     private javax.swing.JLabel menu_transaksi;
     private javax.swing.JLabel sub_check_in;

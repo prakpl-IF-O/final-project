@@ -5,19 +5,16 @@
  */
 package Class;
 
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Irfandi
  */
 public class LoginEngine {
-    private static Staff DATABASE [];
+
+    private static Staff DATABASE[];
     private static int DB_SIZE;
     Database db = new Database();
-    
+
     public LoginEngine() {
         try {
             INIT_DB();
@@ -25,17 +22,18 @@ public class LoginEngine {
             ex.printStackTrace();
         }
     }
-    public void INIT_DB()throws Exception{
-        db.READ_DATABASE("staff","database\\Staff.database");
+
+    public void INIT_DB() throws Exception {
+        db.READ_DATABASE("staff", "database\\Staff.database");
         DATABASE = db.GET_DB_STAFF();
         DB_SIZE = db.GET_DB_SIZE();
     }
-    
-    public boolean LOGIN (String username, String password){
+
+    public boolean LOGIN(String username, String password) {
         for (int i = 0; i < DB_SIZE; i++) {
-           if (username.equalsIgnoreCase(DATABASE[i].getID()) && password.equalsIgnoreCase(DATABASE[i].getPassword())){
-               return true;
-           }  
+            if (username.equalsIgnoreCase(DATABASE[i].getID()) && password.equalsIgnoreCase(DATABASE[i].getPassword())) {
+                return true;
+            }
         }
         return false;
     }
@@ -68,7 +66,9 @@ public class LoginEngine {
         }
         return -1;
     }
-    //method sementara buat ngecek
+
+    //method sementara buat ngecek isi data
+
     public String liat() {
         String a = "init \n";
         for (int i = 0; i < DB_SIZE; i++) {

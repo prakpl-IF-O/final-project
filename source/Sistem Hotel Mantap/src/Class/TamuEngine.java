@@ -5,7 +5,6 @@
  */
 package Class;
 
-import java.nio.file.attribute.AclEntryPermission;
 import java.text.ParseException;
 
 /**
@@ -19,7 +18,7 @@ public class TamuEngine {
     Database db = new Database();
     UserEngine ue = new UserEngine();
     KamarEngine kamar = new KamarEngine();
-    
+
     public TamuEngine() {
         try {
             INIT_DB();
@@ -37,50 +36,57 @@ public class TamuEngine {
         return -1;
     }
 
-    public String GET_ID_BY_INDEX(int index){
+    public String GET_ID_BY_INDEX(int index) {
         return DATABASE[index].GET_ID();
     }
-    
-    public String GET_NIK_BY_INDEX(int index){
+
+    public String GET_NIK_BY_INDEX(int index) {
         return DATABASE[index].GET_NIK();
     }
-    
-    public String GET_NAMA_BY_INDEX(int index){
+
+    public String GET_NAMA_BY_INDEX(int index) {
         return DATABASE[index].GET_NAMA();
     }
-    
-    public String GET_KAMAR_BY_INDEX(int index){
+
+    public String GET_KAMAR_BY_INDEX(int index) {
         return DATABASE[index].GET_NOMOR_KAMAR();
     }
-    public int GET_AKUMULASI_BY_INDEX(int index){
+
+    public int GET_AKUMULASI_BY_INDEX(int index) {
         return DATABASE[index].GET_AKUMULASI();
     }
-    public String GET_STRING_CHECK_IN_BY_INDEX(int index){
+
+    public String GET_STRING_CHECK_IN_BY_INDEX(int index) {
         return DATABASE[index].STRING_CHECK_IN();
     }
-    public int GET_JAM_CHECK_IN_BY_INDEX(int index){
+
+    public int GET_JAM_CHECK_IN_BY_INDEX(int index) {
         return DATABASE[index].GET_JAM_CHECK_IN();
     }
-    public String GET_STRING_CHECK_OUT_BY_INDEX(int index){
+
+    public String GET_STRING_CHECK_OUT_BY_INDEX(int index) {
         return DATABASE[index].STRING_CHECK_OUT();
     }
-    public int GET_LAMA_INAP_BY_INDEX (int index){
+
+    public int GET_LAMA_INAP_BY_INDEX(int index) {
         return DATABASE[index].GET_LAMA_INAP();
     }
-    public String GET_DISKON_BY_INDEX(int index){
-        if (DATABASE[index].GET_AKUMULASI()<9){
+
+    public String GET_DISKON_BY_INDEX(int index) {
+        if (DATABASE[index].GET_AKUMULASI() < 9) {
             return "0 %";
-        } else  if (DATABASE[index].GET_AKUMULASI()<=30){
+        } else if (DATABASE[index].GET_AKUMULASI() <= 30) {
             return "10 %";
-        } else  if (DATABASE[index].GET_AKUMULASI()<=60){
+        } else if (DATABASE[index].GET_AKUMULASI() <= 60) {
             return "15 %";
         } else {
             return "25 %";
         }
     }
-    public void TAMBAH_TAMU(String ID,String NIK,String NAMA,String TEMPAT_LAHIR,
-                        String TANGGAL_LAHIR,String TANGGAL_DAFTAR,String AKUMULASI, 
-                        String NO_KAMAR,String TGL_CHECK_IN,String TGL_CHECK_OUT, int jam_check_in){
+
+    public void TAMBAH_TAMU(String ID, String NIK, String NAMA, String TEMPAT_LAHIR,
+            String TANGGAL_LAHIR, String TANGGAL_DAFTAR, String AKUMULASI,
+            String NO_KAMAR, String TGL_CHECK_IN, String TGL_CHECK_OUT, int jam_check_in) {
         ue.DELETE_PELANGGAN(ID);
         try {
             DATABASE[DB_SIZE] = new Tamu(ID, NIK, NAMA, TEMPAT_LAHIR,
@@ -92,19 +98,20 @@ public class TamuEngine {
         }
         kamar.PESAN_KAMAR(NO_KAMAR);
     }
-    public void CHECK_OUT (String ID, int tambahan_akumulasi){
+
+    public void CHECK_OUT(String ID, int tambahan_akumulasi) {
         int index = FIND_TAMU_INDEX(ID);
-        
+
         kamar.KOSONGKAN_KAMAR(DATABASE[index].GET_NOMOR_KAMAR());
-        
+
         ue.TAMBAH_PELANGGAN(DATABASE[index].GET_ID(), DATABASE[index].GET_NIK(),
                 DATABASE[index].GET_NAMA(), DATABASE[index].GET_TEMPAT_LAHIR(),
                 DATABASE[index].FORMATED_TANGGAL_LAHIR(), DATABASE[index].FORMATED_TANGGAL_DAFTAR(),
-                (Integer.toString(DATABASE[index].GET_AKUMULASI()+tambahan_akumulasi)));
+                (Integer.toString(DATABASE[index].GET_AKUMULASI() + tambahan_akumulasi)));
         DELETE_TAMU(ID);
     }
-    
-    public int FIND_TAMU_INDEX(String ID){
+
+    public int FIND_TAMU_INDEX(String ID) {
         int index = -1;
         for (int i = 0; i < DB_SIZE; i++) {
             if (DATABASE[i].GET_ID().equalsIgnoreCase(ID)) {
@@ -114,7 +121,8 @@ public class TamuEngine {
         }
         return index;
     }
-    public void DELETE_TAMU(String ID){
+
+    public void DELETE_TAMU(String ID) {
         int index = FIND_TAMU_INDEX(ID);
 
         if (index >= 0) {
@@ -130,11 +138,12 @@ public class TamuEngine {
                 DATABASE[i].SET_CHECK_IN(DATABASE[i + 1].GET_CHECK_IN());
                 DATABASE[i].SET_CHECK_OUT(DATABASE[i + 1].GET_CHECK_OUT());
             }
-            DATABASE[DB_SIZE-1] = null;
+            DATABASE[DB_SIZE - 1] = null;
             DB_SIZE--;
         }
-        
+
     }
+
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("tamu", "database\\Tamu.database");
         DATABASE = db.GET_DB_TAMU();
@@ -148,12 +157,12 @@ public class TamuEngine {
         //return Tamu.GET_JUMLAH_TAMU();
         return DB_SIZE;
     }
-    
-    public Tamu[] GET_MASTER_DATABASE(){
+
+    public Tamu[] GET_MASTER_DATABASE() {
         return DATABASE;
     }
-    
-    public void UPDATE_MASTER_DATABASE(){
-        db.WRITE_DATABASE_TAMU(GET_MASTER_DATABASE(),GET_JUMLAH_TAMU());
+
+    public void UPDATE_MASTER_DATABASE() {
+        db.WRITE_DATABASE_TAMU(GET_MASTER_DATABASE(), GET_JUMLAH_TAMU());
     }
 }

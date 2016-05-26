@@ -1,21 +1,23 @@
 package Class;
 
 public class Staff {
+
     private final String ID;
     private String nama, password;
     private String pertanyaan, jawaban; //pertanyaan dan jawaban lupa password
-    
-    public Staff (String ID, String nama, String password, String pertanyaan, String jawaban){
+
+    public Staff(String ID, String nama, String password, String pertanyaan, String jawaban) {
         this.ID = ID;
         this.nama = nama;
         this.password = password;
         this.pertanyaan = pertanyaan;
         this.jawaban = jawaban;
     }
-    
-    public void GANTI_PASSWORD (String NEW_PASSWORD){
+
+    public void GANTI_PASSWORD(String NEW_PASSWORD) {
         this.password = NEW_PASSWORD;
     }
+
     /**
      * @return the ID
      */

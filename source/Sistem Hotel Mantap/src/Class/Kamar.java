@@ -10,23 +10,24 @@ package Class;
  * @author Irfandi
  */
 public class Kamar {
+
     private final String NOMOR_KAMAR, JENIS_KAMAR;
     private String STATUS;
     private final int HARGA_KAMAR;
-    
-    public Kamar(String nomor_kamar, String status, String jenis_kamar, 
-                                                  String harga_kamar){
+
+    public Kamar(String nomor_kamar, String status, String jenis_kamar,
+            String harga_kamar) {
         this.NOMOR_KAMAR = nomor_kamar;
         this.STATUS = status;
         this.JENIS_KAMAR = jenis_kamar;
         this.HARGA_KAMAR = Integer.parseInt(harga_kamar);
     }
-    
-    public void CHECK_IN_THIS_ROOM (){
+
+    public void CHECK_IN_THIS_ROOM() {
         STATUS = "dipesan";
     }
-    
-    public void CHECK_OUT_THIS_ROOM (){
+
+    public void CHECK_OUT_THIS_ROOM() {
         STATUS = "kosong";
     }
 
