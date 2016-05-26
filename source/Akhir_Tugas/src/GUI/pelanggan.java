@@ -8,6 +8,7 @@ import java.sql.*;
 public class pelanggan {
     String id_tamu,
             nama,ttl,tgldaftar,thari;
+    int a;
 public void tambahtamu() { 
         try { 
             String url = "jdbc:derby://localhost:1527/hotel"; 

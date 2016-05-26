@@ -29,7 +29,7 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tamu = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Pendapatan = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -46,11 +46,14 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
 
         jLabel2.setText("Jumlah Tamu");
 
-        jTextField1.setText("jTextField1");
+        tamu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tamuActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Jumlah Pendapatan");
 
-        Pendapatan.setText("jTextField2");
         Pendapatan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PendapatanActionPerformed(evt);
@@ -105,8 +108,8 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addGap(39, 39, 39)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Pendapatan))))
+                                .addComponent(Pendapatan)
+                                .addComponent(tamu))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -121,7 +124,7 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tamu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -162,8 +165,14 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
     private void CekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CekActionPerformed
         // TODO add your handling code here:
         pendapatanakhir PA = new pendapatanakhir();
+        Tamu t=new Tamu();
         Pendapatan.setText(String.format("%.2f",PA.getPendapatanAhir()));
+        tamu.setText(String.format("%.d"));
     }//GEN-LAST:event_CekActionPerformed
+
+    private void tamuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tamuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,6 +219,6 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField tamu;
     // End of variables declaration//GEN-END:variables
 }

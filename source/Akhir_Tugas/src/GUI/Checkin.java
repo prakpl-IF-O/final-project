@@ -13,9 +13,6 @@ import java.util.Calendar;
 
 public class Checkin{
     kamarhotel kh=new kamarhotel();
-    Calendar tin = Calendar.getInstance();
-    Calendar tout = Calendar.getInstance();
-    Calendar tout2 = Calendar.getInstance();
     double bayar;
     double denda = 30000;
     double kembali;
@@ -24,30 +21,6 @@ public class Checkin{
     byte sisakamar = 100;
     byte lamasewa;
     
-    public Calendar getTin() {
-        return tin;
-    }
-
-    public void setTin(Calendar tin) {
-        this.tin = tin;
-    }
-
-    public Calendar getTout() {
-        return tout;
-    }
-
-    public void setTout(Calendar tout) {
-        this.tout = tout;
-    }
-
-    public Calendar getTout2() {
-        return tout2;
-    }
-
-    public void setTout2(Calendar tout2) {
-        this.tout2 = tout2;
-    }
-
     public double getBayar() {
         return bayar;
     }
