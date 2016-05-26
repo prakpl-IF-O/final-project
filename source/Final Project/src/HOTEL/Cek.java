@@ -12,7 +12,8 @@ public class Cek {
     * Method cekKamar dengan parameter noKamar
     * untuk mengecek status sebuah kamar
     * nomor kamar yang dimasukkan oleh user akan di cek ke dalam database
-    * jika di dalam database nomor kamar tersebut tersedia, maka program akan memberikan informasi bahwa kamar yang diminta tersedia atau tidak tersedia
+    * jika di dalam database nomor kamar tersebut tersedia, maka program 
+    * akan memberikan informasi bahwa kamar yang diminta tersedia atau tidak tersedia
     */
     public boolean cekKamar(int noKamar) {
         boolean cek = false;
@@ -38,7 +39,8 @@ public class Cek {
     
     /*
     * Method cekVIP
-    * untuk menampilkan jumlah kamar VIP yang tersedia berdasarkan data di dalam database
+    * untuk menampilkan jumlah kamar VIP yang tersedia 
+    * berdasarkan data yang ada di dalam database
     */
     public int cekVIP() {
         int jumlah=0;
@@ -61,6 +63,11 @@ public class Cek {
         return jumlah;
     }
     
+    /*
+    * Method cekSuite
+    * untuk menampilkan jumlah kamar bertipe Suite yang tersedia
+    * berdasarkan data yang ada di dalam database
+    */
     public int cekSuite() {
         int jumlah=0;
         try (
