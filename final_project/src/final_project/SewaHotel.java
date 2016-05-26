@@ -118,6 +118,21 @@ public class SewaHotel extends JFrame implements ActionListener {
     tarif = lama*750000;
     JenisKamar="VIP";
            }
+   
+   if(lama>=0 && lama==9){
+    diskon = tarif;
+   }else if (lama>=10 && lama==30) {
+    diskon = (int) (0.10 * tarif);
+   }else if (lama>=31 && lama==60) {
+    diskon = (int) (0.15 * tarif);
+   }else {
+    diskon =(int) (0.25 * tarif);
+   }
+  
+
+  bayar = tarif-diskon;
+}
    {
     }
+}
 }
