@@ -33,7 +33,12 @@ public class UI extends javax.swing.JFrame {
 
     }
 
-   
+    public String waktuIn() {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String a = sdf.format(cal.getTime());
+        return a;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -303,17 +308,17 @@ public class UI extends javax.swing.JFrame {
     private void FCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FCariKeyReleased
 
         // TODO add your handling code here:
-    
+
     }//GEN-LAST:event_FCariKeyReleased
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
