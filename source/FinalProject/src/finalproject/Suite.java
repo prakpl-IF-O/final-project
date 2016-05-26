@@ -28,7 +28,7 @@ public class Suite extends Kamar {
         Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
         Statement stmt = conn.createStatement();
         {
-            ResultSet hasil = stmt.executeQuery("select nmrKmr from datakamar where nmrKmr > 70");
+            ResultSet hasil = stmt.executeQuery("select nmrKmr from datakamar where nmrKmr > 70 and nmrKmr < 91");
             int[] s = new int[20];
             for (int i = 0; i < 20; i++) {
                 if (hasil.next()) {

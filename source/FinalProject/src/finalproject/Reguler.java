@@ -28,7 +28,7 @@ public class Reguler extends Kamar {
         Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
         Statement stmt = conn.createStatement();
         {
-            ResultSet hasil = stmt.executeQuery("select nmrKmr from datakamar where nmrKmr > 0");
+            ResultSet hasil = stmt.executeQuery("select nmrKmr from datakamar where nmrKmr > 0 and nmrKmr < 51");
             int[] r = new int[50];
             for (int i = 0; i < 50; i++) {
                 if (hasil.next()) {
