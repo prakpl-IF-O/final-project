@@ -37,7 +37,7 @@ public class UI extends javax.swing.JFrame {
 
     public String waktuIn() {
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
         String a = sdf.format(cal.getTime());
         return a;
     }
@@ -313,6 +313,11 @@ public class UI extends javax.swing.JFrame {
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, -1, -1));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/4.png"))); // NOI18N
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 510, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/project/akhir/a.jpg"))); // NOI18N
@@ -437,6 +442,13 @@ public class UI extends javax.swing.JFrame {
         FId.setText(rate);
 
     }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        // TODO add your handling code here:
+        dispose();
+        CHECKOUT out = new CHECKOUT();
+        out.show();
+    }//GEN-LAST:event_jLabel23MouseClicked
 
     /**
      * @param args the command line arguments
