@@ -30,6 +30,7 @@ public class Kamar {
     * Method hitungBayar
     * untuk menghitung total harga yang harus dibayarkan oleh penyewa kamar
     * parameter yang menjadi acuan adalah Tanggal Keluar dan Jam Keluar
+    * mengembalikan (return) totalBayar
     */
     public double hitungBayar(String id, String TglKeluar, String JamKeluar) throws ParseException {
         int jumlahHariInap = 0, jumlahHariAkumulasi = 0,noKam=0;
@@ -77,6 +78,7 @@ public class Kamar {
     * Method denda
     * untuk menentukan jumlah denda penyewa kamar
     * parameter yang menjadi acuan adalah Tanggal Keluar dan Jam Keluar
+    * mengembalikan (return) denda
     */
     
     public double denda(int kamar, String tglKeluar, String jamKeluar) throws ParseException{
