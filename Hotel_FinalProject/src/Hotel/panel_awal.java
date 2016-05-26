@@ -139,7 +139,8 @@ public class panel_awal extends javax.swing.JFrame {
     }//GEN-LAST:event_button_newActionPerformed
 
     private void button_check_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_outActionPerformed
-        // TODO add your handling code here:
+        panel_check_out pco = new panel_check_out();
+        pco.setVisible(true);
     }//GEN-LAST:event_button_check_outActionPerformed
 
     private void button_cek_kamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cek_kamarActionPerformed
@@ -158,7 +159,8 @@ public class panel_awal extends javax.swing.JFrame {
     }//GEN-LAST:event_button_member1ActionPerformed
 
     private void button_transaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_transaksiActionPerformed
-        // TODO add your handling code here:
+       panel_tabel_transaksi ptt = new panel_tabel_transaksi();
+       ptt.setVisible(true);
     }//GEN-LAST:event_button_transaksiActionPerformed
 
     /**

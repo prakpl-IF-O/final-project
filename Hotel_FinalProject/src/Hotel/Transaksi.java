@@ -131,7 +131,7 @@ public class Transaksi implements DB {
     public String showDetail() {
         double sd = (1 - diskon) * 100;
         return String.format("Kode Transaksi %9d\nID Pelanggan %13d\nCheck In %40s\nTenggang Waktu %25s\nNo Kamar %21d"
-                + "\nCheck Out %37s\nHarga %33.0f\nDenda %26.0f\nDiskon %27.0f%%\nTotal %36.0f\n",
+                + "\nCheck Out %37s\nHarga %33.0f\nDenda %31.0f\nDiskon %27.0f%%\nTotal %36.0f\n",
                 kodeTransaksi, tamu.getId(), String.valueOf(sdf.format(checkIn.getTime())),
                 String.valueOf(sdf.format(batasCheckOut.getTime())), kamar.getNoKamar(), String.valueOf(sdf.format(checkOut.getTime())),
                 harga, denda, sd, totalHarga);

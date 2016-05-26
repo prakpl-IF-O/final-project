@@ -5,6 +5,13 @@
  */
 package Hotel;
 
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import java.util.Date;
+
 /**
  *
  * @author ltf
@@ -15,7 +22,37 @@ public class panel_tabel_transaksi extends javax.swing.JFrame {
      * Creates new form panel_tabel_transaksi
      */
     public panel_tabel_transaksi() {
-        initComponents();
+        try {
+            initComponents();
+            DefaultTableModel model = (DefaultTableModel) tabel_transaksi.getModel();
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+            Statement stmt = con.createStatement();
+            String select = "select * from detailTransaksi";
+            double hasil = 0;
+            ResultSet rset = stmt.executeQuery(select);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            while (rset.next()) {
+                int kode = rset.getInt("kodeTransaksi");
+                int id = rset.getInt("idPelanggan");
+                int nomor = rset.getInt("nomorKamar");
+                String in = sdf.format(rset.getDate("checkIn"));
+                String out = "";
+                int total = 0;
+                try{
+                out = sdf.format(rset.getDate("checkOut"));
+                total = (int) rset.getDouble("total");
+                }catch(NullPointerException a){
+                out = "Belum CheckOut";
+                total = 0;
+                }
+                Object[] row = {kode, id, nomor, in, out, total};
+                model.addRow(row);
+                hasil = hasil + total;
+            }
+            total.setText(String.format("%.0f", hasil));
+        } catch (SQLException ex) {
+            Logger.getLogger(panel_tabel_transaksi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -27,23 +64,30 @@ public class panel_tabel_transaksi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel_transaksi = new javax.swing.JTable();
         label_tansaksi = new javax.swing.JLabel();
         buton_kalkulasi = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        total = new javax.swing.JTextField();
+        semua = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(660, 450));
 
         tabel_transaksi.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         tabel_transaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Kode Transaksi", "ID Pelanggan", "Nomor Kamar", "Check In", "Check Out", "Total"
             }
         ));
         jScrollPane1.setViewportView(tabel_transaksi);
@@ -51,39 +95,153 @@ public class panel_tabel_transaksi extends javax.swing.JFrame {
         label_tansaksi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_tansaksi.setText("Data Transaksi");
 
-        buton_kalkulasi.setText("Kalkulasi Pendapatan");
+        buton_kalkulasi.setText("Kalkulasi Pendapatan Bulan Ini");
+        buton_kalkulasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buton_kalkulasiActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Total");
+
+        total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalActionPerformed(evt);
+            }
+        });
+
+        semua.setText("All");
+        semua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                semuaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(label_tansaksi))
+                        .addGap(179, 179, 179)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buton_kalkulasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(semua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(48, 48, 48))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(buton_kalkulasi)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(223, 223, 223)
+                        .addComponent(label_tansaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(66, 66, 66)))
+                .addGap(192, 192, 192))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label_tansaksi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(semua)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buton_kalkulasi)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buton_kalkulasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buton_kalkulasiActionPerformed
+        try {
+            Transaksi t = new Transaksi();
+            double hasil = t.hasilBulanan();
+            total.setText(String.format("%.0f", hasil));
+            DefaultTableModel model = (DefaultTableModel) tabel_transaksi.getModel();
+            model.setRowCount(0);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+            Statement stmt = con.createStatement();
+            String select = "select * from detailTransaksi";
+            ResultSet rset = stmt.executeQuery(select);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat sdf2 = new SimpleDateFormat("MM");
+            Date now = new Date();
+            String bln = sdf2.format(now);
+            while (rset.next()) {
+                String in = sdf.format(rset.getDate("checkIn"));
+                if (bln.equalsIgnoreCase(sdf2.format(rset.getDate("checkIn")))) {
+                    int kode = rset.getInt("kodeTransaksi");
+                    int id = rset.getInt("idPelanggan");
+                    int nomor = rset.getInt("nomorKamar");
+                    String out = "";
+                    int total = 0;
+                    try{
+                    out = sdf.format(rset.getDate("checkOut"));
+                    total = (int) rset.getDouble("total");
+                    }catch(NullPointerException a){
+                    out = "Belum CheckOut";
+                    total = 0;
+                    }
+                    Object[] row = {kode, id, nomor, in, out, total};
+                    model.addRow(row);
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(panel_tabel_transaksi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_buton_kalkulasiActionPerformed
+
+    private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalActionPerformed
+
+    private void semuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semuaActionPerformed
+        try {
+            DefaultTableModel model = (DefaultTableModel) tabel_transaksi.getModel();
+            model.setRowCount(0);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel?useSSL=false", "steven", "1111");
+            Statement stmt = con.createStatement();
+            String select = "select * from detailTransaksi";
+            double hasil = 0;
+            ResultSet rset = stmt.executeQuery(select);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            while (rset.next()) {
+                int kode = rset.getInt("kodeTransaksi");
+                int id = rset.getInt("idPelanggan");
+                int nomor = rset.getInt("nomorKamar");
+                String in = sdf.format(rset.getDate("checkIn"));
+                String out="";
+                int total= 0;
+                try{
+                out = sdf.format(rset.getDate("checkOut"));
+                total = (int) rset.getDouble("total");
+                }catch(NullPointerException a){
+                out = "Belum CheckOut";
+                total = 0;
+                }
+                Object[] row = {kode, id, nomor, in, out, total};
+                model.addRow(row);
+                hasil = hasil + total;
+            }
+            total.setText(String.format("%.0f", hasil));
+        } catch (SQLException ex) {
+            Logger.getLogger(panel_tabel_transaksi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_semuaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,8 +281,13 @@ public class panel_tabel_transaksi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buton_kalkulasi;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel label_tansaksi;
+    private javax.swing.JButton semua;
     private javax.swing.JTable tabel_transaksi;
+    private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
 }

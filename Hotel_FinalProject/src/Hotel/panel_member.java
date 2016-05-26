@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -203,7 +204,9 @@ public class panel_member extends javax.swing.JFrame {
     }//GEN-LAST:event_button_cancel_memberActionPerformed
 
     private void button_lihat_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lihat_IDActionPerformed
-        // TODO add your handling code here:
+        panel_tabel_id pti = new panel_tabel_id();
+        pti.setVisible(true);
+        button_lihat_ID.setSelected(false);
     }//GEN-LAST:event_button_lihat_IDActionPerformed
     public void clear(){
         textfield_id.setText("");
