@@ -332,7 +332,7 @@ public class CHECKOUT extends javax.swing.JFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
         dispose();
-        UI n = new UI();
+        LOGIN n = new LOGIN();
         n.show();
 
     }//GEN-LAST:event_jLabel3MouseClicked
