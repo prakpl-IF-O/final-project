@@ -50,4 +50,46 @@ public class Transaksi implements Interface{
         }
     }
     
+    public void clear(int kamar){
+    try (
+            Connection con = DriverManager.getConnection(host, uName, uPass);
+            Statement stm = con.createStatement();) {
+            String in = String.format("update DATABASE_INPUT set "
+            + "NAMAD=null, NAMAB=null, TTL=null, ID=null, NIK=0, "
+            + "TGL_MASUK=null, JAM_MASUK=null, TGL_KELUAR=null, JAM_KELUAR=null, JUMLAH_HARI=0 where NO_KAMAR=%d", kamar);
+            stm.executeUpdate(in);
+            String input=String.format("update DATABASE_RUANGAN set STATUS='tersedia' where NO_KAMAR=%d", kamar);
+            stm.executeUpdate(input);
+        } catch (SQLException er) {
+            System.out.println(er.getErrorCode());
+        }
+    }
+    
+     public void saveToLaporan(int kamar, double totalBayar, double denda){
+        String namaD=null,namaB=null,tglMasuk=null,jamMasuk=null,tglKeluar=null,jamKeluar=null,ID=null;
+        int NIK=0,jumlahHari=0;
+       try (
+            Connection con = DriverManager.getConnection(host, uName, uPass);
+            Statement stm = con.createStatement();) {
+            String search = String.format("SELECT* FROM DATABASE_INPUT where NO_KAMAR=%d",kamar);
+            ResultSet ss= stm.executeQuery(search);
+            while(ss.next()){
+                namaD=ss.getString("NAMAD");
+                namaB=ss.getString("NAMAB");
+                tglMasuk=ss.getString("TGL_MASUK");
+                jamMasuk=ss.getString("JAM_MASUK");
+                tglKeluar=ss.getString("TGL_KELUAR");
+                jamKeluar=ss.getString("JAM_KELUAR");
+                ID=ss.getString("ID");
+                NIK=ss.getInt("NIK");
+                jumlahHari=ss.getInt("JUMLAH_HARI");
+            }
+            String in= String.format("insert into DATABASE_TRANSAKSI values ('%s',%d,'%s','%s','%s','%s','%s','%s',%d,%f,%f,%d)", 
+                    ID,NIK,namaD,namaB,tglMasuk,jamMasuk,tglKeluar,jamKeluar,jumlahHari,denda,totalBayar,kamar);
+            stm.executeUpdate(in);
+        } catch (SQLException er) {
+            System.out.println(er.getErrorCode());
+        }  
+    }
+     
 }

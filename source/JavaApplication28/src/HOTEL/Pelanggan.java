@@ -3,7 +3,7 @@ package HOTEL;
 import java.sql.*;
 
 public class Pelanggan implements Interface{
-private String namaD,namaB,id,TTL;
+private String namaD,namaB, nama, id,TTL;
 private int NIK,no;
 
 String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
@@ -52,4 +52,27 @@ public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         }
     } 
     
+    public void search(String id){
+        try (
+            Connection con = DriverManager.getConnection(host, uName, uPass);
+            Statement stm = con.createStatement();) {
+            String carii = String.format("SELECT* FROM DATABASE_INPUT where ID='%s'", id);
+            ResultSet get = stm.executeQuery(carii);
+            while (get.next()) {
+                this.id=get.getString("ID");
+                NIK=get.getInt("NIK");
+                namaD = get.getString("NAMAD");
+                namaB=get.getString("NAMAB");
+                TTL = get.getString("TTL");
+            }
+            String a=String.format(namaD+" "+namaB);
+            nama=a;
+        }
+        catch (SQLException er) {
+            System.out.println(er.getErrorCode());
+        }
+    }
+        public String toString(){
+        return String.format("nama: %s\nTTL: %s\nid: %s\nNIK: %d\n",nama,TTL,id,NIK);
+        }
 }

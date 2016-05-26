@@ -22,7 +22,6 @@ public class Kamar {
     public Kamar(){
     
     }
-    
     public double hitungBayar(String id, String TglKeluar, String JamKeluar) throws ParseException {
         int jumlahHariInap = 0, jumlahHariAkumulasi = 0,noKam=0;
         String tglKeluar, jamKeluar;
@@ -95,5 +94,4 @@ public class Kamar {
         }
     return denda;
     }
-    
 }
