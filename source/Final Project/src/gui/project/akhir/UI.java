@@ -338,6 +338,8 @@ public class UI extends javax.swing.JFrame {
 
     private void FTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FTable1MouseClicked
         // TODO add your handling code here:
+
+
     }//GEN-LAST:event_FTable1MouseClicked
 
     private void FCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FCariKeyReleased
@@ -348,7 +350,24 @@ public class UI extends javax.swing.JFrame {
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // TODO add your handling code here:
+        try {
+            int row = FTable1.getSelectedRow();
+            String table_click = (FTable1.getModel().getValueAt(row, 0).toString());
+            String sql = "select * from data_kamar where NoKamar='" + table_click + "'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("NoKamar");
+                FNo.setText(add1);
+                String add2 = rs.getString("KelasKamar");
+                FKelas.setText(add2);
+                String add3 = rs.getString("Status");
+                FStatus.setText(add3);
+            }
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
