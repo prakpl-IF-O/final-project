@@ -71,7 +71,6 @@ public class Kamar {
             while (get.next()) {
                 TglKeluar = get.getString("TGL_KELUAR");
                 JamKeluar = get.getString("JAM_KELUAR");
-                
             }
             SimpleDateFormat convert= new SimpleDateFormat("dd-MM-yyyy H:mm");
             String a=String.format(TglKeluar+" "+JamKeluar);

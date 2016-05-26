@@ -6,7 +6,7 @@ public class Pelanggan implements Interface{
 private String namaD,namaB, nama, id,TTL;
 private int NIK,no;
 
-String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
+    String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
     String uPass = "123";
     String uName = "DRN";
 
@@ -65,8 +65,8 @@ public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
                 namaB=get.getString("NAMAB");
                 TTL = get.getString("TTL");
             }
-            String a=String.format(namaD+" "+namaB);
-            nama=a;
+            String as=String.format("%s %s",namaD,namaB);
+            nama=as;
         }
         catch (SQLException er) {
             System.out.println(er.getErrorCode());
