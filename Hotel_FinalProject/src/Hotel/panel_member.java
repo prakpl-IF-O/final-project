@@ -31,7 +31,6 @@ public class panel_member extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel2_hari = new javax.swing.JLabel();
         ComboBox_pilihkamar = new javax.swing.JComboBox();
@@ -44,20 +43,13 @@ public class panel_member extends javax.swing.JFrame {
         button_submit_member = new javax.swing.JButton();
         button_cancel_member = new javax.swing.JButton();
         label_lamabermalam = new javax.swing.JLabel();
+        button_lihat_ID = new javax.swing.JToggleButton();
         background = new javax.swing.JLabel();
 
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2_hari.setText("Hari");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 17;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.ipady = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 10, 0, 0);
-        getContentPane().add(jLabel2_hari, gridBagConstraints);
+        getContentPane().add(jLabel2_hari, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 30, 20));
 
         ComboBox_pilihkamar.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"VIP", "Suite", "Premium", "Reguler" }));
         ComboBox_pilihkamar.addActionListener(new java.awt.event.ActionListener() {
@@ -65,71 +57,23 @@ public class panel_member extends javax.swing.JFrame {
                 ComboBox_pilihkamarActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 10;
-        gridBagConstraints.ipadx = 132;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 430, 0, 0);
-        getContentPane().add(ComboBox_pilihkamar, gridBagConstraints);
+        getContentPane().add(ComboBox_pilihkamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 160, -1));
 
         textfield_lama_menginap_in.setText("0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 34;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 27, 0, 0);
-        getContentPane().add(textfield_lama_menginap_in, gridBagConstraints);
+        getContentPane().add(textfield_lama_menginap_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 46, -1));
 
         textfield_no_kamar.setText("0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 64;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 430, 0, 0);
-        getContentPane().add(textfield_no_kamar, gridBagConstraints);
+        getContentPane().add(textfield_no_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 76, -1));
 
         label_no_kamar.setText("No Kamar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 430, 0, 0);
-        getContentPane().add(label_no_kamar, gridBagConstraints);
+        getContentPane().add(label_no_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 60, -1));
 
         label_pilih_jenis_kamar.setText("Jenis Kamar ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 430, 0, 0);
-        getContentPane().add(label_pilih_jenis_kamar, gridBagConstraints);
+        getContentPane().add(label_pilih_jenis_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 80, 10));
 
         label_id_member.setText("Masukan Id Member");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(130, 430, 0, 0);
-        getContentPane().add(label_id_member, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 28;
-        gridBagConstraints.ipadx = 214;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 430, 0, 0);
-        getContentPane().add(textfield_id, gridBagConstraints);
+        getContentPane().add(label_id_member, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 110, 10));
+        getContentPane().add(textfield_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 220, -1));
 
         button_submit_member.setText("Submit");
         button_submit_member.addActionListener(new java.awt.event.ActionListener() {
@@ -137,15 +81,7 @@ public class panel_member extends javax.swing.JFrame {
                 button_submit_memberActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 20;
-        gridBagConstraints.ipadx = 8;
-        gridBagConstraints.ipady = -3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        getContentPane().add(button_submit_member, gridBagConstraints);
+        getContentPane().add(button_submit_member, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 73, 20));
 
         button_cancel_member.setText("Cancel");
         button_cancel_member.addActionListener(new java.awt.event.ActionListener() {
@@ -153,33 +89,21 @@ public class panel_member extends javax.swing.JFrame {
                 button_cancel_memberActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 8;
-        gridBagConstraints.ipady = -3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 430, 0, 0);
-        getContentPane().add(button_cancel_member, gridBagConstraints);
+        getContentPane().add(button_cancel_member, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 73, 20));
 
         label_lamabermalam.setText("Lama Bermalam");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 16;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 27, 0, 0);
-        getContentPane().add(label_lamabermalam, gridBagConstraints);
+        getContentPane().add(label_lamabermalam, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, -1, -1));
+
+        button_lihat_ID.setText("Lihat ID Member");
+        button_lihat_ID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_lihat_IDActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_lihat_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, 20));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hotel/Untitled-3.jpg"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 29;
-        gridBagConstraints.gridheight = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        getContentPane().add(background, gridBagConstraints);
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -277,6 +201,10 @@ public class panel_member extends javax.swing.JFrame {
     private void button_cancel_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancel_memberActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_button_cancel_memberActionPerformed
+
+    private void button_lihat_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_lihat_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_lihat_IDActionPerformed
     public void clear(){
         textfield_id.setText("");
         textfield_lama_menginap_in.setText("0");
@@ -308,6 +236,7 @@ public class panel_member extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(panel_member.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -321,6 +250,7 @@ public class panel_member extends javax.swing.JFrame {
     private javax.swing.JComboBox ComboBox_pilihkamar;
     private javax.swing.JLabel background;
     private javax.swing.JButton button_cancel_member;
+    private javax.swing.JToggleButton button_lihat_ID;
     private javax.swing.JButton button_submit_member;
     private javax.swing.JLabel jLabel2_hari;
     private javax.swing.JLabel label_id_member;

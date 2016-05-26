@@ -31,10 +31,10 @@ public class panel_awal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jComboBox1 = new javax.swing.JComboBox();
         jFrame1 = new javax.swing.JFrame();
+        button_transaksi = new javax.swing.JButton();
         label_cek_in = new javax.swing.JLabel();
         button_new = new javax.swing.JButton();
         button_cek_kamar = new javax.swing.JButton();
@@ -57,21 +57,24 @@ public class panel_awal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        button_transaksi.setBackground(new java.awt.Color(102, 51, 255));
+        button_transaksi.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
+        button_transaksi.setText("Data Transaksi");
+        button_transaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_transaksiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 190, 38));
 
         label_cek_in.setBackground(new java.awt.Color(51, 204, 255));
         label_cek_in.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
         label_cek_in.setForeground(new java.awt.Color(51, 0, 204));
         label_cek_in.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_cek_in.setText("Check In");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 143;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(70, 400, 0, 0);
-        getContentPane().add(label_cek_in, gridBagConstraints);
+        getContentPane().add(label_cek_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 234, -1));
 
         button_new.setBackground(new java.awt.Color(153, 255, 51));
         button_new.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
@@ -81,14 +84,7 @@ public class panel_awal extends javax.swing.JFrame {
                 button_newActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 34;
-        gridBagConstraints.ipady = -7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 470, 0, 0);
-        getContentPane().add(button_new, gridBagConstraints);
+        getContentPane().add(button_new, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 113, 34));
 
         button_cek_kamar.setBackground(new java.awt.Color(0, 204, 51));
         button_cek_kamar.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
@@ -98,28 +94,13 @@ public class panel_awal extends javax.swing.JFrame {
                 button_cek_kamarActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 9;
-        gridBagConstraints.ipady = -7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(100, 450, 0, 0);
-        getContentPane().add(button_cek_kamar, gridBagConstraints);
+        getContentPane().add(button_cek_kamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, 154, 34));
 
         label_check_out.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
         label_check_out.setForeground(new java.awt.Color(255, 51, 51));
         label_check_out.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_check_out.setText("Check Out");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(36, 480, 0, 0);
-        getContentPane().add(label_check_out, gridBagConstraints);
+        getContentPane().add(label_check_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, -1, -1));
 
         button_check_out.setBackground(new java.awt.Color(102, 51, 255));
         button_check_out.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
@@ -129,16 +110,7 @@ public class panel_awal extends javax.swing.JFrame {
                 button_check_outActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 19;
-        gridBagConstraints.ipady = -3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(66, 460, 0, 0);
-        getContentPane().add(button_check_out, gridBagConstraints);
+        getContentPane().add(button_check_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 160, 38));
 
         button_member1.setBackground(new java.awt.Color(0, 204, 51));
         button_member1.setFont(new java.awt.Font("Sylfaen", 2, 24)); // NOI18N
@@ -148,31 +120,14 @@ public class panel_awal extends javax.swing.JFrame {
                 button_member1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 35;
-        gridBagConstraints.ipady = -7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 450, 0, 0);
-        getContentPane().add(button_member1, gridBagConstraints);
+        getContentPane().add(button_member1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 154, 34));
 
         background.setBackground(new java.awt.Color(255, 0, 51));
         background.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
         background.setForeground(new java.awt.Color(0, 51, 255));
         background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hotel/Untitled-1.jpg"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 7;
-        gridBagConstraints.ipadx = -8;
-        gridBagConstraints.ipady = -2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        getContentPane().add(background, gridBagConstraints);
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,8 +139,7 @@ public class panel_awal extends javax.swing.JFrame {
     }//GEN-LAST:event_button_newActionPerformed
 
     private void button_check_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_check_outActionPerformed
-        panel_check_out pc = new panel_check_out();
-        pc.setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_button_check_outActionPerformed
 
     private void button_cek_kamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cek_kamarActionPerformed
@@ -202,6 +156,10 @@ public class panel_awal extends javax.swing.JFrame {
         panel_member pm = new panel_member();
         pm.setVisible(true);
     }//GEN-LAST:event_button_member1ActionPerformed
+
+    private void button_transaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_transaksiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_transaksiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,6 +187,7 @@ public class panel_awal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(panel_awal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -248,6 +207,7 @@ public class panel_awal extends javax.swing.JFrame {
     private javax.swing.JButton button_check_out;
     private javax.swing.JButton button_member1;
     private javax.swing.JButton button_new;
+    private javax.swing.JButton button_transaksi;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel label_cek_in;
