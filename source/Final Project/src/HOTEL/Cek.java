@@ -88,7 +88,11 @@ public class Cek {
         }
         return jumlah;
     }
-      
+    /*
+    * Method cekPremium
+    * untuk menampilkan jumlah kamar bertipe Premium yang tersedia
+    * berdasarkan data yang ada di dalam database
+    */
     public int cekPremium() {
         int jumlah=0;
         try (
