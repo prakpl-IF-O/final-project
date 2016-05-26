@@ -19,7 +19,7 @@ public class Checkin{
     double bayar;
     double denda = 30000;
     double kembali;
-    double total;
+    static double total;
     static byte akumulasi = 0;
     byte sisakamar = 100;
     byte lamasewa;

@@ -98,9 +98,9 @@ public class Tamu extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Sewa Kamar");
+        jLabel5.setText("Sewa Kamar *");
 
-        jLabel6.setText("Jumlah Hari");
+        jLabel6.setText("Jumlah Hari *");
 
         pilih.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Reguler", "2. Premium", "3. Suite", "4. VIP" }));
         pilih.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +348,8 @@ public class Tamu extends javax.swing.JFrame {
             Tot = hari*750000-(hari*750000)*diskon;
             Harga.setText("Rp. 750000");
         }
-         Total.setText(String.format("%.2f",Tot));
+        T.total = Tot;
+        Total.setText(String.format("%.2f",Tot));
     }//GEN-LAST:event_pilihActionPerformed
 
     private void JHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JHariActionPerformed

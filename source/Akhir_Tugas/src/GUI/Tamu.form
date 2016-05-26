@@ -228,12 +228,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sewa Kamar"/>
+        <Property name="text" type="java.lang.String" value="Sewa Kamar *"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Jumlah Hari"/>
+        <Property name="text" type="java.lang.String" value="Jumlah Hari *"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="pilih">
