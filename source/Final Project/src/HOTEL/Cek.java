@@ -36,6 +36,10 @@ public class Cek {
         return cek;
     }
     
+    /*
+    * Method cekVIP
+    * untuk menampilkan jumlah kamar VIP yang tersedia berdasarkan data di dalam database
+    */
     public int cekVIP() {
         int jumlah=0;
         try (
