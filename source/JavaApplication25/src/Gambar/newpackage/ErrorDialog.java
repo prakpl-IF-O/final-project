@@ -9,13 +9,12 @@ package Gambar.newpackage;
  *
  * @author Unknown
  */
-public class ErrorDialog extends javax.swing.JDialog {
+public class ErrorDialog extends javax.swing.JFrame {
 
     /**
      * Creates new form ErrorDialog
      */
-    public ErrorDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public ErrorDialog() {
         initComponents();
     }
 
@@ -28,17 +27,30 @@ public class ErrorDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Username/password is not available");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel1)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel1)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -71,21 +83,15 @@ public class ErrorDialog extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ErrorDialog dialog = new ErrorDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new ErrorDialog().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
