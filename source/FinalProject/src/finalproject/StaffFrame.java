@@ -5,18 +5,25 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class StaffFrame extends javax.swing.JFrame {
 
+    MenuFrame menuFrame = new MenuFrame();
+    Timer timer;
     String jenisKamar;
     String NIK;
 
     public StaffFrame() {
         initComponents();
         // komponen hasil check out
+        lbClickedCheckOut.setVisible(false);
+        lbClickedCheck.setVisible(false);
+        lbClickedCheckI.setVisible(false);
         panelHCO.setVisible(false);
         txtHarga5.setVisible(false);
         txtSub.setVisible(false);
@@ -50,6 +57,7 @@ public class StaffFrame extends javax.swing.JFrame {
         txtJenis.setVisible(false);
         txtLama2.setVisible(false);
         txtTanggalCI.setVisible(false);
+        lbClickedCO.setVisible(false);
 
         //komponen cek data
         panelCO.setVisible(false);
@@ -64,6 +72,7 @@ public class StaffFrame extends javax.swing.JFrame {
 
         // komponen check in
         panelCI.setVisible(false);
+        lbClickedCI.setVisible(false);
         lbDataPel.setVisible(false);
         lbNIK.setVisible(false);
         lbNama.setVisible(false);
@@ -102,6 +111,7 @@ public class StaffFrame extends javax.swing.JFrame {
         panelHCO = new javax.swing.JLabel();
         lbDataPel2 = new javax.swing.JLabel();
         lbTombolCheckOut = new javax.swing.JLabel();
+        lbClickedCheckOut = new javax.swing.JLabel();
         txtTTL2 = new javax.swing.JTextField();
         lbTTL1 = new javax.swing.JLabel();
         txtJenis = new javax.swing.JTextField();
@@ -126,6 +136,7 @@ public class StaffFrame extends javax.swing.JFrame {
         lbNIK1 = new javax.swing.JLabel();
         txtNIK1 = new javax.swing.JTextField();
         lbTombolCheck = new javax.swing.JLabel();
+        lbClickedCheck = new javax.swing.JLabel();
         lbKetCek = new javax.swing.JLabel();
         panelCO = new javax.swing.JLabel();
         lbDataPel = new javax.swing.JLabel();
@@ -136,6 +147,7 @@ public class StaffFrame extends javax.swing.JFrame {
         lbJenis = new javax.swing.JLabel();
         lbHarga = new javax.swing.JLabel();
         lbTombolCI = new javax.swing.JLabel();
+        lbClickedCheckI = new javax.swing.JLabel();
         txtHarga = new javax.swing.JTextField();
         cbJenis = new javax.swing.JComboBox();
         txtLama = new javax.swing.JTextField();
@@ -148,7 +160,10 @@ public class StaffFrame extends javax.swing.JFrame {
         lbID = new javax.swing.JLabel();
         panelCI = new javax.swing.JLabel();
         lbOut1 = new javax.swing.JLabel();
+        lbClickedOut = new javax.swing.JLabel();
+        lbClickedCO = new javax.swing.JLabel();
         lbCheckOut = new javax.swing.JLabel();
+        lbClickedCI = new javax.swing.JLabel();
         lbCheckIn = new javax.swing.JLabel();
         lbBackground = new javax.swing.JLabel();
 
@@ -216,6 +231,14 @@ public class StaffFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lbTombolCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, -1, 100));
+
+        lbClickedCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked KCO.png"))); // NOI18N
+        lbClickedCheckOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbClickedCheckOutMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lbClickedCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, -1, 100));
 
         txtTTL2.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         txtTTL2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -316,6 +339,14 @@ public class StaffFrame extends javax.swing.JFrame {
         });
         getContentPane().add(lbTombolCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
 
+        lbClickedCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked Cek.png"))); // NOI18N
+        lbClickedCheck.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbClickedCheckMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lbClickedCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
+
         lbKetCek.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         lbKetCek.setText("Check");
         getContentPane().add(lbKetCek, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, -1));
@@ -359,6 +390,14 @@ public class StaffFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lbTombolCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, -1, 80));
+
+        lbClickedCheckI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked KCI.png"))); // NOI18N
+        lbClickedCheckI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbClickedCheckIMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lbClickedCheckI, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, -1, 80));
 
         txtHarga.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         txtHarga.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -406,10 +445,26 @@ public class StaffFrame extends javax.swing.JFrame {
         getContentPane().add(lbID, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 600, 310, 70));
 
         panelCI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel.jpg"))); // NOI18N
-        getContentPane().add(panelCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 1110, 710));
+        getContentPane().add(panelCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 1110, 770));
 
         lbOut1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Out.png"))); // NOI18N
+        lbOut1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbOut1MouseClicked(evt);
+            }
+        });
         getContentPane().add(lbOut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 606, 90, 90));
+
+        lbClickedOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked Out.png"))); // NOI18N
+        getContentPane().add(lbClickedOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 90, 100));
+
+        lbClickedCO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked CO.png"))); // NOI18N
+        lbClickedCO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lbClickedCOKeyPressed(evt);
+            }
+        });
+        getContentPane().add(lbClickedCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 260, 90));
 
         lbCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Tombol Check Out.png"))); // NOI18N
         lbCheckOut.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -418,6 +473,14 @@ public class StaffFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lbCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 270, -1));
+
+        lbClickedCI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked CI.png"))); // NOI18N
+        lbClickedCI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbClickedCIMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lbClickedCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 260, -1));
 
         lbCheckIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Tombol Check In.png"))); // NOI18N
         lbCheckIn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -433,8 +496,77 @@ public class StaffFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void LoadTimer() {
+        timer = new Timer();
+        timer.schedule(new WaktuMundur(), 0, 1000);
+    }
+
+    class WaktuMundur extends TimerTask {
+
+        int detik = 1;
+
+        @Override
+        public void run() {
+            if (detik > 0) {
+                lbTombolCI.setVisible(false);
+                lbClickedCheckI.setVisible(true);
+                detik--;
+            } else {
+                lbTombolCI.setVisible(true);
+                lbClickedCheckI.setVisible(false);
+            }
+        }
+    }
+    public void LoadTime2() {
+        timer = new Timer();
+        timer.schedule(new WaktuMundur2(), 0, 1000);
+    }
+
+    class WaktuMundur2 extends TimerTask {
+
+        int detik = 1;
+
+        @Override
+        public void run() {
+            if (detik > 0) {
+                lbTombolCheck.setVisible(false);
+                lbClickedCheck.setVisible(true);
+                detik--;
+            } else {
+                lbTombolCheck.setVisible(true);
+                lbClickedCheck.setVisible(false);
+            }
+        }
+    }
+
+    public void LoadTime3() {
+        timer = new Timer();
+        timer.schedule(new WaktuMundur2(), 0, 1000);
+    }
+
+    class WaktuMundur3 extends TimerTask {
+
+        int detik = 1;
+
+        @Override
+        public void run() {
+            if (detik > 0) {
+                lbTombolCheckOut.setVisible(false);
+                lbClickedCheckOut.setVisible(true);
+                detik--;
+            } else {
+                lbTombolCheckOut.setVisible(true);
+                lbClickedCheckOut.setVisible(false);
+            }
+        }
+    }
     private void lbCheckInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCheckInMouseClicked
         // tombol check in di samping
+        lbClickedCheck.setVisible(false);
+        lbCheckIn.setVisible(false);
+        lbCheckOut.setVisible(true);
+        lbClickedCO.setVisible(false);
+        lbClickedCheck.setVisible(false);
 
         // komponen hasil check out
         panelHCO.setVisible(false);
@@ -485,6 +617,7 @@ public class StaffFrame extends javax.swing.JFrame {
 
         // komponen check in
         panelCI.setVisible(true);
+        lbClickedCI.setVisible(true);
         lbDataPel.setVisible(true);
         lbNIK.setVisible(true);
         lbNama.setVisible(true);
@@ -506,8 +639,13 @@ public class StaffFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lbCheckInMouseClicked
 
     private void lbCheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCheckOutMouseClicked
-        // tombol check out disamping
+        // tombol check out disamping  
+        lbClickedCI.setVisible(false);
+        lbCheckIn.setVisible(true);
+        lbCheckOut.setVisible(false);
+
         panelCO.setVisible(true);
+        lbClickedCO.setVisible(true);
         lbID1.setVisible(true);
         txtID1.setVisible(true);
         lbNama1.setVisible(true);
@@ -516,6 +654,7 @@ public class StaffFrame extends javax.swing.JFrame {
         txtNIK1.setVisible(true);
         lbTombolCheck.setVisible(true);
         lbKetCek.setVisible(true);
+        lbCheckIn.setVisible(true);
 
         txtHarga5.setVisible(false);
         txtSub.setVisible(false);
@@ -594,7 +733,8 @@ public class StaffFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cbJenisActionPerformed
 
     private void lbTombolCIMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTombolCIMouseClicked
-        // tombol checkin dibawah untuk generate id dan no kamar        
+        // tombol checkin dibawah untuk generate id dan no kamar
+        LoadTimer();
         Check_In ci = new Check_In();
         ci.setNIK(txtNIK.getText());
         ci.setNAMA(txtNama.getText());
@@ -613,10 +753,12 @@ public class StaffFrame extends javax.swing.JFrame {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+
     }//GEN-LAST:event_lbTombolCIMouseClicked
 
     private void lbTombolCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTombolCheckMouseClicked
         // tombol check pada checkout
+        LoadTime2();
         String ID = txtID1.getText();
         String NAMA = txtNama1.getText();
         NIK = txtNIK1.getText();
@@ -708,6 +850,7 @@ public class StaffFrame extends javax.swing.JFrame {
 
     private void lbTombolCheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTombolCheckOutMouseClicked
         // tombol check out saat check out benar
+        LoadTime3();
         try {
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
@@ -800,6 +943,32 @@ public class StaffFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lbTombolCheckOutMouseClicked
 
+    private void lbClickedCIMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClickedCIMouseClicked
+
+    }//GEN-LAST:event_lbClickedCIMouseClicked
+
+    private void lbClickedCOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbClickedCOKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbClickedCOKeyPressed
+
+    private void lbOut1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbOut1MouseClicked
+        lbOut1.setVisible(false);
+        this.dispose();
+        menuFrame.setVisible(true);
+    }//GEN-LAST:event_lbOut1MouseClicked
+
+    private void lbClickedCheckIMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClickedCheckIMouseClicked
+
+    }//GEN-LAST:event_lbClickedCheckIMouseClicked
+
+    private void lbClickedCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClickedCheckMouseClicked
+        
+    }//GEN-LAST:event_lbClickedCheckMouseClicked
+
+    private void lbClickedCheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClickedCheckOutMouseClicked
+        
+    }//GEN-LAST:event_lbClickedCheckOutMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -841,6 +1010,12 @@ public class StaffFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbBackground;
     private javax.swing.JLabel lbCheckIn;
     private javax.swing.JLabel lbCheckOut;
+    private javax.swing.JLabel lbClickedCI;
+    private javax.swing.JLabel lbClickedCO;
+    private javax.swing.JLabel lbClickedCheck;
+    private javax.swing.JLabel lbClickedCheckI;
+    private javax.swing.JLabel lbClickedCheckOut;
+    private javax.swing.JLabel lbClickedOut;
     private javax.swing.JLabel lbDataPel;
     private javax.swing.JLabel lbDataPel2;
     private javax.swing.JLabel lbDataPem;
