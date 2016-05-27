@@ -26,13 +26,10 @@ public class mainHotel {
                     K.disc();
                     break;
                 case 3:
-                    K.kosong();
-                    break;
-                case 4:
                     System.out.println("Silahkan masukkan data anda di bawah");
                     System.out.print("Masukan lama Menginap :  ");
-                    int f = in.nextInt();
-                    K.hari = f;
+                    int n = in.nextInt();
+                    K.hari = n;
                     String p;
                     System.out.print("Kelas Kamar (reguler,premium,suite,VIP): ");
                     p = in.next();
@@ -57,22 +54,25 @@ public class mainHotel {
                     C.TTL = e;
                     System.out.println("Tanggal terdaftar ");
                     System.out.print("Tanggal : ");
-                    int g = in.nextInt();
-                    System.out.print("Bulan   : ");
                     int h = in.nextInt();
+                    System.out.print("Bulan   : ");
+                    int m = in.nextInt();
                     System.out.print("Tahun   : ");
-                    int i = in.nextInt();
-                    C.terdaftar(g, h, i);
+                    int t = in.nextInt();
+                    C.terdaftar(h, m, t);
                     System.out.println("Tanggal CheckIn ");
                     System.out.print("Tanggal : ");
-                    int j = in.nextInt();
+                    int w = in.nextInt();
                     System.out.print("Bulan   : ");
-                    int k = in.nextInt();
+                    int x = in.nextInt();
                     System.out.print("Tahun   : ");
-                    int l = in.nextInt();
-                    T.setcheckin(j, k, l);
-                    T.setcheckout(f);
+                    int z = in.nextInt();
+                    T.setcheckin(w, x, z);
+                    T.setcheckout(n);
                     System.out.println("Tanggal Chechk Out : " + T.getcheckout());
+                    break;
+                case 4:
+                    K.kosong();
                     break;
                 case 5:
                     System.out.println("Data transaksi     ");
@@ -90,7 +90,7 @@ public class mainHotel {
                     System.out.println("Harga satu hari      : Rp." + K.hargakamar + ",-");
                     System.out.println("ID kamar             : " + K.IDkamar);
                     System.out.println("Total bayar          : Rp." + K.harga + ",-");
-                    System.out.println("Anda sudah terdaftar : " + K.jumlh + " kali");
+                    System.out.println("Total Denda          : Rp." + T.getDenda());
                     break;
             }
         } while (pilihan < 6);

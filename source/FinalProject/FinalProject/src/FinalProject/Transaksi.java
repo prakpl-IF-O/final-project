@@ -16,6 +16,16 @@ public class Transaksi extends Kamar {
     java.util.Date tglcheckout = new java.util.Date();
     java.text.SimpleDateFormat tampilcheckout = new java.text.SimpleDateFormat("dd/MM/yyyy");
 
+    public void menu() {
+        System.out.println("MENU : ");
+        System.out.println("1.Daftar Kelas dan Harga kamar");
+        System.out.println("2.Daftar Discount kelas kamar");
+        System.out.println("3.Transaksi pemesanan kamar");
+        System.out.println("4.Daftar kamar kosong");
+        System.out.println("5.Mencetak transaksi");
+        System.out.println("6.Keluar ");
+    }
+
     public String gettgl() {
         return String.format(tampil.format(skrng));
     }
@@ -102,15 +112,5 @@ public class Transaksi extends Kamar {
             Pembayaran = hari * hargakamar * 0.75;
         }
         return Pembayaran;
-    }
-
-    public void menu() {
-        System.out.println("MENU : ");
-        System.out.println("1.Daftar Kelas dan Harga kamar");
-        System.out.println("2.Daftar Discount kelas kamar");
-        System.out.println("3.Daftar kamar kosong");
-        System.out.println("4.Transaksi pemesanan kamar");
-        System.out.println("5.Cetak transaksi");
-        System.out.println("6.Keluar ");
     }
 }
