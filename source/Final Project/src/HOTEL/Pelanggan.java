@@ -2,6 +2,9 @@ package HOTEL;
 
 import java.sql.*;
 
+/*
+* class Pelanggan mengimplementasi class Interface
+*/
 public class Pelanggan implements Interface{
 private String namaD,namaB, nama, id,TTL;
 private int NIK,no;
@@ -10,6 +13,10 @@ private int NIK,no;
     String uPass = "123";
     String uName = "DRN";
 
+/*
+* Method Pelanggan (konstruktor)
+* dengan parameter (String, String, String, int, int)
+*/
 public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         this.namaD = namaD;
         this.namaB = namaB;
@@ -18,26 +25,51 @@ public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         this.NIK = NIK;
         this.no=no;
     }
-
+    
+    /*
+    * Method get NamaD
+    * mengembalikan (return) nilai namaD
+    */
     public String getNamaD() {
         return namaD;
     }
 
+    /*
+    * Method getNamaB
+    * mengembalikan (return) nilai namaB
+    */
     public String getNamaB() {
         return namaB;
     }
 
+    /*
+    * Method getId
+    * mengembalikan (return) nilai id
+    */
     public String getId() {
         return id;
     }
     
+    /*
+    * Method getTTL
+    * mengembalikan (return) nilai TTL
+    */
     public String getTTL() {
         return TTL;
     }
 
+    /*
+    * Method getNIK
+    * mengembalikan (return) nilai NIK
+    */
     public int getNIK() {
         return NIK;
     }
+    
+    /*
+    * Method Override Input
+    * Method input berfungsi sebagai penerima input data dari user yang kemudian disimpan ke dalam database
+    */
     
     @Override
     public void Input(){
@@ -52,6 +84,10 @@ public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         }
     } 
     
+    /*
+    * Method search dengan parameter id
+    * method search berfungsi untuk mencari data berdasarkan ID dari dalam database
+    */
     public void search(String id){
         try (
             Connection con = DriverManager.getConnection(host, uName, uPass);

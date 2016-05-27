@@ -13,6 +13,10 @@ public class Transaksi implements Interface {
     private String tanggalMasuk, JamMasuk, tanggalKeluar, JamKeluar;
     private int jumlahHari, nomorKamar;
 
+/*
+* Method konstruktor Transaksi
+* dengan parameter (String, String, String, String, int, int)
+*/
     public Transaksi(String tanggalMasuk, String jamMasuk, String tanggalKeluar, String jamKeluar, int jumlahHari, int nomorKamar) {
         this.tanggalMasuk = tanggalMasuk;
         this.JamMasuk = jamMasuk;
@@ -22,6 +26,10 @@ public class Transaksi implements Interface {
         this.nomorKamar = nomorKamar;
     }
 
+/*
+* Method override Input
+* 
+*/
     @Override
     public void Input() {
         try (
@@ -50,6 +58,11 @@ public class Transaksi implements Interface {
         }
     }
 
+/*
+* Method clear dengan parameter kamar
+* untuk merubah atau mengupdate database status kamar.
+* jika user telah melakukan check out, maka secara otomatis database mengubah status kamar tersebut menjadi tersedia
+*/
     public void clear(int kamar) {
         try (
                 Connection con = DriverManager.getConnection(host, uName, uPass);
@@ -65,6 +78,10 @@ public class Transaksi implements Interface {
         }
     }
 
+/*
+* Method saveToLaporan dengan parameter kamar, totalBayar dan denda
+* untuk menyimpan segala transaksi yang terjadi ke dalam database
+*/
     public void saveToLaporan(int kamar, double totalBayar, double denda) {
         String namaD = null, namaB = null, tglMasuk = null, jamMasuk = null, tglKeluar = null, jamKeluar = null, ID = null;
         int NIK = 0, jumlahHari = 0;
@@ -92,6 +109,10 @@ public class Transaksi implements Interface {
         }
     }
 
+/*
+* Method generate dengan parameter bulan
+* untuk mendapatkan laporan transaksi selama satu bulan
+*/
     public double generate(String bulan) {
         double totalBayar=0;
         try (

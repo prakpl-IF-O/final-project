@@ -14,6 +14,9 @@ public class Kamar {
     String uPass = "123";
     String uName = "DRN";
     
+    /*
+    * Method konstruktor
+    */
     public Kamar(String jenisKamar, double sewa) {
         this.jenisKamar = jenisKamar;
         this.sewa = sewa;
@@ -22,6 +25,13 @@ public class Kamar {
     public Kamar(){
     
     }
+    
+    /*
+    * Method hitungBayar
+    * untuk menghitung total harga yang harus dibayarkan oleh penyewa kamar
+    * parameter yang menjadi acuan adalah Tanggal Keluar dan Jam Keluar
+    * mengembalikan (return) totalBayar
+    */
     public double hitungBayar(String id, String TglKeluar, String JamKeluar) throws ParseException {
         int jumlahHariInap = 0, jumlahHariAkumulasi = 0,noKam=0;
         String tglKeluar, jamKeluar;
@@ -43,6 +53,9 @@ public class Kamar {
                 jumlahHariAkumulasi += jumHar;
             }
             
+            /*
+            * seleksi kondisi untuk menentukan total bayar sesuai ketentuan diskon yang ada di dalam soal
+            */
             totalBayar=sewa*jumlahHariInap;
             if (jumlahHariAkumulasi+jumlahHariInap>=10&&jumlahHariAkumulasi+jumlahHariInap<=30) {
                 totalBayar=sewa*jumlahHariInap*0.9;
@@ -60,6 +73,13 @@ public class Kamar {
         }
         return totalBayar;
     }
+    
+    /*
+    * Method denda
+    * untuk menentukan jumlah denda penyewa kamar
+    * parameter yang menjadi acuan adalah Tanggal Keluar dan Jam Keluar
+    * mengembalikan (return) denda
+    */
     
     public double denda(int kamar, String tglKeluar, String jamKeluar) throws ParseException{
         String TglKeluar=null, JamKeluar=null;

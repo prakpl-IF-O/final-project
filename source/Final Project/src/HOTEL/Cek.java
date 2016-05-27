@@ -8,6 +8,15 @@ public class Cek {
     String uPass = "123";
     String uName = "DRN";
     
+    /*
+    * Method cekKamar dengan parameter noKamar
+    * untuk mengecek status sebuah kamar
+    * nomor kamar yang dimasukkan oleh user akan di cek ke dalam database
+    * jika di dalam database nomor kamar tersebut tersedia, maka program 
+    * akan memberikan informasi bahwa kamar yang diminta tersedia atau tidak tersedia
+    * dengan prinsip looping
+    * mengembalikan (return) cek
+    */
     public boolean cekKamar(int noKamar) {
         boolean cek = false;
         try (
@@ -30,6 +39,13 @@ public class Cek {
         return cek;
     }
     
+    /*
+    * Method cekVIP
+    * untuk menampilkan jumlah kamar VIP yang tersedia 
+    * berdasarkan data yang ada di dalam database
+    * dengan prinsip looping
+    * mengembalikan (return) jumlah
+    */
     public int cekVIP() {
         int jumlah=0;
         try (
@@ -51,6 +67,13 @@ public class Cek {
         return jumlah;
     }
     
+    /*
+    * Method cekSuite
+    * untuk menampilkan jumlah kamar bertipe Suite yang tersedia
+    * berdasarkan data yang ada di dalam database
+    * dengan prinsip looping
+    * mengembalikan (return) jumlah
+    */
     public int cekSuite() {
         int jumlah=0;
         try (
@@ -71,7 +94,13 @@ public class Cek {
         }
         return jumlah;
     }
-      
+    /*
+    * Method cekPremium
+    * untuk menampilkan jumlah kamar bertipe Premium yang tersedia
+    * berdasarkan data yang ada di dalam database
+    * dengan prinsip looping
+    * mengembalikan (return) jumlah
+    */
     public int cekPremium() {
         int jumlah=0;
         try (
@@ -92,7 +121,13 @@ public class Cek {
         }
         return jumlah;
     }
-        
+    /*
+    * Method cekReguler
+    * untuk menampilkan jumlah kamar bertipe Reguler yang tersedia
+    * berdasarkan data yang ada di dalam database
+    * dengan prinsip looping
+    * mengembalikan (return) jumlah
+    */
     public int cekReguler() {
         int jumlah=0;
         try (
