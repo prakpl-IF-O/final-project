@@ -26,7 +26,7 @@ public class pendapatanakhir extends Checkin{
         try {
             String h = "jdbc:derby://localhost:1527/hotel";
             Connection con = DriverManager.getConnection(h);
-            Statement st = con.createStatement();
+            Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs;
             // Hasil yang didapat dari pendapatanakhir
             rs = st.executeQuery("SELECT * FROM pendapatanakhir");
@@ -34,6 +34,8 @@ public class pendapatanakhir extends Checkin{
             // Menghitung nilai x
             int x = rs.getInt(1);
             // Mengembalikan nilai pendapatanakhir
+            rs.updateInt(1, (int) (x+super.getTotal()));
+            rs.updateRow();
             return x+super.getTotal();
         } catch (SQLException err) {
             // Jika terjadi error maka akan mencetak objek err pada method getMessage()
