@@ -68,4 +68,60 @@ public class Kamar extends Customers {
         System.out.println("Suite   : " + kamarS + " kamar");
         System.out.println("VIP     : " + kamarV + " kamar");
     }
+
+    public void input(String a, int b) {
+        int j = dataTersimpan;
+        for (int i = (dataTersimpan + 1); i <= (j + b); i++) {
+            simpanpelanggan[i] = a;
+            dataTersimpan++;
+        }
+    }
+
+    public void checkjmlh(String a) {
+        for (int i = 1; i <= dataTersimpan; i++) {
+            if (a == simpanpelanggan[i]) {
+                jumlh++;
+            }
+        }
+    }
+
+    public int getJumlh() {
+        return jumlh;
+    }
+
+    public void cekKamar(String a) {
+        if ("reguler".equalsIgnoreCase(a)) {
+            kamarR--;
+        } else if ("premium".equalsIgnoreCase(a)) {
+            kamarP--;
+        } else if ("suite".equalsIgnoreCase(a)) {
+            kamarS--;
+        } else if ("VIP".equalsIgnoreCase(a)) {
+            kamarV--;
+        }
+    }
+
+    public int cekKamarReguler() {
+        return kamarR;
+    }
+
+    public int cekKamarPremium() {
+        return kamarP;
+    }
+
+    public int cekKamarSuite() {
+        return kamarS;
+    }
+
+    public int cekKamarVIP() {
+        return kamarV;
+    }
+
+    public int getDenda() {
+        return denda * 30000;
+    }
+
+    public void setDenda(int denda) {
+        this.denda = denda;
+    }
 }
