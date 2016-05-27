@@ -27,18 +27,38 @@ public class MenuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        managerMini = new javax.swing.JLabel();
+        labelLogin = new javax.swing.JLabel();
+        labelStaff = new javax.swing.JLabel();
+        labelManager = new javax.swing.JLabel();
+        labelLoginAwal = new javax.swing.JLabel();
+        loginBackground = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/exit button mini.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, 30, 40));
+
+        managerMini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Manager mini.png"))); // NOI18N
+        getContentPane().add(managerMini, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 110, 100));
+
+        labelLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel Login.png"))); // NOI18N
+        getContentPane().add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -10, 530, 390));
+
+        labelStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Staff.png"))); // NOI18N
+        getContentPane().add(labelStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 200, 200));
+
+        labelManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Manager.png"))); // NOI18N
+        getContentPane().add(labelManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 180, 180));
+
+        labelLoginAwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel Pilihan.png"))); // NOI18N
+        getContentPane().add(labelLoginAwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 590, -1));
+
+        loginBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/BackgroundPolos.jpg"))); // NOI18N
+        getContentPane().add(loginBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,10 +94,16 @@ public class MenuFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuFrame().setVisible(true);
-            }
-        });
+       labelLogin        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelLogin;
+    private javax.swing.JLabel labelLoginAwal;
+    private javax.swing.JLabel labelManager;
+    private javax.swing.JLabel labelStaff;
+    private javax.swing.JLabel loginBackground;
+    private javax.swing.JLabel managerMini;
     // End of variables declaration//GEN-END:variables
 }
