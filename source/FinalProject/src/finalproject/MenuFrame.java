@@ -5,17 +5,38 @@
  */
 package finalproject;
 
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author gunka
  */
 public class MenuFrame extends javax.swing.JFrame {
 
+    int a = 0;
+    String nameManager = "Adi";
+    char[] passManager = {'1', '2', '3'};
+    String nameStaff = "Nata";
+    char[] passStaff = {'3', '2', '1'};
+    public int login = 0;
+    boolean passCheck = false;
+
     /**
      * Creates new form MenuFrame
      */
     public MenuFrame() {
         initComponents();
+        txtUsername.setEnabled(false);
+        passField.setEnabled(false);
+        CheckIcon();
+    }
+
+    public void CheckIcon() {
+        trueIconUsername.setVisible(false);
+        trueIconPass.setVisible(false);
+        wrongIconUsername.setVisible(false);
+        wrongIconPass.setVisible(false);
     }
 
     /**
@@ -73,6 +94,11 @@ public class MenuFrame extends javax.swing.JFrame {
 
         btnLogin.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         btnLogin.setText("LOGIN");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 100, -1));
 
         txtUsername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -97,15 +123,30 @@ public class MenuFrame extends javax.swing.JFrame {
         getContentPane().add(labelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 120, 30));
 
         exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/exit button mini.png"))); // NOI18N
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButtonMouseClicked(evt);
+            }
+        });
         getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, 30, 40));
 
         labelLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel Login.png"))); // NOI18N
         getContentPane().add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -10, 530, 390));
 
         labelStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Staff.png"))); // NOI18N
+        labelStaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelStaffMouseClicked(evt);
+            }
+        });
         getContentPane().add(labelStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 200, 200));
 
         labelManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Manager.png"))); // NOI18N
+        labelManager.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelManagerMouseClicked(evt);
+            }
+        });
         getContentPane().add(labelManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 180, 180));
 
         labelLoginAwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel Pilihan.png"))); // NOI18N
@@ -128,6 +169,84 @@ public class MenuFrame extends javax.swing.JFrame {
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
+
+    private void labelManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelManagerMouseClicked
+        labelManager.setVisible(false);
+        labelStaff.setVisible(false);
+        labelLoginAwal.setVisible(false);
+        staffMini.setVisible(false);
+        staffLogin.setVisible(false);
+        txtUsername.setEnabled(true);
+        passField.setEnabled(true);
+        managerMini.setVisible(true);
+        managerLogin.setVisible(true);
+        txtUsername.setText("");
+        passField.setText("");
+        CheckIcon();
+        a = 1;
+    }//GEN-LAST:event_labelManagerMouseClicked
+
+    private void labelStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelStaffMouseClicked
+        labelManager.setVisible(false);
+        labelStaff.setVisible(false);
+        labelLoginAwal.setVisible(false);
+        staffMini.setVisible(false);
+        txtUsername.setEnabled(true);
+        passField.setEnabled(true);
+        managerMini.setVisible(false);
+        managerLogin.setVisible(false);
+        staffMini.setVisible(true);
+        staffLogin.setVisible(true);
+        txtUsername.setText("");
+        passField.setText("");
+        CheckIcon();
+        a = 2;
+    }//GEN-LAST:event_labelStaffMouseClicked
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+         if (a == 1) {
+            passCheck = Arrays.equals(passField.getPassword(), passManager);
+            if (txtUsername.getText().equals(nameManager) && passCheck == true) {
+                login = 1;
+                CheckIcon();
+                dispose();
+//                managerFrame.setVisible(true);
+            } else if (txtUsername.getText().equals(nameManager) && passCheck == false) {
+                JOptionPane.showMessageDialog(null, "INVALID PASSWORD ", "LOGIN ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (!txtUsername.getText().equals(nameManager) && passCheck == true) {
+                JOptionPane.showMessageDialog(null, "INVALID USERNAME ", "LOGIN ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "INVALID USERNAME AND PASSWORD ", "LOGIN ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            passCheck = Arrays.equals(passField.getPassword(), passStaff);
+            if (txtUsername.getText().equals(nameStaff) && passCheck == true) {
+                login = 1;
+                CheckIcon();
+                dispose();
+//                managerFrame.setVisible(true);
+            } else if (txtUsername.getText().equals(nameStaff) && passCheck == false) {
+                JOptionPane.showMessageDialog(null, "INVALID PASSWORD ", "LOGIN ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (!txtUsername.getText().equals(nameStaff) && passCheck == true) {
+                JOptionPane.showMessageDialog(null, "INVALID USERNAME ", "LOGIN ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "INVALID USERNAME AND PASSWORD ", "LOGIN ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
+        labelManager.setVisible(true);
+        labelStaff.setVisible(true);
+        labelLoginAwal.setVisible(true);
+        staffMini.setVisible(false);
+        txtUsername.setEnabled(false);
+        passField.setEnabled(false);
+        managerMini.setVisible(false);
+        managerLogin.setVisible(false);
+        staffMini.setVisible(false);
+        staffLogin.setVisible(false);
+    }//GEN-LAST:event_exitButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -157,7 +276,7 @@ public class MenuFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-       java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuFrame().setVisible(true);
             }
