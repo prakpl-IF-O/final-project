@@ -17,18 +17,28 @@ import java.sql.Statement;
  */
 public class pendapatanakhir extends Checkin{
     
+    /**
+     * Mengembalikan nilai Pendapatan Akhir
+     * 
+     * @return nilai Pendapatan Akhir
+     */
     public double getPendapatanAhir(){
         try {
             String h = "jdbc:derby://localhost:1527/hotel";
             Connection con = DriverManager.getConnection(h);
             Statement st = con.createStatement();
             ResultSet rs;
+            // Hasil yang didapat dari pendapatanakhir
             rs = st.executeQuery("SELECT * FROM pendapatanakhir");
             rs.next();
+            // Menghitung nilai x
             int x = rs.getInt(1);
+            // Mengembalikan nilai pendapatanakhir
             return x+super.getTotal();
         } catch (SQLException err) {
+            // Jika terjadi error maka akan mencetak objek err pada method getMessage()
             System.out.println(err.getMessage());
+            // Mengembalikan nilai pendapatanakhir
             return 0;
         }
     }
