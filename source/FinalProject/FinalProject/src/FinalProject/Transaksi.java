@@ -7,7 +7,7 @@ package FinalProject;
 
 public class Transaksi extends Kamar {
 
-    int hari, hargakamar;
+    int hari, hargakamar, hargakamarR = 100000, hargakamarP = 200000, hargakamarS = 350000, hargakamarV = 750000;
     double Pembayaran;
     String kodeTransaksi;
     java.util.Date skrng = new java.util.Date();
@@ -60,6 +60,22 @@ public class Transaksi extends Kamar {
 
     public int getHarga() {
         return hargakamar;
+    }
+
+    public int getHargaR() {
+        return hargakamarR;
+    }
+
+    public int getHargaP() {
+        return hargakamarP;
+    }
+
+    public int getHargaS() {
+        return hargakamarS;
+    }
+
+    public int getHargaV() {
+        return hargakamarV;
     }
 
     public void setHarga(String a) {
