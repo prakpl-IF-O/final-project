@@ -141,6 +141,11 @@ public class StaffFrame extends javax.swing.JFrame {
         getContentPane().add(lbDataPel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 310, 70));
 
         lbTombolCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Check Out.png"))); // NOI18N
+        lbTombolCheckOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbTombolCheckOutMouseClicked(evt);
+            }
+        });
         getContentPane().add(lbTombolCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, -1, 100));
 
         txtTTL2.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
@@ -631,6 +636,100 @@ public class StaffFrame extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_lbTombolCheckMouseClicked
+
+    private void lbTombolCheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTombolCheckOutMouseClicked
+        // tombol check out saat check out benar
+        try {
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+            String WCO = sdf.format(cal.getTime());
+            Pembayaran p = new Pembayaran();
+            p.bayar_hari(NIK);
+            p.selisihDateTime(NIK, WCO);
+            p.denda();
+
+            txtHarga5.setVisible(true);
+            txtHarga5.setText("Rp. " + p.hargaKamar());
+            txtSub.setVisible(true);
+            txtSub.setText("Rp. " + String.valueOf(p.getBayar_hari()));
+            txtDiskon.setVisible(true);
+            txtDiskon.setText("Rp. " + String.valueOf(p.bonus(NIK)));
+            txtDenda.setVisible(true);
+            txtDenda.setText("Rp. " + String.valueOf(p.denda()));
+            txtTot.setVisible(true);
+            txtTot.setText("Rp. " + String.valueOf(p.totalBayar()));
+            p.data_keuangan();
+
+            Check_Out Co = new Check_Out();
+            Co.proses_check_out(NIK);
+
+            lbDataPem.setVisible(true);
+            lbHarga1.setVisible(true);
+            lbDenda.setVisible(true);
+            lbDiskon.setVisible(true);
+            lbSubTot.setVisible(true);
+            lbTotal.setVisible(true);
+            panelHCO.setVisible(true);
+
+            // komponen check out
+            panelCOb.setVisible(false);
+            lbDataPel2.setVisible(false);
+            lbNIK3.setVisible(false);
+            lbID3.setVisible(false);
+            lbNoKamar2.setVisible(false);
+            lbNama7.setVisible(false);
+            lbTTL1.setVisible(false);
+            Jenis.setVisible(false);
+            lbLama1.setVisible(false);
+            lbTanggalCI.setVisible(false);
+            lbTombolCheckOut.setVisible(false);
+            txtNIK3.setVisible(false);
+            txtID3.setVisible(false);
+            txtNoKamar2.setVisible(false);
+            txtNama3.setVisible(false);
+            txtTTL2.setVisible(false);
+            txtJenis.setVisible(false);
+            txtLama2.setVisible(false);
+            txtTanggalCI.setVisible(false);
+
+            //komponen cek data
+            panelCO.setVisible(false);
+            lbID1.setVisible(false);
+            txtID1.setVisible(false);
+            lbNama1.setVisible(false);
+            txtNama1.setVisible(false);
+            lbNIK1.setVisible(false);
+            txtNIK1.setVisible(false);
+            lbTombolCheck.setVisible(false);
+            lbKetCek.setVisible(false);
+
+            // komponen check in
+            panelCI.setVisible(false);
+            lbDataPel.setVisible(false);
+            lbNIK.setVisible(false);
+            lbNama.setVisible(false);
+            lbTTL.setVisible(false);
+            lbLama.setVisible(false);
+            lbJenis.setVisible(false);
+            lbHarga.setVisible(false);
+            lbTombolCI.setVisible(false);
+            cbJenis.setVisible(false);
+            txtHarga.setVisible(false);
+            txtLama.setVisible(false);
+            txtTTL.setVisible(false);
+            txtNama.setVisible(false);
+            txtNIK.setVisible(false);
+            txtNoKamar.setVisible(false);
+            txtID.setVisible(false);
+            lbNoKamar.setVisible(false);
+            lbID.setVisible(false);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ParseException ex) {
+            Logger.getLogger(StaffFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lbTombolCheckOutMouseClicked
 
     /**
      * @param args the command line arguments
