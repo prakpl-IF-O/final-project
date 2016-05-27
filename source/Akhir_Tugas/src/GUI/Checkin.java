@@ -9,7 +9,14 @@ package GUI;
  *
  * @author Husein
  */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Checkin{
     kamarhotel kh=new kamarhotel();
@@ -17,8 +24,6 @@ public class Checkin{
     double denda = 30000;
     double kembali;
     static double total;
-    static byte akumulasi = 0;
-    byte sisakamar = 100;
     byte lamasewa;
     
     public double getBayar() {
@@ -38,33 +43,46 @@ public class Checkin{
     }
 
     public double getKembali() {
-        return kembali=bayar-total;
+        return kembali;
     }
 
     public double getTotal() {
-        return total=kh.getHar()*lamasewa;
+        return total;
     }
 
-    public byte getSisakamar() {
-        return sisakamar;
-    }
-
-    public void setSisakamar(byte sisakamar) {
-        this.sisakamar = sisakamar;
-    }
-
-    public double getDiskon(byte a) {
-        if (akumulasi+a > 60) {
+    public double getDiskon(byte a,String c) {
+        String h = "jdbc:derby://localhost:1527/hotel";
+        try {
+            Connection con = DriverManager.getConnection(h);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM pelanggan WHERE ID = '"+c+"'");
+            rs.next();
+            int b=rs.getInt(3);
+        if (b+a > 60) {
             return 0.25;
         }
-        if (akumulasi+a > 30) {
+        if (b+a > 30) {
             return 0.15;
         }
-        if (akumulasi+a > 9) {
+        if (b+a > 9) {
             return 0.1;
         }else{
         return 0;
         }
+    }   catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        if (a > 60) {
+            return 0.25;
+        }
+        if (a > 30) {
+            return 0.15;
+        }
+        if (a > 9) {
+            return 0.1;
+        }else{
+        return 0;
+        }
+    }
     }
 
 }

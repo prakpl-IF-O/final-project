@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+
 import GUI.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,18 +17,21 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
  */
 public class Tamu extends javax.swing.JFrame {
+
     double Tot;
+
     /**
      * Creates new form Tamu
      */
     public Tamu() {
         initComponents();
-        
+
     }
 
     /**
@@ -306,31 +310,26 @@ public class Tamu extends javax.swing.JFrame {
         pelanggan P = new pelanggan();
         String ID = id.getText();
         String h = "jdbc:derby://localhost:1527/hotel";
-            try {
-                Connection con = DriverManager.getConnection(h);
-                Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM pelanggan WHERE id = '"+ID+"'");
-                rs.next();
-                nama.setText(rs.getString(1));
-                ttl1.setText(rs.getString(2));
-            } catch (SQLException err) {
-                System.out.println(err.getMessage());
-            }       
+        try {
+            Connection con = DriverManager.getConnection(h);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM pelanggan WHERE id = '" + ID + "'");
+            rs.next();
+            nama.setText(rs.getString(1));
+            ttl1.setText(rs.getString(2));
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
     }//GEN-LAST:event_CekActionPerformed
 
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // ID
-        pelanggan P = new pelanggan ();
-        String kata;
-        kata = id.getText();
-        P.setId_tamu(kata);
-        
+        // ID       
     }//GEN-LAST:event_idActionPerformed
 
     private void ttl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttl1ActionPerformed
         // TODO add your handling code here:
-        String ttl=ttl1.getText();
-        
+        String ttl = ttl1.getText();
+
     }//GEN-LAST:event_ttl1ActionPerformed
 
     private void DiskonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiskonActionPerformed
@@ -339,7 +338,38 @@ public class Tamu extends javax.swing.JFrame {
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here:
-        
+        pelanggan p = new pelanggan();
+        String h = "jdbc:derby://localhost:1527/hotel";
+        int a = Integer.parseInt(JHari.getText());
+        try {
+            Connection con = DriverManager.getConnection(h);
+            Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet r = st.executeQuery("SELECT * FROM pelanggan WHERE id = '" + id.getText() + "'");
+            r.next();
+            if (r.getString(4).equals(id.getText())) {
+                r.updateInt(3, (a + r.getInt(3)));
+                r.updateRow();
+            }
+            if (r.getString(4).equals(null)){
+                st.executeUpdate("INSERT INTO pelanggan "
+                        + "VALUES ('" + nama.getText() + "', '" + ttl1.getText() + "', " + a + ", '" + id.getText() + "')");
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        try {
+            Connection con = DriverManager.getConnection(h);
+            Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet r = st.executeQuery("SELECT * FROM KAMAR WHERE kelas = '" + pilih.getSelectedItem() + "'");
+            while (r.next()) {
+                if (r.getBoolean(3) == false) {
+                    r.updateBoolean(3, true);
+                    r.updateRow();
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }//GEN-LAST:event_SaveActionPerformed
 
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
@@ -358,12 +388,12 @@ public class Tamu extends javax.swing.JFrame {
 
     private void pilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihActionPerformed
         // Tpilih
-        
+
     }//GEN-LAST:event_pilihActionPerformed
 
     private void JHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JHariActionPerformed
         // Hari
-        
+
     }//GEN-LAST:event_JHariActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -378,33 +408,35 @@ public class Tamu extends javax.swing.JFrame {
         byte hari = Byte.parseByte(x);
         c1.add(Calendar.DATE, Byte.parseByte(x));
         CheckOut.setText(sdf.format(c1.getTime()));
-        double diskon = T.getDiskon(hari); //diskon ototmatis
-        Diskon.setText(String.format("%.2f",diskon));
+        double diskon = 0;
+        String h = "jdbc:derby://localhost:1527/hotel";
+        diskon = T.getDiskon(hari, id.getText()); //diskon ototmatis
+        Diskon.setText(String.format("%.2f", diskon));
         Tot = 0;
-        if (pilih.getSelectedItem() == "1. Reguler"){
-            Tot = hari*100000-(hari*100000)*diskon;
+        if (pilih.getSelectedItem() == "1. Reguler") {
+            Tot = hari * 100000 - (hari * 100000) * diskon;
             Harga.setText("Rp. 100000");
-        } else if (pilih.getSelectedItem() == "2. Premium"){
-            Tot = hari*200000-(hari*200000)*diskon;
+        } else if (pilih.getSelectedItem() == "2. Premium") {
+            Tot = hari * 200000 - (hari * 200000) * diskon;
             Harga.setText("Rp. 200000");
-        } else if (pilih.getSelectedItem() == "3. Suite"){
-            Tot = hari*350000-(hari*350000)*diskon;
+        } else if (pilih.getSelectedItem() == "3. Suite") {
+            Tot = hari * 350000 - (hari * 350000) * diskon;
             Harga.setText("Rp. 350000");
-        } else if (pilih.getSelectedItem() == "4. VIP"){
-            Tot = hari*750000-(hari*750000)*diskon;
+        } else if (pilih.getSelectedItem() == "4. VIP") {
+            Tot = hari * 750000 - (hari * 750000) * diskon;
             Harga.setText("Rp. 750000");
         }
         T.total = Tot;
-        Total.setText(String.format("%.2f",Tot));
-        
+        Total.setText(String.format("%.2f", Tot));
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String x = Total1.getText();
-        int bayar=Integer.parseInt(x);
-        double  a=bayar-Tot;
-        kembali.setText(String.format("%.2f",a));
+        int bayar = Integer.parseInt(x);
+        double a = bayar - Tot;
+        kembali.setText(String.format("%.2f", a));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
