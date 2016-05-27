@@ -274,6 +274,11 @@ public class StaffFrame extends javax.swing.JFrame {
         getContentPane().add(lbHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 310, 70));
 
         lbTombolCI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Check In (1).png"))); // NOI18N
+        lbTombolCI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbTombolCIMouseClicked(evt);
+            }
+        });
         getContentPane().add(lbTombolCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, -1, 80));
 
         txtHarga.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
@@ -508,6 +513,28 @@ public class StaffFrame extends javax.swing.JFrame {
             txtHarga.getText();
         }
     }//GEN-LAST:event_cbJenisActionPerformed
+
+    private void lbTombolCIMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTombolCIMouseClicked
+        // tombol checkin dibawah untuk generate id dan no kamar        
+        Check_In ci = new Check_In();
+        ci.setNIK(txtNIK.getText());
+        ci.setNAMA(txtNama.getText());
+        ci.setLAMA(txtLama.getText());
+        ci.setTTL(txtTTL.getText());
+        ci.proses(jenisKamar);
+
+        try {
+            txtID.setText(ci.getTampilID());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            txtNoKamar.setText(ci.getTampilNmrKmr());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_lbTombolCIMouseClicked
 
     /**
      * @param args the command line arguments
