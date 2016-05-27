@@ -48,12 +48,17 @@ public class MenuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelStaff = new javax.swing.JLabel();
+        labelManager = new javax.swing.JLabel();
+        labelLoginAwal = new javax.swing.JLabel();
         wrongIconPass = new javax.swing.JLabel();
         wrongIconUsername = new javax.swing.JLabel();
         trueIconUsername = new javax.swing.JLabel();
         trueIconPass = new javax.swing.JLabel();
         staffMini = new javax.swing.JLabel();
+        managerMini = new javax.swing.JLabel();
         staffLogin = new javax.swing.JLabel();
+        managerLogin = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         txtUsername = new javax.swing.JTextField();
         passField = new javax.swing.JPasswordField();
@@ -61,16 +66,30 @@ public class MenuFrame extends javax.swing.JFrame {
         labelPass = new javax.swing.JLabel();
         exitButton = new javax.swing.JLabel();
         labelLogin = new javax.swing.JLabel();
-        labelStaff = new javax.swing.JLabel();
-        labelManager = new javax.swing.JLabel();
-        labelLoginAwal = new javax.swing.JLabel();
-        managerLogin = new javax.swing.JLabel();
-        managerMini = new javax.swing.JLabel();
         loginBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Staff.png"))); // NOI18N
+        labelStaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelStaffMouseClicked(evt);
+            }
+        });
+        getContentPane().add(labelStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 200, 200));
+
+        labelManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Manager.png"))); // NOI18N
+        labelManager.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelManagerMouseClicked(evt);
+            }
+        });
+        getContentPane().add(labelManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 180, 180));
+
+        labelLoginAwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel Pilihan.png"))); // NOI18N
+        getContentPane().add(labelLoginAwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 590, -1));
 
         wrongIconPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/wrong icon mini.png"))); // NOI18N
         getContentPane().add(wrongIconPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, -1, 40));
@@ -87,10 +106,18 @@ public class MenuFrame extends javax.swing.JFrame {
         staffMini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Staff mini.png"))); // NOI18N
         getContentPane().add(staffMini, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 100, 110));
 
+        managerMini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Manager mini.png"))); // NOI18N
+        getContentPane().add(managerMini, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 110, 100));
+
         staffLogin.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
         staffLogin.setForeground(new java.awt.Color(255, 255, 255));
         staffLogin.setText("STAFF LOGIN");
         getContentPane().add(staffLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, -1, -1));
+
+        managerLogin.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        managerLogin.setForeground(new java.awt.Color(255, 255, 255));
+        managerLogin.setText("MANAGER LOGIN");
+        getContentPane().add(managerLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
 
         btnLogin.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         btnLogin.setText("LOGIN");
@@ -107,9 +134,19 @@ public class MenuFrame extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
+        txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 240, 40));
 
         passField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        passField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                passFieldKeyReleased(evt);
+            }
+        });
         getContentPane().add(passField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 240, 40));
 
         labelUsername.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
@@ -132,33 +169,6 @@ public class MenuFrame extends javax.swing.JFrame {
 
         labelLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel Login.png"))); // NOI18N
         getContentPane().add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -10, 530, 390));
-
-        labelStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Staff.png"))); // NOI18N
-        labelStaff.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelStaffMouseClicked(evt);
-            }
-        });
-        getContentPane().add(labelStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 200, 200));
-
-        labelManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Manager.png"))); // NOI18N
-        labelManager.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelManagerMouseClicked(evt);
-            }
-        });
-        getContentPane().add(labelManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 180, 180));
-
-        labelLoginAwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel Pilihan.png"))); // NOI18N
-        getContentPane().add(labelLoginAwal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 590, -1));
-
-        managerLogin.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        managerLogin.setForeground(new java.awt.Color(255, 255, 255));
-        managerLogin.setText("MANAGER LOGIN");
-        getContentPane().add(managerLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
-
-        managerMini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Manager mini.png"))); // NOI18N
-        getContentPane().add(managerMini, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 110, 100));
 
         loginBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/BackgroundPolos.jpg"))); // NOI18N
         getContentPane().add(loginBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
@@ -247,6 +257,49 @@ public class MenuFrame extends javax.swing.JFrame {
         staffMini.setVisible(false);
         staffLogin.setVisible(false);
     }//GEN-LAST:event_exitButtonMouseClicked
+
+    private void passFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passFieldKeyReleased
+        if (a == 1) {
+            passCheck = Arrays.equals(passField.getPassword(), passManager);
+            if (passCheck == true) {
+                trueIconPass.setVisible(true);
+                wrongIconPass.setVisible(false);
+            } else {
+                trueIconPass.setVisible(false);
+                wrongIconPass.setVisible(true);
+            }
+        }
+        else{
+            passCheck = Arrays.equals(passField.getPassword(), passStaff);
+            if (passCheck == true) {
+                trueIconPass.setVisible(true);
+                wrongIconPass.setVisible(false);
+            } else {
+                trueIconPass.setVisible(false);
+                wrongIconPass.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_passFieldKeyReleased
+
+    private void txtUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyReleased
+        if (a == 1) {
+            if (txtUsername.getText().equals(nameManager)) {
+                trueIconUsername.setVisible(true);
+                wrongIconUsername.setVisible(false);
+            } else {
+                trueIconUsername.setVisible(false);
+                wrongIconUsername.setVisible(true);
+            }
+        } else {
+            if (txtUsername.getText().equals(nameStaff)) {
+                trueIconUsername.setVisible(true);
+                wrongIconUsername.setVisible(false);
+            } else {
+                trueIconUsername.setVisible(false);
+                wrongIconUsername.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_txtUsernameKeyReleased
 
     /**
      * @param args the command line arguments
