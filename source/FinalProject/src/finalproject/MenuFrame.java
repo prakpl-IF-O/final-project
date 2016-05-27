@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class MenuFrame extends javax.swing.JFrame {
     ManagerFrame managerFrame = new ManagerFrame();
-    StaffFrame staffFrame = new StaffFrame();
+//    StaffFrame staffFrame = new StaffFrame();
     int a = 0;
     String nameManager = "Adi";
     char[] passManager = {'1', '2', '3'};
@@ -235,7 +235,7 @@ public class MenuFrame extends javax.swing.JFrame {
                 login = 1;
                 CheckIcon();
                 dispose();
-                staffFrame.setVisible(true);
+//                staffFrame.setVisible(true);
             } else if (txtUsername.getText().equals(nameStaff) && passCheck == false) {
                 JOptionPane.showMessageDialog(null, "INVALID PASSWORD ", "LOGIN ERROR", JOptionPane.ERROR_MESSAGE);
             } else if (!txtUsername.getText().equals(nameStaff) && passCheck == true) {

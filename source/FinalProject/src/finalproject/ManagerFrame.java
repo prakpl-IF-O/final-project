@@ -11,7 +11,7 @@ package finalproject;
  */
 public class ManagerFrame extends javax.swing.JFrame {
 
-    MenuFrame menuFrame = new MenuFrame();
+//    MenuFrame menuFrame = new MenuFrame();
     String index;
 
     /**
@@ -275,7 +275,7 @@ public class ManagerFrame extends javax.swing.JFrame {
 
     private void labelOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelOutMouseClicked
         dispose();
-        menuFrame.setVisible(true);
+//        menuFrame.setVisible(true);
     }//GEN-LAST:event_labelOutMouseClicked
 
     /**
