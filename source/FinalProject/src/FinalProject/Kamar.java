@@ -6,6 +6,7 @@
 package FinalProject;
 
 public class Kamar extends Customers {
+
     String IDkamar, kelas;
     int hargakamar;
     int k;
@@ -27,6 +28,20 @@ public class Kamar extends Customers {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 4; j++) {
                 System.out.print(kelas[i][j] + " ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public void disc() {
+        String disc[][] = {{"AKUMULASI LAMA SEWA (hari)", "    DISCOUNT"},
+        {"          0-9", "                    0%"},
+        {"         10-30", "                   10%"},
+        {"         31-60", "                   15%"},
+        {"         61-dst", "                  25%"},};
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.print(disc[i][j] + " ");
             }
             System.out.println("");
         }
