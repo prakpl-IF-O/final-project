@@ -1,6 +1,6 @@
 package finalproject;
 
-import java.sql.SQLException; 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -8,13 +8,82 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 public class StaffFrame extends javax.swing.JFrame {
-    
+
     String jenisKamar;
     String NIK;
+
     public StaffFrame() {
         initComponents();
+        // komponen hasil check out
+        panelHCO.setVisible(false);
+        txtHarga5.setVisible(false);
+        txtSub.setVisible(false);
+        txtDiskon.setVisible(false);
+        txtDenda.setVisible(false);
+        txtTot.setVisible(false);
+        lbDataPem.setVisible(false);
+        lbHarga1.setVisible(false);
+        lbDenda.setVisible(false);
+        lbDiskon.setVisible(false);
+        lbSubTot.setVisible(false);
+        lbTotal.setVisible(false);
+
+        // komponen check out
+        panelCOb.setVisible(false);
+        lbDataPel2.setVisible(false);
+        lbNIK3.setVisible(false);
+        lbID3.setVisible(false);
+        lbNoKamar2.setVisible(false);
+        lbNama7.setVisible(false);
+        lbTTL1.setVisible(false);
+        Jenis.setVisible(false);
+        lbLama1.setVisible(false);
+        lbTanggalCI.setVisible(false);
+        lbTombolCheckOut.setVisible(false);
+        txtNIK3.setVisible(false);
+        txtID3.setVisible(false);
+        txtNoKamar2.setVisible(false);
+        txtNama3.setVisible(false);
+        txtTTL2.setVisible(false);
+        txtJenis.setVisible(false);
+        txtLama2.setVisible(false);
+        txtTanggalCI.setVisible(false);
+
+        //komponen cek data
+        panelCO.setVisible(false);
+        lbID1.setVisible(false);
+        txtID1.setVisible(false);
+        lbNama1.setVisible(false);
+        txtNama1.setVisible(false);
+        lbNIK1.setVisible(false);
+        txtNIK1.setVisible(false);
+        lbTombolCheck.setVisible(false);
+        lbKetCek.setVisible(false);
+
+        // komponen check in
+        panelCI.setVisible(false);
+        lbDataPel.setVisible(false);
+        lbNIK.setVisible(false);
+        lbNama.setVisible(false);
+        lbTTL.setVisible(false);
+        lbLama.setVisible(false);
+        lbJenis.setVisible(false);
+        lbHarga.setVisible(false);
+        lbTombolCI.setVisible(false);
+        cbJenis.setVisible(false);
+        txtHarga.setVisible(false);
+        txtLama.setVisible(false);
+        txtTTL.setVisible(false);
+        txtNama.setVisible(false);
+        txtNIK.setVisible(false);
+        txtNoKamar.setVisible(false);
+        txtID.setVisible(false);
+        lbNoKamar.setVisible(false);
+        lbID.setVisible(false);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
