@@ -27,6 +27,25 @@ public class StaffFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbDataPel2 = new javax.swing.JLabel();
+        lbTombolCheckOut = new javax.swing.JLabel();
+        txtTTL2 = new javax.swing.JTextField();
+        lbTTL1 = new javax.swing.JLabel();
+        txtJenis = new javax.swing.JTextField();
+        Jenis = new javax.swing.JLabel();
+        txtLama2 = new javax.swing.JTextField();
+        lbLama1 = new javax.swing.JLabel();
+        txtTanggalCI = new javax.swing.JTextField();
+        lbTanggalCI = new javax.swing.JLabel();
+        txtNama3 = new javax.swing.JTextField();
+        lbNama7 = new javax.swing.JLabel();
+        txtNoKamar2 = new javax.swing.JTextField();
+        lbNoKamar2 = new javax.swing.JLabel();
+        txtID3 = new javax.swing.JTextField();
+        lbID3 = new javax.swing.JLabel();
+        txtNIK3 = new javax.swing.JTextField();
+        lbNIK3 = new javax.swing.JLabel();
+        panelCOb = new javax.swing.JLabel();
         lbID1 = new javax.swing.JLabel();
         txtID1 = new javax.swing.JTextField();
         lbNama1 = new javax.swing.JLabel();
@@ -63,6 +82,81 @@ public class StaffFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbDataPel2.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
+        lbDataPel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDataPel2.setText("DATA PELANGGAN ");
+        getContentPane().add(lbDataPel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 310, 70));
+
+        lbTombolCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Check Out.png"))); // NOI18N
+        getContentPane().add(lbTombolCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, -1, 100));
+
+        txtTTL2.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtTTL2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtTTL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 370, 50));
+
+        lbTTL1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbTTL1.setText("Tempat, Tanggal Lahir");
+        getContentPane().add(lbTTL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 280, 70));
+
+        txtJenis.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtJenis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 370, 50));
+
+        Jenis.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        Jenis.setText("Jenis Kamar");
+        getContentPane().add(Jenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 180, 70));
+
+        txtLama2.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtLama2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtLama2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 370, 50));
+
+        lbLama1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbLama1.setText("Lama Menginap");
+        getContentPane().add(lbLama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, 180, 70));
+
+        txtTanggalCI.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtTanggalCI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtTanggalCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 560, 370, 50));
+
+        lbTanggalCI.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbTanggalCI.setText("Tanggal Check In");
+        getContentPane().add(lbTanggalCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 550, 230, 70));
+
+        txtNama3.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtNama3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtNama3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 370, 50));
+
+        lbNama7.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbNama7.setText("Nama Lengkap");
+        getContentPane().add(lbNama7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 180, 70));
+
+        txtNoKamar2.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtNoKamar2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtNoKamar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 370, 50));
+
+        lbNoKamar2.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbNoKamar2.setText("Nomor Kamar");
+        getContentPane().add(lbNoKamar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 180, 70));
+
+        txtID3.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtID3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtID3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 370, 50));
+
+        lbID3.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbID3.setText("ID");
+        getContentPane().add(lbID3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 180, 70));
+
+        txtNIK3.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtNIK3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtNIK3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 370, 50));
+
+        lbNIK3.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbNIK3.setText("NIK");
+        getContentPane().add(lbNIK3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 180, 70));
+
+        panelCOb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel.jpg"))); // NOI18N
+        getContentPane().add(panelCOb, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 1110, 770));
 
         lbID1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         lbID1.setText("ID");
@@ -224,37 +318,56 @@ public class StaffFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Jenis;
     private javax.swing.JComboBox cbJenis;
     private javax.swing.JLabel lbBackground;
     private javax.swing.JLabel lbCheckIn;
     private javax.swing.JLabel lbCheckOut;
     private javax.swing.JLabel lbDataPel;
+    private javax.swing.JLabel lbDataPel2;
     private javax.swing.JLabel lbHarga;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbID1;
+    private javax.swing.JLabel lbID3;
     private javax.swing.JLabel lbJenis;
     private javax.swing.JLabel lbKetCek;
     private javax.swing.JLabel lbLama;
+    private javax.swing.JLabel lbLama1;
     private javax.swing.JLabel lbNIK;
     private javax.swing.JLabel lbNIK1;
+    private javax.swing.JLabel lbNIK3;
     private javax.swing.JLabel lbNama;
     private javax.swing.JLabel lbNama1;
+    private javax.swing.JLabel lbNama7;
     private javax.swing.JLabel lbNoKamar;
+    private javax.swing.JLabel lbNoKamar2;
     private javax.swing.JLabel lbOut1;
     private javax.swing.JLabel lbTTL;
+    private javax.swing.JLabel lbTTL1;
+    private javax.swing.JLabel lbTanggalCI;
     private javax.swing.JLabel lbTombolCI;
     private javax.swing.JLabel lbTombolCheck;
+    private javax.swing.JLabel lbTombolCheckOut;
     private javax.swing.JLabel panelCI;
     private javax.swing.JLabel panelCO;
+    private javax.swing.JLabel panelCOb;
     private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtID1;
+    private javax.swing.JTextField txtID3;
+    private javax.swing.JTextField txtJenis;
     private javax.swing.JTextField txtLama;
+    private javax.swing.JTextField txtLama2;
     private javax.swing.JTextField txtNIK;
     private javax.swing.JTextField txtNIK1;
+    private javax.swing.JTextField txtNIK3;
     private javax.swing.JTextField txtNama;
     private javax.swing.JTextField txtNama1;
+    private javax.swing.JTextField txtNama3;
     private javax.swing.JTextField txtNoKamar;
+    private javax.swing.JTextField txtNoKamar2;
     private javax.swing.JTextField txtTTL;
+    private javax.swing.JTextField txtTTL2;
+    private javax.swing.JTextField txtTanggalCI;
     // End of variables declaration//GEN-END:variables
 }
