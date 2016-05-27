@@ -31,4 +31,34 @@ public class Transaksi extends Kamar {
     public String getKodeTransaksi() {
         return kodeTransaksi;
     }
+
+    public void setcheckin(int a, int b, int c) {
+        tglcheckin.setDate(a);
+        tglcheckin.setMonth(b);
+        tglcheckin.setYear(c);
+    }
+
+    public String getcheckin() {
+        return String.format(tglcheckin.getDate() + "/" + tglcheckin.getMonth() + "/" + tglcheckin.getYear());
+    }
+
+    public void setcheckout(int a) {
+        tglcheckout.setDate(tglcheckin.getDate() + a);
+    }
+
+    public String getcheckout() {
+        return String.format(tampilcheckout.format(tglcheckout));
+    }
+
+    public int getHari() {
+        return hari;
+    }
+
+    public void setHari(int hari) {
+        this.hari = hari;
+    }
+
+    public int getHarga() {
+        return hargakamar;
+    }
 }
