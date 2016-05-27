@@ -27,6 +27,15 @@ public class StaffFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbID1 = new javax.swing.JLabel();
+        txtID1 = new javax.swing.JTextField();
+        lbNama1 = new javax.swing.JLabel();
+        txtNama1 = new javax.swing.JTextField();
+        lbNIK1 = new javax.swing.JLabel();
+        txtNIK1 = new javax.swing.JTextField();
+        lbTombolCheck = new javax.swing.JLabel();
+        lbKetCek = new javax.swing.JLabel();
+        panelCO = new javax.swing.JLabel();
         lbDataPel = new javax.swing.JLabel();
         lbNIK = new javax.swing.JLabel();
         lbNama = new javax.swing.JLabel();
@@ -54,6 +63,40 @@ public class StaffFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbID1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbID1.setText("ID");
+        getContentPane().add(lbID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 180, 70));
+
+        txtID1.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtID1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 370, 50));
+
+        lbNama1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbNama1.setText("Nama Lengkap");
+        getContentPane().add(lbNama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 180, 70));
+
+        txtNama1.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtNama1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtNama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 370, 50));
+
+        lbNIK1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbNIK1.setText("NIK");
+        getContentPane().add(lbNIK1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 170, 70));
+
+        txtNIK1.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtNIK1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtNIK1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 370, 50));
+
+        lbTombolCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Cek.png"))); // NOI18N
+        getContentPane().add(lbTombolCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
+
+        lbKetCek.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbKetCek.setText("Check");
+        getContentPane().add(lbKetCek, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, -1));
+
+        panelCO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel.jpg"))); // NOI18N
+        getContentPane().add(panelCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 1110, 710));
 
         lbDataPel.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         lbDataPel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -188,20 +231,29 @@ public class StaffFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbDataPel;
     private javax.swing.JLabel lbHarga;
     private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbID1;
     private javax.swing.JLabel lbJenis;
+    private javax.swing.JLabel lbKetCek;
     private javax.swing.JLabel lbLama;
     private javax.swing.JLabel lbNIK;
+    private javax.swing.JLabel lbNIK1;
     private javax.swing.JLabel lbNama;
+    private javax.swing.JLabel lbNama1;
     private javax.swing.JLabel lbNoKamar;
     private javax.swing.JLabel lbOut1;
     private javax.swing.JLabel lbTTL;
     private javax.swing.JLabel lbTombolCI;
+    private javax.swing.JLabel lbTombolCheck;
     private javax.swing.JLabel panelCI;
+    private javax.swing.JLabel panelCO;
     private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtID1;
     private javax.swing.JTextField txtLama;
     private javax.swing.JTextField txtNIK;
+    private javax.swing.JTextField txtNIK1;
     private javax.swing.JTextField txtNama;
+    private javax.swing.JTextField txtNama1;
     private javax.swing.JTextField txtNoKamar;
     private javax.swing.JTextField txtTTL;
     // End of variables declaration//GEN-END:variables
