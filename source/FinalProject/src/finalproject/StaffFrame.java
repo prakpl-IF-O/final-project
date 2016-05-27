@@ -331,6 +331,11 @@ public class StaffFrame extends javax.swing.JFrame {
         getContentPane().add(lbOut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 606, 90, 90));
 
         lbCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Tombol Check Out.png"))); // NOI18N
+        lbCheckOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCheckOutMouseClicked(evt);
+            }
+        });
         getContentPane().add(lbCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 270, -1));
 
         lbCheckIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Tombol Check In.png"))); // NOI18N
@@ -418,6 +423,70 @@ public class StaffFrame extends javax.swing.JFrame {
         lbNoKamar.setVisible(true);
         lbID.setVisible(true);
     }//GEN-LAST:event_lbCheckInMouseClicked
+
+    private void lbCheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCheckOutMouseClicked
+        // tombol check out disamping
+        panelCO.setVisible(true);
+        lbID1.setVisible(true);
+        txtID1.setVisible(true);
+        lbNama1.setVisible(true);
+        txtNama1.setVisible(true);
+        lbNIK1.setVisible(true);
+        txtNIK1.setVisible(true);
+        lbTombolCheck.setVisible(true);
+        lbKetCek.setVisible(true);
+
+        txtHarga5.setVisible(false);
+        txtSub.setVisible(false);
+        txtDiskon.setVisible(false);
+        txtDenda.setVisible(false);
+        txtTot.setVisible(false);
+        lbDataPem.setVisible(false);
+        lbHarga1.setVisible(false);
+        lbDenda.setVisible(false);
+        lbDiskon.setVisible(false);
+        lbSubTot.setVisible(false);
+        lbTotal.setVisible(false);
+        panelHCO.setVisible(false);
+        panelCOb.setVisible(false);
+        lbDataPel2.setVisible(false);
+        lbNIK3.setVisible(false);
+        lbID3.setVisible(false);
+        lbNoKamar2.setVisible(false);
+        lbNama7.setVisible(false);
+        lbTTL1.setVisible(false);
+        Jenis.setVisible(false);
+        lbLama1.setVisible(false);
+        lbTanggalCI.setVisible(false);
+        lbTombolCheckOut.setVisible(false);
+        txtNIK3.setVisible(false);
+        txtID3.setVisible(false);
+        txtNoKamar2.setVisible(false);
+        txtNama3.setVisible(false);
+        txtTTL2.setVisible(false);
+        txtJenis.setVisible(false);
+        txtLama2.setVisible(false);
+        txtTanggalCI.setVisible(false);
+        lbDataPel.setVisible(false);
+        lbNIK.setVisible(false);
+        lbNama.setVisible(false);
+        lbTTL.setVisible(false);
+        lbLama.setVisible(false);
+        lbJenis.setVisible(false);
+        lbHarga.setVisible(false);
+        lbTombolCI.setVisible(false);
+        txtHarga.setVisible(false);
+        cbJenis.setVisible(false);
+        txtLama.setVisible(false);
+        txtTTL.setVisible(false);
+        txtNama.setVisible(false);
+        txtNIK.setVisible(false);
+        txtNoKamar.setVisible(false);
+        txtID.setVisible(false);
+        lbNoKamar.setVisible(false);
+        lbID.setVisible(false);
+        panelCI.setVisible(false);
+    }//GEN-LAST:event_lbCheckOutMouseClicked
 
     /**
      * @param args the command line arguments
