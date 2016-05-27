@@ -27,12 +27,24 @@ public class OpenFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        labelHotel = new javax.swing.JLabel();
+        labelWelcome = new javax.swing.JLabel();
+        gifLoad = new javax.swing.JLabel();
         BackgroundLoad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 40, 20));
+
+        labelHotel.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        labelHotel.setText("HOTEL MANTAP");
+        getContentPane().add(labelHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 210, -1));
+
+        labelWelcome.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        labelWelcome.setText("WELCOME TO");
+        getContentPane().add(labelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 180, -1));
+
+        gifLoad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/491.gif"))); // NOI18N
+        getContentPane().add(gifLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 260, 20));
 
         BackgroundLoad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Background Potong mini.jpg"))); // NOI18N
         getContentPane().add(BackgroundLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 100));
@@ -77,6 +89,8 @@ public class OpenFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackgroundLoad;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel gifLoad;
+    private javax.swing.JLabel labelHotel;
+    private javax.swing.JLabel labelWelcome;
     // End of variables declaration//GEN-END:variables
 }
