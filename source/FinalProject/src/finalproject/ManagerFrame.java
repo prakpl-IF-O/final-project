@@ -43,26 +43,31 @@ public class ManagerFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtTahun.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        txtTahun.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         txtTahun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTahunActionPerformed(evt);
             }
         });
-        getContentPane().add(txtTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 90, 40));
+        getContentPane().add(txtTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 100, 50));
 
         comboBoxBulan.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         comboBoxBulan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
-        getContentPane().add(comboBoxBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 110, 40));
+        comboBoxBulan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxBulanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboBoxBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 120, 50));
 
-        comboBoxTanggal.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        comboBoxTanggal.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         comboBoxTanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         comboBoxTanggal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxTanggalActionPerformed(evt);
             }
         });
-        getContentPane().add(comboBoxTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 50, 40));
+        getContentPane().add(comboBoxTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 60, 50));
 
         comboBoxPilihan.setFont(new java.awt.Font("Comic Sans MS", 3, 16)); // NOI18N
         comboBoxPilihan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tanggal", "Bulan", "Tahun" }));
@@ -71,13 +76,18 @@ public class ManagerFrame extends javax.swing.JFrame {
                 comboBoxPilihanActionPerformed(evt);
             }
         });
-        getContentPane().add(comboBoxPilihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 150, 40));
+        getContentPane().add(comboBoxPilihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 160, 50));
 
         labelMasukkanPilihan.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         labelMasukkanPilihan.setText("MASUKKAN PILIHAN");
         getContentPane().add(labelMasukkanPilihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 160, 30));
 
         labelKeuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Tombol.png"))); // NOI18N
+        labelKeuangan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelKeuanganMouseClicked(evt);
+            }
+        });
         getContentPane().add(labelKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 350, 90));
 
         labelBackgroundManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Background Manager.jpg"))); // NOI18N
@@ -87,7 +97,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTahunActionPerformed
-        // TODO add your handling code here:
+        index = txtTahun.getText();       
     }//GEN-LAST:event_txtTahunActionPerformed
 
     private void comboBoxPilihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPilihanActionPerformed
@@ -203,6 +213,52 @@ public class ManagerFrame extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_comboBoxTanggalActionPerformed
+
+    private void comboBoxBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxBulanActionPerformed
+       switch (comboBoxBulan.getSelectedIndex()) {
+            case 0:
+                index = "01";
+                break;
+            case 1:
+                index = "02";
+                break;
+            case 2:
+                index = "03";
+                break;
+            case 3:
+                index = "04";
+                break;
+            case 4:
+                index = "05";
+                break;
+            case 5:
+                index = "06";
+                break;
+            case 6:
+                index = "07";
+                break;
+            case 7:
+                index = "08";
+                break;
+            case 8:
+                index = "09";
+                break;
+            case 9:
+                index = "10";
+                break;
+            case 10:
+                index = "11";
+                break;
+            default:
+                index = "12";
+                break;
+        }
+    }//GEN-LAST:event_comboBoxBulanActionPerformed
+
+    private void labelKeuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelKeuanganMouseClicked
+        comboBoxPilihan.setVisible(true);
+        labelMasukkanPilihan.setVisible(true);
+    }//GEN-LAST:event_labelKeuanganMouseClicked
 
     /**
      * @param args the command line arguments
