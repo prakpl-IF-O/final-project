@@ -21,10 +21,10 @@ public class Kamar extends Customers {
 
     public void kelas() {
         String kelas[][] = {{"KELAS", "      JUMLAH KAMAR", "   HARGA PERMALAM (Rp)", "daftar ID kamar"},
-        {"Reguler", "        50", "            100.000", "             R1-R50"},
-        {"Premium", "        20", "            200.000", "             P1-P20"},
-        {"Suite", "          20", "            350.000", "             S1-S20"},
-        {"VIP", "            10", "            750.000", "             V1-V10"},};
+        {"Reguler", "        50", "            100.000", "             R1"},
+        {"Premium", "        20", "            200.000", "             P1"},
+        {"Suite", "          20", "            350.000", "             S1"},
+        {"VIP", "            10", "            750.000", "             V1"},};
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 4; j++) {
                 System.out.print(kelas[i][j] + " ");
