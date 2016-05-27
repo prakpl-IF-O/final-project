@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package FinalProject;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -44,5 +43,15 @@ public class Customers {
 
     public void setTTL(String TTL) {
         this.TTL = TTL;
+    }
+
+    public void terdaftar(int a, int b, int c) {
+        trdftr.setDate(a);
+        trdftr.setMonth(b);
+        trdftr.setYear(c);
+    }
+
+    public String gettrdftr() {
+        return String.format(trdftr.getDate() + "/" + trdftr.getMonth() + "/" + trdftr.getYear());
     }
 }
