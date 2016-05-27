@@ -27,6 +27,18 @@ public class StaffFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtHarga5 = new javax.swing.JTextField();
+        txtSub = new javax.swing.JTextField();
+        txtDiskon = new javax.swing.JTextField();
+        txtDenda = new javax.swing.JTextField();
+        txtTot = new javax.swing.JTextField();
+        lbDataPem = new javax.swing.JLabel();
+        lbHarga1 = new javax.swing.JLabel();
+        lbSubTot = new javax.swing.JLabel();
+        lbDiskon = new javax.swing.JLabel();
+        lbDenda = new javax.swing.JLabel();
+        lbTotal = new javax.swing.JLabel();
+        panelHCO = new javax.swing.JLabel();
         lbDataPel2 = new javax.swing.JLabel();
         lbTombolCheckOut = new javax.swing.JLabel();
         txtTTL2 = new javax.swing.JTextField();
@@ -82,6 +94,54 @@ public class StaffFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtHarga5.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtHarga5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtHarga5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 370, 50));
+
+        txtSub.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtSub.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 370, 50));
+
+        txtDiskon.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtDiskon.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 370, 50));
+
+        txtDenda.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtDenda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtDenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 370, 50));
+
+        txtTot.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
+        txtTot.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 370, 50));
+
+        lbDataPem.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
+        lbDataPem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDataPem.setText("DATA PEMBAYARAN ");
+        getContentPane().add(lbDataPem, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 340, 70));
+
+        lbHarga1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbHarga1.setText("Harga Kamar");
+        getContentPane().add(lbHarga1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 180, 70));
+
+        lbSubTot.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbSubTot.setText("Sub Total");
+        getContentPane().add(lbSubTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 180, 70));
+
+        lbDiskon.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbDiskon.setText("Diskon");
+        getContentPane().add(lbDiskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 180, 70));
+
+        lbDenda.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbDenda.setText("Denda");
+        getContentPane().add(lbDenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 180, 70));
+
+        lbTotal.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        lbTotal.setText("Total");
+        getContentPane().add(lbTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 180, 70));
+
+        panelHCO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Panel.jpg"))); // NOI18N
+        getContentPane().add(panelHCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 1110, 770));
 
         lbDataPel2.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         lbDataPel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -325,7 +385,11 @@ public class StaffFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbCheckOut;
     private javax.swing.JLabel lbDataPel;
     private javax.swing.JLabel lbDataPel2;
+    private javax.swing.JLabel lbDataPem;
+    private javax.swing.JLabel lbDenda;
+    private javax.swing.JLabel lbDiskon;
     private javax.swing.JLabel lbHarga;
+    private javax.swing.JLabel lbHarga1;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbID1;
     private javax.swing.JLabel lbID3;
@@ -342,16 +406,22 @@ public class StaffFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbNoKamar;
     private javax.swing.JLabel lbNoKamar2;
     private javax.swing.JLabel lbOut1;
+    private javax.swing.JLabel lbSubTot;
     private javax.swing.JLabel lbTTL;
     private javax.swing.JLabel lbTTL1;
     private javax.swing.JLabel lbTanggalCI;
     private javax.swing.JLabel lbTombolCI;
     private javax.swing.JLabel lbTombolCheck;
     private javax.swing.JLabel lbTombolCheckOut;
+    private javax.swing.JLabel lbTotal;
     private javax.swing.JLabel panelCI;
     private javax.swing.JLabel panelCO;
     private javax.swing.JLabel panelCOb;
+    private javax.swing.JLabel panelHCO;
+    private javax.swing.JTextField txtDenda;
+    private javax.swing.JTextField txtDiskon;
     private javax.swing.JTextField txtHarga;
+    private javax.swing.JTextField txtHarga5;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtID1;
     private javax.swing.JTextField txtID3;
@@ -366,8 +436,10 @@ public class StaffFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtNama3;
     private javax.swing.JTextField txtNoKamar;
     private javax.swing.JTextField txtNoKamar2;
+    private javax.swing.JTextField txtSub;
     private javax.swing.JTextField txtTTL;
     private javax.swing.JTextField txtTTL2;
     private javax.swing.JTextField txtTanggalCI;
+    private javax.swing.JTextField txtTot;
     // End of variables declaration//GEN-END:variables
 }
