@@ -5,17 +5,47 @@
  */
 package finalproject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  *
  * @author gunka
  */
 public class OpenFrame extends javax.swing.JFrame {
 
+    MenuFrame menuFrame = new MenuFrame();
+    Timer timer;
     /**
      * Creates new form OpenFrame
      */
     public OpenFrame() {
         initComponents();
+        LoadTimer();
+    }
+
+    public void LoadTimer() {
+        timer = new Timer();
+        timer.schedule(new WaktuMundur(), 0, 1000);
+    }
+
+    class WaktuMundur extends TimerTask {
+
+        int detik = 8;
+
+        @Override
+        public void run() {
+            if (detik > 0) {
+                detik--;
+            } else {
+                dispose();
+                if (menuFrame.login == 1) {
+                    menuFrame.dispose();
+                } else {
+                    menuFrame.setVisible(true);
+                }
+            }
+        }
     }
 
     /**
