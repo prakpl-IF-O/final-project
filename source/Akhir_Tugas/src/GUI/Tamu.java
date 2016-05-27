@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class Tamu extends javax.swing.JFrame {
 
-    double Tot;
+    int Tot;
 
     /**
      * Creates new form Tamu
@@ -339,38 +339,74 @@ public class Tamu extends javax.swing.JFrame {
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here:
         pelanggan p = new pelanggan();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+        c2.add(Calendar.DATE, Byte.parseByte(JHari.getText()));
         String h = "jdbc:derby://localhost:1527/hotel";
+        String f = null;
+        int z = 0;
+        if (pilih.getSelectedItem() == "1. Reguler") {
+            f = "reguler";
+        } else if (pilih.getSelectedItem() == "2. Premium") {
+            f = "premium";
+        } else if (pilih.getSelectedItem() == "3. Suite") {
+            f = "suite";
+        } else if (pilih.getSelectedItem() == "4. VIP") {
+            f = "VIP";
+        }
         int a = Integer.parseInt(JHari.getText());
         try {
             Connection con = DriverManager.getConnection(h);
             Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet r = st.executeQuery("SELECT * FROM pelanggan WHERE id = '" + id.getText() + "'");
-            r.next();
-            if (r.getString(4).equals(id.getText())) {
+            try {
+                ResultSet r = st.executeQuery("SELECT * FROM pelanggan WHERE id = '" + id.getText() + "'");
+                r.next();
+                System.out.println(r.getString(4));
+                System.out.println(id.getText());
                 r.updateInt(3, (a + r.getInt(3)));
                 r.updateRow();
+            } catch (Exception e) {
+
             }
-            if (r.getString(4).equals(null)){
+            try {
+                ResultSet r = st.executeQuery("SELECT * FROM pelanggan");
                 st.executeUpdate("INSERT INTO pelanggan "
                         + "VALUES ('" + nama.getText() + "', '" + ttl1.getText() + "', " + a + ", '" + id.getText() + "')");
+            } catch (Exception e) {
+
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
         try {
+
             Connection con = DriverManager.getConnection(h);
             Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet r = st.executeQuery("SELECT * FROM KAMAR WHERE kelas = '" + pilih.getSelectedItem() + "'");
+            ResultSet r = st.executeQuery("SELECT * FROM KAMAR WHERE kelas = '" + f + "'");
             while (r.next()) {
                 if (r.getBoolean(3) == false) {
                     r.updateBoolean(3, true);
                     r.updateRow();
+                    z = r.getInt(2);
+                    break;
                 }
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        JOptionPane.showMessageDialog(null,"Data Telah Disimpan");
+        try {
+            Connection con = DriverManager.getConnection(h);
+            Statement st = con.createStatement();
+            ResultSet r = st.executeQuery("SELECT * FROM reservasi");
+            st.executeUpdate("INSERT INTO reservasi "
+                    + "VALUES ('" + nama.getText() + "', '" + f + "', " + Total.getText() + ", '" + (sdf.format(c1.getTime())) + "', '" + (sdf.format(c2.getTime())) + "', " + z + ")");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        JOptionPane.showMessageDialog(null, "Nama : " + nama.getText() + "\nKamar : " + f + "\nBiaya : "
+                + Total.getText() + "\nCheckin : " + (sdf.format(c1.getTime())) + "\nCheckout : " + CheckOut.getText() + "\nData Telah Disimpan");
+
     }//GEN-LAST:event_SaveActionPerformed
 
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
@@ -415,20 +451,20 @@ public class Tamu extends javax.swing.JFrame {
         Diskon.setText(String.format("%.2f", diskon));
         Tot = 0;
         if (pilih.getSelectedItem() == "1. Reguler") {
-            Tot = hari * 100000 - (hari * 100000) * diskon;
+            Tot = (int) (hari * 100000 - (hari * 100000) * diskon);
             Harga.setText("Rp. 100000");
         } else if (pilih.getSelectedItem() == "2. Premium") {
-            Tot = hari * 200000 - (hari * 200000) * diskon;
+            Tot = (int) (hari * 200000 - (hari * 200000) * diskon);
             Harga.setText("Rp. 200000");
         } else if (pilih.getSelectedItem() == "3. Suite") {
-            Tot = hari * 350000 - (hari * 350000) * diskon;
+            Tot = (int) (hari * 350000 - (hari * 350000) * diskon);
             Harga.setText("Rp. 350000");
         } else if (pilih.getSelectedItem() == "4. VIP") {
-            Tot = hari * 750000 - (hari * 750000) * diskon;
+            Tot = (int) (hari * 750000 - (hari * 750000) * diskon);
             Harga.setText("Rp. 750000");
         }
         T.total = Tot;
-        Total.setText(String.format("%.2f", Tot));
+        Total.setText(String.format("%d", Tot));
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
