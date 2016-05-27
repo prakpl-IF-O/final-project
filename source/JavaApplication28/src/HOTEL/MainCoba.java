@@ -11,12 +11,15 @@ public class MainCoba {
 //        System.out.println(ad.cekReguler());
 //        System.out.println(ad.cekPremium());
 //       
-       Pelanggan a= new Pelanggan ("ad","a","a",5,1);
-       a.Input(); 
-       Transaksi ba= new Transaksi(5,1);
-       ba.Input();
-       ba.hitungBayar("ada", "02-06-2016", "12:00", 1000);
-       System.out.println(ba);
+//       Pelanggan a= new Pelanggan ("ad","a","a",5,1);
+//       a.Input(); 
+//       Transaksi ba= new Transaksi(5,1);
+//       ba.Input();
+//       ba.hitungBayar("ada", "02-06-2016", "12:00", 1000);
+//       System.out.println(ba);
+        Transaksi a= new Transaksi();
+        System.out.println(a.getId("ada"));
+        System.out.println(a.getId("dino"));
 //        System.out.println(ba.generate("05"));
 //        Premium a=new Premium();
 //        a.hitungBayar("ada", "01-06-2016", "12:00");
