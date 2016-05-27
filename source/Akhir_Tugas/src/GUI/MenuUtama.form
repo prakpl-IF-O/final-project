@@ -9,10 +9,14 @@
             <Property name="text" type="java.lang.String" value="Pengunjung"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu4">
+            <Menu class="javax.swing.JMenu" name="Pengunjung">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Lihat"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PengunjungMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PengunjungActionPerformed"/>
+              </Events>
             </Menu>
           </SubComponents>
         </Menu>

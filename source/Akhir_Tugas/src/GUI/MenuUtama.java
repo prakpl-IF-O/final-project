@@ -37,7 +37,7 @@ public class MenuUtama extends javax.swing.JFrame {
         Muncul = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        Pengunjung = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         Tamu = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -76,8 +76,18 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jMenu1.setText("Pengunjung");
 
-        jMenu4.setText("Lihat");
-        jMenu1.add(jMenu4);
+        Pengunjung.setText("Lihat");
+        Pengunjung.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PengunjungMouseClicked(evt);
+            }
+        });
+        Pengunjung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PengunjungActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Pengunjung);
 
         jMenuBar1.add(jMenu1);
 
@@ -217,6 +227,17 @@ public class MenuUtama extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_KamarMouseClicked
 
+    private void PengunjungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PengunjungActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PengunjungActionPerformed
+
+    private void PengunjungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PengunjungMouseClicked
+        // Jpelanggan
+        JPelanggan P = new JPelanggan ();
+        P.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_PengunjungMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +277,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu Kamar;
     private javax.swing.JButton Muncul;
     private javax.swing.JMenu Pendapatan;
+    private javax.swing.JMenu Pengunjung;
     private javax.swing.JMenu Tamu;
     private javax.swing.JTextField Tanggal;
     private javax.swing.JButton jButton1;
@@ -264,7 +286,6 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

@@ -370,6 +370,7 @@ public class Tamu extends javax.swing.JFrame {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+        JOptionPane.showMessageDialog(null,"Data Telah Disimpan");
     }//GEN-LAST:event_SaveActionPerformed
 
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
