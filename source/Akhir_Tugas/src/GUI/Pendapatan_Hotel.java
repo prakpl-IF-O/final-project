@@ -13,6 +13,7 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
 
     /**
      * Creates new form Pendapatan_Hotel
+     * Memanggil method initComponents()
      */
     public Pendapatan_Hotel() {
         initComponents();
@@ -139,10 +140,23 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     * // TODO add your handling code here:
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * // Menu
+     * Membuat objek Mu dari kelas MenuUtama
+     * Memanggil method setVisible() untuk menampilkan output
+     * Memanggil method setVisible() untuk menyembunyikan output
+     */
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
         // Menu
         MenuUtama Mu = new MenuUtama();
@@ -150,6 +164,14 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_MenuMouseClicked
 
+    /**
+     * 
+     * @param evt 
+     * //Menu
+     * Membuat objek Mu dari kelas MenuUtama
+     * Memanggil method setVisible() untuk menampilkan output
+     * Memanggil method setVisible() untuk menyembunyikan output
+     */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // Menu
         MenuUtama Mu = new MenuUtama();
@@ -157,11 +179,25 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    /**
+     * 
+     * @param evt 
+     * // TODO add your handling code here:
+     */
     private void PendapatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendapatanActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_PendapatanActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * // TODO add your handling code here:
+     * Membuat objek PA dari kelas pendapatanakhir
+     * Membuat objek p dari kelas pelanggan
+     * Menampilkan jumlah pendapatan dengan format berikut yang hasilnya didapat dari method getPendapatanAkhir() pada kelas pendapatanakhir()
+     * Menampilkan jumlah tamu dengan format berikut yang hasilnya didapat dari method getjumlah() pada kelas pelanggan()
+     */
     private void CekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CekActionPerformed
         // TODO add your handling code here:
         pendapatanakhir PA = new pendapatanakhir();
@@ -170,6 +206,11 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
         tamu.setText(String.format("%d",p.getjumlah()));
     }//GEN-LAST:event_CekActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * // TODO add your handling code here:
+     */
     private void tamuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tamuActionPerformed
@@ -203,6 +244,9 @@ public class Pendapatan_Hotel extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            /**
+             * @see Pendapatan_Hotel()
+             */
             public void run() {
                 new Pendapatan_Hotel().setVisible(true);
             }
