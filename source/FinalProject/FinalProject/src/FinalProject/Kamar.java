@@ -61,14 +61,6 @@ public class Kamar extends Customers {
         }
     }
 
-    public void kosong() {
-        System.out.println("Daftar kamar kosong : ");
-        System.out.println("Reguler : " + kamarR + " kamar");
-        System.out.println("Premium : " + kamarP + " kamar");
-        System.out.println("Suite   : " + kamarS + " kamar");
-        System.out.println("VIP     : " + kamarV + " kamar");
-    }
-
     public void input(String a, int b) {
         int j = dataTersimpan;
         for (int i = (dataTersimpan + 1); i <= (j + b); i++) {
@@ -83,6 +75,14 @@ public class Kamar extends Customers {
                 jumlh++;
             }
         }
+    }
+
+    public void kosong() {
+        System.out.println("Daftar kamar kosong : ");
+        System.out.println("Reguler : " + kamarR + " kamar");
+        System.out.println("Premium : " + kamarP + " kamar");
+        System.out.println("Suite   : " + kamarS + " kamar");
+        System.out.println("VIP     : " + kamarV + " kamar");
     }
 
     public int getJumlh() {
