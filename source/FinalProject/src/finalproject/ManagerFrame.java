@@ -10,7 +10,10 @@ package finalproject;
  * @author gunka
  */
 public class ManagerFrame extends javax.swing.JFrame {
+
+    MenuFrame menuFrame = new MenuFrame();
     String index;
+
     /**
      * Creates new form ManagerFrame
      */
@@ -32,6 +35,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelOut = new javax.swing.JLabel();
         txtTahun = new javax.swing.JTextField();
         comboBoxBulan = new javax.swing.JComboBox();
         comboBoxTanggal = new javax.swing.JComboBox();
@@ -42,6 +46,15 @@ public class ManagerFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Out.png"))); // NOI18N
+        labelOut.setToolTipText("");
+        labelOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelOutMouseClicked(evt);
+            }
+        });
+        getContentPane().add(labelOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 100, 80));
 
         txtTahun.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         txtTahun.addActionListener(new java.awt.event.ActionListener() {
@@ -97,11 +110,11 @@ public class ManagerFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTahunActionPerformed
-        index = txtTahun.getText();       
+        index = txtTahun.getText();
     }//GEN-LAST:event_txtTahunActionPerformed
 
     private void comboBoxPilihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPilihanActionPerformed
-         if (comboBoxPilihan.getSelectedIndex() == 0) {
+        if (comboBoxPilihan.getSelectedIndex() == 0) {
             comboBoxTanggal.setVisible(true);
             comboBoxBulan.setVisible(false);
             txtTahun.setVisible(false);
@@ -215,7 +228,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxTanggalActionPerformed
 
     private void comboBoxBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxBulanActionPerformed
-       switch (comboBoxBulan.getSelectedIndex()) {
+        switch (comboBoxBulan.getSelectedIndex()) {
             case 0:
                 index = "01";
                 break;
@@ -260,6 +273,11 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelMasukkanPilihan.setVisible(true);
     }//GEN-LAST:event_labelKeuanganMouseClicked
 
+    private void labelOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelOutMouseClicked
+        dispose();
+        menuFrame.setVisible(true);
+    }//GEN-LAST:event_labelOutMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -302,6 +320,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelBackgroundManager;
     private javax.swing.JLabel labelKeuangan;
     private javax.swing.JLabel labelMasukkanPilihan;
+    private javax.swing.JLabel labelOut;
     private javax.swing.JTextField txtTahun;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,7 +31,7 @@ public class OpenFrame extends javax.swing.JFrame {
 
     class WaktuMundur extends TimerTask {
 
-        int detik = 8;
+        int detik = 6;
 
         @Override
         public void run() {
