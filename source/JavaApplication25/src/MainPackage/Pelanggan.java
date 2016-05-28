@@ -1,5 +1,7 @@
 package MainPackage;
 
+//class pelanggan dipergunakan untuk memasukkan dan mendapatkan nama, nik, dan alamat pelanggan
+
 public class Pelanggan {
     protected String nama,nik,alamat;
     protected int akumulasi;
