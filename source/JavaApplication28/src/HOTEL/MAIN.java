@@ -5,6 +5,8 @@
  */
 package HOTEL;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dino Keylas
@@ -39,6 +41,7 @@ public class MAIN extends javax.swing.JFrame {
         fieldNIK = new javax.swing.JTextField();
         fieldLM = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         getIdButton = new javax.swing.JToggleButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -101,7 +104,7 @@ public class MAIN extends javax.swing.JFrame {
         layer1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setText("NOMOR KAMAR");
-        layer1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, 20));
+        layer1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, 30));
 
         jLabel13.setText("NIK");
         layer1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 184, -1, 20));
@@ -111,12 +114,12 @@ public class MAIN extends javax.swing.JFrame {
                 fieldNDActionPerformed(evt);
             }
         });
-        layer1.add(fieldND, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 230, 20));
-        layer1.add(fieldNB, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 230, 20));
-        layer1.add(fieldNK, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 230, -1));
-        layer1.add(fieldTTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 230, -1));
-        layer1.add(fieldNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 230, -1));
-        layer1.add(fieldLM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 230, 20));
+        layer1.add(fieldND, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 230, 30));
+        layer1.add(fieldNB, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 230, 30));
+        layer1.add(fieldNK, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 230, 30));
+        layer1.add(fieldTTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 230, 30));
+        layer1.add(fieldNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 230, 30));
+        layer1.add(fieldLM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 230, 30));
 
         saveButton.setText("SIMPAN");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +127,15 @@ public class MAIN extends javax.swing.JFrame {
                 saveButtonActionPerformed(evt);
             }
         });
-        layer1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 100, 30));
+        layer1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 130, 30));
+
+        jButton2.setText("PERIKSA KAMAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        layer1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 130, 30));
 
         getIdButton.setText("dapatkan ID");
         getIdButton.addActionListener(new java.awt.event.ActionListener() {
@@ -132,22 +143,22 @@ public class MAIN extends javax.swing.JFrame {
                 getIdButtonActionPerformed(evt);
             }
         });
-        layer1.add(getIdButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 100, 30));
+        layer1.add(getIdButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 140, 30));
 
         jLabel12.setText("TTL");
-        layer1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 144, -1, 30));
+        layer1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, 20));
 
         jLabel10.setText("JENIS KAMAR");
-        layer1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, 20));
+        layer1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, 20));
 
         jLabel5.setText("LAMA MENGINAP");
-        layer1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, 20));
+        layer1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, 30));
 
         jLabel4.setText("NAMA BELAKANG");
-        layer1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, 30));
+        layer1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, 20));
 
         jLabel3.setText("NAMA DEPAN");
-        layer1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 84, -1, 40));
+        layer1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 1, 24)); // NOI18N
         jLabel2.setText("CHECK IN HOTEL MANTAP");
@@ -159,10 +170,10 @@ public class MAIN extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        layer1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 90, -1));
+        layer1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 90, -1));
 
         jRadioButton2.setText("    Suite");
-        layer1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 90, -1));
+        layer1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 90, -1));
 
         jRadioButton3.setText("    Premium");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -170,10 +181,10 @@ public class MAIN extends javax.swing.JFrame {
                 jRadioButton3ActionPerformed(evt);
             }
         });
-        layer1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 90, -1));
+        layer1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 90, -1));
 
         jRadioButton4.setText("   Reguler");
-        layer1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 90, -1));
+        layer1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HOTEL/hijau.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -404,7 +415,10 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_j5MouseClicked
 
     private void getIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getIdButtonActionPerformed
-        // TODO add your handling code here:
+        String a=fieldND.getText();
+        String b=fieldNB.getText();
+        String c=String.format("ID anda adalah:\n%s%s\n\ningat baik-baik ID Anda", a,b);
+        JOptionPane.showMessageDialog(this, c);
     }//GEN-LAST:event_getIdButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
@@ -454,6 +468,16 @@ public class MAIN extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Cek cek= new Cek();
+        int a= Integer.parseInt(fieldNK.getText());
+        boolean b= cek.cekKamar(a);
+        if (b==true) {
+            JOptionPane.showMessageDialog(this, "Kamar tersedia");
+        }
+        else {JOptionPane.showMessageDialog(this, "Kamar sedang dihuni");}
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -515,6 +539,7 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JLabel j4;
     private javax.swing.JLabel j5;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

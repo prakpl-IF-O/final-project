@@ -1,7 +1,5 @@
 package HOTEL;
-
 import java.sql.*;
-
 public class Pelanggan implements Interface{
 private String namaD,namaB, nama, id,TTL;
 private int NIK,no;
