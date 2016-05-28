@@ -1,3 +1,5 @@
+package MainPackage;
+
 public interface HotelMantap {
     public String tampilTpKamar();
     public int tampilJmlKamar();

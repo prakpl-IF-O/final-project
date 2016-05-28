@@ -1,3 +1,5 @@
+package MainPackage;
+
 public class Pelanggan {
     protected String nama,nik,alamat;
     protected int akumulasi;

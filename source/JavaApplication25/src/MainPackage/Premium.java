@@ -1,3 +1,5 @@
+package MainPackage;
+
 public class Premium extends Jenis {
     protected final static double harga=200000;
     protected static int kamar=20;

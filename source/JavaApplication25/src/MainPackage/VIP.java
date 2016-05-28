@@ -1,3 +1,5 @@
+package MainPackage;
+
 public class VIP extends Jenis{
     protected final static double harga=100000;
     protected static int kamar=50;

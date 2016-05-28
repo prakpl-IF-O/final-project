@@ -1,3 +1,5 @@
+package MainPackage;
+
 public class Suite extends Jenis {
     protected final static double harga=350000;
     protected static int kamar=20;
