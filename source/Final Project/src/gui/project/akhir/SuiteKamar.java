@@ -8,10 +8,12 @@ package gui.project.akhir;
 
 /**
  *
- * @author dwiyan
+ * @author ENGGAR PRATAMA, DWI PRIYANTO, ANDI ROSADI
  */
 public class SuiteKamar extends Kamar{
-
+    /**
+     * membuat controctor kamar suite
+     */
     public SuiteKamar(int no, String Kelas, int harga, String status) {
         super(no, Kelas, harga, status);
     }

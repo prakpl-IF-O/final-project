@@ -8,10 +8,12 @@ package gui.project.akhir;
 
 /**
  *
- * @author dwiyan
+ * @author ENGGAR PRATAMA, DWI PRIYANTO, ANDI ROSADI
  */
 public class PremiumKamar extends Kamar{
-
+    /**
+     * membuat CONSTRUCTOR premium kamar
+     */
     public PremiumKamar(int no, String Kelas, int harga, String status) {
         super(no, Kelas, harga, status);
     }
