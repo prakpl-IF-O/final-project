@@ -25,6 +25,7 @@ public class ManagerFrame extends javax.swing.JFrame {
 
     ArrayList<String> listData = new ArrayList<String>();
     Keuangan keuangan = new Keuangan();
+    DefaultTableModel tableModel;
 //    MenuFrame menuFrame = new MenuFrame();
     String index;
     Timer timer;
@@ -47,6 +48,11 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelCheck.setVisible(false);
         tableKeuangan.setVisible(false);
         totpen.setEditable(false);
+        tableModel = new DefaultTableModel();
+        tableKeuangan2.setModel(tableModel);
+        tableModel.addColumn(pilih);
+        tableModel.addColumn("Pemasukan");
+
     }
 
     public void TableData() {
@@ -57,6 +63,27 @@ public class ManagerFrame extends javax.swing.JFrame {
 
             keuangan.cek_keuangan(pilih, index);
             totpen.setText("Rp." + String.valueOf(keuangan.getTotalPendapatan()));
+            ResultSet rsPendapatan = stmt.executeQuery("select pendapatan from faza.DATAKEUANGAN where " + pilih + "='" + index + "'");
+            
+            String p[] = new String[1000];;
+            for (int i = 0; i < 1000; i++) {
+                if (rsPendapatan.next()) {
+                    p[i] = rsPendapatan.getString("pendapatan");
+                }
+            }
+            
+            ResultSet rs = stmt.executeQuery("select " + pilih + " from faza.DATAKEUANGAN where " + pilih + "='" + index + "'");
+
+            int y = 0;
+            while (rs.next()) {
+                Object[] data = new Object[2];
+                data[0] = namaIndex;
+                data[1] = p[y];
+                tableModel.addRow(data);
+                y++;
+            }
+            rs.close();
+            stmt.close();
 //            ResultSet rsBanyakData = stmt.executeQuery("SELECT COUNT (*) FROM faza.DATAKEUANGAN");
 //            int jml = 0;
 //            if (rsBanyakData.next()) {
