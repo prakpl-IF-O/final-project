@@ -108,7 +108,7 @@ public class JFrame extends javax.swing.JFrame {
         a=jTextField1.getText();
         b=jPasswordField1.getText();
         if(admin.login(a, b)){
-            JView menu=new JView();
+            JMAinMenu menu=new JMAinMenu();
             menu.setTitle("Main menu");
             menu.show();
             closeLoginDialog();

@@ -1,6 +1,6 @@
 package MainPackage;
 
-import java.sql.*;
+
 
 public abstract class Jenis implements HotelMantap {
     protected String tipe;
