@@ -44,6 +44,10 @@ public class Keuangan {
         }
     }
 
+    public void setBackValue(double temp) {
+        this.temp = temp;
+    }
+
     // Method untuk mendapatkan total pendapatan
     // Mengembalikan nilai dari variabel temp
     public double getTotalPendapatan() {
