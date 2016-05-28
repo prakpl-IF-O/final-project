@@ -517,6 +517,7 @@ public class StaffFrame extends javax.swing.JFrame {
             }
         }
     }
+
     public void LoadTime2() {
         timer = new Timer();
         timer.schedule(new WaktuMundur2(), 0, 1000);
@@ -952,8 +953,11 @@ public class StaffFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lbClickedCOKeyPressed
 
     private void lbOut1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbOut1MouseClicked
-        lbOut1.setVisible(false);
-        this.dispose();
+        MenuFrame m = new MenuFrame();
+        m.setVisible(true);
+        dispose();
+//        lbOut1.setVisible(false);
+//        this.dispose();
 //        menuFrame.setVisible(true);
     }//GEN-LAST:event_lbOut1MouseClicked
 
@@ -962,11 +966,11 @@ public class StaffFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lbClickedCheckIMouseClicked
 
     private void lbClickedCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClickedCheckMouseClicked
-        
+
     }//GEN-LAST:event_lbClickedCheckMouseClicked
 
     private void lbClickedCheckOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClickedCheckOutMouseClicked
-        
+
     }//GEN-LAST:event_lbClickedCheckOutMouseClicked
 
     /**
