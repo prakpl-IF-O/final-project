@@ -21,7 +21,7 @@ import java.util.Date;
 public class CHECKOUT extends javax.swing.JFrame {
 
     /**
-     * Creates new form CHECKOUT
+     * membuat method check out
      */
     Connection conn = null;
     PreparedStatement ps = null;
@@ -32,7 +32,9 @@ public class CHECKOUT extends javax.swing.JFrame {
         conn = ConnectionSql.ConnectDBS();
         updateTable();
     }
-
+    /**
+     * membuat method mengambil waktu keluar
+     */
     public String waktuOut() {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
