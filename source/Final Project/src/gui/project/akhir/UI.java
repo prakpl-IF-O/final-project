@@ -25,7 +25,7 @@ public class UI extends javax.swing.JFrame {
     ResultSet rs = null;
 
     /**
-     * Creates new form UI
+     * membuat method user interface
      */
     public UI() {
         initComponents();
@@ -34,14 +34,18 @@ public class UI extends javax.swing.JFrame {
         updateTable2();
 
     }
-
+     /**
+     *membuat method untuk mengambil waktu dari kalender
+     */
     public String waktuIn() {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
         String a = sdf.format(cal.getTime());
         return a;
     }
-
+     /**
+     *membuat method untuk mengupdate data di sql
+     */
     public void updateTable2() {
         try {
             String sql = "select * from data_pengunjung";

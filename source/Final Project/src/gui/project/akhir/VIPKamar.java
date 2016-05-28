@@ -8,10 +8,12 @@ package gui.project.akhir;
 
 /**
  *
- * @author dwiyan
+ * @author ENGGAR PRATAMA, DWI PRIYANTO, ENGGAR PRATAMA
  */
 public class VIPKamar extends Kamar{
-
+     /**
+     *membuat contruktor vip kamar
+     */
     public VIPKamar(int no, String Kelas, int harga, String status) {
         super(no, Kelas, harga, status);
     }
