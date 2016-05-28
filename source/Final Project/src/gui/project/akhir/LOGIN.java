@@ -7,7 +7,7 @@ package gui.project.akhir;
 
 /**
  *
- * @author ANDY ROSHADI
+ * @author ENGGAR PRATAMA, DWI PRIYANTO, ANDI ROSADI
  */
 public class LOGIN extends javax.swing.JFrame {
 
@@ -86,14 +86,18 @@ public class LOGIN extends javax.swing.JFrame {
         UI show = new UI();
         show.show();
     }//GEN-LAST:event_jLabel4MouseClicked
-
+    /**
+     * membuat method cheack out agar bisa di akses di gambar
+     */
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         dispose();
         CHECKOUT out = new CHECKOUT();
         out.show();
     }//GEN-LAST:event_jLabel2MouseClicked
-
+    /**
+     * membuat method arsip 
+     */
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
         dispose();
