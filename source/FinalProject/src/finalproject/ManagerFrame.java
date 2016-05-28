@@ -33,6 +33,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     String pilih;
     String namaIndex;
     String pendapatan;
+    int a = 1;
 
     /**
      * Creates new form ManagerFrame
@@ -48,11 +49,8 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelCheck.setVisible(false);
         tableKeuangan.setVisible(false);
         totpen.setEditable(false);
-        tableModel = new DefaultTableModel();
-        tableKeuangan2.setModel(tableModel);
-        tableModel.addColumn(pilih);
-        tableModel.addColumn("Pemasukan");
-
+        labelTotPen.setVisible(false);
+        totpen.setVisible(false);
     }
 
     public void TableData() {
@@ -64,14 +62,14 @@ public class ManagerFrame extends javax.swing.JFrame {
             keuangan.cek_keuangan(pilih, index);
             totpen.setText("Rp." + String.valueOf(keuangan.getTotalPendapatan()));
             ResultSet rsPendapatan = stmt.executeQuery("select pendapatan from faza.DATAKEUANGAN where " + pilih + "='" + index + "'");
-            
+
             String p[] = new String[1000];;
             for (int i = 0; i < 1000; i++) {
                 if (rsPendapatan.next()) {
                     p[i] = rsPendapatan.getString("pendapatan");
                 }
             }
-            
+
             ResultSet rs = stmt.executeQuery("select " + pilih + " from faza.DATAKEUANGAN where " + pilih + "='" + index + "'");
 
             int y = 0;
@@ -472,6 +470,8 @@ public class ManagerFrame extends javax.swing.JFrame {
         LoadTimer();
         comboBoxPilihan.setVisible(true);
         labelMasukkanPilihan.setVisible(true);
+        labelTotPen.setVisible(true);
+        totpen.setVisible(true);
     }//GEN-LAST:event_labelKeuanganMouseClicked
 
     private void labelOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelOutMouseClicked
@@ -481,8 +481,17 @@ public class ManagerFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_labelOutMouseClicked
 
     private void labelCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCheckMouseClicked
-        TableData();
         tableKeuangan.setVisible(true);
+        if (a == 1) {
+            TableData();
+
+        } else {
+            totpen.setText("");
+            a = 0;
+            keuangan.setBackValue(0);
+        }
+        a++;
+
     }//GEN-LAST:event_labelCheckMouseClicked
 
     /**
