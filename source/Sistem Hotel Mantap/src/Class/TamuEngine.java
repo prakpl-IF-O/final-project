@@ -11,6 +11,7 @@ import java.text.ParseException;
  *
  * @author Irfandi
  */
+// mengolah tentang tamu
 public class TamuEngine {
 
     private static Tamu DATABASE[];
@@ -18,7 +19,9 @@ public class TamuEngine {
     Database db = new Database();
     UserEngine ue = new UserEngine();
     KamarEngine kamar = new KamarEngine();
-
+    
+    // konstraktor TamuEngine
+    // inisialisasi TamuEngine
     public TamuEngine() {
         try {
             INIT_DB();
@@ -26,7 +29,7 @@ public class TamuEngine {
             ex.printStackTrace();
         }
     }
-
+// mencari ID
     public int scan_ID(String ID) {
         for (int i = 0; i < DB_SIZE; i++) {
             if (DATABASE[i].GET_ID().equalsIgnoreCase(ID)) {
@@ -35,43 +38,43 @@ public class TamuEngine {
         }
         return -1;
     }
-
+//mengembalikan nilai ID berdasarkan index
     public String GET_ID_BY_INDEX(int index) {
         return DATABASE[index].GET_ID();
     }
-
+//mengembalikan nilai NIK berdasarkan index
     public String GET_NIK_BY_INDEX(int index) {
         return DATABASE[index].GET_NIK();
     }
-
+//mengembalikan nilai nama berdasarkan index
     public String GET_NAMA_BY_INDEX(int index) {
         return DATABASE[index].GET_NAMA();
     }
-
+// mengembalikan nilai kamar berdasarkan index
     public String GET_KAMAR_BY_INDEX(int index) {
         return DATABASE[index].GET_NOMOR_KAMAR();
     }
-
+//mengembalikan nilai akumulasi berdasarkan index
     public int GET_AKUMULASI_BY_INDEX(int index) {
         return DATABASE[index].GET_AKUMULASI();
     }
-
+// mengembalikan nilai check in berdasarkan index
     public String GET_STRING_CHECK_IN_BY_INDEX(int index) {
         return DATABASE[index].STRING_CHECK_IN();
     }
-
+// mengembalikan nilai jam check in berdasarkan index
     public int GET_JAM_CHECK_IN_BY_INDEX(int index) {
         return DATABASE[index].GET_JAM_CHECK_IN();
     }
-
+// mengembalikan nilai check out berdasarkan index
     public String GET_STRING_CHECK_OUT_BY_INDEX(int index) {
         return DATABASE[index].STRING_CHECK_OUT();
     }
-
+// mengembalikan nilai lama menginap berdasarkan index
     public int GET_LAMA_INAP_BY_INDEX(int index) {
         return DATABASE[index].GET_LAMA_INAP();
     }
-
+// mengembalikan nilai diskon berdasarkan index
     public String GET_DISKON_BY_INDEX(int index) {
         if (DATABASE[index].GET_AKUMULASI() < 9) {
             return "0 %";
@@ -83,7 +86,7 @@ public class TamuEngine {
             return "25 %";
         }
     }
-
+// menambahkan tamu
     public void TAMBAH_TAMU(String ID, String NIK, String NAMA, String TEMPAT_LAHIR,
             String TANGGAL_LAHIR, String TANGGAL_DAFTAR, String AKUMULASI,
             String NO_KAMAR, String TGL_CHECK_IN, String TGL_CHECK_OUT, int jam_check_in) {
@@ -98,7 +101,7 @@ public class TamuEngine {
         }
         kamar.PESAN_KAMAR(NO_KAMAR);
     }
-
+// untuk melakukan check out
     public void CHECK_OUT(String ID, int tambahan_akumulasi) {
         int index = FIND_TAMU_INDEX(ID);
 
@@ -110,7 +113,7 @@ public class TamuEngine {
                 (Integer.toString(DATABASE[index].GET_AKUMULASI() + tambahan_akumulasi)));
         DELETE_TAMU(ID);
     }
-
+// mencari tamu berdasarkan index
     public int FIND_TAMU_INDEX(String ID) {
         int index = -1;
         for (int i = 0; i < DB_SIZE; i++) {
@@ -121,7 +124,7 @@ public class TamuEngine {
         }
         return index;
     }
-
+// menghapus tamu
     public void DELETE_TAMU(String ID) {
         int index = FIND_TAMU_INDEX(ID);
 
@@ -143,7 +146,7 @@ public class TamuEngine {
         }
 
     }
-
+// inisialisasi database tamu
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("tamu", "database\\Tamu.database");
         DATABASE = db.GET_DB_TAMU();
@@ -152,16 +155,16 @@ public class TamuEngine {
             kamar.PESAN_KAMAR(DATABASE[i].GET_NOMOR_KAMAR());
         }
     }
-
+// mengembalikan nilai jumlah tamu
     public int GET_JUMLAH_TAMU() {
         //return Tamu.GET_JUMLAH_TAMU();
         return DB_SIZE;
     }
-
+// mengembalikan nilai master database tamu
     public Tamu[] GET_MASTER_DATABASE() {
         return DATABASE;
     }
-
+// update master database tamu
     public void UPDATE_MASTER_DATABASE() {
         db.WRITE_DATABASE_TAMU(GET_MASTER_DATABASE(), GET_JUMLAH_TAMU());
     }

@@ -27,7 +27,9 @@ public class KamarEngine {
     private static int VIP_KOSONG = 0, VIP_DIPESAN = 0;
 
     Database db = new Database();
-
+    
+    // konstraktor KamarEngine
+    // inisialisasi kamarEngine
     public KamarEngine() {
         try {
             INIT_DB();
@@ -35,7 +37,7 @@ public class KamarEngine {
             Logger.getLogger(LoginEngine.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    // mengkosongkan kamar
     public void KOSONGKAN_KAMAR(String NO_KAMAR) {
         for (int i = 0; i < DB_SIZE; i++) {
             if (NO_KAMAR.equalsIgnoreCase(DATABASE[i].GET_NOMOR_KAMAR())) {
@@ -44,7 +46,7 @@ public class KamarEngine {
             }
         }
     }
-
+    //untuk memesan kamar
     public void PESAN_KAMAR(String NO_KAMAR) {
         for (int i = 0; i < DB_SIZE; i++) {
             if (NO_KAMAR.equalsIgnoreCase(DATABASE[i].GET_NOMOR_KAMAR())) {
@@ -53,11 +55,11 @@ public class KamarEngine {
             }
         }
     }
-
+    //mengembalikan nilai no kamar berdasarkan index
     public String GET_NO_KAMAR_BY_INDEX(int index) {
         return DATABASE[index].GET_NOMOR_KAMAR();
     }
-
+    //mengembalikan nilai jenis kamar brdasarkan no kamar
     public String GET_JENIS_KAMAR_BY_NO_KAMAR(String no_kamar) {
         for (int i = 0; i < DB_SIZE; i++) {
             if (DATABASE[i].GET_NOMOR_KAMAR().equalsIgnoreCase(no_kamar)) {
@@ -66,7 +68,7 @@ public class KamarEngine {
         }
         return "-1";
     }
-
+    //mengembalikan nilai harga kamar brdasarkan no kamar
     public int GET_HARGA_KAMAR_BY_NO_KAMAR(String no_kamar) {
         for (int i = 0; i < DB_SIZE; i++) {
             if (DATABASE[i].GET_NOMOR_KAMAR().equalsIgnoreCase(no_kamar)) {
@@ -108,22 +110,22 @@ public class KamarEngine {
             return -1;
         }
     }
-
+// inisialisasi database kamar
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("kamar", "database\\Kamar.database");
         DATABASE = db.GET_DB_KAMAR();
         DB_SIZE = db.GET_DB_SIZE();
         SCAN_DB();
     }
-
+//mengembalikan nilai total kamar tersedia
     public int GET_TOTAL_KAMAR_TERSEDIA() {
         return (GET_REG_KOSONG() + GET_PRE_KOSONG() + GET_SUI_KOSONG() + GET_VIP_KOSONG());
     }
-
+//mengembalikan nilai total kamar dipesan
     public int GET_TOTAL_KAMAR_DIPESAN() {
         return (GET_REG_DIPESAN() + GET_PRE_DIPESAN() + GET_SUI_DIPESAN() + GET_VIP_DIPESAN());
     }
-
+//mencari database kamar
     public void SCAN_DB() {
         REG_KOSONG = 0;
         REG_DIPESAN = 0;
@@ -228,10 +230,11 @@ public class KamarEngine {
         return VIP_DIPESAN;
     }
 
+    //mengembalikan master database kamar
     public Kamar[] GET_MASTER_DATABASE() {
         return DATABASE;
     }
-
+    // update master database
     public void UPDATE_MASTER_DATABASE() {
         db.WRITE_DATABASE_KAMAR(GET_MASTER_DATABASE());
     }

@@ -19,7 +19,9 @@ public class LoginEngine {
     private static Staff DATABASE[];
     private static int DB_SIZE;
     Database db = new Database();
-
+    
+    // konstraktor LoginEngine
+    // inisialisasi LoginEngine
     public LoginEngine() {
         try {
             INIT_DB();
@@ -27,7 +29,7 @@ public class LoginEngine {
             ex.printStackTrace();
         }
     }
-
+// inisialisasi database login
     public void INIT_DB() throws Exception {
         db.READ_DATABASE("staff", "database\\Staff.database");
         DATABASE = db.GET_DB_STAFF();

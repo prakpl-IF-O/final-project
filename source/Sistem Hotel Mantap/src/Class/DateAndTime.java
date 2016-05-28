@@ -13,8 +13,12 @@ import java.util.*;
  *
  * @author Irfandi
  */
-public class DateAndTime {
 
+public class DateAndTime {
+    
+    //get current time
+    //mengembalikan nilai waktu saat ini sesuai format yang diinputkan dalam 
+    //parameter format
     public String GET_CURRENT_TIME(String format) {
         Calendar cal = Calendar.getInstance();
         if (format.equalsIgnoreCase("H:M:S")) {
@@ -31,7 +35,9 @@ public class DateAndTime {
             return (sdf.format(cal.getTime()));
         }
     }
-
+    
+    //get different days
+    //mengembalikan nilai dari jarak hari  antara dua tanggal yang diinputkan dalam parameter
     public int GET_DIFFERENT_DAYS(int tgl1, int bulan1, int tahun1,
             int tgl2, int bulan2, int tahun2) {
         Calendar start = Calendar.getInstance();
@@ -48,6 +54,8 @@ public class DateAndTime {
         return Integer.parseInt(diff);
     }
 
+    //get current date
+    //mngembalikan nilai tanggal saat ini sesuai dari format yang diinputkan dalam parameter format
     public String GET_CURRENT_DATE(String format) {
         Calendar cal = Calendar.getInstance();
         if (format.equalsIgnoreCase("D-M-Y")) {
@@ -70,7 +78,9 @@ public class DateAndTime {
             return (sdf.format(cal.getTime()));
         }
     }
-
+    
+    //convert index of month
+    //mengembalikan nilai string bulan dari index bulan yang diiniputkan dalam parameter
     public String CONVERT_INDEX_OF_MONTH(int Index) {
         switch (Index) {
             case 0:
@@ -102,6 +112,8 @@ public class DateAndTime {
         }
     }
 
+    //convert day of week
+    //mengembalikan nilai string hari dari index days of week dalam parameter
     public String CONVERT_DAY_OF_WEEK(int Index) {
         switch (Index) {
             case 1:

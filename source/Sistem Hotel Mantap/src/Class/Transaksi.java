@@ -6,7 +6,7 @@
 package Class;
 
 /**
- *
+ *menghitung transaksi
  * @author Irfandi
  */
 public class Transaksi {
@@ -14,11 +14,11 @@ public class Transaksi {
     TamuEngine tamu = new TamuEngine();
     KamarEngine kamar = new KamarEngine();
     DateAndTime dt = new DateAndTime();
-
+// mengitung nilai TOTAL
     public double GET_TOTAL(double biaya_kamar, double diskon, double denda) {
         return ((biaya_kamar - diskon) + denda);
     }
-
+// menghitung BIAYA KAMAR
     public double GET_BIAYA_KAMAR(int index) {
         double biaya;
 
@@ -28,7 +28,7 @@ public class Transaksi {
         biaya = harga * lama;
         return biaya;
     }
-
+// menghitung diskon kamar
     public double GET_DISKON_KAMAR(int index) {
 
         double biaya_kamar = GET_BIAYA_KAMAR(index);
@@ -46,7 +46,7 @@ public class Transaksi {
         double hasil = (disk * biaya_kamar);
         return hasil;
     }
-
+// menghitung denda
     public int GET_DENDA(int index) {
         int jam_in = tamu.GET_JAM_CHECK_IN_BY_INDEX(index);
         int jam_out = Integer.parseInt(dt.GET_CURRENT_TIME("H"));
