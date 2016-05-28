@@ -27,16 +27,59 @@ public class MAIN extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        layer4 = new javax.swing.JLayeredPane();
+        jLabel21 = new javax.swing.JLabel();
         layer1 = new javax.swing.JLayeredPane();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        fieldND = new javax.swing.JTextField();
+        fieldNB = new javax.swing.JTextField();
+        fieldNK = new javax.swing.JTextField();
+        fieldTTL = new javax.swing.JTextField();
+        fieldNIK = new javax.swing.JTextField();
+        fieldLM = new javax.swing.JTextField();
+        saveButton = new javax.swing.JButton();
+        getIdButton = new javax.swing.JToggleButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         layer2 = new javax.swing.JLayeredPane();
+        fieldId = new javax.swing.JTextField();
+        cekId = new javax.swing.JLabel();
+        fieldTK = new javax.swing.JTextField();
+        fieldJK = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        ha = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        haha = new javax.swing.JLabel();
+        hahaha = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        layer3 = new javax.swing.JLayeredPane();
+        jButton1 = new javax.swing.JButton();
+        TVIP = new javax.swing.JTextField();
+        Tsuite = new javax.swing.JTextField();
+        Treguler = new javax.swing.JTextField();
+        Tpremium = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         j5 = new javax.swing.JLabel();
         j4 = new javax.swing.JLabel();
         j3 = new javax.swing.JLabel();
@@ -45,23 +88,92 @@ public class MAIN extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        layer4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HOTEL/risk2.jpg"))); // NOI18N
+        jLabel21.setText("jLabel21");
+        layer4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, -1));
+
+        getContentPane().add(layer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 640, 430));
 
         layer1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel14.setText("NOMOR KAMAR");
+        layer1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, 20));
+
+        jLabel13.setText("NIK");
+        layer1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 184, -1, 20));
+
+        fieldND.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldNDActionPerformed(evt);
+            }
+        });
+        layer1.add(fieldND, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 230, 20));
+        layer1.add(fieldNB, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 230, 20));
+        layer1.add(fieldNK, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 230, -1));
+        layer1.add(fieldTTL, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 230, -1));
+        layer1.add(fieldNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 230, -1));
+        layer1.add(fieldLM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 230, 20));
+
+        saveButton.setText("SIMPAN");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+        layer1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 100, 30));
+
+        getIdButton.setText("dapatkan ID");
+        getIdButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getIdButtonActionPerformed(evt);
+            }
+        });
+        layer1.add(getIdButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 100, 30));
+
+        jLabel12.setText("TTL");
+        layer1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 144, -1, 30));
+
+        jLabel10.setText("JENIS KAMAR");
+        layer1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, 20));
+
         jLabel5.setText("LAMA MENGINAP");
-        layer1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+        layer1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, 20));
 
         jLabel4.setText("NAMA BELAKANG");
-        layer1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+        layer1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, 30));
 
         jLabel3.setText("NAMA DEPAN");
-        layer1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        layer1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 84, -1, 40));
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 1, 24)); // NOI18N
         jLabel2.setText("CHECK IN HOTEL MANTAP");
         layer1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 310, -1));
+
+        jRadioButton1.setText("       VIP");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        layer1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 90, -1));
+
+        jRadioButton2.setText("    Suite");
+        layer1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 90, -1));
+
+        jRadioButton3.setText("    Premium");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+        layer1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 90, -1));
+
+        jRadioButton4.setText("   Reguler");
+        layer1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HOTEL/hijau.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -71,17 +183,134 @@ public class MAIN extends javax.swing.JFrame {
 
         layer2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setText("jLabel9");
-        layer2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
+        fieldId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldIdActionPerformed(evt);
+            }
+        });
+        layer2.add(fieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 230, 30));
 
-        jLabel8.setText("jLabel8");
-        layer2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
+        cekId.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cekId.setForeground(new java.awt.Color(255, 255, 102));
+        cekId.setText("click ini jika lupa id");
+        cekId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cekIdMouseClicked(evt);
+            }
+        });
+        layer2.add(cekId, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, -1));
+
+        fieldTK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldTKActionPerformed(evt);
+            }
+        });
+        layer2.add(fieldTK, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 230, 30));
+        layer2.add(fieldJK, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 230, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("lupa id?");
+        layer2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, -1, -1));
+
+        jToggleButton1.setText("PROSES");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        layer2.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 120, 40));
+
+        jToggleButton2.setText("CEK ID");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+        layer2.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 90, 40));
+
+        ha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ha.setForeground(new java.awt.Color(255, 255, 255));
+        ha.setText("JAM KELUAR");
+        layer2.add(ha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Bodoni MT Black", 1, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel15.setText("CHECK OUT HOTEL MANTAP");
+        layer2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+
+        haha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        haha.setForeground(new java.awt.Color(255, 255, 255));
+        haha.setText("TANGGAL KELUAR");
+        layer2.add(haha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, 30));
+
+        hahaha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        hahaha.setForeground(new java.awt.Color(255, 255, 255));
+        hahaha.setText("ID ANDA");
+        layer2.add(hahaha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HOTEL/merah.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
-        layer2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 430));
+        layer2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 650, 430));
 
         getContentPane().add(layer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 640, 430));
+
+        layer3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("UPDATE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        layer3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 90, 40));
+        layer3.add(TVIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 120, 30));
+        layer3.add(Tsuite, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 120, 30));
+        layer3.add(Treguler, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 120, 30));
+        layer3.add(Tpremium, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 120, 30));
+
+        jLabel19.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        jLabel19.setText("KAMAR PREMIUM");
+        layer3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 140, 20));
+
+        jLabel20.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        jLabel20.setText("KAMAR REGULER");
+        layer3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 130, -1));
+
+        jLabel18.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        jLabel18.setText("KAMAR SUITE");
+        layer3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 100, 30));
+
+        jLabel17.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
+        jLabel17.setText("KAMAR VIP");
+        layer3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 100, 30));
+
+        jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        jLabel16.setText("DAFTAR KAMAR HOTEL MANTAP");
+        layer3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 290, 50));
+
+        jTextField1.setText("Kamar nomor 1-10");
+        layer3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 140, -1));
+
+        jTextField2.setText("Kamar nomor 11-30");
+        layer3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 140, -1));
+
+        jTextField3.setText("Kamar nomor 31-50");
+        layer3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 140, -1));
+
+        jTextField4.setText("Kamar nomor 51-100");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        layer3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 140, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HOTEL/kuning.jpg"))); // NOI18N
+        jLabel8.setText(" ");
+        layer3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 650, 430));
+
+        getContentPane().add(layer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 640, 430));
 
         j5.setFont(new java.awt.Font("Berlin Sans FB", 1, 14)); // NOI18N
         j5.setForeground(new java.awt.Color(240, 240, 240));
@@ -142,24 +371,89 @@ public class MAIN extends javax.swing.JFrame {
     private void j1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j1MouseClicked
         layer1.setVisible(true);
         layer2.setVisible(false);
+        layer3.setVisible(false);
+        layer4.setVisible(false);
     }//GEN-LAST:event_j1MouseClicked
 
     private void j2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j2MouseClicked
         layer1.setVisible(false);
         layer2.setVisible(true);
+        layer3.setVisible(false);
+        layer4.setVisible(false);
     }//GEN-LAST:event_j2MouseClicked
 
     private void j3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j3MouseClicked
-        // TODO add your handling code here:
+        layer1.setVisible(false);
+        layer2.setVisible(false);
+        layer3.setVisible(true);
+        layer4.setVisible(false);
     }//GEN-LAST:event_j3MouseClicked
 
     private void j4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j4MouseClicked
-        // TODO add your handling code here:
+        layer1.setVisible(false);
+        layer2.setVisible(false);
+        layer3.setVisible(false);
+        layer4.setVisible(false);
     }//GEN-LAST:event_j4MouseClicked
 
     private void j5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j5MouseClicked
-        // TODO add your handling code here:
+        layer1.setVisible(false);
+        layer2.setVisible(false);
+        layer3.setVisible(false);
+        layer4.setVisible(true);
     }//GEN-LAST:event_j5MouseClicked
+
+    private void getIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getIdButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getIdButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void fieldNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNDActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void fieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldIdActionPerformed
+
+    private void fieldTKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldTKActionPerformed
+
+    private void cekIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cekIdMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cekIdMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Cek a= new Cek();
+        Tpremium.setText(a.cekPremium());
+        TVIP.setText(a.cekVIP());
+        Tsuite.setText(a.cekSuite());
+        Treguler.setText(a.cekReguler());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,13 +491,43 @@ public class MAIN extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TVIP;
+    private javax.swing.JTextField Tpremium;
+    private javax.swing.JTextField Treguler;
+    private javax.swing.JTextField Tsuite;
+    private javax.swing.JLabel cekId;
+    private javax.swing.JTextField fieldId;
+    private javax.swing.JTextField fieldJK;
+    private javax.swing.JTextField fieldLM;
+    private javax.swing.JTextField fieldNB;
+    private javax.swing.JTextField fieldND;
+    private javax.swing.JTextField fieldNIK;
+    private javax.swing.JTextField fieldNK;
+    private javax.swing.JTextField fieldTK;
+    private javax.swing.JTextField fieldTTL;
+    private javax.swing.JToggleButton getIdButton;
+    private javax.swing.JLabel ha;
+    private javax.swing.JLabel haha;
+    private javax.swing.JLabel hahaha;
     private javax.swing.JLabel j1;
     private javax.swing.JLabel j2;
     private javax.swing.JLabel j3;
     private javax.swing.JLabel j4;
     private javax.swing.JLabel j5;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -211,7 +535,20 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLayeredPane layer1;
     private javax.swing.JLayeredPane layer2;
+    private javax.swing.JLayeredPane layer3;
+    private javax.swing.JLayeredPane layer4;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }

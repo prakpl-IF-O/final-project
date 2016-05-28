@@ -30,7 +30,7 @@ public class Cek {
         return cek;
     }
     
-    public int cekVIP() {
+    public String cekVIP() {
         int jumlah=0;
         try (
             Connection con = DriverManager.getConnection(host, uName, uPass);
@@ -48,10 +48,10 @@ public class Cek {
         } catch (SQLException er) {
             System.out.println(er.getErrorCode());
         }
-        return jumlah;
+        return String.format("Tersedia %d Kamar", jumlah);
     }
     
-    public int cekSuite() {
+    public String cekSuite() {
         int jumlah=0;
         try (
             Connection con = DriverManager.getConnection(host, uName, uPass);
@@ -69,10 +69,10 @@ public class Cek {
         } catch (SQLException er) {
             System.out.println(er.getErrorCode());
         }
-        return jumlah;
+        return String.format("Tersedia %d Kamar", jumlah);
     }
       
-    public int cekPremium() {
+    public String cekPremium() {
         int jumlah=0;
         try (
             Connection con = DriverManager.getConnection(host, uName, uPass);
@@ -90,10 +90,10 @@ public class Cek {
         } catch (SQLException er) {
             System.out.println(er.getErrorCode());
         }
-        return jumlah;
+        return String.format("Tersedia %d Kamar", jumlah);
     }
         
-    public int cekReguler() {
+    public String cekReguler() {
         int jumlah=0;
         try (
             Connection con = DriverManager.getConnection(host, uName, uPass);
@@ -111,6 +111,6 @@ public class Cek {
         } catch (SQLException er) {
             System.out.println(er.getErrorCode());
         }
-        return jumlah;
+        return String.format("Tersedia %d Kamar", jumlah);
     }
 }

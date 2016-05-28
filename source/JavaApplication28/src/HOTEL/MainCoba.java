@@ -13,8 +13,8 @@ public class MainCoba {
 //       
 //       Pelanggan a= new Pelanggan ("ad","a","a",5,1);
 //       a.Input(); 
-//       Transaksi ba= new Transaksi(5,1);
-//       ba.Input();
+         Transaksi ba= new Transaksi(5,5);
+       ba.Input();
 //       ba.hitungBayar("ada", "02-06-2016", "12:00", 1000);
 //       System.out.println(ba);
 //        Transaksi a= new Transaksi();
