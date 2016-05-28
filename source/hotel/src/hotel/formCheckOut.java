@@ -6,6 +6,7 @@
 package hotel;
 
 import databaseKamarr.databaseKamarr;
+import static hotel.pelanggan.denda;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Locale;
@@ -36,33 +37,29 @@ public class formCheckOut extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         kolomIDCO = new javax.swing.JTextField();
         kolomNamaCO = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         kolomKelasCO = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         kolomNomorCO = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         kolomTanggalCI = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         kolomTanggalCO = new javax.swing.JTextField();
+        tra = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("CheckOut");
-
-        jLabel2.setText("nama");
-
-        jLabel3.setText("id");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 11, -1, -1));
 
         kolomIDCO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kolomIDCOActionPerformed(evt);
             }
         });
+        getContentPane().add(kolomIDCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 200, 180, -1));
+        getContentPane().add(kolomNamaCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 180, -1));
 
         jButton1.setText("CheckOut");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,100 +67,34 @@ public class formCheckOut extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("kelas");
-
-        jLabel5.setText("nomor kamar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, 80, 40));
+        getContentPane().add(kolomKelasCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 290, 180, -1));
 
         kolomNomorCO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kolomNomorCOActionPerformed(evt);
             }
         });
-
-        jLabel6.setText("tanggal/jam checkin");
-
-        jLabel7.setText("tanggal/jam checkout");
+        getContentPane().add(kolomNomorCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 180, -1));
+        getContentPane().add(kolomTanggalCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(533, 400, 180, -1));
 
         kolomTanggalCO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kolomTanggalCOActionPerformed(evt);
             }
         });
+        getContentPane().add(kolomTanggalCO, new org.netbeans.lib.awtextra.AbsoluteConstraints(533, 470, 180, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(jLabel1)
-                        .addGap(0, 210, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(77, 77, 77)
-                                .addComponent(kolomIDCO))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addGap(13, 13, 13)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(kolomNamaCO)
-                                    .addComponent(kolomKelasCO)
-                                    .addComponent(kolomNomorCO)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(kolomTanggalCO)
-                                    .addComponent(kolomTanggalCI))))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(kolomIDCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(kolomNamaCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(kolomKelasCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kolomNomorCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(kolomTanggalCI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(kolomTanggalCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(58, 58, 58))
-        );
+        tra.setText("transaksi");
+        tra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                traActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tra, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 120, 40));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("H:\\Backup\\Kasar-OUT.gif")); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -173,6 +104,7 @@ public class formCheckOut extends javax.swing.JDialog {
     }//GEN-LAST:event_kolomIDCOActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         CO co=new CO(kolomNamaCO.getText(),kolomIDCO.getText(),kolomKelasCO.getText(),kolomNomorCO.getText());
         if(kolomKelasCO.getText().equalsIgnoreCase("reguler")){
             
@@ -190,6 +122,9 @@ public class formCheckOut extends javax.swing.JDialog {
                 lokal);
          String hasilSelisih = pelanggan.selisihDateTime(waktuSatu,
                 WaktuDua);
+         pelanggan p=new pelanggan();
+         p.getDenda();
+                System.out.println(denda);
                 
 
             } catch (IOException ex) {
@@ -240,6 +175,10 @@ public class formCheckOut extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_kolomTanggalCOActionPerformed
 
+    private void traActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traActionPerformed
+    new cetakT().setVisible(true);
+    }//GEN-LAST:event_traActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -285,17 +224,13 @@ public class formCheckOut extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField kolomIDCO;
     private javax.swing.JTextField kolomKelasCO;
     private javax.swing.JTextField kolomNamaCO;
     private javax.swing.JTextField kolomNomorCO;
     private javax.swing.JTextField kolomTanggalCI;
     private javax.swing.JTextField kolomTanggalCO;
+    private javax.swing.JButton tra;
     // End of variables declaration//GEN-END:variables
 }
