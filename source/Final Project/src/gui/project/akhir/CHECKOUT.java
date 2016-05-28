@@ -341,7 +341,9 @@ public class CHECKOUT extends javax.swing.JFrame {
         }
         updateTable();
     }//GEN-LAST:event_ButtonOutMouseClicked
-
+    /**
+     * membuat method untuk login
+     */
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
         dispose();
@@ -351,7 +353,7 @@ public class CHECKOUT extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
-     * @param args the command line arguments
+     * main method check out
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

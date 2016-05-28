@@ -11,7 +11,9 @@ package gui.project.akhir;
  * @author dwiyan
  */
 import java.sql.*;
-
+    /**
+     * main method yang berfungsi sebagai mengambil informasi pengunjung
+     */
 public class DataKamar {
 
     public static void main(String[] args) throws SQLException {
