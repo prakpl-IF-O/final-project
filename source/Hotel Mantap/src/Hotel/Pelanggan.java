@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
 
-public class Pelanggan {
+public class Pelanggan extends Kamar{
     private String nama, nik, ttl;
     private int idPelanggan, hari;
 
