@@ -97,7 +97,7 @@ public class TabelPelanggan extends javax.swing.JFrame {
             TabelPelanggan.setDefaultRenderer(Integer.class, center);
             TabelPelanggan.setDefaultRenderer(Double.class, center);
             DefaultTableModel tabel = (DefaultTableModel) TabelPelanggan.getModel();
-            Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel");
+            Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel Mantap");
             Statement st = connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT * FROM PELANGGAN";
             ResultSet rs = st.executeQuery(sql);

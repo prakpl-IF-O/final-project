@@ -101,7 +101,7 @@ public class TabelTransaksi extends javax.swing.JFrame {
             TabelTransaksi.setDefaultRenderer(Integer.class, center);
             TabelTransaksi.setDefaultRenderer(Double.class, center);
             DefaultTableModel tabel = (DefaultTableModel) TabelTransaksi.getModel();
-            Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel");
+            Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel Mantap");
             Statement st = connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT * FROM TRANSAKSI";
             ResultSet rs = st.executeQuery(sql);
