@@ -16,6 +16,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuUtama
+     * Memanggil method initComponents()
      */
     public MenuUtama() {
         initComponents();
@@ -179,6 +180,11 @@ public class MenuUtama extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method TamuMouseClicked
+     * @param evt 
+     * Menampilkan atau menyembunyikan output objek T dari kelas Tamu()
+     */
     private void TamuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TamuMouseClicked
         // Tamu
         Tamu T = new Tamu();
@@ -186,10 +192,20 @@ public class MenuUtama extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_TamuMouseClicked
 
+    /**
+     * Method jButton1MouseExited
+     * @param evt 
+     * Menunjuk pada method dispose()
+     */
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         this.dispose();
     }//GEN-LAST:event_jButton1MouseExited
 
+    /**
+     * Method PendapatanMouseClicked
+     * @param evt 
+     * Menampilkan atau Menyembunyikan output objek Ph dari kelas Pendapatan_Hotel
+     */
     private void PendapatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PendapatanMouseClicked
         // P_Hotel
         Pendapatan_Hotel Ph = new Pendapatan_Hotel();
@@ -197,12 +213,22 @@ public class MenuUtama extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_PendapatanMouseClicked
 
+    /**
+     * Method TanggalActionPerformed
+     * @param evt 
+     * // TODO add your handling code here:
+     */
     private void TanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanggalActionPerformed
         // TODO add your handling code here:
         
         
     }//GEN-LAST:event_TanggalActionPerformed
 
+    /**
+     * Method MunculActionPerformed
+     * @param evt 
+     * Menampilkan tanggal
+     */
     private void MunculActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MunculActionPerformed
         // TODO add your handling code here:
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -211,15 +237,30 @@ public class MenuUtama extends javax.swing.JFrame {
         Tanggal.setText(sdf.format(c1.getTime()));
     }//GEN-LAST:event_MunculActionPerformed
 
+    /**
+     * Method jMenu3ActionPerformed
+     * @param evt 
+     * // TODO add your handling code here:
+     */
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu3ActionPerformed
 
+    /**
+     * Method jMenu3MouseClicked
+     * @param evt 
+     * // Kamar
+     */
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         // Kamar
         
     }//GEN-LAST:event_jMenu3MouseClicked
 
+    /**
+     * Method KamarMouseClicked
+     * @param evt 
+     * Menampilkan atau menyembunyikan output objek K dari kelas Kamar()
+     */
     private void KamarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KamarMouseClicked
         // TODO add your handling code here:
         Kamar K = new Kamar();
@@ -227,10 +268,21 @@ public class MenuUtama extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_KamarMouseClicked
 
+    /**
+     * Method PengunjungActionPermformed
+     * @param evt 
+     * // TODO add your handling code here:
+     */
     private void PengunjungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PengunjungActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PengunjungActionPerformed
 
+    /**
+     * Method PengunjungMouseClicked
+     * @param evt 
+     * Menampilkan atau menyembunyikan output objek P pada kelas JPelanggan()
+     * Memanggil method a() yang menampilkan no, id, nama, ttl, jumlah hari menginap dari pelanggan
+     */
     private void PengunjungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PengunjungMouseClicked
         // Jpelanggan
         JPelanggan P = new JPelanggan ();
@@ -268,6 +320,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            // Menampilkan MenuUtama()
             public void run() {
                 new MenuUtama().setVisible(true);
             }

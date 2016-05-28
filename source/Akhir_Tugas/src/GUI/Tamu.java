@@ -24,10 +24,12 @@ import javax.swing.JOptionPane;
  */
 public class Tamu extends javax.swing.JFrame {
 
+    // Deklarasi variabel Tot bertipe integer
+
     int Tot;
 
     /**
-     * Creates new form Tamu
+     * Creates new form Tamu Memanggil method initComponents()
      */
     public Tamu() {
         initComponents();
@@ -305,6 +307,12 @@ public class Tamu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method CekActionPerformed
+     *
+     * @param evt Berdasarkan id pelanggan, method ini akan menampilkan nama dan
+     * ttl
+     */
     private void CekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CekActionPerformed
         // Cek
         pelanggan P = new pelanggan();
@@ -322,30 +330,59 @@ public class Tamu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CekActionPerformed
 
+    /**
+     * Method idActionPerformed
+     *
+     * @param evt // ID
+     * 
+     */
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         // ID       
     }//GEN-LAST:event_idActionPerformed
 
+    /**
+     * Method ttl1ActionPerformed
+     *
+     * @param evt Mengambil isi Text Field ttl1
+     */
     private void ttl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttl1ActionPerformed
         // TODO add your handling code here:
         String ttl = ttl1.getText();
 
     }//GEN-LAST:event_ttl1ActionPerformed
 
+    /**
+     * Method DiskonActionPerformed
+     *
+     * @param evt // Tamu
+     */
     private void DiskonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiskonActionPerformed
         // Tamu
     }//GEN-LAST:event_DiskonActionPerformed
 
+    /**
+     * Method SaveActionPerformed
+     *
+     * @param evt
+     * Menampilkan data tamu
+     */
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here:
+        // Membuat objek p dari kelas pelanggan()
         pelanggan p = new pelanggan();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
         c2.add(Calendar.DATE, Byte.parseByte(JHari.getText()));
         String h = "jdbc:derby://localhost:1527/hotel";
+        // Inisialisasi nilai variabel f
         String f = null;
+        // Inisialisasi nilai variabel z
         int z = 0;
+        // Menampilkan reguler jika user memilih "Reguler"
+        // Menampilkan premium jika user memilih "Premium"
+        // Menampilkan suite jika user memilih "suite"
+        // Menampilkan vip jika user memilih "VIP"
         if (pilih.getSelectedItem() == "1. Reguler") {
             f = "reguler";
         } else if (pilih.getSelectedItem() == "2. Premium") {
@@ -355,7 +392,9 @@ public class Tamu extends javax.swing.JFrame {
         } else if (pilih.getSelectedItem() == "4. VIP") {
             f = "VIP";
         }
+        // Inisialisasi nilai variabel a 
         int a = Integer.parseInt(JHari.getText());
+        // Menampilkan Text Field dari id pelanggan
         try {
             Connection con = DriverManager.getConnection(h);
             Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -369,6 +408,7 @@ public class Tamu extends javax.swing.JFrame {
             } catch (Exception e) {
 
             }
+            // Menampilkan nama, ttl1, dan id tamu/pelanggan
             try {
                 ResultSet r = st.executeQuery("SELECT * FROM pelanggan");
                 st.executeUpdate("INSERT INTO pelanggan "
@@ -379,8 +419,8 @@ public class Tamu extends javax.swing.JFrame {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+        // Menampilkan kelas kamarnya 
         try {
-
             Connection con = DriverManager.getConnection(h);
             Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet r = st.executeQuery("SELECT * FROM KAMAR WHERE kelas = '" + f + "'");
@@ -395,6 +435,7 @@ public class Tamu extends javax.swing.JFrame {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+        // Menampilkan data yang akan diisi oleh tamu untuk reservasi hotel
         try {
             Connection con = DriverManager.getConnection(h);
             Statement st = con.createStatement();
@@ -404,11 +445,17 @@ public class Tamu extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        // Menampilkan nama, kamar, biaya, total biaya, check in, check out
         JOptionPane.showMessageDialog(null, "Nama : " + nama.getText() + "\nKamar : " + f + "\nBiaya : "
                 + Total.getText() + "\nCheckin : " + (sdf.format(c1.getTime())) + "\nCheckout : " + CheckOut.getText() + "\nData Telah Disimpan");
 
     }//GEN-LAST:event_SaveActionPerformed
 
+    /**
+     * Method MenuMouseClicked
+     * @param evt 
+     * Menampilkan atau menyembunyikan output objek Mu dari kelas MenuUtama
+     */
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
         // MUtama
         MenuUtama Mu = new MenuUtama();
@@ -416,6 +463,11 @@ public class Tamu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_MenuMouseClicked
 
+    /**
+     * Method jButton3MouseClicked
+     * @param evt 
+     * Menampilkan atau menyembunyikan output objek Mu dari kelas MenuUtama
+     */
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // MUtama
         MenuUtama Mu = new MenuUtama();
@@ -423,51 +475,83 @@ public class Tamu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3MouseClicked
 
+    /**
+     * Method pilihActionPerformed
+     * @param evt 
+     * // Tpilih
+     */
     private void pilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihActionPerformed
         // Tpilih
 
     }//GEN-LAST:event_pilihActionPerformed
 
+    /**
+     * Method JHariActionPerformed
+     * @param evt 
+     * // Hari
+     */
     private void JHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JHariActionPerformed
         // Hari
 
     }//GEN-LAST:event_JHariActionPerformed
 
+    /**
+     * Method jButton1ActionPerformed
+     * @param evt 
+     * Menampilkan Total Biaya 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Hitung
+        // Menampilkan Tanggal
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Checkin T = new Checkin();
         pendapatanakhir PA = new pendapatanakhir();
         Calendar c1 = Calendar.getInstance();
+        // Menampilkan waktu
         c1.getTime();
+        // Deklarasi variabel x bertipe String
         String x;
         x = JHari.getText();
         byte hari = Byte.parseByte(x);
         c1.add(Calendar.DATE, Byte.parseByte(x));
         CheckOut.setText(sdf.format(c1.getTime()));
+        // Inisialisasi nilai variabel diskon
         double diskon = 0;
         String h = "jdbc:derby://localhost:1527/hotel";
         diskon = T.getDiskon(hari, id.getText()); //diskon ototmatis
+        // Mengeset Text Field diskon
         Diskon.setText(String.format("%.2f", diskon));
+        // Inisialisasi variabel Tot
         Tot = 0;
+        // Mengeset TextField dari Harga jika user memilih Reguler
         if (pilih.getSelectedItem() == "1. Reguler") {
             Tot = (int) (hari * 100000 - (hari * 100000) * diskon);
             Harga.setText("Rp. 100000");
-        } else if (pilih.getSelectedItem() == "2. Premium") {
+        } // Mengeset TextField dari Harga jika user memilih Premium 
+        else if (pilih.getSelectedItem() == "2. Premium") {
             Tot = (int) (hari * 200000 - (hari * 200000) * diskon);
             Harga.setText("Rp. 200000");
-        } else if (pilih.getSelectedItem() == "3. Suite") {
+        } // Mengeset TextField dari Harga jika user memilih Suite 
+        else if (pilih.getSelectedItem() == "3. Suite") {
             Tot = (int) (hari * 350000 - (hari * 350000) * diskon);
             Harga.setText("Rp. 350000");
-        } else if (pilih.getSelectedItem() == "4. VIP") {
+        } // Mengeset TextField dari Harga jika user memilih VIP
+        else if (pilih.getSelectedItem() == "4. VIP") {
             Tot = (int) (hari * 750000 - (hari * 750000) * diskon);
             Harga.setText("Rp. 750000");
         }
+        // Inisialisasi nilai variabel Tot
         T.total = Tot;
+        // Mengeset TextField dari Total 
         Total.setText(String.format("%d", Tot));
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Method jButton2ActionPerformed
+     * @param evt 
+     * Menampilkan uang kembalian tamu jika ada
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String x = Total1.getText();
@@ -476,6 +560,11 @@ public class Tamu extends javax.swing.JFrame {
         kembali.setText(String.format("%.2f", a));
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Method jButton3ActionPerformed
+     * @param evt 
+     * // TODO add your handling code here:
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -509,6 +598,7 @@ public class Tamu extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            // Menampilkan Tamu()
             public void run() {
                 new Tamu().setVisible(true);
             }

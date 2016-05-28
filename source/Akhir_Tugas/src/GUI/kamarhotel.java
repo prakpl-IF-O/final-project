@@ -17,11 +17,19 @@ import java.sql.ResultSet;
 
 public class kamarhotel {
 
+    // Deklarasi private variabel nk bertipe integer
     private int nk;
+    // Deklarasi private variabel har bertipe integer
     private int har;
+    // Deklarasi private variabel k bertipe String
     private String k;
+    // Deklarasi private variabel stat bertipe boolean 
     private boolean stat;
     
+    /**
+     * Method db()
+     * Menampilkan status kamar (terisi/kosong)
+     */
     public void db() {
         try {
             String h = "jdbc:derby://localhost:1527/hotel";
@@ -46,18 +54,34 @@ public class kamarhotel {
         }
     }
 
+    /**
+     * Method getNk()
+     * @return nilai variabel nk
+     */
     public int getNk() {
         return nk;
     }
 
+    /**
+     * Method getHar()
+     * @return nilai variabel har
+     */
     public int getHar() {
         return har;
     }
 
+    /**
+     * Method getK()
+     * @return nilai variabel k
+     */
     public String getK() {
         return k;
     }
 
+    /**
+     * Method isStat()
+     * @return nilai variabel stat
+     */
     public boolean isStat() {
         return stat;
     }
