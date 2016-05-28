@@ -45,6 +45,7 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelMasukkanPilihan.setVisible(false);
         labelClickedKeuangan.setVisible(false);
         labelCheck.setVisible(false);
+        tableKeuangan.setVisible(false);
     }
 
     public void TableData() {
@@ -54,7 +55,7 @@ public class ManagerFrame extends javax.swing.JFrame {
             String[] kolom = {pilih, "PENGHASILAN"};
 
             keuangan.cek_keuangan(pilih, index);
-            ResultSet rsBanyakData = stmt.executeQuery("SELECT COUNT (*) faza.DATAKEUANGAN");
+            ResultSet rsBanyakData = stmt.executeQuery("SELECT COUNT (*) FROM faza.DATAKEUANGAN");
             int jml = 0;
             if (rsBanyakData.next()) {
                 jml = rsBanyakData.getInt("TGL");
@@ -350,7 +351,7 @@ public class ManagerFrame extends javax.swing.JFrame {
                 namaIndex = "31";
                 break;
         }
-        pilih = "tanggal";
+        pilih = "TGL";
         labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxTanggalActionPerformed
 
@@ -405,7 +406,7 @@ public class ManagerFrame extends javax.swing.JFrame {
                 namaIndex = "desember";
                 break;
         }
-        pilih = "bulan";
+        pilih = "BLN";
         labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxBulanActionPerformed
 
@@ -442,8 +443,8 @@ public class ManagerFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_labelOutMouseClicked
 
     private void labelCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCheckMouseClicked
-        tableKeuangan.setVisible(true);
         TableData();
+        tableKeuangan.setVisible(true);
     }//GEN-LAST:event_labelCheckMouseClicked
 
     /**
