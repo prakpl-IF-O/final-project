@@ -12,6 +12,7 @@ import java.util.*;
  *
  * @author Irfandi
  */
+//mengatur database
 public class Database {
 
     private Staff DB_STAFF[];

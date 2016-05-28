@@ -18,6 +18,7 @@ import java.util.Locale;
  */
 /**
  * deklarasi class Pelanggan
+ * mengatur tentang pelanggan
  * @author Andy Wiranto
  */
 public class Pelanggan {

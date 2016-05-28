@@ -11,7 +11,7 @@ import java.text.ParseException;
  *
  * @author Irfandi
  */
-// mengolah tentang tamu
+// mengolah tentang class tamu
 public class TamuEngine {
 
     private static Tamu DATABASE[];

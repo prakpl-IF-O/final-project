@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
  * @author Irfandi
  */
 //deklarasi class Tamu yang merupakan subclass dari class Pelanggan
+// mengatur tentang tamu
 public class Tamu extends Pelanggan {
 
     Calendar TANGGAL = new GregorianCalendar();

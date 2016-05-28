@@ -1,6 +1,7 @@
 package Class;
 
 // deklarasi class Staff
+// mengatur tentang staff
 public class Staff {
     
 //deklarasi variabel

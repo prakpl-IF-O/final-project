@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  */
 /**
  * deklarasi class KamarEngine
+ * hal yang diperlukan pada class kamar
  * @author Andy Wiranto
  */
 public class KamarEngine {

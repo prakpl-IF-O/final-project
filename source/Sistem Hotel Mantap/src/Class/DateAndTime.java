@@ -13,7 +13,7 @@ import java.util.*;
  *
  * @author Irfandi
  */
-
+// mengatur dateAndTime
 public class DateAndTime {
     
     //get current time

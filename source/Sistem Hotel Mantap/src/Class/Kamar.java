@@ -10,6 +10,7 @@ package Class;
  * @author Irfandi
  */
 // DEKLARASI CLASS KAMAR
+// mengatur kamar
 public class Kamar {
 // deklarasi variabel
     private final String NOMOR_KAMAR, JENIS_KAMAR;
