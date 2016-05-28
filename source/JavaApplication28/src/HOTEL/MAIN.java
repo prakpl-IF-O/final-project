@@ -482,7 +482,7 @@ public class MAIN extends javax.swing.JFrame {
             } catch (NumberFormatException salah) {
                 n = 1;
                 System.out.println(n);
-                JOptionPane.showMessageDialog(this, "no");
+                JOptionPane.showMessageDialog(this, "Masukan NIK, nomor kamar\n dan lama menginap berupa angka");
             }
             if (n != 1) {
                 Pelanggan tamu = new Pelanggan(ND, NB, TTL, c, a);
@@ -536,8 +536,7 @@ public class MAIN extends javax.swing.JFrame {
                 }
                 else {
                 JOptionPane.showMessageDialog(this, "berhasil check out");
-                String az= String.format(a+"bayar: %.0f\nkembalian: %.0f", bayar,kembalian);
-                JOptionPane.showMessageDialog(this, az);
+                JOptionPane.showMessageDialog(this, a);
                 a.saveToLaporan(noKam, harga, a.denda(noKam, TK, JK));
                 a.clear(noKam);
                 }
@@ -560,8 +559,7 @@ public class MAIN extends javax.swing.JFrame {
                 }
                 else {
                 JOptionPane.showMessageDialog(this, "berhasil check out");
-                String az= String.format(a+"bayar: %.0f\nkembalian: %.0f", bayar,kembalian);
-                JOptionPane.showMessageDialog(this, az);
+                JOptionPane.showMessageDialog(this, a);
                 a.saveToLaporan(noKam, harga, a.denda(noKam, TK, JK));
                 a.clear(noKam);
                 }
@@ -582,8 +580,7 @@ public class MAIN extends javax.swing.JFrame {
                 }
                 else {
                 JOptionPane.showMessageDialog(this, "berhasil check out");
-                String az= String.format(a+"bayar: %.0f\nkembalian: %.0f", bayar,kembalian);
-                JOptionPane.showMessageDialog(this, az);
+                JOptionPane.showMessageDialog(this, a);
                 a.saveToLaporan(noKam, harga, a.denda(noKam, TK, JK));
                 a.clear(noKam);
                 }
