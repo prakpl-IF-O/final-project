@@ -1,0 +1,14 @@
+Sat May 28 08:01:05 ICT 2016 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Sat May 28 08:01:06 ICT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0154-f4e0-f581-ffffd7104a30 
+on database directory C:\Users\Husein\.netbeans-derby\hotel with class loader sun.misc.Launcher$AppClassLoader@2de80c 
+Loaded from file:/C:/Program%20Files%20(x86)/Java/jdk1.8.0_60/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_60-b27
+user.dir=C:\Program Files (x86)\Java\jdk1.8.0_60\db
+os.name=Windows 7
+os.arch=x86
+os.version=6.1
+derby.system.home=C:\Users\Husein\.netbeans-derby
+Database Class Loader started - derby.database.classpath=''

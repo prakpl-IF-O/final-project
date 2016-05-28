@@ -142,16 +142,16 @@ public class JPelanggan extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection(h);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM pelanggan");
+            int no = 1;
             while (rs.next()) {
-                    String nama = rs.getString(1);
-                    String ttl = rs.getString(2);
-                    int jh = rs.getInt(3);
-                    String id=rs.getString(4);
-                    String out = "";
-                    int no = 1;
-                    Object[] bar = {no,id,nama, ttl, jh};
-                    table.addRow(bar);
-                    no++;
+                String nama = rs.getString(1);
+                String ttl = rs.getString(2);
+                int jh = rs.getInt(3);
+                String id = rs.getString(4);
+                String out = "";
+                Object[] bar = {no, id, nama, ttl, jh};
+                table.addRow(bar);
+                no++;
             }
         } catch (SQLException err) {
             System.out.println(err.getMessage());

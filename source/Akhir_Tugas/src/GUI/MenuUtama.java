@@ -234,6 +234,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private void PengunjungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PengunjungMouseClicked
         // Jpelanggan
         JPelanggan P = new JPelanggan ();
+        P.a();
         P.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_PengunjungMouseClicked
