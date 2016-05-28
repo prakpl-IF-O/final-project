@@ -1,10 +1,11 @@
-
 package Hotel;
 
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 
 public class Hotel extends javax.swing.JFrame {
+
+    Transaksi trx = new Transaksi();
 
     public Hotel() {
         initComponents();
@@ -89,6 +90,7 @@ public class Hotel extends javax.swing.JFrame {
         });
 
         Total.setEditable(false);
+        Total.setToolTipText("Tekan \"ENTER\" pada \"Lama Sewa\" untuk mendapatkan nominal \"Total\"");
 
         jLabel1.setText("Nama");
 
@@ -117,6 +119,7 @@ public class Hotel extends javax.swing.JFrame {
         });
 
         Denda.setEditable(false);
+        Denda.setToolTipText("Tekan \"ENTER\" pada \"ID Pelanggan\" diatas untuk mendapatkan nominal \"Denda\"");
 
         BayarDenda.setEnabled(false);
 
@@ -197,7 +200,7 @@ public class Hotel extends javax.swing.JFrame {
                                 .addComponent(Sewa, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel10))
-                            .addComponent(Bayar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(Bayar, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                             .addComponent(Total))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -313,36 +316,137 @@ public class Hotel extends javax.swing.JFrame {
     }//GEN-LAST:event_LamaActionPerformed
 
     private void KelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelasActionPerformed
-        // TODO add your handling code here:
+        String kelas = null;
+        try {
+            if (Kelas.getSelectedIndex() != -1) {
+                switch (Kelas.getSelectedIndex()) {
+                    case 0:kelas = "REGULER";break;
+                    case 1:kelas = "PREMIUM";break;
+                    case 2:kelas = "SUITE";break;
+                    case 3:kelas = "VIP";break;
+                    default:
+                }
+                trx.setKelas(kelas);
+                if (idPelanggan1.isEnabled()) {
+                    int idPelanggan = Integer.parseInt(idPelanggan1.getText());
+                    trx.setIdPelanggan(idPelanggan);
+                }
+            }
+        } catch (NumberFormatException error) {
+        }
     }//GEN-LAST:event_KelasActionPerformed
 
     private void CheckinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckinActionPerformed
-        // TODO add your handling code here:
+        try {
+            double bayar = Double.parseDouble(Bayar.getText());
+            double kembali = bayar - trx.getTotal();
+            boolean check = false;
+            if (bayar >= trx.getTotal()) {
+                if (Baru.isSelected()) {
+                    trx.setNama(Nama.getText());
+                    trx.setNik(NIK.getText());
+                    trx.setTtl(TTL.getText());
+                    check = trx.checkInBaru();
+                } else if (Lama.isSelected()) {
+                    trx.setNama(trx.getNama());
+                    trx.setNik(trx.getNik());
+                    check = trx.checkInLama();
+                }
+                if (check == true) {
+                    JOptionPane.showMessageDialog(rootPane, trx.detailTransaksi(bayar, kembali), "Detail Transaksi", PLAIN_MESSAGE);
+                    clearField();
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Kelas kamar yang dipesan telah penuh, silahkan pilih kelas kamar yang lain", "Check In gagal", PLAIN_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Uang yang dibayar kurang dari total bayar, mohon ulangi", "Transaksi gagal", PLAIN_MESSAGE);
+            }
+        } catch (NumberFormatException error) {
+            JOptionPane.showMessageDialog(rootPane, "Transaksi gagal, mohon coba lagi", "Transaksi gagal", PLAIN_MESSAGE);
+        }
     }//GEN-LAST:event_CheckinActionPerformed
 
     private void CheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutActionPerformed
-        // TODO add your handling code here:
+        try {
+            int idPelanggan = Integer.parseInt(idPelanggan2.getText());
+            double bayarDenda = Double.parseDouble(BayarDenda.getText());
+            double kembali = bayarDenda - trx.denda();
+            if (trx.denda() != 0) {
+                if (bayarDenda - trx.denda() >= 0) {
+                    trx.updateTransaksi("CHECKOUT(DENDA)", trx.denda());
+                    String message = String.format("---Check Out sukses---\nNama : %s\nID Pelanggan : %d\nNo Kamar : %d\n\nDenda : Rp %.2f\nBayar : Rp %.2f\nKembali : Rp %.2f", trx.getNama(), trx.getIdPelanggan(), trx.getNoKamar(trx.getIdPelanggan()), trx.denda(), bayarDenda, kembali);
+                    trx.outKamar(idPelanggan);
+                    JOptionPane.showMessageDialog(rootPane, message, "Check Out", PLAIN_MESSAGE);
+                    clearField();
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Uang yang dibayar kurang dari total bayar, mohon ulangi", "Transaksi gagal", PLAIN_MESSAGE);
+                }
+            }
+        } catch (NumberFormatException error) {
+            JOptionPane.showMessageDialog(rootPane, "Check Out gagal, mohon coba lagi", "Check Out gagal", PLAIN_MESSAGE);
+        }
     }//GEN-LAST:event_CheckoutActionPerformed
 
     private void idPelanggan2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idPelanggan2ActionPerformed
-        // TODO add your handling code here:
+        try {
+            int idPelanggan = Integer.parseInt(idPelanggan2.getText());
+            trx.setIdPelanggan(idPelanggan);
+            String denda = Double.toString(trx.denda());
+            Denda.setText(denda);
+            if (trx.denda() != 0) {
+                BayarDenda.setEnabled(true);
+            }
+        } catch (NumberFormatException error) {
+        }
     }//GEN-LAST:event_idPelanggan2ActionPerformed
 
     private void SewaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SewaActionPerformed
-        // TODO add your handling code here:
+        try {
+            trx.setSewa(Integer.parseInt(Sewa.getText()));
+            if (idPelanggan1.isEnabled()) {
+                trx.setTotal((trx.getHarga() - trx.diskon()) * trx.getSewa());
+            } else {
+                trx.setTotal(trx.getHarga() * trx.getSewa());
+            }
+            Total.setText(Double.toString(trx.getTotal()));
+        } catch (NumberFormatException error) {
+        }
     }//GEN-LAST:event_SewaActionPerformed
 
     private void KamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KamarActionPerformed
-        // TODO add your handling code here:
+        TabelKamar tabelk = new TabelKamar();
+        tabelk.tabelKamar();
+        tabelk.setVisible(true);
     }//GEN-LAST:event_KamarActionPerformed
 
     private void PelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PelangganActionPerformed
-        // TODO add your handling code here:
+        TabelPelanggan tabelp = new TabelPelanggan();
+        tabelp.tabelPelanggan();
+        tabelp.setVisible(true);
     }//GEN-LAST:event_PelangganActionPerformed
 
     private void TransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransaksiActionPerformed
-        // TODO add your handling code here:
+        TabelTransaksi tabelt = new TabelTransaksi();
+        tabelt.tabelTransaksi();
+        tabelt.setVisible(true);
     }//GEN-LAST:event_TransaksiActionPerformed
+
+    private void clearField() {
+        Nama.setText(null);
+        NIK.setText(null);
+        TTL.setText(null);
+        idPelanggan1.setText(null);
+        Kelas.setSelectedIndex(-1);
+        Sewa.setText(null);
+        Total.setText(null);
+        Bayar.setText(null);
+        idPelanggan2.setText(null);
+        Denda.setText(null);
+        BayarDenda.setText(null);
+        trx.setIdPelanggan(0);
+        trx.setNama(null);
+        trx.setNik(null);
+    }
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -364,7 +468,7 @@ public class Hotel extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Hotel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Hotel().setVisible(true);

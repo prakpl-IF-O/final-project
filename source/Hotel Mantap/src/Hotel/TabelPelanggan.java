@@ -32,6 +32,7 @@ public class TabelPelanggan extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel1.setText("Tabel Pelanggan");
 
+        TabelPelanggan.setAutoCreateRowSorter(true);
         TabelPelanggan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

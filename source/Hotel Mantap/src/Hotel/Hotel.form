@@ -60,7 +60,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="Bayar" alignment="0" pref="200" max="32767" attributes="0"/>
+                          <Component id="Bayar" alignment="0" pref="285" max="32767" attributes="0"/>
                           <Component id="Total" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -240,6 +240,7 @@
     <Component class="javax.swing.JTextField" name="Total">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Tekan &quot;ENTER&quot; pada &quot;Lama Sewa&quot; untuk mendapatkan nominal &quot;Total&quot;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Bayar">
@@ -302,6 +303,7 @@
     <Component class="javax.swing.JTextField" name="Denda">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Tekan &quot;ENTER&quot; pada &quot;ID Pelanggan&quot; diatas untuk mendapatkan nominal &quot;Denda&quot;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="BayarDenda">
