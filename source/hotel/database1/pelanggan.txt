@@ -1,0 +1,10 @@
+8
+NIK : 123
+Nama : heru
+Tanggal lahir : 14/04/1997
+Tempat lahir : Balikpapan
+Id pelanggan : 132
+Tanggal checkin : 16/04/2018
+Kelas kamar : vip
+Nomor kamar : 3
+Harga : 750000
