@@ -334,6 +334,7 @@ public class Tamu extends javax.swing.JFrame {
      * Method idActionPerformed
      *
      * @param evt // ID
+     * 
      */
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         // ID       
