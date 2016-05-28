@@ -31,7 +31,7 @@ public class pendapatanakhir extends Checkin{
             // Hasil yang didapat dari pendapatanakhir
             rs = st.executeQuery("SELECT * FROM pendapatanakhir");
             rs.next();
-            // Menghitung nilai x
+            // Memberi nilai variabel x bertipe int
             int x = rs.getInt(1);
             // Mengembalikan nilai pendapatanakhir
             rs.updateInt(1, (int) (x+super.getTotal()));
