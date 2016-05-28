@@ -20,7 +20,9 @@ public class Transaksi extends Pengunjung {
     private String JamOut;
     private String out;
     private int tagihan;
-    
+     /**
+     *membuat contructor transaksi
+     */
     public Transaksi(String status, String JamOut, String out, int tagihan) {
         this.status = status;
         this.JamOut = JamOut;
@@ -30,7 +32,9 @@ public class Transaksi extends Pengunjung {
     
     public Transaksi() {
     }
-    
+     /**
+     * membuat method menghitung diskon kamar
+     */
     public double diskonKamar(int lamaInap) {
         if (lamaInap > 61) {
             return 0.25;
@@ -42,7 +46,9 @@ public class Transaksi extends Pengunjung {
             return 0;
         }
     }
-    
+     /**
+     *membuat method hari keluar dengan lama inap
+     */
     public String dayOut(int lamaInap, String in) {
         String out[] = in.split("-");
         int year = Integer.parseInt(out[0]);
@@ -55,7 +61,9 @@ public class Transaksi extends Pengunjung {
         String output = sdf.format(c.getTime());
         return output;
     }
-    
+     /**
+     *membuat method denda hotel
+     */    
     public int dendaHotel(String in, String out) {
         int ni = Integer.parseInt(in);
         int tou = Integer.parseInt(out);
