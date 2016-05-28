@@ -368,18 +368,26 @@ public class Hotel extends javax.swing.JFrame {
 
     private void CheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutActionPerformed
         try {
-            int idPelanggan = Integer.parseInt(idPelanggan2.getText());
-            double bayarDenda = Double.parseDouble(BayarDenda.getText());
-            double kembali = bayarDenda - trx.denda();
             if (trx.denda() != 0) {
+                double bayarDenda = Double.parseDouble(BayarDenda.getText());
+                double kembali = bayarDenda - trx.denda();
                 if (bayarDenda - trx.denda() >= 0) {
                     trx.updateTransaksi("CHECKOUT(DENDA)", trx.denda());
                     String message = String.format("---Check Out sukses---\nNama : %s\nID Pelanggan : %d\nNo Kamar : %d\n\nDenda : Rp %.2f\nBayar : Rp %.2f\nKembali : Rp %.2f", trx.getNama(), trx.getIdPelanggan(), trx.getNoKamar(trx.getIdPelanggan()), trx.denda(), bayarDenda, kembali);
-                    trx.outKamar(idPelanggan);
+                    trx.outKamar(trx.getIdPelanggan());
                     JOptionPane.showMessageDialog(rootPane, message, "Check Out", PLAIN_MESSAGE);
                     clearField();
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Uang yang dibayar kurang dari total bayar, mohon ulangi", "Transaksi gagal", PLAIN_MESSAGE);
+                }
+            }else{
+                if(trx.getIdPelanggan() != 0){
+                    String message = String.format("---Check Out sukses---\nNama : %s\nID Pelanggan : %d\nNo Kamar : %d\n", trx.getNama(), trx.getIdPelanggan(), trx.getNoKamar(trx.getIdPelanggan()));
+                    trx.outKamar(trx.getIdPelanggan());
+                    JOptionPane.showMessageDialog(rootPane, message, "Check Out", PLAIN_MESSAGE);
+                    clearField();
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "ID Pelanggan tidak valid, mohon coba lagi", "Check Out gagal", PLAIN_MESSAGE);
                 }
             }
         } catch (NumberFormatException error) {
