@@ -9,6 +9,11 @@ package Class;
  *
  * @author Irfandi
  */
+/**
+ * deklarasi class LoginEngine
+ * untuk mengatur kegiatan login
+ * @author Andy Wiranto
+ */
 public class LoginEngine {
 
     private static Staff DATABASE[];
@@ -28,7 +33,15 @@ public class LoginEngine {
         DATABASE = db.GET_DB_STAFF();
         DB_SIZE = db.GET_DB_SIZE();
     }
-
+/**
+ * melakukan login
+ * menyamakan username dan password yang telah dibuat sebelumnya
+ * jika sama akan lanjut 
+ * jika tidak maka diulang
+ * @param username
+ * @param password
+ * 
+ */
     public boolean LOGIN(String username, String password) {
         for (int i = 0; i < DB_SIZE; i++) {
             if (username.equalsIgnoreCase(DATABASE[i].getID()) && password.equalsIgnoreCase(DATABASE[i].getPassword())) {
@@ -37,7 +50,12 @@ public class LoginEngine {
         }
         return false;
     }
-
+/**pertanyaan keamanan jika lupa password
+ * masukan username, lalu akan muncul pertanyaan
+ * jika tidak ditemukan maka pesan "Maaf, username tidak ditemukan" akan muncul
+ * @param username
+ * 
+ */
     public String GET_PERTANYAAN_KEAMANAN(String username) {
         int index = FIND_STAFF_INDEX(username);
 
@@ -48,6 +66,14 @@ public class LoginEngine {
         }
     }
 
+    /**
+     * jawaban untuk lupa password
+     * memasukan jawaban dari pertanyaan yang tersedia
+     * jika sesuai maka lanjut
+     * jika tidak maka akan muncul "ERROR"
+     * @param username
+     * 
+     */
     public String GET_JAWABAN_KEAMANAN(String username) {
         int index = FIND_STAFF_INDEX(username);
 
@@ -58,6 +84,11 @@ public class LoginEngine {
         }
     }
 
+    /**
+     * untuk mencari username yang telah diinputkan
+     * @param username
+     * 
+     */
     public int FIND_STAFF_INDEX(String username) {
         for (int i = 0; i < DB_SIZE; i++) {
             if (username.equalsIgnoreCase(DATABASE[i].getID())) {

@@ -16,6 +16,10 @@ import java.util.Locale;
  *
  * @author Irfandi
  */
+/**
+ * deklarasi class Pelanggan
+ * @author Andy Wiranto
+ */
 public class Pelanggan {
 
     Calendar TANGGAL = new GregorianCalendar();
@@ -24,7 +28,8 @@ public class Pelanggan {
     private String ID, NIK, NAMA, TEMPAT_LAHIR;
     private Date TANGGAL_LAHIR, TANGGAL_DAFTAR;
     private int AKUMULASI;
-
+    
+// konstruktor class Pelanggan
     public Pelanggan(String id, String nik, String nama, String tempat_lahir,
             String tanggal_lahir, String tanggal_daftar, String akumulasi) throws ParseException {
         this.ID = id;
@@ -37,48 +42,52 @@ public class Pelanggan {
         System.out.println("add pel " + nama);
     }
 
-    /**
+    /**Mendapatkan nilai ID
      * @return the ID
      */
     public String GET_ID() {
         return ID;
     }
 
-    /**
+    /**Mendapatkan nilai NIK
      * @return the NIK
      */
     public String GET_NIK() {
         return NIK;
     }
 
-    /**
+    /**Mendapatkan nilai NAMA
      * @return the NAMA
      */
     public String GET_NAMA() {
         return NAMA;
     }
 
-    /**
+    /**Mendapatkan nilai TANGGAL_LAHIR
      * @return the TANGGAL_LAHIR
      */
     public Date GET_TANGGAL_LAHIR() {
         return TANGGAL_LAHIR;
     }
 
-    /**
+    /**Mendapatkan nilai TANGGAL_DAFTAR
      * @return the TANGGAL_DAFTAR
      */
     public Date GET_TANGGAL_DAFTAR() {
         return TANGGAL_DAFTAR;
     }
 
-    /**
+    /**Mendapatkan nilai AKUMULASI
      * @return the AKUMULASI
      */
     public int GET_AKUMULASI() {
         return AKUMULASI;
     }
-
+/**mengisi tanggal lahir
+ * mengisikan hari tanggal bulan tahun lahir
+ * konversi hari tanggal bulan tahun agar sesuai kalender
+ * @return hari tanggal bulan tahun sesuai kalender 
+ */
     public String STRING_TANGGAL_LAHIR() {
         TANGGAL.setTime(TANGGAL_LAHIR);
 
@@ -89,6 +98,12 @@ public class Pelanggan {
         return (HARI + ", " + TANGGAL_ + " " + BULAN + " " + TAHUN);
     }
 
+    /**
+     * format tanggal lahir
+     * mengisikan hari tanggal bulan tahun lahir
+     * menyesuaikan format tanggal bulan tahun agar dapat di proses
+     * @return tanggal bulan tahun sesuai kalender
+     */
     public String FORMATED_TANGGAL_LAHIR() {
         TANGGAL.setTime(TANGGAL_LAHIR);
         String TANGGAL_, BULAN;
@@ -110,7 +125,11 @@ public class Pelanggan {
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
         return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
     }
-
+/**
+ * mengisi tanggal daftar
+ * mengkonversikan hari tanggal bulan tahun agar sesuai
+ * @return hari tanggal bulan tahun sesuai dengan kalender
+ */
     public String STRING_TANGGAL_DAFTAR() {
         TANGGAL.setTime(TANGGAL_DAFTAR);
 
@@ -120,7 +139,12 @@ public class Pelanggan {
         String TAHUN = Integer.toString(TANGGAL.get(Calendar.YEAR));
         return (HARI + ", " + TANGGAL_ + " " + BULAN + " " + TAHUN);
     }
-
+/**
+ * format tanggal daftar
+ * mengisikan hari tanggal bulan tahun lahir
+ * menyesuaikan format tanggal bulan tahun agar dapat di proses
+ * @return 
+ */
     public String FORMATED_TANGGAL_DAFTAR() {
         TANGGAL.setTime(TANGGAL_DAFTAR);
         String TANGGAL_, BULAN;
@@ -143,56 +167,56 @@ public class Pelanggan {
         return (TANGGAL_ + "/" + BULAN + "/" + TAHUN);
     }
 
-    /**
+    /**Memberi nilai SET_ID
      * @param ID the ID to set
      */
     public void SET_ID(String ID) {
         this.ID = ID;
     }
 
-    /**
+    /**Memberi nilai SET_NIK
      * @param NIK the NIK to set
      */
     public void SET_NIK(String NIK) {
         this.NIK = NIK;
     }
 
-    /**
+    /**Memberi nilai SET_NAMA
      * @param NAMA the NAMA to set
      */
     public void SET_NAMA(String NAMA) {
         this.NAMA = NAMA;
     }
 
-    /**
+    /**Memberi nilai SET_TEMPAT_LAHIR
      * @param TEMPAT_LAHIR the TEMPAT_LAHIR to set
      */
     public void SET_TEMPAT_LAHIR(String TEMPAT_LAHIR) {
         this.TEMPAT_LAHIR = TEMPAT_LAHIR;
     }
 
-    /**
+    /**Memberi nilai SET_TANGGAL_LAHIR
      * @param TANGGAL_LAHIR the TANGGAL_LAHIR to set
      */
     public void SET_TANGGAL_LAHIR(Date TANGGAL_LAHIR) {
         this.TANGGAL_LAHIR = TANGGAL_LAHIR;
     }
 
-    /**
+    /**Memberi nilai SET_TANGGAL_DAFTAR
      * @param TANGGAL_DAFTAR the TANGGAL_DAFTAR to set
      */
     public void SET_TANGGAL_DAFTAR(Date TANGGAL_DAFTAR) {
         this.TANGGAL_DAFTAR = TANGGAL_DAFTAR;
     }
 
-    /**
+    /**Memberi nilai SET_AKUMULASI
      * @param AKUMULASI the AKUMULASI to set
      */
     public void SET_AKUMULASI(int AKUMULASI) {
         this.AKUMULASI = AKUMULASI;
     }
 
-    /**
+    /**Mendapatkan nilai GET_TEMPAT_LAHIR
      * @return the TEMPAT_LAHIR
      */
     public String GET_TEMPAT_LAHIR() {

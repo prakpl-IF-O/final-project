@@ -21,7 +21,10 @@ public class Database {
     private LaporanBulanan DB_LAPORAN[];
 
     private int DB_SIZE = 0;
-
+    
+    
+    //write database kamar
+    //menulis file database kamar sesuai inputan parameter array objek kamar
     public void WRITE_DATABASE_KAMAR(Kamar[] LIST) {
         int max = 100;
         try {
@@ -54,6 +57,10 @@ public class Database {
             e.printStackTrace();
         }
     }
+    
+    //write database laporan
+    //menulis file database laporan sesuai inputan parameter array objek laporan bulanan
+    //dan melakukan perulangan sebanyak banyak objek dalam parameter max
 
     public void WRITE_DATABASE_LAPORAN(LaporanBulanan[] LIST, int max) {
 
@@ -85,6 +92,10 @@ public class Database {
             e.printStackTrace();
         }
     }
+    
+    //write database pelanggan
+    //menulis file database pelanggan sesuai inputan parameter array objek pelanggan
+    //dan melakukan perulangan sebanyak banyak objek pelanggan dalam parameter max
 
     public void WRITE_DATABASE_PELANGGAN(Pelanggan[] LIST, int max) {
 
@@ -124,6 +135,10 @@ public class Database {
             e.printStackTrace();
         }
     }
+    
+    //write database tamu
+    //menulis file database tamu sesuai inputan parameter array objek tamu
+    //dan melakukan perulangan sebanyak banyak objek tamu dalam parameter max
 
     public void WRITE_DATABASE_TAMU(Tamu[] LIST, int max) {
 
@@ -171,7 +186,11 @@ public class Database {
             e.printStackTrace();
         }
     }
-
+    
+    //read database
+    //membaca database sesuai permintaan dalam parameter database sebagai jenis database
+    //dan string dbfile sebagai alamat database. kemudian akan menginstansiasikan objeknya
+    //kedalam array objek yang tersedia
     public void READ_DATABASE(String Database, String db_file) throws Exception {
         File file = new File(db_file);
         BufferedReader READ = new BufferedReader(new FileReader(file));
@@ -181,7 +200,7 @@ public class Database {
         DB_SIZE = Integer.parseInt(SIGN);
 
         if (Database.equalsIgnoreCase("staff")) {
-            DB_STAFF = new Staff[DB_SIZE + 5]; // setiap inisialisasi DB dapat menambpung 5 staff baru
+            DB_STAFF = new Staff[DB_SIZE + 5]; // setiap inisialisasi DB dapat menambpung c 5 staff baru
 
             for (int i = 0; i < DB_SIZE; i++) {
                 SIGN = READ.readLine();
@@ -278,27 +297,39 @@ public class Database {
         }
 
     }
-
+    
+    //get db kamar
+    //mengembalikan array of objek kamar
     public Kamar[] GET_DB_KAMAR() {
         return DB_KAMAR;
     }
 
+    //get db staff
+    //mengembalikan array of objek staff
     public Staff[] GET_DB_STAFF() {
         return DB_STAFF;
     }
 
+    //get db tamu
+    //mengembalikan array of objektamu
     public Tamu[] GET_DB_TAMU() {
         return DB_TAMU;
     }
 
+    //get db pelanggan
+    //mengembalikan array of objek pelanggan
     public Pelanggan[] GET_DB_PELANGGAN() {
         return DB_PELANGGAN;
     }
 
+    //get db laporan
+    //mengembalikan array of objek laporan
     public LaporanBulanan[] GET_DB_LAPORAN() {
         return DB_LAPORAN;
     }
 
+    //get db size
+    //mengembalikan nilai besar / jumlah objek dalam array of object
     public int GET_DB_SIZE() {
         return DB_SIZE;
     }

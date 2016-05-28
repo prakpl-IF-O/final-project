@@ -12,8 +12,12 @@ import java.util.logging.Logger;
  *
  * @author Irfandi
  */
+/**
+ * deklarasi class KamarEngine
+ * @author Andy Wiranto
+ */
 public class KamarEngine {
-
+// deklarasi variabel
     private static Kamar DATABASE[];
     private static int DB_SIZE;
 
@@ -168,56 +172,56 @@ public class KamarEngine {
         return a;
     }
 
-    /**
+    /**mendapatkan kamar regular kosong
      * @return the REG_KOSONG
      */
     public int GET_REG_KOSONG() {
         return REG_KOSONG;
     }
 
-    /**
+    /**mendapatkan kamar regular dipesan
      * @return the REG_DIPESAN
      */
     public int GET_REG_DIPESAN() {
         return REG_DIPESAN;
     }
 
-    /**
+    /**mendapatkan kamar premium kosong
      * @return the PRE_KOSONG
      */
     public int GET_PRE_KOSONG() {
         return PRE_KOSONG;
     }
 
-    /**
+    /**mendapatkan kamar premium dipesan
      * @return the PRE_DIPESAN
      */
     public int GET_PRE_DIPESAN() {
         return PRE_DIPESAN;
     }
 
-    /**
+    /**mendapatkan kamar Suite kosong
      * @return the SUI_KOSONG
      */
     public int GET_SUI_KOSONG() {
         return SUI_KOSONG;
     }
 
-    /**
+    /**mendapatkan kamar Suite dipesan
      * @return the SUI_DIPESAN
      */
     public int GET_SUI_DIPESAN() {
         return SUI_DIPESAN;
     }
 
-    /**
+    /**mendapatkan kamar VIP kosong
      * @return the VIP_KOSONG
      */
     public int GET_VIP_KOSONG() {
         return VIP_KOSONG;
     }
 
-    /**
+    /**mendapatkan kamar VIP dipesan
      * @return the VIP_DIPESAN
      */
     public int GET_VIP_DIPESAN() {
