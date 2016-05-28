@@ -22,8 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author gunka
  */
 public class ManagerFrame extends javax.swing.JFrame {
-
-    ArrayList<String> listData = new ArrayList<String>();
+    
     Keuangan keuangan = new Keuangan();
     DefaultTableModel tableModel;
 //    MenuFrame menuFrame = new MenuFrame();
@@ -49,29 +48,32 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelCheck.setVisible(false);
         tableKeuangan.setVisible(false);
         totpen.setEditable(false);
+        tableModel = new DefaultTableModel();
+        tableKeuangan2.setModel(tableModel);
+        tableModel.addColumn(pilih);
+        tableModel.addColumn("Pemasukan");
         labelTotPen.setVisible(false);
         totpen.setVisible(false);
     }
-
+    
     public void TableData() {
         try {
             Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
             Statement stmt = conn.createStatement();
-            String[] kolom = {pilih, "PENGHASILAN"};
-
+            
             keuangan.cek_keuangan(pilih, index);
             totpen.setText("Rp." + String.valueOf(keuangan.getTotalPendapatan()));
             ResultSet rsPendapatan = stmt.executeQuery("select pendapatan from faza.DATAKEUANGAN where " + pilih + "='" + index + "'");
-
+            
             String p[] = new String[1000];;
             for (int i = 0; i < 1000; i++) {
                 if (rsPendapatan.next()) {
                     p[i] = rsPendapatan.getString("pendapatan");
                 }
             }
-
+            
             ResultSet rs = stmt.executeQuery("select " + pilih + " from faza.DATAKEUANGAN where " + pilih + "='" + index + "'");
-
+            
             int y = 0;
             while (rs.next()) {
                 Object[] data = new Object[2];
@@ -82,39 +84,11 @@ public class ManagerFrame extends javax.swing.JFrame {
             }
             rs.close();
             stmt.close();
-//            ResultSet rsBanyakData = stmt.executeQuery("SELECT COUNT (*) FROM faza.DATAKEUANGAN");
-//            int jml = 0;
-//            if (rsBanyakData.next()) {
-//                jml = rsBanyakData.getInt("TGL");
-//            }
-//
-//            System.out.println("jumlah = " + jml);
-//            ResultSet rs = stmt.executeQuery("select " + pilih + " from faza.DATAKEUANGAN");
-//            for (int i = 0; i < jml; i++) {
-//                if (rs.next()) {
-//                    listData.add(rs.getString(pilih));
-//                }
-//            }
-//
-//            for (int i = 0; i < listData.size(); i++) {
-//                if (namaIndex.equals(listData.get(i))) {
-//                    jumlahData++;
-//                }
-//            }
-//            Object[][] objData = new Object[jumlahData][2];
-//            DefaultTableModel tableModel = new DefaultTableModel(objData, kolom);
-//            tableKeuangan2.setModel(tableModel);
-//            pendapatan = String.valueOf(keuangan.getTotalPendapatan());
-//            String[] tabelTampil = {namaIndex, pendapatan};
-//            for (int i = 0; i < jumlahData; i++) {
-//                tableModel.addRow(tabelTampil);
-//            }
-
         } catch (SQLException x) {
             System.out.println(x.getMessage());
             x.printStackTrace();
         }
-
+        
     }
 
     /**
@@ -444,16 +418,16 @@ public class ManagerFrame extends javax.swing.JFrame {
         pilih = "BULAN";
         labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxBulanActionPerformed
-
+    
     public void LoadTimer() {
         timer = new Timer();
         timer.schedule(new WaktuMundur(), 0, 1000);
     }
-
+    
     class WaktuMundur extends TimerTask {
-
+        
         int detik = 1;
-
+        
         @Override
         public void run() {
             if (detik > 0) {
@@ -484,7 +458,7 @@ public class ManagerFrame extends javax.swing.JFrame {
         tableKeuangan.setVisible(true);
         if (a == 1) {
             TableData();
-
+            
         } else {
             totpen.setText("");
             a = 0;
