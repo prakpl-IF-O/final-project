@@ -73,7 +73,9 @@ public class Transaksi extends Pengunjung {
             return ((tou - ni) / 100) * 30000;
         }
     }
-    
+     /**
+     *membuat method menghitung harga hotel
+     */    
     public double hargaTotal(int no, int lamaInap) {
         if (no >= 91) {
             return 750000 * lamaInap - (750000 * lamaInap * diskonKamar(lamaInap));
@@ -85,7 +87,9 @@ public class Transaksi extends Pengunjung {
             return 100000 * lamaInap - (100000 * lamaInap * diskonKamar(lamaInap));
         }
     }
-    
+     /**
+     *membuat method untuk menyimpan data
+     */    
     public void simpanData2() throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
