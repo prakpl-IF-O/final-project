@@ -5,6 +5,12 @@
  */
 package finalproject;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -14,9 +20,14 @@ import java.util.TimerTask;
  */
 public class ManagerFrame extends javax.swing.JFrame {
 
+    ArrayList<String> listData = new ArrayList<String>();
 //    MenuFrame menuFrame = new MenuFrame();
     String index;
     Timer timer;
+    int jumlahData;
+    String pilih;
+    String[] kolom;
+    String namaIndex;
 
     /**
      * Creates new form ManagerFrame
@@ -32,6 +43,32 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelCheck.setVisible(false);
     }
 
+    public void TableData() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
+        Statement stmt = conn.createStatement();
+//        kolom = {pilih,"PENGHASILAN"};
+        try {
+            ResultSet rsBanyakData = stmt.executeQuery("SELECT COUNT (*) faza.DATAKEUANGAN");
+            int jml = 0;
+            if (rsBanyakData.next()) {
+                jml = rsBanyakData.getInt("TGL");
+            }
+
+            System.out.println("jumlah = " + jml);
+            ResultSet rs = stmt.executeQuery("select " + pilih + " from faza.DATAKEUANGAN");
+            for (int i = 0; i < jml; i++) {
+                if (rs.next()) {
+                    listData.add(rs.getString(pilih));
+                }
+            }
+
+        } catch (Exception x) {
+            System.out.println(x.getMessage());
+            x.printStackTrace();
+        }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +78,8 @@ public class ManagerFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tableKeuangan = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         labelOut = new javax.swing.JLabel();
         labelCheck = new javax.swing.JLabel();
         txtTahun = new javax.swing.JTextField();
@@ -54,6 +93,21 @@ public class ManagerFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableKeuangan.setViewportView(jTable1);
+
+        getContentPane().add(tableKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, -1, -1));
 
         labelOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Out.png"))); // NOI18N
         labelOut.setToolTipText("");
@@ -148,96 +202,127 @@ public class ManagerFrame extends javax.swing.JFrame {
         switch (comboBoxTanggal.getSelectedIndex()) {
             case 0:
                 index = "01";
+                namaIndex = "1";
                 break;
             case 1:
                 index = "02";
+                namaIndex = "2";
                 break;
             case 2:
                 index = "03";
+                namaIndex = "3";
                 break;
             case 3:
                 index = "04";
+                namaIndex = "4";
                 break;
             case 4:
                 index = "05";
+                namaIndex = "5";
                 break;
             case 5:
                 index = "06";
+                namaIndex = "6";
                 break;
             case 6:
                 index = "07";
+                namaIndex = "7";
                 break;
             case 7:
                 index = "08";
+                namaIndex = "8";
                 break;
             case 8:
                 index = "09";
+                namaIndex = "9";
                 break;
             case 9:
                 index = "10";
+                namaIndex = "10";
                 break;
             case 10:
                 index = "11";
+                namaIndex = "11";
                 break;
             case 11:
                 index = "12";
+                namaIndex = "12";
                 break;
             case 12:
                 index = "13";
+                namaIndex = "13";
                 break;
             case 13:
                 index = "14";
+                namaIndex = "14";
                 break;
             case 14:
                 index = "15";
+                namaIndex = "15";
                 break;
             case 15:
                 index = "16";
+                namaIndex = "16";
                 break;
             case 16:
                 index = "17";
+                namaIndex = "17";
                 break;
             case 17:
                 index = "18";
+                namaIndex = "18";
                 break;
             case 18:
                 index = "19";
+                namaIndex = "19";
                 break;
             case 19:
                 index = "20";
+                namaIndex = "20";
                 break;
             case 20:
                 index = "21";
+                namaIndex = "21";
                 break;
             case 21:
                 index = "22";
+                namaIndex = "22";
                 break;
             case 22:
                 index = "23";
+                namaIndex = "23";
                 break;
             case 23:
                 index = "24";
+                namaIndex = "24";
                 break;
             case 24:
                 index = "25";
+                namaIndex = "25";
                 break;
             case 25:
                 index = "26";
+                namaIndex = "26";
                 break;
             case 26:
                 index = "27";
+                namaIndex = "27";
                 break;
             case 27:
                 index = "28";
+                namaIndex = "28";
                 break;
             case 28:
                 index = "29";
+                namaIndex = "29";
                 break;
             case 29:
                 index = "30";
+                namaIndex = "30";
                 break;
             default:
                 index = "31";
+                namaIndex = "31";
                 break;
         }
         labelCheck.setVisible(true);
@@ -356,12 +441,14 @@ public class ManagerFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox comboBoxBulan;
     private javax.swing.JComboBox comboBoxPilihan;
     private javax.swing.JComboBox comboBoxTanggal;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelBackgroundManager;
     private javax.swing.JLabel labelCheck;
     private javax.swing.JLabel labelClickedKeuangan;
     private javax.swing.JLabel labelKeuangan;
     private javax.swing.JLabel labelMasukkanPilihan;
     private javax.swing.JLabel labelOut;
+    private javax.swing.JScrollPane tableKeuangan;
     private javax.swing.JTextField txtTahun;
     // End of variables declaration//GEN-END:variables
 }
