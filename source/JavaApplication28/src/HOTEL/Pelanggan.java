@@ -38,6 +38,7 @@ public Pelanggan(){};
         return NIK;
     }
     
+    //method input untuk menginputkan data ke database transaksi
     @Override
     public void Input(){
     try (
@@ -51,6 +52,7 @@ public Pelanggan(){};
         }
     } 
     
+    //method seach untuk mendapatkan data dari database input yang sesuai dengan id
     public void search(String id){
         try (
             Connection con = DriverManager.getConnection(host, uName, uPass);
@@ -71,7 +73,7 @@ public Pelanggan(){};
             System.out.println(er.getErrorCode());
         }
     }
-    
+     // method untuk mendapatkan id
     public String getId(String id){
         String ID="a";
         try(
@@ -88,6 +90,8 @@ public Pelanggan(){};
         return ID;
     }
     
+    //method untuk mendapatkan id berdasarkan tanggal lahir
+    // fungsinya dalam tombol lupa id
     public String getIID(String tglLahir){
         String ID="a";
         try(
@@ -103,6 +107,8 @@ public Pelanggan(){};
         }
         return ID;
     }
+    
+    //method to String untuk menampilkan karakter jika objek diapnggil
         public String toString(){
         return String.format("nama: %s\nTTL: %s\nid: %s\nNIK: %d\n",nama,TTL,id,NIK);
         }

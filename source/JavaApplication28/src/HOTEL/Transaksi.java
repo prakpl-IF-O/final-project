@@ -24,7 +24,7 @@ public class Transaksi implements Interface {
     public Transaksi(){
     
     }
-    
+    //method untuk menginputkan data ke database input
     @Override
     public void Input() {
         try (
@@ -53,6 +53,7 @@ public class Transaksi implements Interface {
         }
     }
 
+    //method untuk menghapus data dari database input dan mengubah status kamar di database ruangan
     public void clear(int kamar) {
         try (
                 Connection con = DriverManager.getConnection(host, uName, uPass);
@@ -68,6 +69,7 @@ public class Transaksi implements Interface {
         }
     }
 
+    //method untuk menyimpan data di database transaksi
     public void saveToLaporan(int kamar, double totalBayar, double denda) {
         String namaD = null, namaB = null, tglMasuk = null, jamMasuk = null, tglKeluar = null, jamKeluar = null, ID = null;
         int NIK = 0, jumlahHari = 0;
@@ -95,6 +97,7 @@ public class Transaksi implements Interface {
         }
     }
 
+    //method untuk menghitung pendapatan bulan tertentu
     public double generate(String bulan) {
         double totalBayar=0;
         try (
@@ -116,6 +119,8 @@ public class Transaksi implements Interface {
         return totalBayar;
     }
     
+    
+    //meyhod untuk menghitung jumlah uang yang harus dibayarkan
     public double hitungBayar(String id, String TglKeluar, String JamKeluar, double sewa) throws ParseException {
         int jumlahHariInap = 0, jumlahHariAkumulasi = 0;
         String tglKeluar, jamKeluar;
@@ -169,6 +174,7 @@ public class Transaksi implements Interface {
         return totalBayar;
     }
     
+    //method untuk mendapatkan denda
     public double denda(int kamar, String tglKeluar, String jamKeluar) throws ParseException{
         String TglKeluar=null, JamKeluar=null;
         try (
@@ -201,7 +207,7 @@ public class Transaksi implements Interface {
         }
     return denda;
     }
-        
+    //method to String untuk menampilkan karakter jika objek diapnggil  
     public String toString(){
     return String.format("nama: %s\nTTL: %s\nid: %s\nNIK: %d\ncheck in: %s\ncheckOut: %s\nlama menginap: %s\nnomor kamar: %s\n"
             + "denda: %.0f\ndiskon: %s\ntotal tagihan: %.0f\n",

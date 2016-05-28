@@ -7,7 +7,7 @@ public class Cek {
     String host = "jdbc:derby://localhost:1527/SISTEM_HOTEL";
     String uPass = "123";
     String uName = "DRN";
-    
+    //method untuk mengecek ketersediaan kamar
     public boolean cekKamar(int noKamar) {
         boolean cek = false;
         try (
@@ -30,6 +30,7 @@ public class Cek {
         return cek;
     }
     
+    //method untuk mengecek jumlah ketersediaan kamar VIP
     public String cekVIP() {
         int jumlah=0;
         try (
@@ -51,6 +52,7 @@ public class Cek {
         return String.format("Tersedia %d Kamar", jumlah);
     }
     
+    //method untuk mengecek jumlah ketersediaan kamar suite
     public String cekSuite() {
         int jumlah=0;
         try (
@@ -72,6 +74,7 @@ public class Cek {
         return String.format("Tersedia %d Kamar", jumlah);
     }
       
+    //method untuk mengecek jumlah ketersediaan kamar premium
     public String cekPremium() {
         int jumlah=0;
         try (
@@ -93,6 +96,7 @@ public class Cek {
         return String.format("Tersedia %d Kamar", jumlah);
     }
         
+    //method untuk mengecek jumlah ketersediaan kamar Reguler
     public String cekReguler() {
         int jumlah=0;
         try (
