@@ -1,11 +1,11 @@
 package MainPackage;
 
 public class VIP extends Jenis{
-    protected final static double harga=100000;
-    protected static int kamar=50;
+    protected final static double harga=750000;
+    protected static int kamar=10;
     protected double invoice;
     public void setTipe() {
-        this.tipe = "Reguler";
+        this.tipe = "VIP";
     }
     public void booking(int days){
         kamar--;
