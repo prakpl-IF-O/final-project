@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.Calendar;
 import java.util.Date;
 import MainPackage.*;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -346,43 +347,55 @@ public class CheckIn extends javax.swing.JFrame {
         Pelanggan a= new Pelanggan();
         String b = null;
         Koneksi lokal=new Koneksi();
+        Date date=new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyyHH:mm:ss");
+        Calendar cal=Calendar.getInstance();
+        try{
+            
+            Connection c = lokal.getKoneksi();
+            Statement s=c.createStatement();
+            a.setAkumulasi((int) Double.parseDouble(DayField.getText()));
+            String sql="insert into customerdata values('"+IdField.getText()+"','"+NameField.getText()+"','"+AddressField.getText()+"',"+a.getAkumulasi()+");";
+            s.executeUpdate(sql);
+            disc.setText(String.valueOf(a.getDiskon()));
+            sql="update room set customer='"+NameField.getText()+"', checkout="+sdf.format(cal.getTime())+");";
+            s.executeUpdate(sql);
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,"Connection Failed"+e);
+        
+        }
         if(TypeBox.getSelectedItem().equals("Regular")){
             Regular type=new Regular();
             type.booking(Integer.parseInt(DayField.getText()));
             in=type.getInvoice();
             invoice.setText(String.valueOf(in));
+            in=type.getDiskon();
+            disc.setText(String.valueOf(in));
         }
         else if(TypeBox.getSelectedItem().equals("Premium")){
             Premium type=new Premium();
             type.booking(Integer.parseInt(DayField.getText()));
             in=type.getInvoice();
             invoice.setText(String.valueOf(in));
+            in=type.getDiskon();
+            disc.setText(String.valueOf(in));
         }
         else if(TypeBox.getSelectedItem().equals("Suite")){
             Suite type=new Suite();
             type.booking(Integer.parseInt(DayField.getText()));
             in=type.getInvoice();
             invoice.setText(String.valueOf(in));
+            in=type.getDiskon();
+            disc.setText(String.valueOf(in));
         }
         else if(TypeBox.getSelectedItem().equals("VIP")){
             VIP type=new VIP();
             type.booking(Integer.parseInt(DayField.getText()));
             in=type.getInvoice();
             invoice.setText(String.valueOf(in));
+            in=type.getDiskon();
+            disc.setText(String.valueOf(in));
         }
-        try{
-            
-            Connection c = lokal.getKoneksi();
-            Statement s=c.createStatement();
-            a.setAkumulasi((int) Double.parseDouble(DayField.getText()));
-            String sql="insert into customerdata values("+IdField.getText()+","+NameField.getText()+","+AddressField.getText()+","+a.getAkumulasi()+");";
-            s.executeUpdate(sql);
-            
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"Connection Failed"+e);
-        
-        }
-        
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
