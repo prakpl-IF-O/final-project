@@ -12,14 +12,16 @@ package gui.project.akhir;
  */
 import java.sql.*;
 import javax.swing.*;
-
+   
 public class ConnectionSql {
 
     Connection conn = null;
     public Connection conec;
     public Statement state;
     public ResultSet reset;
-
+    /**
+     *membuat method untuk menyambungkan ke database
+     */
     public static Connection ConnectDBS() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -31,7 +33,9 @@ public class ConnectionSql {
         }
 
     }
-
+    /**
+     * membuat method untuk menyambunkan ke database
+     */
     public void Class() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

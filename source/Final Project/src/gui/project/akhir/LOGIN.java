@@ -99,7 +99,6 @@ public class LOGIN extends javax.swing.JFrame {
      * membuat method arsip 
      */
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
         dispose();
         ARSIP n = new ARSIP();
         n.show();
@@ -107,7 +106,7 @@ public class LOGIN extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
-     * @param args the command line arguments
+     * amain method untuk memunculkan kelas login
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
