@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import databaseKamarr.*;
+
 import static hotel.dataPelanggan.nomorKamarD;
 import static hotel.reguler.nomorRe;
 import java.io.BufferedWriter;
@@ -224,9 +225,9 @@ public class formCheckIn extends javax.swing.JDialog {
            dataPelanggan dlr=new dataPelanggan();
            dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
            for(pelanggan pl : dlr.getData()){
-                 bufferedWriter.write("Nama : "+pl.getNik()); 
+                 bufferedWriter.write(pl.getNik()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("NIK : "+pl.getNama()); 
+                 bufferedWriter.write("Nama : "+pl.getNama()); 
                  bufferedWriter.newLine();
                  bufferedWriter.write("Tanggal lahir : "+pl.getTanggalLahir()); 
                  bufferedWriter.newLine();
@@ -276,9 +277,9 @@ public class formCheckIn extends javax.swing.JDialog {
                 dataPelanggan dlr=new dataPelanggan();
                 dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
                 for(pelanggan pl : dlr.getData()){
-                 bufferedWriter.write("Nama : "+pl.getNik()); 
+                 bufferedWriter.write(pl.getNik()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("NIK : "+pl.getNama()); 
+                 bufferedWriter.write("Nama : "+pl.getNama()); 
                  bufferedWriter.newLine();
                  bufferedWriter.write("Tanggal lahir : "+pl.getTanggalLahir()); 
                  bufferedWriter.newLine();
@@ -319,9 +320,9 @@ public class formCheckIn extends javax.swing.JDialog {
            dataPelanggan dlr=new dataPelanggan();
            dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
            for(pelanggan pl : dlr.getData()){
-                 bufferedWriter.write("Nama : "+pl.getNik()); 
+                 bufferedWriter.write(pl.getNik()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("NIK : "+pl.getNama()); 
+                 bufferedWriter.write("Nama : "+pl.getNama()); 
                  bufferedWriter.newLine();
                  bufferedWriter.write("Tanggal lahir : "+pl.getTanggalLahir()); 
                  bufferedWriter.newLine();
@@ -367,9 +368,9 @@ public class formCheckIn extends javax.swing.JDialog {
            dataPelanggan dlr=new dataPelanggan();
            dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
            for(pelanggan pl : dlr.getData()){
-                 bufferedWriter.write("Nama : "+pl.getNik()); 
+                 bufferedWriter.write(pl.getNik()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("NIK : "+pl.getNama()); 
+                 bufferedWriter.write("Nama : "+pl.getNama()); 
                  bufferedWriter.newLine();
                  bufferedWriter.write("Tanggal lahir : "+pl.getTanggalLahir()); 
                  bufferedWriter.newLine();

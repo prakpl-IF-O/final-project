@@ -6,6 +6,7 @@
 package hotel;
 
 import databaseKamarr.*;
+import static databaseKamarr.databaseKamarr.n;
 import hotel.*;
 import static hotel.reguler.regnew;
 import static hotel.reguler.s;
@@ -17,22 +18,26 @@ import java.io.*;
  */
 public class Dataa {
     String id,nama,nik;
-    String ar[]=new String[10];
+    public static String data;
     public static String arr[];
-    public Dataa(String nama,String nik) throws FileNotFoundException, IOException{
+    public Dataa(String nik,String nama) throws FileNotFoundException, IOException{
         this.nama=nama;
         this.nik=nik;
+        
+                
+                String ar[]=new String[9];
         File file = new File("database1\\pelanggan.txt");
                 BufferedReader input = new BufferedReader(new FileReader(file));
                 for (int z = 0; z <= 8; z++) {
                     ar[z] = input.readLine();
-                    if(nama.equalsIgnoreCase(ar[z]) && nik.equalsIgnoreCase(ar[z])){
+                    System.out.println(ar[z]);
+                    if(this.nik.equalsIgnoreCase(ar[z])){
                         int i=z;
                         for ( i=z; i<=(i+8);i++){
                         arr=new String[9];
-                        arr[i]=ar[z];
+                        arr[i]=input.readLine();
                     }
-                        System.out.println(ar[z]);
+                        
                     }
     }
     }  

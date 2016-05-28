@@ -5,6 +5,8 @@
  */
 package hotel;
 
+import static databaseKamarr.databaseKamarr.n;
+import static hotel.Dataa.arr;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -237,14 +239,25 @@ public class ID_NAMA extends javax.swing.JFrame {
     }//GEN-LAST:event_namaActionPerformed
 
     private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
-        try {
+  try {
             
             Dataa id=new Dataa(nik.getText(),nama.getText());
+//            for(int i=0;i<=n;i++){
+//            nik1.setText(arr[0]);
+//            nama1.setText(arr[1]);
+//            tanggalLah.setText(arr[2]);
+//            tempatLah.setText(arr[3]);
+//            id1.setText(arr[4]);
+//            tanggalCI.setText(arr[5]);
+//            kelas.setText(arr[6]);
+//            nomor.setText(arr[7]);
+//            harga.setText(arr[8]);
+           // }
+//            System.out.println(arr[0]);
         } catch (IOException ex) {
-            Logger.getLogger(ID_NAMA.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(ID_NAMA.class.getName()).log(Level.SEVERE, null, ex);
         }
-        tampilData d1=new tampilData(this,false);
-        d1.setVisible(true);
+       
         
     }//GEN-LAST:event_cariActionPerformed
 
