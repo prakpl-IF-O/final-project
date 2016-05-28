@@ -8,7 +8,7 @@ package gui.project.akhir;
 
 /**
  *
- * @author dwiyan
+ * @author ENGGAR PRATAMA , DWI PRIYANTO , ANDI ROSADI
  */
 import java.sql.*;
     /**

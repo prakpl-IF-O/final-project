@@ -7,7 +7,7 @@ package gui.project.akhir;
 
 /**
  *
- * @author ANDY ROSHADI
+ * @author ENGGAR PRATAMA , DWI PRIYANTO , ANDI ROSADI
  */
 import java.sql.*;
 import java.util.logging.Level;

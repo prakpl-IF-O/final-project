@@ -7,7 +7,7 @@ package gui.project.akhir;
 
 /**
  *
- * @author ANDY ROSHADI
+ * @author ENGGAR PRATAMA , DWI PRIYANTO , ANDI ROSADI
  */
 public class GUIProjectAkhir {
 
