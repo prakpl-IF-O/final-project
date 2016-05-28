@@ -27,7 +27,9 @@ public class Pengunjung {
     private String IDPelanggan;
     private String in;
     private String lamaInap;
-
+    /**
+     * membuat contructor overloading
+     */
     public Pengunjung() {
     }
 
@@ -43,43 +45,63 @@ public class Pengunjung {
         this.in = in;
         this.lamaInap = lamaInap;
     }
-
+    /**
+     * membuat method getter
+     */
     public String getNIK() {
         return NIK;
     }
-
+    /**
+     * membuat method getter
+     */
     public String getNoKamar() {
         return noKamar;
     }
-
+    /**
+     * membuat method getter
+     */
     public String getNama() {
         return nama;
     }
-
+    /**
+     * membuat method getter
+     */
     public String getTempatLahir() {
         return tempatLahir;
     }
-
+    /**
+     * membuat method getter
+     */
     public Date getTanggalLahir() {
         return tanggalLahir;
     }
-
+    /**
+     * membuat method getter
+     */
     public Date getTanggalTerdaftar() {
         return tanggalTerdaftar;
     }
-
+    /**
+     * membuat method getter
+     */
     public String getIDPelanggan() {
         return IDPelanggan;
     }
-
+    /**
+     * membuat method getter
+     */
     public String getIn() {
         return in;
     }
-
+    /**
+     * membuat method getter
+     */
     public String getLamaInap() {
         return lamaInap;
     }
-
+    /**
+     * membuat method untuk menyimpan data ke dalam data base
+     */
     public void simpanData() {
         Connection conn = null;
         PreparedStatement ps = null;
