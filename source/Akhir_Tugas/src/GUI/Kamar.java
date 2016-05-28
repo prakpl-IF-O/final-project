@@ -15,6 +15,7 @@ public class Kamar extends javax.swing.JFrame {
 
     /**
      * Creates new form Kamar
+     * Memanggil method initComponents
      */
     public Kamar() {
         initComponents();
@@ -177,114 +178,197 @@ public class Kamar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     */
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
         // Menu
+        // Membuat objek Mu dari kelas MenuUtama
         MenuUtama Mu = new MenuUtama();
+        // Memanggil setVisible() yang menampilkan output
         Mu.setVisible(true);
+        // Memanggil setVisible() yang menyembunyikan output
         this.setVisible(false);
     }//GEN-LAST:event_MenuMouseClicked
 
+    /**
+     * 
+     * @param evt 
+     */
     private void TamuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TamuMouseClicked
         // Tamu
+        // Membuat objek T dari kelas Tamu
         Tamu T = new Tamu();
+        // Memanggil setVisible() yang menampilkan output
         T.setVisible(true);
+        // Memanggil setVisible() yang menyembunyikan output
         this.setVisible(false);
     }//GEN-LAST:event_TamuMouseClicked
 
+    /**
+     * 
+     * @param evt 
+     */
     private void KamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KamarActionPerformed
         // Kamar
         String h = "jdbc:derby://localhost:1527/hotel";
+        // Jika kamar yang dipilih "Reguler", maka jumlah kamarnya adalah 50
         if (Kamar.getSelectedItem() == "1. Reguler") {
             jumlahkamar.setText("50");
             try {
                 Connection con = DriverManager.getConnection(h);
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("SELECT * FROM kamar WHERE status = true");
+                // Inisialisasi variabel q bertipe integer, bernilai 0
                 int q = 0;
+                // Inisialisasi variabel z bertipe integer, bernilai 0
                 int z = 0;
+                // Perulangan
                 while (rs.next()) {
+                    // Memberi nilai variabel j bertipe boolean
                     boolean j = rs.getBoolean(4);
+                    // Jika user memilih reguler, maka
                     if (rs.getString(1).equals("reguler")) {
+                        // Increment variabel q
                         q++;
                     }
                 }
+                // Jika kamar terisi, tampilan akan formatnya seperti ini
                 terisi.setText(String.format("%d", q));
+                // Jika kamar kosong, tampilan akan formatnya seperti ini
                 kosong.setText(String.format("%d", (50-q)));
             } catch (SQLException err) {
+                // Jika terjadi error
+                // Menampilkan error message
                 System.out.println(err.getMessage());
             }
+            // Jika kamar yang terpilih "Premium", maka jumlah kamarnya adalah 20
         } else if (Kamar.getSelectedItem() == "2. Premium") {
             jumlahkamar.setText("20");
             try {
                 Connection con = DriverManager.getConnection(h);
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("SELECT * FROM kamar WHERE status = true");
+                // Inisialisasi variabel q bertipe data integer, bernilai 0
                 int q = 0;
+                // Inisialisasi variabel z bertipe data integer, bernilai 0
                 int z = 0;
+                // Perulangan
                 while (rs.next()) {
+                    // Memberi nilai variabel j bertipe boolean
                     boolean j = rs.getBoolean(4);
+                    // Jika user memilih "Premium", maka
                     if (rs.getString(1).equals("premium")) {
+                        // Increment variabel q
                         q++;
                     }
                 }
+                // Jika kamar terisi maka format sudah diatur seperti di atas
                 terisi.setText(String.format("%d", q));
+                // Jika kamar kosong maka formatnya seperti ini
                 kosong.setText(String.format("%d", 20-q));
             } catch (SQLException err) {
+                // Jika terjadi error
+                // Akan menampilkan error Message
                 System.out.println(err.getMessage());
             }
+            // Jika kamar yang terpilih "Suite", maka jumlah kamarnya adalah 20
         } else if (Kamar.getSelectedItem() == "3. Suite") {
             jumlahkamar.setText("20");
             try {
                 Connection con = DriverManager.getConnection(h);
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("SELECT * FROM kamar WHERE status = true");
+                // Inisialisasi variabel q bertipe data integer, bernilai 0
                 int q = 0;
+                // Inisialisasi variabel z bertipe data integer, bernilai 0
                 int z = 0;
+                // Perulangan
                 while (rs.next()) {
+                    // Memberi nilai variabel j bertipe boolean
                     boolean j = rs.getBoolean(4);
+                    // Jika user memilih "Suite", maka
                     if (rs.getString(1).equals("suite")) {
+                        // Increment variabel q
                         q++;
                     }
                 }
+                // Jika kamar terisi, maka formatnya seperti ini
                 terisi.setText(String.format("%d", q));
+                // Jika kamar kosong maka formatnya seperti ini
                 kosong.setText(String.format("%d", (20-q)));
             } catch (SQLException err) {
+                // Jika terjadi error
+                // Menampilkan error Message
                 System.out.println(err.getMessage());
             }
+            // Jika kamar yang terpilih "VIP", maka jumlah kamarnya adalah 10
         } else if (Kamar.getSelectedItem() == "4. VIP") {
             jumlahkamar.setText("10");
             try {
                 Connection con = DriverManager.getConnection(h);
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery("SELECT * FROM kamar WHERE status = true");
+                // Inisialisasi variabel q bertipe data integer, bernilai 0
                 int q = 0;
+                // Inisialisasi variabel z bertipe data integer, bernilai 0
                 int z = 0;
+                // Perulangan
                 while (rs.next()) {
+                    // Memberi nilai variabel j bertipe boolean
                     boolean j = rs.getBoolean(4);
+                    // Jika user memilih "VIP", maka
                     if (rs.getString(1).equals("VIP")) {
+                        // Increment variabel q
                         q++;
                     }
                 }
+                // Jika terisi maka akan formatnya seperti ini
                 terisi.setText(String.format("%d", q));
+                // Jika kosong maka akan formatnya seperti ini
                 kosong.setText(String.format("%d", (10-q)));
             } catch (SQLException err) {
+                // Jika Error, maka
+                // Menampilkan Error Massage
                 System.out.println(err.getMessage());
             }
 
         }
     }//GEN-LAST:event_KamarActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * // Menu
+     * 
+     */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // Menu
+        // Membuat objek Mu dari kelas MenuUtama
         MenuUtama Mu = new MenuUtama();
+        // Memanggil setVisible() yang menampilkan output
         Mu.setVisible(true);
+        // Memanggil setVisible() yang menyembunyikan output
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    /**
+     * 
+     * @param evt 
+     * // TODO add your handling code here:
+     * 
+     */
     private void jumlahkamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumlahkamarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jumlahkamarActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * // TODO add your handling code here:
+     * 
+     */
     private void terisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terisiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_terisiActionPerformed
@@ -318,6 +402,9 @@ public class Kamar extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            /**
+             * @see Kamar()
+             */
             public void run() {
                 new Kamar().setVisible(true);
             }
