@@ -18,12 +18,15 @@ import java.util.ArrayList;
 public class dataPelanggan {
     static ArrayList<pelanggan>listPelanggan;
     public static String nomorKamarD;
+    
     public dataPelanggan(){
        listPelanggan=new ArrayList();
     }
     public void insertData(String nama,String nik,String id,String tanggalLahir,String tempatLahir,String tanggalBook,String jamBook,String kelas,String nomorKamar){
         pelanggan pl=new pelanggan(nama,nik,id,tanggalLahir,tempatLahir,tanggalBook,jamBook,kelas,nomorKamar);
         listPelanggan.add(pl);
+        
+        
        
     }
     public ArrayList<pelanggan> getData(){

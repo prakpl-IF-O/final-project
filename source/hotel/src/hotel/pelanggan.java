@@ -28,7 +28,11 @@ public class pelanggan {
     private static String tanggalLahir,tanggalBook,jamBook;
     private String tempatLahir,kelas;
     public static String nomorKamar;
+    private static Long selisihJam;
+    public static double denda;
     public pelanggan(){};
+    
+    //constructor untuk data pelanggan
     public pelanggan(String nama,String nik,String id,String tanggalLahir,String tempatLahir,String tanggalBook,String jamBook,String kelas,String nomorKamar){
     this.nama=nama;
     this.nik=nik;
@@ -86,7 +90,7 @@ public class pelanggan {
     public static void main(String[] args) {
         System.out.println(nomorRe);
     }
-     
+     //method untuk konversi input tanggal string ke date
      protected static Date konversiStringkeDate(String tanggalDanWaktuStr,
             String pola, Locale lokal) {
         Date tanggalDate = null;
@@ -103,17 +107,23 @@ public class pelanggan {
         }
         return tanggalDate;
     }
-     
+     //method untuk menghitung selisih waktu checkin dan checkout
       protected static String selisihDateTime(Date waktuSatu, Date waktuDua) {
         long selisihMS = Math.abs(waktuSatu.getTime() - waktuDua.getTime());
         long selisihDetik = selisihMS / 1000 % 60;
         long selisihMenit = selisihMS / (60 * 1000) % 60;
-        long selisihJam = selisihMS / (60 * 60 * 1000) % 24;
+        selisihJam = selisihMS / (60 * 60 * 1000) % 24;
         long selisihHari = selisihMS / (24 * 60 * 60 * 1000);
         String selisih = selisihHari + " hari " + selisihJam + " Jam "
                 + selisihMenit + " Menit " + selisihDetik + " Detik";
         return selisih;
     }
-
+      //method untuk menghitung denda 
+      public void getDenda(){
+          if(selisihJam>0){
+               denda=30000*selisihJam;
+          }  
+      }
+     
 }
 

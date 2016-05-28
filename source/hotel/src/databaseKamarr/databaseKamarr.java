@@ -14,18 +14,24 @@ import static hotel.premium.sp;
 import static hotel.reguler.s;
 import static hotel.suite.ss;
 import static hotel.vip.sv;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /**
  *
  * @author HERU A
  */
 public class databaseKamarr {
-   
-   
-        
+    public static int n;
     
         public void dbR(){
        try {
+           File file = new File("database1\\jumlah.txt");
+           BufferedReader input = new BufferedReader(new FileReader(file));
+           String str=input.readLine();
+           n=Integer.parseInt(str);
+           n +=7;
+           
            File inputFile = new File("database1\\reguler.txt");
            
              File inputTemp = new File("database1\\Rtemp.txt");
@@ -51,6 +57,11 @@ public class databaseKamarr {
     }
         public void dbP(){
        try {
+           File file = new File("database1\\jumlah.txt");
+           BufferedReader input = new BufferedReader(new FileReader(file));
+           String str=input.readLine();
+           n=Integer.parseInt(str);
+           n +=7;
             File inputFile = new File("database1\\premium.txt");
            
              File inputTemp = new File("database1\\Ptemp.txt");
@@ -75,6 +86,11 @@ public class databaseKamarr {
         }
      public void dbS(){
        try {
+           File file = new File("database1\\jumlah.txt");
+           BufferedReader input = new BufferedReader(new FileReader(file));
+           String str=input.readLine();
+           n=Integer.parseInt(str);
+           n +=7;
             File inputFile = new File("database1\\suite.txt");
            
              File inputTemp = new File("database1\\Stemp.txt");
@@ -101,6 +117,12 @@ public class databaseKamarr {
         
      public void dbV(){
        try {
+           File file = new File("database1\\jumlah.txt");
+           BufferedReader input = new BufferedReader(new FileReader(file));
+           String str=input.readLine();
+           n=Integer.parseInt(str);
+           n +=7;
+           System.out.println(n);
             File inputFile = new File("database1\\vip.txt");
            
              File inputTemp = new File("database1\\Vtemp.txt");
