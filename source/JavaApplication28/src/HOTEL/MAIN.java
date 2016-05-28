@@ -49,10 +49,10 @@ public class MAIN extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        rad1 = new javax.swing.JRadioButton();
+        rad2 = new javax.swing.JRadioButton();
+        rad3 = new javax.swing.JRadioButton();
+        rad4 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         layer2 = new javax.swing.JLayeredPane();
         fieldId = new javax.swing.JTextField();
@@ -164,27 +164,32 @@ public class MAIN extends javax.swing.JFrame {
         jLabel2.setText("CHECK IN HOTEL MANTAP");
         layer1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 310, -1));
 
-        jRadioButton1.setText("       VIP");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        rad1.setText("       VIP");
+        rad1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rad1ActionPerformed(evt);
             }
         });
-        layer1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 90, -1));
+        layer1.add(rad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 90, -1));
 
-        jRadioButton2.setText("    Suite");
-        layer1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 90, -1));
-
-        jRadioButton3.setText("    Premium");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        rad2.setText("    Suite");
+        rad2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                rad2ActionPerformed(evt);
             }
         });
-        layer1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 90, -1));
+        layer1.add(rad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 90, -1));
 
-        jRadioButton4.setText("   Reguler");
-        layer1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 90, -1));
+        rad3.setText("    Premium");
+        rad3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rad3ActionPerformed(evt);
+            }
+        });
+        layer1.add(rad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 90, -1));
+
+        rad4.setText("   Reguler");
+        layer1.add(rad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HOTEL/hijau.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -415,14 +420,41 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_j5MouseClicked
 
     private void getIdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getIdButtonActionPerformed
-        String a=fieldND.getText();
-        String b=fieldNB.getText();
-        String c=String.format("ID anda adalah:\n%s%s\n\ningat baik-baik ID Anda", a,b);
+        String a = fieldND.getText();
+        String b = fieldNB.getText();
+        String c = String.format("ID anda adalah:\n%s%s\n\ningat baik-baik ID Anda", a, b);
         JOptionPane.showMessageDialog(this, c);
     }//GEN-LAST:event_getIdButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:
+        int n = 0;
+        String ND = null, NB = null, TTL = null, NIK = null, no = null, LM = null;
+        int a = 0, b = 0, c = 0;
+        do {
+            try {
+                ND = fieldND.getText();
+                NB = fieldNB.getText();
+                TTL = fieldTTL.getText();
+                NIK = fieldNIK.getText();
+                no = fieldNK.getText();
+                LM = fieldLM.getText();
+                a = Integer.parseInt(no);
+                b = Integer.parseInt(LM);
+                c = Integer.parseInt(NIK);
+            } catch (NumberFormatException salah) {
+                n = 1;
+                System.out.println(n);
+                JOptionPane.showMessageDialog(this, "no");
+            }
+            if (n != 1) {
+                Pelanggan tamu = new Pelanggan(ND, NB, TTL, c, a);
+                Transaksi t = new Transaksi(b, a);
+                tamu.Input();
+                t.Input();
+                break;
+            }
+        } while (n != 1);
+
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -450,34 +482,39 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_cekIdMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cek a= new Cek();
+        Cek a = new Cek();
         Tpremium.setText(a.cekPremium());
         TVIP.setText(a.cekVIP());
         Tsuite.setText(a.cekSuite());
         Treguler.setText(a.cekReguler());
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void rad3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rad3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_rad3ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void rad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rad1ActionPerformed
 
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_rad1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Cek cek= new Cek();
-        int a= Integer.parseInt(fieldNK.getText());
-        boolean b= cek.cekKamar(a);
-        if (b==true) {
+        Cek cek = new Cek();
+        int a = Integer.parseInt(fieldNK.getText());
+        boolean b = cek.cekKamar(a);
+        if (b == true) {
             JOptionPane.showMessageDialog(this, "Kamar tersedia");
+        } else {
+            JOptionPane.showMessageDialog(this, "Kamar sedang dihuni");
         }
-        else {JOptionPane.showMessageDialog(this, "Kamar sedang dihuni");}
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void rad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rad2ActionPerformed
+
+    }//GEN-LAST:event_rad2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,10 +597,6 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -574,6 +607,10 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JLayeredPane layer2;
     private javax.swing.JLayeredPane layer3;
     private javax.swing.JLayeredPane layer4;
+    private javax.swing.JRadioButton rad1;
+    private javax.swing.JRadioButton rad2;
+    private javax.swing.JRadioButton rad3;
+    private javax.swing.JRadioButton rad4;
     private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }
