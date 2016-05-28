@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 public class StaffFrame extends javax.swing.JFrame {
 
-//    MenuFrame menuFrame = new MenuFrame();
+    MenuFrame menuFrame = new MenuFrame();
     Timer timer;
     String jenisKamar;
     String NIK;
@@ -954,7 +954,7 @@ public class StaffFrame extends javax.swing.JFrame {
     private void lbOut1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbOut1MouseClicked
         lbOut1.setVisible(false);
         this.dispose();
-//        menuFrame.setVisible(true);
+        menuFrame.setVisible(true);
     }//GEN-LAST:event_lbOut1MouseClicked
 
     private void lbClickedCheckIMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClickedCheckIMouseClicked

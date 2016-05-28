@@ -28,6 +28,8 @@ public class ManagerFrame extends javax.swing.JFrame {
         txtTahun.setVisible(false);
         comboBoxPilihan.setVisible(false);
         labelMasukkanPilihan.setVisible(false);
+        labelClickedKeuangan.setVisible(false);
+        labelCheck.setVisible(false);
     }
 
     /**
@@ -40,13 +42,14 @@ public class ManagerFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         labelOut = new javax.swing.JLabel();
+        labelCheck = new javax.swing.JLabel();
         txtTahun = new javax.swing.JTextField();
         comboBoxBulan = new javax.swing.JComboBox();
         comboBoxTanggal = new javax.swing.JComboBox();
         comboBoxPilihan = new javax.swing.JComboBox();
         labelMasukkanPilihan = new javax.swing.JLabel();
-        labelKeuangan = new javax.swing.JLabel();
         labelClickedKeuangan = new javax.swing.JLabel();
+        labelKeuangan = new javax.swing.JLabel();
         labelBackgroundManager = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,6 +63,9 @@ public class ManagerFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(labelOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 100, 80));
+
+        labelCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/check icon mini2.png"))); // NOI18N
+        getContentPane().add(labelCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, -1, -1));
 
         txtTahun.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         txtTahun.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +106,9 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelMasukkanPilihan.setText("MASUKKAN PILIHAN");
         getContentPane().add(labelMasukkanPilihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 160, 30));
 
+        labelClickedKeuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked Keuangan.png"))); // NOI18N
+        getContentPane().add(labelClickedKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 270, 90));
+
         labelKeuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Tombol.png"))); // NOI18N
         labelKeuangan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -107,14 +116,6 @@ public class ManagerFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(labelKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 350, 90));
-
-        labelClickedKeuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked Keuangan.png"))); // NOI18N
-        labelClickedKeuangan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelClickedKeuanganMouseClicked(evt);
-            }
-        });
-        getContentPane().add(labelClickedKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 270, 90));
 
         labelBackgroundManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Background Manager.jpg"))); // NOI18N
         getContentPane().add(labelBackgroundManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
@@ -124,6 +125,7 @@ public class ManagerFrame extends javax.swing.JFrame {
 
     private void txtTahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTahunActionPerformed
         index = txtTahun.getText();
+        labelCheck.setVisible(true);
     }//GEN-LAST:event_txtTahunActionPerformed
 
     private void comboBoxPilihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPilihanActionPerformed
@@ -238,6 +240,7 @@ public class ManagerFrame extends javax.swing.JFrame {
                 index = "31";
                 break;
         }
+        labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxTanggalActionPerformed
 
     private void comboBoxBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxBulanActionPerformed
@@ -279,6 +282,7 @@ public class ManagerFrame extends javax.swing.JFrame {
                 index = "12";
                 break;
         }
+        labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxBulanActionPerformed
 
     public void LoadTimer() {
@@ -312,10 +316,6 @@ public class ManagerFrame extends javax.swing.JFrame {
         dispose();
 //        menuFrame.setVisible(true);
     }//GEN-LAST:event_labelOutMouseClicked
-
-    private void labelClickedKeuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelClickedKeuanganMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_labelClickedKeuanganMouseClicked
 
     /**
      * @param args the command line arguments
@@ -357,6 +357,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox comboBoxPilihan;
     private javax.swing.JComboBox comboBoxTanggal;
     private javax.swing.JLabel labelBackgroundManager;
+    private javax.swing.JLabel labelCheck;
     private javax.swing.JLabel labelClickedKeuangan;
     private javax.swing.JLabel labelKeuangan;
     private javax.swing.JLabel labelMasukkanPilihan;
