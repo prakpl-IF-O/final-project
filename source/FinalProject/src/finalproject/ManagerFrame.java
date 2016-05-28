@@ -470,7 +470,6 @@ public class ManagerFrame extends javax.swing.JFrame {
         LoadTimer();
         comboBoxPilihan.setVisible(true);
         labelMasukkanPilihan.setVisible(true);
-        totpen.setVisible(true);
     }//GEN-LAST:event_labelKeuanganMouseClicked
 
     private void labelOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelOutMouseClicked
