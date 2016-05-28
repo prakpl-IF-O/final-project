@@ -234,7 +234,7 @@ public class KamarEngine {
     public Kamar[] GET_MASTER_DATABASE() {
         return DATABASE;
     }
-    // update master database
+    // update master database kamar
     public void UPDATE_MASTER_DATABASE() {
         db.WRITE_DATABASE_KAMAR(GET_MASTER_DATABASE());
     }
