@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author gunka
  */
 public class ManagerFrame extends javax.swing.JFrame {
-    
+
     Keuangan keuangan = new Keuangan();
     DefaultTableModel tableModel;
 //    MenuFrame menuFrame = new MenuFrame();
@@ -33,6 +33,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     String namaIndex;
     String pendapatan;
     int a = 1;
+    int b = 0;
 
     /**
      * Creates new form ManagerFrame
@@ -48,32 +49,53 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelCheck.setVisible(false);
         tableKeuangan.setVisible(false);
         totpen.setEditable(false);
-        tableModel = new DefaultTableModel();
-        tableKeuangan2.setModel(tableModel);
-        tableModel.addColumn(pilih);
-        tableModel.addColumn("Pemasukan");
+//        tableModel = new DefaultTableModel();
+//        tableKeuangan2.setModel(tableModel);
+//        if (b==1){
+//        tableModel.addColumn("TANGGAL");
+//        }
+//        if (b==2){
+//        tableModel.addColumn("BULAN");
+//        }
+//        if (b==3){
+//        tableModel.addColumn("TAHUN");
+//        }
+//        tableModel.addColumn("PEMASUKAN");
         labelTotPen.setVisible(false);
         totpen.setVisible(false);
     }
-    
+
     public void TableData() {
         try {
             Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
             Statement stmt = conn.createStatement();
-            
+
+            tableModel = new DefaultTableModel();
+            tableKeuangan2.setModel(tableModel);
+            if (b == 1) {
+                tableModel.addColumn("TANGGAL");
+            }
+            if (b == 2) {
+                tableModel.addColumn("BULAN");
+            }
+            if (b == 3) {
+                tableModel.addColumn("TAHUN");
+            }
+            tableModel.addColumn("PEMASUKAN");
+
             keuangan.cek_keuangan(pilih, index);
             totpen.setText("Rp." + String.valueOf(keuangan.getTotalPendapatan()));
             ResultSet rsPendapatan = stmt.executeQuery("select pendapatan from faza.DATAKEUANGAN where " + pilih + "='" + index + "'");
-            
+
             String p[] = new String[1000];;
             for (int i = 0; i < 1000; i++) {
                 if (rsPendapatan.next()) {
                     p[i] = rsPendapatan.getString("pendapatan");
                 }
             }
-            
+
             ResultSet rs = stmt.executeQuery("select " + pilih + " from faza.DATAKEUANGAN where " + pilih + "='" + index + "'");
-            
+
             int y = 0;
             while (rs.next()) {
                 Object[] data = new Object[2];
@@ -88,7 +110,7 @@ public class ManagerFrame extends javax.swing.JFrame {
             System.out.println(x.getMessage());
             x.printStackTrace();
         }
-        
+
     }
 
     /**
@@ -215,6 +237,8 @@ public class ManagerFrame extends javax.swing.JFrame {
         index = txtTahun.getText();
         labelCheck.setVisible(true);
         pilih = "tahun";
+        namaIndex = index;
+        b = 3;
     }//GEN-LAST:event_txtTahunActionPerformed
 
     private void comboBoxPilihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPilihanActionPerformed
@@ -360,6 +384,7 @@ public class ManagerFrame extends javax.swing.JFrame {
                 namaIndex = "31";
                 break;
         }
+        b = 1;
         pilih = "TGL";
         labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxTanggalActionPerformed
@@ -368,66 +393,67 @@ public class ManagerFrame extends javax.swing.JFrame {
         switch (comboBoxBulan.getSelectedIndex()) {
             case 0:
                 index = "01";
-                namaIndex = "januari";
+                namaIndex = "Januari";
                 break;
             case 1:
                 index = "02";
-                namaIndex = "februari";
+                namaIndex = "Februari";
                 break;
             case 2:
                 index = "03";
-                namaIndex = "maret";
+                namaIndex = "Maret";
                 break;
             case 3:
                 index = "04";
-                namaIndex = "april";
+                namaIndex = "April";
                 break;
             case 4:
                 index = "05";
-                namaIndex = "mei";
+                namaIndex = "Mei";
                 break;
             case 5:
                 index = "06";
-                namaIndex = "juni";
+                namaIndex = "Juni";
                 break;
             case 6:
                 index = "07";
-                namaIndex = "juli";
+                namaIndex = "Juli";
                 break;
             case 7:
                 index = "08";
-                namaIndex = "agustus";
+                namaIndex = "Agustus";
                 break;
             case 8:
                 index = "09";
-                namaIndex = "september";
+                namaIndex = "September";
                 break;
             case 9:
                 index = "10";
-                namaIndex = "oktober";
+                namaIndex = "Oktober";
                 break;
             case 10:
                 index = "11";
-                namaIndex = "november";
+                namaIndex = "November";
                 break;
             default:
                 index = "12";
-                namaIndex = "desember";
+                namaIndex = "Desember";
                 break;
         }
         pilih = "BULAN";
+        b = 2;
         labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxBulanActionPerformed
-    
+
     public void LoadTimer() {
         timer = new Timer();
         timer.schedule(new WaktuMundur(), 0, 1000);
     }
-    
+
     class WaktuMundur extends TimerTask {
-        
+
         int detik = 1;
-        
+
         @Override
         public void run() {
             if (detik > 0) {
@@ -444,7 +470,6 @@ public class ManagerFrame extends javax.swing.JFrame {
         LoadTimer();
         comboBoxPilihan.setVisible(true);
         labelMasukkanPilihan.setVisible(true);
-        labelTotPen.setVisible(true);
         totpen.setVisible(true);
     }//GEN-LAST:event_labelKeuanganMouseClicked
 
@@ -455,17 +480,23 @@ public class ManagerFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_labelOutMouseClicked
 
     private void labelCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCheckMouseClicked
-        tableKeuangan.setVisible(true);
+        tableKeuangan.setVisible(false);
+        totpen.setVisible(true);
+        labelTotPen.setVisible(true);
         if (a == 1) {
             TableData();
-            
         } else {
             totpen.setText("");
-            a = 0;
+            a = 3;
             keuangan.setBackValue(0);
         }
+        if (a==3){
+             TableData();
+             a = 0;
+             keuangan.setBackValue(0);
+        }      
         a++;
-
+        tableKeuangan.setVisible(true);
     }//GEN-LAST:event_labelCheckMouseClicked
 
     /**

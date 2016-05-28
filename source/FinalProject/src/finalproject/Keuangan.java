@@ -10,6 +10,7 @@ import java.sql.DriverManager; // mengimport class DriverManager dalam package j
 import java.sql.ResultSet; // mengimport class ResulSet dalam package java.sql
 import java.sql.SQLException; // mengimport class SQLException dalam package java.sql
 import java.sql.Statement; // mengimport class Statement dalam package java.sql
+
 /**
  *
  * @author Faza Abdi
@@ -38,8 +39,12 @@ public class Keuangan {
                 pendapatan[k] = rset.getInt("pendapatan");
                 k++;
             }
-            for (int i = 0; i < 1000; i++) {
-                temp += pendapatan[i];
+            
+            ResultSet rs = stmt.executeQuery("select " + pil + " from faza.DATAKEUANGAN where " + pil + "='" + tipe + "'");
+            int z = 0;
+            while (rs.next()) {
+                temp += pendapatan[z];
+                z++;
             }
         }
     }

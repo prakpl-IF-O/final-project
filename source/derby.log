@@ -1,14 +1,2 @@
-Sat May 28 18:38:22 ICT 2016 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
-----------------------------------------------------------------
-Sat May 28 18:38:37 ICT 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0154-f728-647b-ffff98bc765f 
-on database directory D:\Teknik Informatika\Semester 2\Pemrograman Lanjut\Praktikum\final-project\source\Hotel with class loader sun.misc.Launcher$AppClassLoader@2de80c 
-Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_60/db/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_60-b27
-user.dir=C:\Program Files\Java\jdk1.8.0_60\db
-os.name=Windows 10
-os.arch=x86
-os.version=10.0
-derby.system.home=D:\Teknik Informatika\Semester 2\Pemrograman Lanjut\Praktikum\final-project\source
-Database Class Loader started - derby.database.classpath=''
+Sat May 28 20:47:32 ICT 2016 : Could not listen on port 1527 on host localhost:
+ java.net.BindException: Address already in use: JVM_Bind
