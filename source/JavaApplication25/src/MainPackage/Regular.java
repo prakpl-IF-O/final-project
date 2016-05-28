@@ -1,10 +1,15 @@
 package MainPackage;
 
 //class untuk pelanggan yang memilih tipe kamar reguler
-public class Reguler extends Jenis {
+public class Regular extends Jenis {
     protected final static double harga=100000;
     protected static int kamar=50;
     protected double invoice;
+
+    public double getInvoice() {
+        return invoice;
+    }
+    
     //method untuk set tipe kamar yaitu reguler
     public void setTipe() {
         this.tipe = "Reguler";

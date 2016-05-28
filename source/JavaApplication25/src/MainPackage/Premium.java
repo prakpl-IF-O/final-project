@@ -5,6 +5,9 @@ public class Premium extends Jenis {
     protected final static double harga=200000;
     protected static int kamar=20;
     protected double invoice;
+    public double getInvoice() {
+        return invoice;
+    }
     //method untuk set tipe kamar yaitu premium
     public void setTipe() {
         this.tipe = "Premium";

@@ -5,6 +5,10 @@ public class VIP extends Jenis{
     protected final static double harga=750000;
     protected static int kamar=10;
     protected double invoice;
+
+    public double getInvoice() {
+        return invoice;
+    }
     //method untuk set tipe kamar yaitu VIP
     public void setTipe() {
         this.tipe = "VIP";
