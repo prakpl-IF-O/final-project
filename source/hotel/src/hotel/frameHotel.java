@@ -31,6 +31,8 @@ public class frameHotel extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         tombolCheckIn = new javax.swing.JButton();
         tombolCheckout = new javax.swing.JButton();
+        data = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -46,21 +48,35 @@ public class frameHotel extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tombolCheckIn.setIcon(new javax.swing.ImageIcon("H:\\Backup\\Checkin-button.gif")); // NOI18N
         tombolCheckIn.setText("Check in");
         tombolCheckIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tombolCheckInActionPerformed(evt);
             }
         });
-        getContentPane().add(tombolCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 53, 271, 160));
+        getContentPane().add(tombolCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 170, 190));
 
+        tombolCheckout.setIcon(new javax.swing.ImageIcon("H:\\Backup\\Checkout-button.gif")); // NOI18N
         tombolCheckout.setText("Check out");
         tombolCheckout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tombolCheckoutActionPerformed(evt);
             }
         });
-        getContentPane().add(tombolCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 248, 271, 150));
+        getContentPane().add(tombolCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 160, 170));
+
+        data.setIcon(new javax.swing.ImageIcon("H:\\Backup\\Check-data-button.gif")); // NOI18N
+        data.setText("DATA");
+        data.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataActionPerformed(evt);
+            }
+        });
+        getContentPane().add(data, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 160, 170));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("H:\\Backup\\Kasar-4x.gif")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,6 +95,10 @@ public class frameHotel extends javax.swing.JFrame {
       
       
     }//GEN-LAST:event_tombolCheckoutActionPerformed
+
+    private void dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataActionPerformed
+        new ID_NAMA().setVisible(true);
+    }//GEN-LAST:event_dataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,7 +136,9 @@ public class frameHotel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton data;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton tombolCheckIn;
     private javax.swing.JButton tombolCheckout;
     // End of variables declaration//GEN-END:variables

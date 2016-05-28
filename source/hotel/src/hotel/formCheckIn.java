@@ -42,56 +42,41 @@ public class formCheckIn extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         kolomNama = new javax.swing.JTextField();
         kolomNik = new javax.swing.JTextField();
         kolomID = new javax.swing.JTextField();
         kolomLahir = new javax.swing.JTextField();
         kolomTempatLahir = new javax.swing.JTextField();
         kolomTanggalBook = new javax.swing.JTextField();
-        kolomJamBook = new javax.swing.JTextField();
         kolomKelas = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         tombolSimpan = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setText("nama");
-
-        jLabel2.setText("nik");
-
-        jLabel3.setText("id");
-
-        jLabel4.setText("tanggal lahir");
-
-        jLabel5.setText("tempat lahir");
-
-        jLabel6.setText("tanggal book");
-
-        jLabel7.setText("jam book");
-
-        jLabel8.setText("kelas");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         kolomNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kolomNamaActionPerformed(evt);
             }
         });
+        getContentPane().add(kolomNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 190, -1));
+        getContentPane().add(kolomNik, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 190, -1));
+        getContentPane().add(kolomID, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 190, 20));
+        getContentPane().add(kolomLahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 190, -1));
+        getContentPane().add(kolomTempatLahir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 190, -1));
+        getContentPane().add(kolomTanggalBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 190, 40));
 
         kolomKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kolomKelasActionPerformed(evt);
             }
         });
+        getContentPane().add(kolomKelas, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 190, -1));
 
         jLabel9.setText("check in");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 20, 61, -1));
 
         tombolSimpan.setText("simpan");
         tombolSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -99,93 +84,10 @@ public class formCheckIn extends javax.swing.JDialog {
                 tombolSimpanActionPerformed(evt);
             }
         });
+        getContentPane().add(tombolSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 543, 90, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(51, 51, 51)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(kolomNik, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                                    .addComponent(kolomID)
-                                    .addComponent(kolomNama)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(kolomLahir)
-                                    .addComponent(kolomTempatLahir)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(15, 15, 15)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(kolomJamBook, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(kolomTanggalBook)
-                                    .addComponent(kolomKelas)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tombolSimpan)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(kolomNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(kolomNik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(kolomID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(kolomLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(kolomTempatLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(kolomTanggalBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(kolomJamBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(kolomKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
-                .addComponent(tombolSimpan)
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
+        jLabel10.setIcon(new javax.swing.ImageIcon("H:\\Backup\\Kasar-3x.gif")); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1160, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -206,7 +108,7 @@ public class formCheckIn extends javax.swing.JDialog {
         
         
         String kelas= kolomKelas.getText();
-        pelanggan p1=new pelanggan(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
+        pelanggan p1=new pelanggan(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),"",kelas,nomorRe);
         
         if(kelas.equalsIgnoreCase("reguler")){
             
@@ -221,27 +123,27 @@ public class formCheckIn extends javax.swing.JDialog {
              FileWriter writer = new FileWriter(inputTemp, true);
 
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.newLine();
+
            dataPelanggan dlr=new dataPelanggan();
-           dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
+           dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),"",kelas,nomorRe);
            for(pelanggan pl : dlr.getData()){
                  bufferedWriter.write(pl.getNik()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Nama : "+pl.getNama()); 
+                 bufferedWriter.write(pl.getNama()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tanggal lahir : "+pl.getTanggalLahir()); 
+                 bufferedWriter.write(pl.getTanggalLahir()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tempat lahir : "+pl.getTempatLahir()); 
+                 bufferedWriter.write(pl.getTempatLahir()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Id pelanggan : "+pl.getId());
+                 bufferedWriter.write(pl.getId());
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tanggal checkin : "+pl.getTanggalBook()); 
+                 bufferedWriter.write(pl.getTanggalBook()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Kelas kamar : "+pl.getKelas()); 
+                 bufferedWriter.write(pl.getKelas()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Nomor kamar : "+pl.getNomorKamar()); 
+                 bufferedWriter.write(pl.getNomorKamar()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Harga : "+100000); 
+                 bufferedWriter.write("100000"); 
                  bufferedWriter.newLine();
                  
            }
@@ -275,25 +177,25 @@ public class formCheckIn extends javax.swing.JDialog {
                 BufferedWriter bufferedWriter = new BufferedWriter(writer);
                 bufferedWriter.newLine();
                 dataPelanggan dlr=new dataPelanggan();
-                dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
+                dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),"",kelas,nomorRe);
                 for(pelanggan pl : dlr.getData()){
                  bufferedWriter.write(pl.getNik()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Nama : "+pl.getNama()); 
+                 bufferedWriter.write(pl.getNama()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tanggal lahir : "+pl.getTanggalLahir()); 
+                 bufferedWriter.write(pl.getTanggalLahir()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tempat lahir : "+pl.getTempatLahir()); 
+                 bufferedWriter.write(pl.getTempatLahir()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Id pelanggan : "+pl.getId());
+                 bufferedWriter.write(pl.getId());
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tanggal checkin : "+pl.getTanggalBook()); 
+                 bufferedWriter.write(pl.getTanggalBook()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Kelas kamar : "+pl.getKelas()); 
+                 bufferedWriter.write(pl.getKelas()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Nomor kamar : "+pl.getNomorKamar()); 
+                 bufferedWriter.write(pl.getNomorKamar()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Harga : "+200000); 
+                 bufferedWriter.write("200000"); 
                  bufferedWriter.newLine();
                 }
                 bufferedWriter.close();
@@ -318,25 +220,25 @@ public class formCheckIn extends javax.swing.JDialog {
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.newLine();
            dataPelanggan dlr=new dataPelanggan();
-           dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
+           dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),"",kelas,nomorRe);
            for(pelanggan pl : dlr.getData()){
                  bufferedWriter.write(pl.getNik()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Nama : "+pl.getNama()); 
+                 bufferedWriter.write(pl.getNama()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tanggal lahir : "+pl.getTanggalLahir()); 
+                 bufferedWriter.write(pl.getTanggalLahir()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tempat lahir : "+pl.getTempatLahir()); 
+                 bufferedWriter.write(pl.getTempatLahir()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Id pelanggan : "+pl.getId());
+                 bufferedWriter.write(pl.getId());
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tanggal checkin : "+pl.getTanggalBook()); 
+                 bufferedWriter.write(pl.getTanggalBook()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Kelas kamar : "+pl.getKelas()); 
+                 bufferedWriter.write(pl.getKelas()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Nomor kamar : "+pl.getNomorKamar()); 
+                 bufferedWriter.write(pl.getNomorKamar()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Harga : "+350000); 
+                 bufferedWriter.write("350000"); 
                  bufferedWriter.newLine();
            }
             bufferedWriter.close();
@@ -366,25 +268,25 @@ public class formCheckIn extends javax.swing.JDialog {
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.newLine();
            dataPelanggan dlr=new dataPelanggan();
-           dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),kolomJamBook.getText(),kelas,nomorRe);
+           dlr.insertData(kolomNama.getText(),kolomNik.getText(),kolomID.getText(),kolomLahir.getText(),kolomTempatLahir.getText(),kolomTanggalBook.getText(),"",kelas,nomorRe);
            for(pelanggan pl : dlr.getData()){
                  bufferedWriter.write(pl.getNik()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Nama : "+pl.getNama()); 
+                 bufferedWriter.write(pl.getNama()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tanggal lahir : "+pl.getTanggalLahir()); 
+                 bufferedWriter.write(pl.getTanggalLahir()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tempat lahir : "+pl.getTempatLahir()); 
+                 bufferedWriter.write(pl.getTempatLahir()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Id pelanggan : "+pl.getId());
+                 bufferedWriter.write(pl.getId());
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Tanggal checkin : "+pl.getTanggalBook()); 
+                 bufferedWriter.write(pl.getTanggalBook()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Kelas kamar : "+pl.getKelas()); 
+                 bufferedWriter.write(pl.getKelas()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Nomor kamar : "+pl.getNomorKamar()); 
+                 bufferedWriter.write(pl.getNomorKamar()); 
                  bufferedWriter.newLine();
-                 bufferedWriter.write("Harga : "+750000); 
+                 bufferedWriter.write("750000"); 
                  bufferedWriter.newLine();
            }
             bufferedWriter.close();
@@ -444,17 +346,9 @@ public class formCheckIn extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField kolomID;
-    private javax.swing.JTextField kolomJamBook;
     private javax.swing.JTextField kolomKelas;
     private javax.swing.JTextField kolomLahir;
     private javax.swing.JTextField kolomNama;

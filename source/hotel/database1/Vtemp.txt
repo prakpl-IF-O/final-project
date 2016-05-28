@@ -1,8 +1,7 @@
-10
-kamar kosong
-kamar kosong
-kamar kosong
-kamar kosong
+7
+terisi
+terisi
+terisi
 kamar kosong
 kamar kosong
 kamar kosong
