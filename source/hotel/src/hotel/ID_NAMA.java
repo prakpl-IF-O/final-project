@@ -6,7 +6,11 @@
 package hotel;
 
 import static databaseKamarr.databaseKamarr.n;
+import static hotel.Dataa.ar;
 import static hotel.Dataa.arr;
+import hotel.Dataa.*;
+import static hotel.Dataa.arr;
+import static hotel.pelanggan.denda;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,7 +48,6 @@ public class ID_NAMA extends javax.swing.JFrame {
         nama = new javax.swing.JTextField();
         nik = new javax.swing.JTextField();
         cari = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -53,7 +56,6 @@ public class ID_NAMA extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        nik1 = new javax.swing.JTextField();
         nama1 = new javax.swing.JTextField();
         tanggalLah = new javax.swing.JTextField();
         tempatLah = new javax.swing.JTextField();
@@ -62,6 +64,8 @@ public class ID_NAMA extends javax.swing.JFrame {
         kelas = new javax.swing.JTextField();
         nomor = new javax.swing.JTextField();
         harga = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        bayar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,8 +87,6 @@ public class ID_NAMA extends javax.swing.JFrame {
                 cariActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("nik");
 
         jLabel5.setText("nama");
 
@@ -108,6 +110,8 @@ public class ID_NAMA extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("total bayar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,33 +130,12 @@ public class ID_NAMA extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nik)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nik1)
-                                    .addComponent(nama1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(nik))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cari)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tanggalLah, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(tempatLah)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
@@ -163,14 +146,27 @@ public class ID_NAMA extends javax.swing.JFrame {
                                     .addComponent(kelas)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel6))
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nama1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tanggalLah, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(id1)
+                                            .addComponent(tempatLah)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel4))
                                 .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(nomor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(harga))))
+                                    .addComponent(harga)
+                                    .addComponent(nomor)
+                                    .addComponent(bayar))))
                         .addGap(0, 12, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -191,11 +187,7 @@ public class ID_NAMA extends javax.swing.JFrame {
                     .addComponent(nik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cari)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(nik1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(nama1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,7 +220,11 @@ public class ID_NAMA extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(bayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pack();
@@ -239,25 +235,26 @@ public class ID_NAMA extends javax.swing.JFrame {
     }//GEN-LAST:event_namaActionPerformed
 
     private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
-  try {
+try {
             
             Dataa id=new Dataa(nik.getText(),nama.getText());
-//            for(int i=0;i<=n;i++){
-//            nik1.setText(arr[0]);
-//            nama1.setText(arr[1]);
-//            tanggalLah.setText(arr[2]);
-//            tempatLah.setText(arr[3]);
-//            id1.setText(arr[4]);
-//            tanggalCI.setText(arr[5]);
-//            kelas.setText(arr[6]);
-//            nomor.setText(arr[7]);
-//            harga.setText(arr[8]);
-           // }
-//            System.out.println(arr[0]);
-        } catch (IOException ex) {
+            System.out.println(arr[0]);
+            for(int i=0;i<=8;i++){
+            nama1.setText(arr[0]);
+            tanggalLah.setText(arr[1]);
+            tempatLah.setText(arr[2]);
+            id1.setText(arr[3]);
+            tanggalCI.setText(arr[4]);
+            kelas.setText(arr[5]);
+            nomor.setText(arr[6]);
+            harga.setText(arr[7]);
+            
+            }
+           
+     } catch (IOException ex) {
           Logger.getLogger(ID_NAMA.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+//       
         
     }//GEN-LAST:event_cariActionPerformed
 
@@ -301,6 +298,7 @@ public class ID_NAMA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField bayar;
     private javax.swing.JButton cari;
     private javax.swing.JTextField harga;
     private javax.swing.JTextField id;
@@ -321,7 +319,6 @@ public class ID_NAMA extends javax.swing.JFrame {
     private javax.swing.JTextField nama;
     private javax.swing.JTextField nama1;
     private javax.swing.JTextField nik;
-    private javax.swing.JTextField nik1;
     private javax.swing.JTextField nomor;
     private javax.swing.JTextField tanggalCI;
     private javax.swing.JTextField tanggalLah;
