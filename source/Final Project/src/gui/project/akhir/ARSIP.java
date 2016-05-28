@@ -30,7 +30,7 @@ public class ARSIP extends javax.swing.JFrame {
         updateTable();
     }
     /**
-     * memperbarui tabel jika ada inputan
+     * memperbarui tabel jika ada inputan dengan data transaksi
      */
     public void updateTable() {
         try {
@@ -89,7 +89,7 @@ public class ARSIP extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     * membuat method memprogram gambar jika di klik
+     * membuat method memprogram gambar untuk memproses ke prosesan login
      */
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         dispose();

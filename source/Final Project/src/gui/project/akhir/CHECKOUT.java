@@ -20,9 +20,7 @@ import java.util.Date;
 
 public class CHECKOUT extends javax.swing.JFrame {
 
-    /**
-     * membuat method check out
-     */
+   
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
