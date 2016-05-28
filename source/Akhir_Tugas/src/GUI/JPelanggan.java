@@ -16,6 +16,7 @@ public class JPelanggan extends javax.swing.JFrame {
 
     /**
      * Creates new form JPelanggan
+     * Memanggil method initComponents()
      */
     public JPelanggan() {
         initComponents();
@@ -121,19 +122,37 @@ public class JPelanggan extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method BMenuMouseClicked
+     * @param evt 
+     */
     private void BMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BMenuMouseClicked
         // Menu
+        // Membuat objek Mu dari kelas MenuUtama
         MenuUtama Mu = new MenuUtama();
+        // Memanggil setVisible() untuk menampilkan output
         Mu.setVisible(true);
+        // Memanggil setVisible() untuk menyembunyikan output
         this.setVisible(false);
     }//GEN-LAST:event_BMenuMouseClicked
 
+    /**
+     * Method MenuMouseClicked
+     * @param evt 
+     */
     private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
         // Menu
+        // Membuat objek Mu dari kelas MenuUtama
         MenuUtama Mu = new MenuUtama();
+        // Memanggil method setVisible() untuk menampilkan output
         Mu.setVisible(true);
+        // Memanggil method setVisible() untuk menyembunyikan output
         this.setVisible(false);
     }//GEN-LAST:event_MenuMouseClicked
+    
+    /**
+     * Method a
+     */
     public void a() {
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
         table.setRowCount(0);
@@ -154,6 +173,7 @@ public class JPelanggan extends javax.swing.JFrame {
                 no++;
             }
         } catch (SQLException err) {
+            // Menampilkan error Message
             System.out.println(err.getMessage());
         }
     }
@@ -187,6 +207,9 @@ public class JPelanggan extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            /**
+             * Menampilkan JPelanggan()
+             */
             public void run() {
                 new JPelanggan().setVisible(true);
             }
