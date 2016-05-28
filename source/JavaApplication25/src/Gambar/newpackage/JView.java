@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Gambar.newpackage;
-
+import java.awt.*;
 /**
  *
  * @author Unknown
@@ -16,6 +16,11 @@ public class JView extends javax.swing.JFrame {
      */
     public JView() {
         initComponents();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = getSize();
+        setLocation(
+        (screenSize.width - frameSize.width) / 2,
+        (screenSize.height - frameSize.height) / 2);
     }
 
     /**
@@ -92,8 +97,7 @@ public class JView extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-        ViewTables table= new ViewTables();
-        table.show();
+        
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     /**

@@ -5,7 +5,9 @@
  */
 package Gambar.newpackage;
 import MainPackage.*;
-
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 public class JFrame extends javax.swing.JFrame {
     String a,b;
     Admin admin=new Admin();
@@ -13,6 +15,11 @@ public class JFrame extends javax.swing.JFrame {
     
     public JFrame() {
         initComponents();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = getSize();
+        setLocation(
+        (screenSize.width - frameSize.width) / 2,
+        (screenSize.height - frameSize.height) / 2);
     }
 
     @SuppressWarnings("unchecked")
@@ -108,11 +115,7 @@ public class JFrame extends javax.swing.JFrame {
                
         }
         else{
-            ErrorDialog error=new ErrorDialog();
-            error.setTitle("Login Failed");
-            error.setSize(325,138);
-            error.show();
-            
+            JOptionPane.showMessageDialog(null, "Username/ password isn't available");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     
