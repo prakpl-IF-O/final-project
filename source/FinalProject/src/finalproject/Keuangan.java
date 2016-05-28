@@ -28,7 +28,9 @@ public class Keuangan {
     // Memasukkan statement berupa syntax SQL untuk mengambil data pendapatan berdasarkan nilai dari variabel pil sama dengan nilai dari variabel tipe
     // Assignment data pendapatan ke dalam array pendapatan
     // Update nilai dari variabel k
+    // Memasukkan statement berupa syntax SQL untuk mengambil data berdasarkan nilai dari variabel pil berdasarkan nilai dari variabel pil sama dengan nilai dari variabel tipe
     // Proses perulangan untuk menjumlahkan seluruh nilai pada array pendapatan[] kedalam variabel temp 
+    // Update nilai dari variabel z
     public void cek_keuangan(String pil, String tipe) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
         Statement stmt = conn.createStatement();
@@ -39,7 +41,7 @@ public class Keuangan {
                 pendapatan[k] = rset.getInt("pendapatan");
                 k++;
             }
-            
+
             ResultSet rs = stmt.executeQuery("select " + pil + " from faza.DATAKEUANGAN where " + pil + "='" + tipe + "'");
             int z = 0;
             while (rs.next()) {
