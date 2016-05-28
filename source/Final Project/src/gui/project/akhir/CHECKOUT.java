@@ -26,7 +26,9 @@ public class CHECKOUT extends javax.swing.JFrame {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-
+    /**
+     * membuat constructor jam keluar dari data base
+     */
     public CHECKOUT() {
         initComponents();
         conn = ConnectionSql.ConnectDBS();
@@ -41,7 +43,9 @@ public class CHECKOUT extends javax.swing.JFrame {
         String a = sdf.format(cal.getTime());
         return a;
     }
-
+    /**
+     * mengupdate tabel dari data base
+     */
     public void updateTable() {
         try {
             String sql = "select * from data_pengunjung";
@@ -227,10 +231,11 @@ public class CHECKOUT extends javax.swing.JFrame {
     private void FTTagihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FTTagihanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FTTagihanActionPerformed
-
+    /**
+     * 
+     */
     private void FTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FTableMouseClicked
-        // TODO add your handling code here:
-        Transaksi tagihan = new Transaksi();
+       Transaksi tagihan = new Transaksi();
 
         try {
             int row = FTable.getSelectedRow();
