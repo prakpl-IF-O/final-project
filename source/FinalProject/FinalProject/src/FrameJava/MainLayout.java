@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FrameJava;
+package Project_Akhir;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -60,6 +60,7 @@ public class MainLayout extends javax.swing.JFrame {
         Premium = new javax.swing.JButton();
         VIP = new javax.swing.JButton();
         Reguler = new javax.swing.JButton();
+        Menu2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -177,7 +178,7 @@ public class MainLayout extends javax.swing.JFrame {
         Layer1.add(Lama, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 90, 30));
 
         Menu1.setIcon(new javax.swing.ImageIcon("E:\\Aditya Pramudita\\My File\\Project\\ProjekAkhir\\Component\\Layout Pelanggan.jpg")); // NOI18N
-        Layer1.add(Menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 570));
+        Layer1.add(Menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, -1));
 
         getContentPane().add(Layer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 740, 640));
 
@@ -248,16 +249,24 @@ public class MainLayout extends javax.swing.JFrame {
         });
         getContentPane().add(Reguler, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 453, 240, 30));
 
+        Menu2.setText("Menu");
+        Menu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 120, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void HargaKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HargaKamarActionPerformed
 
-        JOptionPane.showMessageDialog(null, "" + "Harga Kamar Perkelas :\n"
-                + "\nHarga Reguler    :" + trans.getHargaR()
-                + "\nHarga Premium    :" + trans.getHargaP()
-                + "\nHarga Suite      :" + trans.getHargaS()
-                + "\nHarga VIP        :" + trans.getHargaV());
+        JOptionPane.showMessageDialog(null, "" + "Harga Kamar Perkelas : \n"
+                + "\n Harga Reguler    : " + trans.getHargaR()
+                + "\n Harga Premium    : " + trans.getHargaP()
+                + "\n Harga Suite      : " + trans.getHargaS()
+                + "\n Harga VIP        : " + trans.getHargaV());
     }//GEN-LAST:event_HargaKamarActionPerformed
 
     private void TransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransaksiActionPerformed
@@ -265,18 +274,18 @@ public class MainLayout extends javax.swing.JFrame {
         trans.setcheckout(Integer.parseInt(Lama.getText()));
         K.cekKamar(String.valueOf(JenisKamar.getSelectedItem()));
         int bayar = (int) trans.getPembayaran();
-        JOptionPane.showMessageDialog(null, "" + "Kode Transaksi:" + trans.getKodeTransaksi()
-                + "\nNama Pelanggan       : " + c.getNama()
-                + "\nID pelanggan         : " + c.getIDpelanggan()
-                + "\nNIK                  : " + c.getNIK()
-                + "\nT/TL                 : " + c.getTTL()
-                + "\nTanggal terdaftar    : " + c.gettrdftr()
-                + "\nMemesan kamar untuk  : " + trans.getHari()
-                + "\nTanggal checkIn      : " + trans.getcheckin()
-                + "\nTanggal checkOut     : " + trans.getcheckout()
-                + "\nKelas kamar          : " + JenisKamar.getSelectedItem()
-                + "\nHarga satu hari      : Rp." + trans.getHargakamar() + ",-"
-                + "\nTotal bayar          : Rp." + bayar + ",-");
+        JOptionPane.showMessageDialog(null, "" + "Kode Transaksi: " + trans.getKodeTransaksi()
+                + "\n Nama Pelanggan       : " + c.getNama()
+                + "\n ID pelanggan         : " + c.getIDpelanggan()
+                + "\n NIK                  : " + c.getNIK()
+                + "\n T/TL                 : " + c.getTTL()
+                + "\n Tanggal terdaftar    : " + c.gettrdftr()
+                + "\n Memesan kamar untuk  : " + trans.getHari()
+                + "\n Tanggal checkIn      : " + trans.getcheckin()
+                + "\n Tanggal checkOut     : " + trans.getcheckout()
+                + "\n Kelas kamar          : " + JenisKamar.getSelectedItem()
+                + "\n Harga satu hari      : Rp." + trans.getHargakamar() + ",-"
+                + "\n Total bayar          : Rp." + bayar + ",-");
     }//GEN-LAST:event_TransaksiActionPerformed
 
     private void tglActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglActionPerformed
@@ -309,14 +318,14 @@ public class MainLayout extends javax.swing.JFrame {
         trans.setHarga((String) JenisKamar.getSelectedItem());
         trans.setcheckin(Integer.parseInt(tgl1.getText()), Integer.parseInt(Bln1.getText()), Integer.parseInt(thn1.getText()));
         c.terdaftar(Integer.parseInt(tgl.getText()), Integer.parseInt(Bln.getText()), Integer.parseInt(thn.getText()));
-        JOptionPane.showMessageDialog(null, "" + "ID Pelanggan\t:" + c.getIDpelanggan()
-                + "\nNIK:" + c.getNIK()
-                + "\nNama Lengkap:" + c.getNama()
-                + "\nTtl:" + c.getNIK()
-                + "\nTanggal terdaftar :" + c.gettrdftr()
-                + "\nJenis Kamar :" + JenisKamar.getSelectedItem()
-                + "\nTanggal cek in:" + trans.getcheckin()
-                + "\nLama Menginap:" + trans.getHari());
+        JOptionPane.showMessageDialog(null, "" + "ID Pelanggan\t : " + c.getIDpelanggan()
+                + "\n NIK          : " + c.getNIK()
+                + "\n Nama Lengkap :" + c.getNama()
+                + "\n Ttl          : " + c.getNIK()
+                + "\n Tanggal terdaftar : " + c.gettrdftr()
+                + "\n Jenis Kamar  : " + JenisKamar.getSelectedItem()
+                + "\n Tanggal cek in :" + trans.getcheckin()
+                + "\n Lama Menginap:" + trans.getHari());
     }//GEN-LAST:event_finishActionPerformed
 
     private void Bln1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bln1ActionPerformed
@@ -380,6 +389,11 @@ public class MainLayout extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,""+ "Kamar VIP yang kosong " +K.cekKamarVIP()+"Kamar");
     }//GEN-LAST:event_VIPActionPerformed
 
+    private void Menu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu2ActionPerformed
+        Layer1.setVisible(false);
+        Layer2.setVisible(true);
+    }//GEN-LAST:event_Menu2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -429,6 +443,7 @@ public class MainLayout extends javax.swing.JFrame {
     private javax.swing.JButton Login;
     private javax.swing.JLabel Main;
     private javax.swing.JLabel Menu1;
+    private javax.swing.JButton Menu2;
     private javax.swing.JTextField Nama;
     private javax.swing.JTextField Nik;
     private javax.swing.JButton Pelanggan;
