@@ -5,6 +5,9 @@
  */
 package HOTEL;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -66,6 +69,13 @@ public class MAIN extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         haha = new javax.swing.JLabel();
         hahaha = new javax.swing.JLabel();
+        VIP = new javax.swing.JRadioButton();
+        suite = new javax.swing.JRadioButton();
+        premium = new javax.swing.JRadioButton();
+        reguler = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        no = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         layer3 = new javax.swing.JLayeredPane();
         jButton1 = new javax.swing.JButton();
@@ -221,8 +231,8 @@ public class MAIN extends javax.swing.JFrame {
                 fieldTKActionPerformed(evt);
             }
         });
-        layer2.add(fieldTK, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 230, 30));
-        layer2.add(fieldJK, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 230, 30));
+        layer2.add(fieldTK, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 230, 30));
+        layer2.add(fieldJK, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 230, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,7 +258,7 @@ public class MAIN extends javax.swing.JFrame {
         ha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ha.setForeground(new java.awt.Color(255, 255, 255));
         ha.setText("JAM KELUAR");
-        layer2.add(ha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, -1));
+        layer2.add(ha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Bodoni MT Black", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(240, 240, 240));
@@ -258,12 +268,35 @@ public class MAIN extends javax.swing.JFrame {
         haha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         haha.setForeground(new java.awt.Color(255, 255, 255));
         haha.setText("TANGGAL KELUAR");
-        layer2.add(haha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, 30));
+        layer2.add(haha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, 30));
 
         hahaha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         hahaha.setForeground(new java.awt.Color(255, 255, 255));
         hahaha.setText("ID ANDA");
-        layer2.add(hahaha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
+        layer2.add(hahaha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+
+        VIP.setText("VIP");
+        layer2.add(VIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 90, -1));
+
+        suite.setText("Suite");
+        layer2.add(suite, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 90, -1));
+
+        premium.setText("Premium");
+        layer2.add(premium, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 90, -1));
+
+        reguler.setText("Reguler");
+        layer2.add(reguler, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 90, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("JENIS KAMAR");
+        layer2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("NOMOR KAMAR");
+        layer2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 237, -1, 30));
+        layer2.add(no, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 230, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HOTEL/merah.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -410,6 +443,11 @@ public class MAIN extends javax.swing.JFrame {
         layer2.setVisible(false);
         layer3.setVisible(false);
         layer4.setVisible(false);
+        Transaksi aa= new Transaksi();
+        String a= JOptionPane.showInputDialog(this, "masukkan bulan :");
+        double b=aa.generate(a);
+        String c= String.format("pendapatan bulan ini adalah Rp%.0f",b);
+        JOptionPane.showMessageDialog(this, c);
     }//GEN-LAST:event_j4MouseClicked
 
     private void j5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j5MouseClicked
@@ -458,7 +496,102 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        String TK= fieldTK.getText();
+        String JK= fieldJK.getText();
+        String id= fieldId.getText();
+        String No = no.getText();
+        if (VIP.isSelected()==true) {
+            try {
+                int noKam=Integer.parseInt(No);
+                Transaksi a= new Transaksi();
+                double harga=a.hitungBayar(id, TK, JK, 750000);
+                String tampil= String.format("Anda Harus Membayar %.0f\nMasukkan jumlah bayar:", harga);
+                String temp= JOptionPane.showInputDialog(this, tampil);
+                double bayar=Double.parseDouble(temp);
+                double kembalian = bayar-harga;
+                if (kembalian<0) {
+                    JOptionPane.showMessageDialog(this, "uang anda tidak cukup");
+                }
+                else {
+                JOptionPane.showMessageDialog(this, "berhasil check out");
+                JOptionPane.showMessageDialog(this, a);
+                a.saveToLaporan(noKam, harga, a.denda(noKam, TK, JK));
+                a.clear(noKam);
+                }
+            } catch (ParseException ex) {
+                Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (suite.isSelected()==true) {
+            try {
+                int noKam=Integer.parseInt(No);
+                Transaksi a= new Transaksi();
+                double harga=a.hitungBayar(id, TK, JK, 350000);
+                String tampil= String.format("Anda Harus Membayar %.0f\nMasukkan jumlah bayar:", harga);
+                String temp= JOptionPane.showInputDialog(this, tampil);
+                double bayar=Double.parseDouble(temp);
+                double kembalian = bayar-harga;
+                if (kembalian<0) {
+                    JOptionPane.showMessageDialog(this, "uang anda tidak cukup");
+                }
+                else {
+                JOptionPane.showMessageDialog(this, "berhasil check out");
+                String az= String.format(a+"bayar: %.0f\nkembalian: %.0f", bayar,kembalian);
+                JOptionPane.showMessageDialog(this, az);
+                a.saveToLaporan(noKam, harga, a.denda(noKam, TK, JK));
+                a.clear(noKam);
+                }
+            } catch (ParseException ex) {
+                Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
+            }
+  
+        }
+        else if (premium.isSelected()==true) {
+            try {
+                int noKam=Integer.parseInt(No);
+                Transaksi a= new Transaksi();
+                double harga=a.hitungBayar(id, TK, JK, 200000);
+                String tampil= String.format("Anda Harus Membayar %.0f\nMasukkan jumlah bayar:", harga);
+                String temp= JOptionPane.showInputDialog(this, tampil);
+                double bayar=Double.parseDouble(temp);
+                double kembalian = bayar-harga;
+                if (kembalian<0) {
+                    JOptionPane.showMessageDialog(this, "uang anda tidak cukup");
+                }
+                else {
+                JOptionPane.showMessageDialog(this, "berhasil check out");
+                String az= String.format(a+"bayar: %.0f\nkembalian: %.0f", bayar,kembalian);
+                JOptionPane.showMessageDialog(this, az);
+                a.saveToLaporan(noKam, harga, a.denda(noKam, TK, JK));
+                a.clear(noKam);
+                }
+            } catch (ParseException ex) {
+                Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
+            }
+}
+        else {try {
+                int noKam=Integer.parseInt(No);
+                Transaksi a= new Transaksi();
+                double harga=a.hitungBayar(id, TK, JK, 100000);
+                String tampil= String.format("Anda Harus Membayar %.0f\nMasukkan jumlah bayar:", harga);
+                String temp= JOptionPane.showInputDialog(this, tampil);
+                double bayar=Double.parseDouble(temp);
+                double kembalian = bayar-harga;
+                if (kembalian<0) {
+                    JOptionPane.showMessageDialog(this, "uang anda tidak cukup");
+                }
+                else {
+                JOptionPane.showMessageDialog(this, "berhasil check out");
+                String az= String.format(a+"bayar: %.0f\nkembalian: %.0f", bayar,kembalian);
+                JOptionPane.showMessageDialog(this, az);
+                a.saveToLaporan(noKam, harga, a.denda(noKam, TK, JK));
+                a.clear(noKam);
+                }
+            } catch (ParseException ex) {
+                Logger.getLogger(MAIN.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void fieldNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNDActionPerformed
@@ -483,7 +616,10 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldTKActionPerformed
 
     private void cekIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cekIdMouseClicked
-        
+        Pelanggan dino= new Pelanggan();
+        String b= JOptionPane.showInputDialog(this, "Masukkan Tempat, tanggal lahir :");
+        String c= String.format("ID Anda adalah %s", dino.getIID(b));
+        JOptionPane.showMessageDialog(this,c);
     }//GEN-LAST:event_cekIdMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -561,6 +697,7 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JTextField Tpremium;
     private javax.swing.JTextField Treguler;
     private javax.swing.JTextField Tsuite;
+    private javax.swing.JRadioButton VIP;
     private javax.swing.JLabel cekId;
     private javax.swing.JTextField fieldId;
     private javax.swing.JTextField fieldJK;
@@ -584,6 +721,7 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -595,6 +733,7 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -612,10 +751,14 @@ public class MAIN extends javax.swing.JFrame {
     private javax.swing.JLayeredPane layer2;
     private javax.swing.JLayeredPane layer3;
     private javax.swing.JLayeredPane layer4;
+    private javax.swing.JTextField no;
+    private javax.swing.JRadioButton premium;
     private javax.swing.JRadioButton rad1;
     private javax.swing.JRadioButton rad2;
     private javax.swing.JRadioButton rad3;
     private javax.swing.JRadioButton rad4;
+    private javax.swing.JRadioButton reguler;
     private javax.swing.JButton saveButton;
+    private javax.swing.JRadioButton suite;
     // End of variables declaration//GEN-END:variables
 }

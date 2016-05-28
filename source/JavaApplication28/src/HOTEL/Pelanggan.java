@@ -88,7 +88,6 @@ public Pelanggan(){};
         return ID;
     }
     
-    
     public String getIID(String tglLahir){
         String ID="a";
         try(
