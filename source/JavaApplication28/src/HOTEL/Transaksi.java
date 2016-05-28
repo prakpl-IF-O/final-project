@@ -201,22 +201,6 @@ public class Transaksi implements Interface {
         }
     return denda;
     }
-    
-    public String getId(String id){
-        String ID=null;
-        try(
-        Connection con = DriverManager.getConnection(host, uName, uPass);
-                Statement stm = con.createStatement();) {
-            String search = String.format("SELECT* FROM DATABASE_INPUT where ID='%s'", id);
-            ResultSet ss = stm.executeQuery(search);
-            while (ss.next()) {
-               ID = ss.getString("ID");
-            }
-    } catch (SQLException er) {
-            System.out.println(er.getErrorCode());
-        }
-        return ID;
-    }
         
     public String toString(){
     return String.format("nama: %s\nTTL: %s\nid: %s\nNIK: %d\ncheck in: %s\ncheckOut: %s\nlama menginap: %s\nnomor kamar: %s\n"
