@@ -466,7 +466,12 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldNDActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
+        Pelanggan dino= new Pelanggan();
+        String b= dino.getId(fieldId.getText());
+        if (b.equalsIgnoreCase("a")) {
+            JOptionPane.showMessageDialog(this, "ID tidak terdaftar");
+        }
+        else {JOptionPane.showMessageDialog(this, "ID Anda terdaftar");}
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void fieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIdActionPerformed
@@ -478,7 +483,7 @@ public class MAIN extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldTKActionPerformed
 
     private void cekIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cekIdMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cekIdMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

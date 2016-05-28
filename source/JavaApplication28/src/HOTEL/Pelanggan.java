@@ -16,6 +16,7 @@ public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         this.NIK = NIK;
         this.no=no;
     }
+public Pelanggan(){};
 
     public String getNamaD() {
         return namaD;
@@ -69,6 +70,39 @@ public Pelanggan(String namaD, String namaB, String TTL, int NIK, int no) {
         catch (SQLException er) {
             System.out.println(er.getErrorCode());
         }
+    }
+    
+    public String getId(String id){
+        String ID="a";
+        try(
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+                Statement stm = con.createStatement();) {
+            String search = String.format("SELECT* FROM DATABASE_INPUT where ID='%s'", id);
+            ResultSet ss = stm.executeQuery(search);
+            while (ss.next()) {
+               ID = ss.getString("ID");
+            }
+    } catch (SQLException er) {
+            System.out.println(er.getErrorCode());
+        }
+        return ID;
+    }
+    
+    
+    public String getIID(String tglLahir){
+        String ID="a";
+        try(
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+                Statement stm = con.createStatement();) {
+            String search = String.format("SELECT* FROM DATABASE_INPUT where TTL='%s'", tglLahir);
+            ResultSet ss = stm.executeQuery(search);
+            while (ss.next()) {
+               ID = ss.getString("ID");
+            }
+    } catch (SQLException er) {
+            System.out.println(er.getErrorCode());
+        }
+        return ID;
     }
         public String toString(){
         return String.format("nama: %s\nTTL: %s\nid: %s\nNIK: %d\n",nama,TTL,id,NIK);
