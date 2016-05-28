@@ -152,6 +152,7 @@ public class JPelanggan extends javax.swing.JFrame {
     
     /**
      * Method a
+     * Menampilkan no, id, nama, ttl, jumlah hari menginap dari pelanggan
      */
     public void a() {
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
