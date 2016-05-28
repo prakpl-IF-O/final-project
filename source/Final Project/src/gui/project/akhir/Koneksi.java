@@ -17,7 +17,9 @@ public class Koneksi {
     public Connection conec;
     public Statement state;
     public ResultSet reset;
-
+    /**
+     * membuat method koneksi ke database
+     */
     public void Class() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
