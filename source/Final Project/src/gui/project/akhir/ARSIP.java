@@ -16,18 +16,22 @@ import net.proteanit.sql.DbUtils;
 public class ARSIP extends javax.swing.JFrame {
 
     /**
-     * Creates new form ARSIP
+     * membuat arsip baru
      */
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-
+    /**
+     * membuat koneksi arsip ke data base
+     */
     public ARSIP() {
         initComponents();
         conn = ConnectionSql.ConnectDBS();
         updateTable();
     }
-
+    /**
+     * memperbarui tabel jika ada inputan
+     */
     public void updateTable() {
         try {
             String sql = "select * from arsip_pelanggan left join data_transaksi on arsip_pelanggan.ID=data_transaksi.ID";
@@ -84,9 +88,10 @@ public class ARSIP extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * membuat method memprogram gambar jika di klik
+     */
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
         dispose();
         LOGIN show = new LOGIN();
         show.show();
