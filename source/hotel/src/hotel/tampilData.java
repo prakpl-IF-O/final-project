@@ -49,6 +49,8 @@ public class tampilData extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         tampil = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        totalHarga = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,6 +97,8 @@ public class tampilData extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setText("total");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,20 +114,21 @@ public class tampilData extends javax.swing.JDialog {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel1))
                 .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tampil)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(harga, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                        .addComponent(nomor)
-                        .addComponent(kelas)
-                        .addComponent(TanggalCI)
-                        .addComponent(id)
-                        .addComponent(tempatLah)
-                        .addComponent(tanggalLah)
-                        .addComponent(nama)
-                        .addComponent(nik)))
+                    .addComponent(harga, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                    .addComponent(nomor)
+                    .addComponent(kelas)
+                    .addComponent(TanggalCI)
+                    .addComponent(id)
+                    .addComponent(tempatLah)
+                    .addComponent(tanggalLah)
+                    .addComponent(nama)
+                    .addComponent(nik)
+                    .addComponent(totalHarga))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -166,9 +171,16 @@ public class tampilData extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(13, 13, 13))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(totalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(tampil)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
 
         pack();
@@ -188,15 +200,15 @@ public class tampilData extends javax.swing.JDialog {
 
     private void tampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tampilActionPerformed
       
-//            nik.setText(arr[i]);
-//            nama.setText(arr[i]);
-//            tanggalLah.setText(arr[i]);
-//            tempatLah.setText(arr[i]);
-//            id.setText(arr[i]);
-//            TanggalCI.setText(arr[i]);
-//            kelas.setText(arr[i]);
-//            nomor.setText(arr[i]);
-//            harga.setText(arr[i]);
+            nik.setText(arr[0]);
+            nama.setText(arr[1]);
+            tanggalLah.setText(arr[2]);
+            tempatLah.setText(arr[3]);
+            id.setText(arr[4]);
+            TanggalCI.setText(arr[5]);
+            kelas.setText(arr[6]);
+            nomor.setText(arr[7]);
+            harga.setText(arr[8]);
             
         
     }//GEN-LAST:event_tampilActionPerformed
@@ -247,6 +259,7 @@ public class tampilData extends javax.swing.JDialog {
     private javax.swing.JTextField TanggalCI;
     private javax.swing.JTextField harga;
     private javax.swing.JTextField id;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -263,5 +276,6 @@ public class tampilData extends javax.swing.JDialog {
     private javax.swing.JButton tampil;
     private javax.swing.JTextField tanggalLah;
     private javax.swing.JTextField tempatLah;
+    private javax.swing.JTextField totalHarga;
     // End of variables declaration//GEN-END:variables
 }
