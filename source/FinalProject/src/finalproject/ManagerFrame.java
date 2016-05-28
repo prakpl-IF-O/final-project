@@ -5,6 +5,9 @@
  */
 package finalproject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  *
  * @author gunka
@@ -13,6 +16,7 @@ public class ManagerFrame extends javax.swing.JFrame {
 
 //    MenuFrame menuFrame = new MenuFrame();
     String index;
+    Timer timer;
 
     /**
      * Creates new form ManagerFrame
@@ -42,6 +46,7 @@ public class ManagerFrame extends javax.swing.JFrame {
         comboBoxPilihan = new javax.swing.JComboBox();
         labelMasukkanPilihan = new javax.swing.JLabel();
         labelKeuangan = new javax.swing.JLabel();
+        labelClickedKeuangan = new javax.swing.JLabel();
         labelBackgroundManager = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,6 +107,14 @@ public class ManagerFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(labelKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 350, 90));
+
+        labelClickedKeuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Clicked Keuangan.png"))); // NOI18N
+        labelClickedKeuangan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelClickedKeuanganMouseClicked(evt);
+            }
+        });
+        getContentPane().add(labelClickedKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 270, 90));
 
         labelBackgroundManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Background Manager.jpg"))); // NOI18N
         getContentPane().add(labelBackgroundManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
@@ -268,7 +281,29 @@ public class ManagerFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_comboBoxBulanActionPerformed
 
+    public void LoadTimer() {
+        timer = new Timer();
+        timer.schedule(new WaktuMundur(), 0, 1000);
+    }
+
+    class WaktuMundur extends TimerTask {
+
+        int detik = 1;
+
+        @Override
+        public void run() {
+            if (detik > 0) {
+                labelKeuangan.setVisible(false);
+                labelClickedKeuangan.setVisible(true);
+                detik--;
+            } else {
+                labelKeuangan.setVisible(true);
+                labelClickedKeuangan.setVisible(false);
+            }
+        }
+    }
     private void labelKeuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelKeuanganMouseClicked
+        LoadTimer();
         comboBoxPilihan.setVisible(true);
         labelMasukkanPilihan.setVisible(true);
     }//GEN-LAST:event_labelKeuanganMouseClicked
@@ -277,6 +312,10 @@ public class ManagerFrame extends javax.swing.JFrame {
         dispose();
 //        menuFrame.setVisible(true);
     }//GEN-LAST:event_labelOutMouseClicked
+
+    private void labelClickedKeuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelClickedKeuanganMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_labelClickedKeuanganMouseClicked
 
     /**
      * @param args the command line arguments
@@ -318,6 +357,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox comboBoxPilihan;
     private javax.swing.JComboBox comboBoxTanggal;
     private javax.swing.JLabel labelBackgroundManager;
+    private javax.swing.JLabel labelClickedKeuangan;
     private javax.swing.JLabel labelKeuangan;
     private javax.swing.JLabel labelMasukkanPilihan;
     private javax.swing.JLabel labelOut;
