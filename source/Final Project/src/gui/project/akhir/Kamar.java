@@ -23,19 +23,27 @@ public abstract class Kamar {
         this.harga = harga;
         this.status = status;
     }
-
+    /**
+     * membuat constructor getter
+     */
     public int getNo() {
         return no;
     }
-
+    /**
+     * membuat constructor getter
+     */
     public String getKelas() {
         return Kelas;
     }
-
+    /**
+     * membuat constructor getter
+     */
     public int getHarga() {
         return harga;
     }
-
+    /**
+     * membuat constructor getter
+     */
     public String getStatus() {
         return status;
     }
