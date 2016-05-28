@@ -144,8 +144,8 @@ public class SewaHotel extends JFrame implements ActionListener {
    System.exit(0);
   }
  }
-
- public static void main (String [] form) {
+public static void main (String [] form) {
             SewaHotel sewaHotel = new SewaHotel();
+ 
  }
 }
