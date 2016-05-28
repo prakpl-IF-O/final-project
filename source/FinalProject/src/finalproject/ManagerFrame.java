@@ -46,6 +46,7 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelClickedKeuangan.setVisible(false);
         labelCheck.setVisible(false);
         tableKeuangan.setVisible(false);
+        totpen.setEditable(false);
     }
 
     public void TableData() {
@@ -55,33 +56,34 @@ public class ManagerFrame extends javax.swing.JFrame {
             String[] kolom = {pilih, "PENGHASILAN"};
 
             keuangan.cek_keuangan(pilih, index);
-            ResultSet rsBanyakData = stmt.executeQuery("SELECT COUNT (*) FROM faza.DATAKEUANGAN");
-            int jml = 0;
-            if (rsBanyakData.next()) {
-                jml = rsBanyakData.getInt("TGL");
-            }
-
-            System.out.println("jumlah = " + jml);
-            ResultSet rs = stmt.executeQuery("select " + pilih + " from faza.DATAKEUANGAN");
-            for (int i = 0; i < jml; i++) {
-                if (rs.next()) {
-                    listData.add(rs.getString(pilih));
-                }
-            }
-
-            for (int i = 0; i < listData.size(); i++) {
-                if (namaIndex.equals(listData.get(i))) {
-                    jumlahData++;
-                }
-            }
-            Object[][] objData = new Object[jumlahData][2];
-            DefaultTableModel tableModel = new DefaultTableModel(objData, kolom);
-            tableKeuangan2.setModel(tableModel);
-            pendapatan = String.valueOf(keuangan.getTotalPendapatan());
-            String[] tabelTampil = {namaIndex, pendapatan};
-            for (int i = 0; i < jumlahData; i++) {
-                tableModel.addRow(tabelTampil);
-            }
+            totpen.setText("Rp." + String.valueOf(keuangan.getTotalPendapatan()));
+//            ResultSet rsBanyakData = stmt.executeQuery("SELECT COUNT (*) FROM faza.DATAKEUANGAN");
+//            int jml = 0;
+//            if (rsBanyakData.next()) {
+//                jml = rsBanyakData.getInt("TGL");
+//            }
+//
+//            System.out.println("jumlah = " + jml);
+//            ResultSet rs = stmt.executeQuery("select " + pilih + " from faza.DATAKEUANGAN");
+//            for (int i = 0; i < jml; i++) {
+//                if (rs.next()) {
+//                    listData.add(rs.getString(pilih));
+//                }
+//            }
+//
+//            for (int i = 0; i < listData.size(); i++) {
+//                if (namaIndex.equals(listData.get(i))) {
+//                    jumlahData++;
+//                }
+//            }
+//            Object[][] objData = new Object[jumlahData][2];
+//            DefaultTableModel tableModel = new DefaultTableModel(objData, kolom);
+//            tableKeuangan2.setModel(tableModel);
+//            pendapatan = String.valueOf(keuangan.getTotalPendapatan());
+//            String[] tabelTampil = {namaIndex, pendapatan};
+//            for (int i = 0; i < jumlahData; i++) {
+//                tableModel.addRow(tabelTampil);
+//            }
 
         } catch (SQLException x) {
             System.out.println(x.getMessage());
@@ -107,6 +109,8 @@ public class ManagerFrame extends javax.swing.JFrame {
         comboBoxBulan = new javax.swing.JComboBox();
         comboBoxTanggal = new javax.swing.JComboBox();
         comboBoxPilihan = new javax.swing.JComboBox();
+        totpen = new javax.swing.JTextField();
+        labelTotPen = new javax.swing.JLabel();
         labelMasukkanPilihan = new javax.swing.JLabel();
         labelClickedKeuangan = new javax.swing.JLabel();
         labelKeuangan = new javax.swing.JLabel();
@@ -128,7 +132,7 @@ public class ManagerFrame extends javax.swing.JFrame {
         ));
         tableKeuangan.setViewportView(tableKeuangan2);
 
-        getContentPane().add(tableKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, -1, -1));
+        getContentPane().add(tableKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, -1, 410));
 
         labelOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/Out.png"))); // NOI18N
         labelOut.setToolTipText("");
@@ -181,6 +185,11 @@ public class ManagerFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboBoxPilihan, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 160, 50));
+        getContentPane().add(totpen, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 690, 130, 30));
+
+        labelTotPen.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        labelTotPen.setText("TOTAL PENDAPATAN");
+        getContentPane().add(labelTotPen, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 690, -1, 30));
 
         labelMasukkanPilihan.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
         labelMasukkanPilihan.setText("MASUKKAN PILIHAN");
@@ -206,6 +215,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     private void txtTahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTahunActionPerformed
         index = txtTahun.getText();
         labelCheck.setVisible(true);
+        pilih = "tahun";
     }//GEN-LAST:event_txtTahunActionPerformed
 
     private void comboBoxPilihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPilihanActionPerformed
@@ -406,7 +416,7 @@ public class ManagerFrame extends javax.swing.JFrame {
                 namaIndex = "desember";
                 break;
         }
-        pilih = "BLN";
+        pilih = "BULAN";
         labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxBulanActionPerformed
 
@@ -438,10 +448,9 @@ public class ManagerFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_labelKeuanganMouseClicked
 
     private void labelOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelOutMouseClicked
-        MenuFrame m=new MenuFrame();
+        MenuFrame m = new MenuFrame();
         m.setVisible(true);
         dispose();
-//        menuFrame.setVisible(true);
     }//GEN-LAST:event_labelOutMouseClicked
 
     private void labelCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCheckMouseClicked
@@ -494,8 +503,10 @@ public class ManagerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelKeuangan;
     private javax.swing.JLabel labelMasukkanPilihan;
     private javax.swing.JLabel labelOut;
+    private javax.swing.JLabel labelTotPen;
     private javax.swing.JScrollPane tableKeuangan;
     private javax.swing.JTable tableKeuangan2;
+    private javax.swing.JTextField totpen;
     private javax.swing.JTextField txtTahun;
     // End of variables declaration//GEN-END:variables
 }
