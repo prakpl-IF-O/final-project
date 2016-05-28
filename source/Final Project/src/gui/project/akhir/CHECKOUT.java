@@ -232,7 +232,7 @@ public class CHECKOUT extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_FTTagihanActionPerformed
     /**
-     * 
+     * membuat method click tagihan agar langsung di proses
      */
     private void FTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FTableMouseClicked
        Transaksi tagihan = new Transaksi();
@@ -270,7 +270,9 @@ public class CHECKOUT extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_FTableMouseClicked
-
+    /**
+     * mengambil nama dari data pengunjung
+     */
     private void FTCariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FTCariMouseClicked
         // TODO add your handling code here:
         if (FTCari.getText().equalsIgnoreCase("")) {
@@ -288,7 +290,9 @@ public class CHECKOUT extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_FTCariMouseClicked
-
+    /**
+     * method untuk mengambil dan memproses tagihan
+     */
     private void BHitungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BHitungMouseClicked
         // TODO add your handling code here:
         try {
@@ -305,7 +309,9 @@ public class CHECKOUT extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Bayar cuy");
         }
     }//GEN-LAST:event_BHitungMouseClicked
-
+    /**
+     * method untuk mengambil data base pengunjung yang keluar
+     */
     private void ButtonOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonOutMouseClicked
         // TODO add your handling code here:
         try {
