@@ -1,11 +1,14 @@
 package Class;
 
+// deklarasi class Staff
 public class Staff {
-
-    private final String ID;
+    
+//deklarasi variabel
+    private final String ID; // nilai ID bersifat final
     private String nama, password;
     private String pertanyaan, jawaban; //pertanyaan dan jawaban lupa password
 
+// konstraktor Staff
     public Staff(String ID, String nama, String password, String pertanyaan, String jawaban) {
         this.ID = ID;
         this.nama = nama;
@@ -13,12 +16,17 @@ public class Staff {
         this.pertanyaan = pertanyaan;
         this.jawaban = jawaban;
     }
-
+/**
+ * melakukan penggantian password
+ * @param NEW_PASSWORD 
+ */
     public void GANTI_PASSWORD(String NEW_PASSWORD) {
         this.password = NEW_PASSWORD;
     }
 
     /**
+     * Mendapatkan nilai getID
+     *
      * @return the ID
      */
     public String getID() {
@@ -26,6 +34,8 @@ public class Staff {
     }
 
     /**
+     * Mendapatkan nilai getNama
+     *
      * @return the nama
      */
     public String getNama() {
@@ -33,6 +43,8 @@ public class Staff {
     }
 
     /**
+     * Memberi nilai setNama
+     *
      * @param nama the nama to set
      */
     public void setNama(String nama) {
@@ -40,6 +52,8 @@ public class Staff {
     }
 
     /**
+     * Mendapatkan nilai getPassword
+     *
      * @return the password
      */
     public String getPassword() {
@@ -47,6 +61,8 @@ public class Staff {
     }
 
     /**
+     * Memberi nilai setPassword
+     *
      * @param password the password to set
      */
     public void setPassword(String password) {
@@ -54,6 +70,8 @@ public class Staff {
     }
 
     /**
+     * Mendapatkan nilai getPertanyaan
+     *
      * @return the pertanyaan
      */
     public String getPertanyaan() {
@@ -61,6 +79,8 @@ public class Staff {
     }
 
     /**
+     * Memberi nilai setPertanyaan
+     *
      * @param pertanyaan the pertanyaan to set
      */
     public void setPertanyaan(String pertanyaan) {
@@ -68,6 +88,8 @@ public class Staff {
     }
 
     /**
+     * Mendapatkan nilai getJawaban
+     *
      * @return the jawaban
      */
     public String getJawaban() {
@@ -75,6 +97,8 @@ public class Staff {
     }
 
     /**
+     * Memberi nilai setJawaban
+     *
      * @param jawaban the jawaban to set
      */
     public void setJawaban(String jawaban) {

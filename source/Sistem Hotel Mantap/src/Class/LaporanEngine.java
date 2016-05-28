@@ -9,6 +9,10 @@ package Class;
  *
  * @author Irfandi
  */
+/**
+ * untuk mengatur laporanBulanan
+ * @author Andy Wiranto
+ */
 public class LaporanEngine {
 
     DateAndTime dt = new DateAndTime();
