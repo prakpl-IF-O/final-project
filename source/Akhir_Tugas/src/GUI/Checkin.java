@@ -88,6 +88,7 @@ public class Checkin {
      * @param a
      * @param c
      * @return diskon
+     * 
      */
     public double getDiskon(byte a, String c) {
         String h = "jdbc:derby://localhost:1527/hotel";
