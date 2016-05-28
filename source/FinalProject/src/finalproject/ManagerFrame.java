@@ -13,6 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,13 +24,14 @@ import java.util.TimerTask;
 public class ManagerFrame extends javax.swing.JFrame {
 
     ArrayList<String> listData = new ArrayList<String>();
+    Keuangan keuangan = new Keuangan();
 //    MenuFrame menuFrame = new MenuFrame();
     String index;
     Timer timer;
     int jumlahData;
     String pilih;
-    String[] kolom;
     String namaIndex;
+    String pendapatan;
 
     /**
      * Creates new form ManagerFrame
@@ -43,11 +47,13 @@ public class ManagerFrame extends javax.swing.JFrame {
         labelCheck.setVisible(false);
     }
 
-    public void TableData() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
-        Statement stmt = conn.createStatement();
-//        kolom = {pilih,"PENGHASILAN"};
+    public void TableData() {
         try {
+            Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Hotel", "faza", "aaaaa");
+            Statement stmt = conn.createStatement();
+            String[] kolom = {pilih, "PENGHASILAN"};
+
+            keuangan.cek_keuangan(pilih, index);
             ResultSet rsBanyakData = stmt.executeQuery("SELECT COUNT (*) faza.DATAKEUANGAN");
             int jml = 0;
             if (rsBanyakData.next()) {
@@ -62,7 +68,21 @@ public class ManagerFrame extends javax.swing.JFrame {
                 }
             }
 
-        } catch (Exception x) {
+            for (int i = 0; i < listData.size(); i++) {
+                if (namaIndex.equals(listData.get(i))) {
+                    jumlahData++;
+                }
+            }
+            Object[][] objData = new Object[jumlahData][2];
+            DefaultTableModel tableModel = new DefaultTableModel(objData, kolom);
+            tableKeuangan2.setModel(tableModel);
+            pendapatan = String.valueOf(keuangan.getTotalPendapatan());
+            String[] tabelTampil = {namaIndex, pendapatan};
+            for (int i = 0; i < jumlahData; i++) {
+                tableModel.addRow(tabelTampil);
+            }
+
+        } catch (SQLException x) {
             System.out.println(x.getMessage());
             x.printStackTrace();
         }
@@ -79,7 +99,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         tableKeuangan = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableKeuangan2 = new javax.swing.JTable();
         labelOut = new javax.swing.JLabel();
         labelCheck = new javax.swing.JLabel();
         txtTahun = new javax.swing.JTextField();
@@ -94,7 +114,7 @@ public class ManagerFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableKeuangan2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -105,7 +125,7 @@ public class ManagerFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tableKeuangan.setViewportView(jTable1);
+        tableKeuangan.setViewportView(tableKeuangan2);
 
         getContentPane().add(tableKeuangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, -1, -1));
 
@@ -119,6 +139,11 @@ public class ManagerFrame extends javax.swing.JFrame {
         getContentPane().add(labelOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 100, 80));
 
         labelCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalproject/check icon mini2.png"))); // NOI18N
+        labelCheck.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelCheckMouseClicked(evt);
+            }
+        });
         getContentPane().add(labelCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, -1, -1));
 
         txtTahun.setFont(new java.awt.Font("Comic Sans MS", 3, 14)); // NOI18N
@@ -325,6 +350,7 @@ public class ManagerFrame extends javax.swing.JFrame {
                 namaIndex = "31";
                 break;
         }
+        pilih = "tanggal";
         labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxTanggalActionPerformed
 
@@ -332,41 +358,54 @@ public class ManagerFrame extends javax.swing.JFrame {
         switch (comboBoxBulan.getSelectedIndex()) {
             case 0:
                 index = "01";
+                namaIndex = "januari";
                 break;
             case 1:
                 index = "02";
+                namaIndex = "februari";
                 break;
             case 2:
                 index = "03";
+                namaIndex = "maret";
                 break;
             case 3:
                 index = "04";
+                namaIndex = "april";
                 break;
             case 4:
                 index = "05";
+                namaIndex = "mei";
                 break;
             case 5:
                 index = "06";
+                namaIndex = "juni";
                 break;
             case 6:
                 index = "07";
+                namaIndex = "juli";
                 break;
             case 7:
                 index = "08";
+                namaIndex = "agustus";
                 break;
             case 8:
                 index = "09";
+                namaIndex = "september";
                 break;
             case 9:
                 index = "10";
+                namaIndex = "oktober";
                 break;
             case 10:
                 index = "11";
+                namaIndex = "november";
                 break;
             default:
                 index = "12";
+                namaIndex = "desember";
                 break;
         }
+        pilih = "bulan";
         labelCheck.setVisible(true);
     }//GEN-LAST:event_comboBoxBulanActionPerformed
 
@@ -401,6 +440,11 @@ public class ManagerFrame extends javax.swing.JFrame {
         dispose();
 //        menuFrame.setVisible(true);
     }//GEN-LAST:event_labelOutMouseClicked
+
+    private void labelCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCheckMouseClicked
+        tableKeuangan.setVisible(true);
+        TableData();
+    }//GEN-LAST:event_labelCheckMouseClicked
 
     /**
      * @param args the command line arguments
@@ -441,7 +485,6 @@ public class ManagerFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox comboBoxBulan;
     private javax.swing.JComboBox comboBoxPilihan;
     private javax.swing.JComboBox comboBoxTanggal;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelBackgroundManager;
     private javax.swing.JLabel labelCheck;
     private javax.swing.JLabel labelClickedKeuangan;
@@ -449,6 +492,7 @@ public class ManagerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelMasukkanPilihan;
     private javax.swing.JLabel labelOut;
     private javax.swing.JScrollPane tableKeuangan;
+    private javax.swing.JTable tableKeuangan2;
     private javax.swing.JTextField txtTahun;
     // End of variables declaration//GEN-END:variables
 }
