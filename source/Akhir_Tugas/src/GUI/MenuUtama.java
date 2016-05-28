@@ -12,7 +12,8 @@ import java.util.Calendar;
  *
  * @author Admin
  */
-public class MenuUtama extends javax.swing.JFrame {
+public class 
+        MenuUtama extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuUtama
