@@ -33,6 +33,7 @@ public class TabelPelanggan extends javax.swing.JFrame {
         jLabel1.setText("Tabel Pelanggan");
 
         TabelPelanggan.setAutoCreateRowSorter(true);
+        TabelPelanggan.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         TabelPelanggan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -56,6 +57,7 @@ public class TabelPelanggan extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TabelPelanggan.setRowHeight(20);
         jScrollPane1.setViewportView(TabelPelanggan);
         if (TabelPelanggan.getColumnModel().getColumnCount() > 0) {
             TabelPelanggan.getColumnModel().getColumn(0).setPreferredWidth(25);
@@ -121,7 +123,7 @@ public class TabelPelanggan extends javax.swing.JFrame {
     private void design() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

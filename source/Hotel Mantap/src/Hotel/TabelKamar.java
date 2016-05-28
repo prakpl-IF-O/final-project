@@ -35,6 +35,7 @@ public class TabelKamar extends javax.swing.JFrame {
         jLabel1.setText("Tabel Kamar");
 
         TabelKamar.setAutoCreateRowSorter(true);
+        TabelKamar.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         TabelKamar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -58,6 +59,7 @@ public class TabelKamar extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TabelKamar.setRowHeight(20);
         jScrollPane1.setViewportView(TabelKamar);
         if (TabelKamar.getColumnModel().getColumnCount() > 0) {
             TabelKamar.getColumnModel().getColumn(4).setPreferredWidth(300);
@@ -131,7 +133,7 @@ public class TabelKamar extends javax.swing.JFrame {
     private void design() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
